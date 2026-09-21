@@ -43,6 +43,23 @@ STATES = (
 )
 STATE_BY_NAME = {state.name: state for state in STATES}
 
+ELECTION_FILES = (
+    ("2005-09-18", "btw2005_kerg.csv", "wide"),
+    ("2009-09-27", "btw2009_kerg.csv", "wide"),
+    ("2013-09-22", "btw2013_kerg.csv", "wide"),
+    ("2017-09-24", "btw2017_kerg2.csv", "flat"),
+    ("2021-09-26", "btw2021-w_kerg2.csv", "flat"),
+    ("2025-02-23", "btw25_kerg2.csv", "flat"),
+)
+
+PARTY_ALIASES = {
+    "DIE LINKE": "Die Linke",
+    "Die Linke.": "Die Linke",
+    "BÜNDNIS 90/DIE GRÜNEN": "GRÜNE",
+    "Die Tierschutzpartei": "Tierschutzpartei",
+    "ödp": "ÖDP",
+}
+
 # A focused first set that maps directly to the proposed dashboard pages.
 INDICATORS = {
     "Fläche am 31.12.2023 (km²)": ("area_km2", 2023, "km2"),
@@ -75,6 +92,17 @@ def number(value: str) -> str:
     if cleaned in {"", "-", "."}:
         return ""
     return cleaned
+
+
+def percentage(numerator: str, denominator: str) -> str:
+    if not numerator or not denominator or int(denominator) == 0:
+        return ""
+    value = int(numerator) / int(denominator) * 100
+    return f"{value:.6f}".rstrip("0").rstrip(".")
+
+
+def party_name(source_name: str) -> str:
+    return PARTY_ALIASES.get(source_name, source_name)
 
 
 def integer(value: str) -> int:
@@ -143,7 +171,7 @@ def html_table(path: Path, caption_text: str) -> list[list[str]]:
 def write_csv(filename: str, fieldnames: list[str], rows: list[dict[str, object]]) -> None:
     path = PROCESSED_DIR / filename
     with path.open("w", encoding="utf-8", newline="") as target:
-        writer = csv.DictWriter(target, fieldnames=fieldnames)
+        writer = csv.DictWriter(target, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -183,21 +211,26 @@ def transform_structural_data() -> None:
     )
 
 
-def transform_election_data() -> None:
-    rows = read_csv_from_header(RAW_DIR / "btw25_kerg2.csv", "Wahlart")
+def transform_flat_election(path: Path, election_date: str) -> tuple[list[dict], list[dict]]:
+    rows = read_csv_from_header(path, "Wahlart")
     state_rows = [row for row in rows if row.get("Gebietsart") == "Land"]
     party_rows = []
     turnout_rows = []
     for row in state_rows:
         common = {
-            "election_date": "2025-02-23",
+            "election_date": election_date,
             "state_code": row["Gebietsnummer"].zfill(2),
         }
-        if row.get("Gruppenart") == "Partei" and row.get("Stimme") == "2":
+        if (
+            row.get("Gruppenart") == "Partei"
+            and row.get("Stimme") == "2"
+            and number(row.get("Anzahl", ""))
+        ):
             party_rows.append(
                 common
                 | {
-                    "party": row["Gruppenname"],
+                    "party": party_name(row["Gruppenname"]),
+                    "source_party": row["Gruppenname"],
                     "votes": number(row["Anzahl"]),
                     "vote_share_percent": number(row["Prozent"]),
                     "previous_votes": number(row["VorpAnzahl"]),
@@ -205,7 +238,7 @@ def transform_election_data() -> None:
                     "change_percentage_points": number(row["DiffProzentPkt"]),
                 }
             )
-        elif row.get("Gruppenname") in {"Wahlberechtigte", "Wählende"}:
+        elif row.get("Gruppenname") in {"Wahlberechtigte", "Wähler", "Wählende"}:
             turnout_rows.append(
                 common
                 | {
@@ -214,24 +247,99 @@ def transform_election_data() -> None:
                     "share_percent": number(row["Prozent"]),
                 }
             )
+    return party_rows, turnout_rows
+
+
+def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict], list[dict]]:
+    with path.open(encoding="latin-1", newline="") as source:
+        rows = list(csv.reader(source, delimiter=";"))
+    header_index = next(i for i, row in enumerate(rows) if row and row[0] == "Nr")
+    header = rows[header_index]
+    state_rows = [
+        row
+        for row in rows[header_index + 3 :]
+        if len(row) == len(header) and row[0] in {f"9{value:02d}" for value in range(1, 17)}
+    ]
+    party_rows = []
+    turnout_rows = []
+    for row in state_rows:
+        state_code = row[0][1:]
+        eligible_voters = number(row[3])
+        voters = number(row[7])
+        valid_second_votes = number(row[17])
+        previous_valid_second_votes = number(row[18])
+        turnout_rows.extend(
+            [
+                {
+                    "election_date": election_date,
+                    "state_code": state_code,
+                    "measure": "eligible_voters",
+                    "value": eligible_voters,
+                    "share_percent": "",
+                },
+                {
+                    "election_date": election_date,
+                    "state_code": state_code,
+                    "measure": "voters",
+                    "value": voters,
+                    "share_percent": percentage(voters, eligible_voters),
+                },
+            ]
+        )
+        for column in range(19, len(header), 4):
+            source_party = header[column].strip()
+            votes = number(row[column + 2]) if column + 2 < len(row) else ""
+            if not source_party or source_party == "Übrige" or not votes:
+                continue
+            previous_votes = number(row[column + 3]) if column + 3 < len(row) else ""
+            current_share = percentage(votes, valid_second_votes)
+            previous_share = percentage(previous_votes, previous_valid_second_votes)
+            change = ""
+            if current_share and previous_share:
+                change = f"{float(current_share) - float(previous_share):.6f}".rstrip("0").rstrip(".")
+            party_rows.append(
+                {
+                    "election_date": election_date,
+                    "state_code": state_code,
+                    "party": party_name(source_party),
+                    "source_party": source_party,
+                    "votes": votes,
+                    "vote_share_percent": current_share,
+                    "previous_votes": previous_votes,
+                    "previous_vote_share_percent": previous_share,
+                    "change_percentage_points": change,
+                }
+            )
+    return party_rows, turnout_rows
+
+
+def transform_election_data() -> None:
+    party_rows = []
+    turnout_rows = []
+    for election_date, filename, source_format in ELECTION_FILES:
+        transformer = transform_flat_election if source_format == "flat" else transform_wide_election
+        election_parties, election_turnout = transformer(RAW_DIR / filename, election_date)
+        party_rows.extend(election_parties)
+        turnout_rows.extend(election_turnout)
     write_csv(
         "fact_election_party_results.csv",
         [
             "election_date",
             "state_code",
             "party",
+            "source_party",
             "votes",
             "vote_share_percent",
             "previous_votes",
             "previous_vote_share_percent",
             "change_percentage_points",
         ],
-        party_rows,
+        sorted(party_rows, key=lambda row: (row["election_date"], row["state_code"], row["party"])),
     )
     write_csv(
         "fact_election_turnout.csv",
         ["election_date", "state_code", "measure", "value", "share_percent"],
-        turnout_rows,
+        sorted(turnout_rows, key=lambda row: (row["election_date"], row["state_code"], row["measure"])),
     )
 
 

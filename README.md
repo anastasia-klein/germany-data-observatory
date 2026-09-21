@@ -4,15 +4,15 @@ A reproducible data-engineering and BI portfolio project built from official pub
 
 ## Current milestone: data foundation
 
-The first end-to-end data slice is complete. It combines final 2025 Bundestag election results with structural indicators for all 16 German federal states.
+The first end-to-end data slice is complete. It combines final Bundestag election results from 2005 through 2025 with structural indicators for all 16 German federal states.
 
 | Domain | Included data |
 |---|---|
 | Demographics | Population, nationality groups, 2018–2025 foreign-population trend, population density, age groups, natural change and net migration |
 | Economy and society | GDP and disposable income per capita, employees subject to social insurance, SGB II recipients and unemployment |
-| Elections | Eligible voters, turnout and second-vote party results by state |
+| Elections | Eligible voters, turnout and second-vote party results by state for 2005, 2009, 2013, 2017, 2021 and 2025 |
 
-The repository currently contains four unchanged official source-data files, one GENESIS metadata snapshot and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
+The repository currently contains nine unchanged official source-data files, one GENESIS metadata snapshot and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
 
 ## Architecture
 
@@ -106,7 +106,8 @@ The tests currently verify that:
 - the state dimension contains exactly 16 unique German states and NUTS 1 codes;
 - every selected structural indicator covers all 16 states and has a value;
 - both election fact tables cover all 16 states;
-- turnout contains exactly the expected eligible-voter and voter records;
+- every election contains exactly the expected eligible-voter and voter records;
+- state-level turnout and selected party totals reconcile to the official national controls for all six elections;
 - every Destatis year and population group covers all 16 states;
 - state totals reconcile to Destatis’s published Germany totals, allowing only documented source rounding.
 
@@ -126,6 +127,7 @@ Source data are published under the Data Licence Germany – Attribution – Ver
 - [x] Create state dimension and analytical fact tables
 - [x] Add initial validation tests and metadata
 - [x] Add a Destatis regional demographic time series
+- [x] Add historical Bundestag results for 2005–2021
 - [ ] Build the Power BI semantic model and 15–20 meaningful DAX measures
 - [ ] Create Germany in Numbers, Regional Differences and Elections report pages
 - [ ] Publish the interactive public dashboard

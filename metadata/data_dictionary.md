@@ -10,11 +10,11 @@ Long-form table at state × indicator × year grain. `value` uses a dot decimal 
 
 ## `fact_election_party_results.csv`
 
-One row per state × party for second votes in the final 2025 Bundestag election results. Previous-result fields are supplied by the source and refer to the comparable previous election result.
+One row per election × state × party for second votes in the final 2005, 2009, 2013, 2017, 2021 and 2025 Bundestag election results. `party` is a stable analytical label; `source_party` retains the original label. Previous-result fields are supplied by the source and refer to its comparable previous election result. The 2021 records contain the current official result after the 2024 repeat election in parts of Berlin.
 
 ## `fact_election_turnout.csv`
 
-Two rows per state: eligible voters and actual voters. `share_percent` is populated for voters and blank for eligible voters. A Power BI turnout measure can therefore use the published percentage or divide voters by eligible voters.
+Two rows per election × state: eligible voters and actual voters. `share_percent` is populated for voters and blank for eligible voters. A Power BI turnout measure can therefore use the published percentage or divide voters by eligible voters.
 
 ## `fact_population_nationality.csv`
 

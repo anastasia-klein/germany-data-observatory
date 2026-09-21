@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -49,6 +51,18 @@ SOURCES = (
     },
 )
 
+ELECTION_ARCHIVE_URL = (
+    "https://www.bundeswahlleiterin.de/dam/jcr/"
+    "ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip"
+)
+ELECTION_ARCHIVE_MEMBERS = (
+    "btw2005_kerg.csv",
+    "btw2009_kerg.csv",
+    "btw2013_kerg.csv",
+    "btw2017_kerg2.csv",
+    "btw2021-w_kerg2.csv",
+)
+
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -71,6 +85,27 @@ def download(url: str, destination: Path, marker: bytes) -> None:
     destination.write_bytes(payload)
 
 
+def download_election_archive() -> list[Path]:
+    request = Request(ELECTION_ARCHIVE_URL, headers={"User-Agent": "Germany-Data-Observatory/0.3"})
+    with urlopen(request, timeout=120) as response:
+        payload = response.read()
+    if not zipfile.is_zipfile(io.BytesIO(payload)):
+        raise ValueError("Bundeswahlleiterin election archive is not a valid ZIP file")
+
+    destinations = []
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        available = set(archive.namelist())
+        missing = set(ELECTION_ARCHIVE_MEMBERS) - available
+        if missing:
+            raise ValueError(f"Election archive is missing expected files: {sorted(missing)}")
+        for member in ELECTION_ARCHIVE_MEMBERS:
+            destination = RAW_DIR / "bundeswahlleiterin" / member
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(archive.read(member))
+            destinations.append(destination)
+    return destinations
+
+
 def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     records = []
@@ -87,7 +122,24 @@ def main() -> None:
             }
         )
         print(f"Downloaded {source['path']} ({destination.stat().st_size:,} bytes)")
-    MANIFEST.write_text(json.dumps({"files": records}, indent=2) + "\n", encoding="utf-8")
+
+    for destination in download_election_archive():
+        records.append(
+            {
+                "file": str(destination.relative_to(ROOT)),
+                "source_url": ELECTION_ARCHIVE_URL,
+                "source_archive_member": destination.name,
+                "downloaded_at_utc": datetime.now(timezone.utc).isoformat(),
+                "bytes": destination.stat().st_size,
+                "sha256": sha256(destination),
+            }
+        )
+        print(f"Downloaded bundeswahlleiterin/{destination.name} ({destination.stat().st_size:,} bytes)")
+
+    previous = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"files": []}
+    refreshed_paths = {record["file"] for record in records}
+    preserved = [record for record in previous["files"] if record["file"] not in refreshed_paths]
+    MANIFEST.write_text(json.dumps({"files": preserved + records}, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

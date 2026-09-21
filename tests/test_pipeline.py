@@ -47,10 +47,66 @@ class PipelineTest(unittest.TestCase):
     def test_election_tables_cover_all_states(self):
         party_data = rows("fact_election_party_results.csv")
         turnout_data = rows("fact_election_turnout.csv")
-        expected = {f"{code:02d}" for code in range(1, 17)}
-        self.assertEqual(expected, {row["state_code"] for row in party_data})
-        self.assertEqual(expected, {row["state_code"] for row in turnout_data})
-        self.assertEqual(32, len(turnout_data))
+        expected_states = {f"{code:02d}" for code in range(1, 17)}
+        expected_dates = {
+            "2005-09-18",
+            "2009-09-27",
+            "2013-09-22",
+            "2017-09-24",
+            "2021-09-26",
+            "2025-02-23",
+        }
+        self.assertEqual(expected_dates, {row["election_date"] for row in party_data})
+        self.assertEqual(expected_dates, {row["election_date"] for row in turnout_data})
+        for election_date in expected_dates:
+            election_parties = [row for row in party_data if row["election_date"] == election_date]
+            election_turnout = [row for row in turnout_data if row["election_date"] == election_date]
+            self.assertEqual(expected_states, {row["state_code"] for row in election_parties})
+            self.assertEqual(expected_states, {row["state_code"] for row in election_turnout})
+            self.assertEqual(32, len(election_turnout))
+            self.assertEqual(
+                expected_states,
+                {row["state_code"] for row in election_parties if row["party"] == "SPD"},
+            )
+        self.assertTrue(all(row["source_party"] for row in party_data))
+        self.assertTrue(all(row["votes"] and row["vote_share_percent"] for row in party_data))
+
+    def test_election_turnout_reconciles_to_official_national_totals(self):
+        turnout_data = rows("fact_election_turnout.csv")
+        expected = {
+            "2005-09-18": {"eligible_voters": 61_870_711, "voters": 48_044_134},
+            "2009-09-27": {"eligible_voters": 62_168_489, "voters": 44_005_575},
+            "2013-09-22": {"eligible_voters": 61_946_900, "voters": 44_309_925},
+            "2017-09-24": {"eligible_voters": 61_688_485, "voters": 46_976_341},
+            "2021-09-26": {"eligible_voters": 61_172_771, "voters": 46_707_343},
+            "2025-02-23": {"eligible_voters": 60_510_631, "voters": 49_928_653},
+        }
+        for election_date, controls in expected.items():
+            for measure, control in controls.items():
+                state_sum = sum(
+                    int(row["value"])
+                    for row in turnout_data
+                    if row["election_date"] == election_date and row["measure"] == measure
+                )
+                self.assertEqual(control, state_sum)
+
+    def test_spd_second_votes_reconcile_to_official_national_totals(self):
+        party_data = rows("fact_election_party_results.csv")
+        expected = {
+            "2005-09-18": 16_194_665,
+            "2009-09-27": 9_990_488,
+            "2013-09-22": 11_252_215,
+            "2017-09-24": 9_539_381,
+            "2021-09-26": 11_901_558,
+            "2025-02-23": 8_149_124,
+        }
+        for election_date, control in expected.items():
+            state_sum = sum(
+                int(row["votes"])
+                for row in party_data
+                if row["election_date"] == election_date and row["party"] == "SPD"
+            )
+            self.assertEqual(control, state_sum)
 
     def test_destatis_nationality_table_has_four_groups_per_state(self):
         data = rows("fact_population_nationality.csv")

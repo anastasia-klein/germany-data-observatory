@@ -5,6 +5,7 @@
 | Dataset | Publisher | Coverage used | Raw file | License |
 |---|---|---|---|---|
 | Final results of the 2025 Bundestag election (`kerg2`) | Federal Returning Officer (Bundeswahlleiterin) | 16 states; second-vote party results and turnout | `data/raw/bundeswahlleiterin/btw25_kerg2.csv` | Data Licence Germany – Attribution – Version 2.0 |
+| Final Bundestag election results, 2005–2021 | Federal Returning Officer (Bundeswahlleiterin) | 16 states; second-vote party results and turnout for five elections | `data/raw/bundeswahlleiterin/btw2005_kerg.csv`, `btw2009_kerg.csv`, `btw2013_kerg.csv`, `btw2017_kerg2.csv`, `btw2021-w_kerg2.csv` | Data Licence Germany – Attribution – Version 2.0 |
 | Structural data for the 2025 Bundestag election | Federal Returning Officer; underlying data mainly from the German regional statistics database and the Federal Employment Agency | 16 states; demographic, economic and labour-market indicators | `data/raw/bundeswahlleiterin/btw2025_strukturdaten.csv` | Data Licence Germany – Attribution – Version 2.0 |
 | Population by nationality and state, 31 December 2025 | Federal Statistical Office (Destatis), population projection based on the 2022 census | 16 states; total, German, non-German and EU-country population | `data/raw/destatis/population_by_nationality_2025.html` | Data Licence Germany – Attribution – Version 2.0 |
 | Foreign population by state, 2018–2025 | Federal Statistical Office (Destatis), Central Register of Foreigners (AZR) | 16 states; annual foreign-population count | `data/raw/destatis/foreign_population_by_state_2018_2025.html` | Data Licence Germany – Attribution – Version 2.0 |
@@ -13,6 +14,10 @@
 Official landing pages:
 
 - [2025 election results](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse.html)
+- [2021 election results, including the 2024 repeat election in parts of Berlin](https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse.html)
+- [2017 election results](https://www.bundeswahlleiterin.de/bundestagswahlen/2017/ergebnisse.html)
+- [2013 election results](https://www.bundeswahlleiterin.de/bundestagswahlen/2013/ergebnisse.html)
+- [Final constituency results for all Bundestag elections](https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip)
 - [Open-data description](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata.html)
 - [2025 structural data](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/strukturdaten.html)
 - [Population by nationality and state](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsstand/Tabellen/bevoelkerung-nichtdeutsch-laender-basis-2022.html)
@@ -21,6 +26,8 @@ Official landing pages:
 - [GENESIS web-service documentation](https://genesis.destatis.de/datenbank/online/docs/GENESIS-Webservices_Introduction.pdf)
 
 The files are stored unchanged in `data/raw`. The download scripts record the source URL, retrieval timestamp, byte count and SHA-256 checksum in `data/raw/manifest.json` on each refresh. Destatis tables are retained as source HTML because these public pages do not require an account and can therefore be reproduced without storing an API credential. The optional GENESIS client reads its token from a git-ignored environment file and never persists it.
+
+The historical election files use two source layouts. The 2005–2013 files have a wide, multi-row header; 2017–2025 use the later flat layout. The transformation preserves each source party label in `source_party` and maps a small set of spelling or capitalization variants to a stable `party` label. The 2021 file is the current official result after the repeat election in parts of Berlin on 11 February 2024; the superseded main-election result is not mixed into the analytical series.
 
 ## GENESIS API status
 
@@ -39,6 +46,6 @@ The number of non-German residents from the census-based population statistics i
 
 1. Retry Destatis GENESIS cube `12411LJ001`, validate its age/sex totals and add a state-year population fact table after the values endpoint is available.
 2. Eurostat regional datasets for European context after the Germany-first model is stable.
-3. Historical Bundestag results to support election-over-election analysis beyond the previous-period fields in the 2025 file.
+3. Constituency-level historical election analysis after the state-level Power BI model is stable.
 
 These are intentionally not mixed into the first collection before their classifications and revisions have been assessed.
