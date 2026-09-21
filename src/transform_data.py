@@ -5,11 +5,14 @@ from __future__ import annotations
 
 import csv
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
+from typing import Optional
 
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = ROOT / "data" / "raw" / "bundeswahlleiterin"
+DESTATIS_RAW_DIR = ROOT / "data" / "raw" / "destatis"
 PROCESSED_DIR = ROOT / "data" / "processed"
 
 
@@ -72,6 +75,69 @@ def number(value: str) -> str:
     if cleaned in {"", "-", "."}:
         return ""
     return cleaned
+
+
+def integer(value: str) -> int:
+    return int(
+        (value or "")
+        .replace("\xa0", "")
+        .replace("\u202f", "")
+        .replace(" ", "")
+        .replace(".", "")
+        .strip()
+    )
+
+
+class TableParser(HTMLParser):
+    """Extract HTML tables without adding a third-party dependency."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.tables: list[dict[str, object]] = []
+        self.table: Optional[dict[str, object]] = None
+        self.row: Optional[list[str]] = None
+        self.cell: Optional[list[str]] = None
+        self.caption: Optional[list[str]] = None
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        if tag == "table":
+            self.table = {"caption": "", "rows": []}
+        elif self.table is not None and tag == "caption":
+            self.caption = []
+        elif self.table is not None and tag == "tr":
+            self.row = []
+        elif self.row is not None and tag in {"th", "td"}:
+            self.cell = []
+
+    def handle_data(self, data: str) -> None:
+        if self.cell is not None:
+            self.cell.append(data)
+        if self.caption is not None:
+            self.caption.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"th", "td"} and self.cell is not None and self.row is not None:
+            self.row.append(" ".join("".join(self.cell).split()))
+            self.cell = None
+        elif tag == "tr" and self.row is not None and self.table is not None:
+            if self.row:
+                self.table["rows"].append(self.row)
+            self.row = None
+        elif tag == "caption" and self.caption is not None and self.table is not None:
+            self.table["caption"] = " ".join("".join(self.caption).split())
+            self.caption = None
+        elif tag == "table" and self.table is not None:
+            self.tables.append(self.table)
+            self.table = None
+
+
+def html_table(path: Path, caption_text: str) -> list[list[str]]:
+    parser = TableParser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    matches = [table for table in parser.tables if caption_text in str(table["caption"])]
+    if len(matches) != 1:
+        raise ValueError(f"Expected one table containing {caption_text!r} in {path}; found {len(matches)}")
+    return matches[0]["rows"]
 
 
 def write_csv(filename: str, fieldnames: list[str], rows: list[dict[str, object]]) -> None:
@@ -169,14 +235,87 @@ def transform_election_data() -> None:
     )
 
 
+def transform_destatis_data() -> None:
+    nationality_rows = html_table(
+        DESTATIS_RAW_DIR / "population_by_nationality_2025.html",
+        "Bevölkerung am 31.12.2025 nach Nationalität",
+    )
+    nationality_output = []
+    for row in nationality_rows:
+        if not row or row[0] not in STATE_BY_NAME:
+            continue
+        if len(row) != 7:
+            raise ValueError(f"Unexpected Destatis nationality row: {row}")
+        state = STATE_BY_NAME[row[0]]
+        groups = (
+            ("total", row[1], "", ""),
+            ("german", row[2], "", ""),
+            ("non_german", row[3], number(row[4]), "total_population"),
+            ("eu_member_country", row[5], number(row[6]), "non_german_population"),
+        )
+        for population_group, count, share, share_of in groups:
+            nationality_output.append(
+                {
+                    "reference_date": "2025-12-31",
+                    "state_code": state.code,
+                    "population_group": population_group,
+                    "population_count": integer(count),
+                    "share_percent": share,
+                    "share_of": share_of,
+                }
+            )
+    write_csv(
+        "fact_population_nationality.csv",
+        [
+            "reference_date",
+            "state_code",
+            "population_group",
+            "population_count",
+            "share_percent",
+            "share_of",
+        ],
+        sorted(
+            nationality_output,
+            key=lambda row: (row["state_code"], row["population_group"]),
+        ),
+    )
+
+    foreign_rows = html_table(
+        DESTATIS_RAW_DIR / "foreign_population_by_state_2018_2025.html",
+        "Ausländische Bevölkerung 2018 bis 2025",
+    )
+    foreign_output = []
+    years = list(range(2025, 2017, -1))
+    for row in foreign_rows:
+        if not row or row[0] not in STATE_BY_NAME:
+            continue
+        if len(row) != 9:
+            raise ValueError(f"Unexpected Destatis foreign-population row: {row}")
+        state = STATE_BY_NAME[row[0]]
+        for year, value in zip(years, row[1:]):
+            foreign_output.append(
+                {
+                    "year": year,
+                    "state_code": state.code,
+                    "foreign_population_count": integer(value),
+                    "source_register": "Central Register of Foreigners (AZR)",
+                }
+            )
+    write_csv(
+        "fact_foreign_population.csv",
+        ["year", "state_code", "foreign_population_count", "source_register"],
+        sorted(foreign_output, key=lambda row: (row["state_code"], row["year"])),
+    )
+
+
 def main() -> None:
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     transform_dimensions()
     transform_structural_data()
     transform_election_data()
+    transform_destatis_data()
     print(f"Wrote analytical tables to {PROCESSED_DIR}")
 
 
 if __name__ == "__main__":
     main()
-

@@ -3,16 +3,30 @@
     {
       "file": "data/raw/bundeswahlleiterin/btw25_kerg2.csv",
       "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/f49a47a1-735b-4e9b-b4e1-4c73cad2292e/btw25_kerg2.csv",
-      "downloaded_at_utc": "2026-09-21T10:40:20+00:00",
+      "downloaded_at_utc": "2026-09-21T12:04:20.821720+00:00",
       "bytes": 1792225,
       "sha256": "e50578aa1de317af5b65bea3525e081238db75c5e5485f258273de61aa82b7dd"
     },
     {
       "file": "data/raw/bundeswahlleiterin/btw2025_strukturdaten.csv",
       "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/181f9e38-38db-4f64-991c-8141dfa0f2cb/btw2025_strukturdaten.csv",
-      "downloaded_at_utc": "2026-09-21T10:40:20+00:00",
+      "downloaded_at_utc": "2026-09-21T12:04:21.079177+00:00",
       "bytes": 98388,
       "sha256": "8f833507b7cb6c903d112c4b843d956d3ce2283ad3de8e165e6de942cf289ceb"
+    },
+    {
+      "file": "data/raw/destatis/population_by_nationality_2025.html",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsstand/Tabellen/bevoelkerung-nichtdeutsch-laender-basis-2022.html",
+      "downloaded_at_utc": "2026-09-21T12:04:21.434283+00:00",
+      "bytes": 75474,
+      "sha256": "868d492ccda99a81078ee5fc1b5a35138a4bdb5231a01ef034b50ac2162315fb"
+    },
+    {
+      "file": "data/raw/destatis/foreign_population_by_state_2018_2025.html",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Migration-Integration/Tabellen/auslaendische-bevoelkerung-bundeslaender-jahre.html",
+      "downloaded_at_utc": "2026-09-21T12:04:21.983997+00:00",
+      "bytes": 77144,
+      "sha256": "84ba3909c12812d4206fec6df217fea59994bfd0c7b958a6fff4df91895e49cd"
     }
   ]
 }

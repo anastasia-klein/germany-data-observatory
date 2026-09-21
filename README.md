@@ -8,16 +8,16 @@ The first end-to-end data slice is complete. It combines final 2025 Bundestag el
 
 | Domain | Included data |
 |---|---|
-| Demographics | Population, population density, foreign-population share, age groups, natural change and net migration |
+| Demographics | Population, nationality groups, 2018–2025 foreign-population trend, population density, age groups, natural change and net migration |
 | Economy and society | GDP and disposable income per capita, employees subject to social insurance, SGB II recipients and unemployment |
 | Elections | Eligible voters, turnout and second-vote party results by state |
 
-The repository currently contains two unchanged official source files and four analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by basic data-quality tests.
+The repository currently contains four unchanged official source files and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
 
 ## Architecture
 
 ```text
-Official public CSVs
+Official public data tables
         ↓
 data/raw (immutable source copies + checksum manifest)
         ↓
@@ -38,12 +38,10 @@ Power BI semantic model and report (next milestone)
                            │ nuts1_code                   │
                            └──────────────┬───────────────┘
                                           │ 1
-                       ┌──────────────────┼──────────────────┐
-                       │ *                │ *                │ *
-        ┌──────────────▼──────────┐ ┌─────▼────────────┐ ┌──▼────────────────────┐
-        │ fact_state_indicators   │ │ fact_election_  │ │ fact_election_party_  │
-        │ year, indicator, value  │ │ turnout         │ │ results               │
-        └─────────────────────────┘ └──────────────────┘ └───────────────────────┘
+             ┌───────────┬────────────┼────────────┬────────────┐
+             │ *         │ *          │ *          │ *          │ *
+     state indicators  nationality  foreign-pop.  turnout   party results
+                                      trend
 ```
 
 `state_code` is the stable two-digit federal-state key. `nuts1_code` is included for future Eurostat joins and mapping.
@@ -90,13 +88,15 @@ The tests currently verify that:
 - the state dimension contains exactly 16 unique German states and NUTS 1 codes;
 - every selected structural indicator covers all 16 states and has a value;
 - both election fact tables cover all 16 states;
-- turnout contains exactly the expected eligible-voter and voter records.
+- turnout contains exactly the expected eligible-voter and voter records;
+- every Destatis year and population group covers all 16 states;
+- state totals reconcile to Destatis’s published Germany totals, allowing only documented source rounding.
 
 The same checks run in GitHub Actions on every push and pull request. The workflow also confirms that committed processed data match the transformation code.
 
 ## Sources and licensing
 
-The first datasets come from the [Federal Returning Officer](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse.html). Source details, provenance and planned additions are documented in [`metadata/sources.md`](metadata/sources.md).
+The datasets come from the [Federal Returning Officer](https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse.html) and [Destatis](https://www.destatis.de/EN/Home/_node.html). Source details, provenance, methodological boundaries and planned additions are documented in [`metadata/sources.md`](metadata/sources.md).
 
 Source data are published under the Data Licence Germany – Attribution – Version 2.0. Repository code is licensed under the MIT License. The source-data license and attribution continue to apply to the raw and derived data.
 
@@ -107,7 +107,7 @@ Source data are published under the Data Licence Germany – Attribution – Ver
 - [x] Build reproducible ingestion and transformation scripts
 - [x] Create state dimension and analytical fact tables
 - [x] Add initial validation tests and metadata
-- [ ] Add a Destatis demographic time series
+- [x] Add a Destatis regional demographic time series
 - [ ] Build the Power BI semantic model and 15–20 meaningful DAX measures
 - [ ] Create Germany in Numbers, Regional Differences and Elections report pages
 - [ ] Publish the interactive public dashboard

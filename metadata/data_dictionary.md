@@ -16,3 +16,14 @@ One row per state × party for second votes in the final 2025 Bundestag election
 
 Two rows per state: eligible voters and actual voters. `share_percent` is populated for voters and blank for eligible voters. A Power BI turnout measure can therefore use the published percentage or divide voters by eligible voters.
 
+## `fact_population_nationality.csv`
+
+One row per state × population group for 31 December 2025. The four groups are `total`, `german`, `non_german` and `eu_member_country`. `share_of` identifies the denominator of a published percentage: non-German share uses total population, while the EU-country share uses the non-German population.
+
+Source concept: population projection based on the 2022 census.
+
+## `fact_foreign_population.csv`
+
+One row per state × year from 2018 through 2025. Counts come from the Central Register of Foreigners (AZR). Some published state values are rounded to five people, so the sum of states may differ from the published Germany control by a few people.
+
+Do not treat `foreign_population_count` as interchangeable with the census-based `non_german` group in `fact_population_nationality.csv`. The definitions and source systems differ.
