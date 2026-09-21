@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Power BI local/cache files; keep the PBIP project definition itself.
+powerbi/.pbi/
+powerbi/**/*.abf
+
