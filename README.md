@@ -12,7 +12,7 @@ The first end-to-end data slice is complete. It combines final 2025 Bundestag el
 | Economy and society | GDP and disposable income per capita, employees subject to social insurance, SGB II recipients and unemployment |
 | Elections | Eligible voters, turnout and second-vote party results by state |
 
-The repository currently contains four unchanged official source files and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
+The repository currently contains four unchanged official source-data files, one GENESIS metadata snapshot and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
 
 ## Architecture
 
@@ -58,8 +58,10 @@ metadata/
 powerbi/                    # future Power BI project
 src/
 ├── download_data.py        # reproducible acquisition
+├── download_genesis.py     # token-safe optional GENESIS API acquisition
 └── transform_data.py       # deterministic transformations
 tests/
+├── test_genesis.py         # credential-handling and API-client checks
 └── test_pipeline.py        # state coverage and completeness checks
 ```
 
@@ -80,6 +82,22 @@ make test
 ```
 
 The download step overwrites raw source copies intentionally and writes retrieval timestamps, sizes and SHA-256 hashes to `data/raw/manifest.json`. Review source changes before committing a refresh.
+
+### Optional GENESIS API source
+
+The public HTML sources above make the main pipeline reproducible without an account. A separate client is included for the richer GENESIS population cube `12411LJ001` (state × age × sex × reference date).
+
+```bash
+cp .env.example .env
+# Add your personal token to .env, then:
+make check-genesis
+make download-genesis-metadata
+make download-genesis
+```
+
+`.env` is ignored by Git. The token is sent only in the API request header and is never written to downloaded files, the manifest or logs. `make download-genesis` first refreshes the cube metadata and then requests the raw CSV; it does not change the six processed tables yet.
+
+As of 21 September 2026, authentication and metadata retrieval work, but Destatis returns status `8081` (“data access is currently unavailable”) for this cube’s values. The existing public Destatis datasets remain usable, and the command can be rerun when the service is available.
 
 ## Data quality checks
 

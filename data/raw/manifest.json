@@ -27,6 +27,15 @@
       "downloaded_at_utc": "2026-09-21T12:04:21.983997+00:00",
       "bytes": 77144,
       "sha256": "84ba3909c12812d4206fec6df217fea59994bfd0c7b958a6fff4df91895e49cd"
+    },
+    {
+      "file": "data/raw/destatis/genesis_12411LJ001_metadata.json",
+      "source_url": "https://genesis.destatis.de/genesisWS/rest/2020/metadata/cube",
+      "genesis_object": "12411LJ001",
+      "asset_type": "metadata",
+      "downloaded_at_utc": "2026-09-21T17:17:36.435723+00:00",
+      "bytes": 3013,
+      "sha256": "6ee6ff0b101ed35a07335ac664ca5027b037fae2d490aaf823c713502d97d2e7"
     }
   ]
 }

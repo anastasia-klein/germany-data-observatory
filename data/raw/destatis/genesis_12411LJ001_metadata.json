@@ -1,0 +1,131 @@
+{
+  "Ident": {
+    "Service": "metadata",
+    "Method": "cube"
+  },
+  "Status": {
+    "Code": 0,
+    "Content": "erfolgreich",
+    "Type": "Information"
+  },
+  "Parameter": {
+    "username": "********************",
+    "password": "********************",
+    "name": "12411LJ001",
+    "area": "Öffentlich",
+    "language": "de"
+  },
+  "Object": {
+    "Code": "12411LJ001",
+    "Content": "Fortschreibung des Bevölkerungsstandes, Bevölkerungsstand, Bundesländer, Altersjahre (u1-90m), Geschlecht, Stichtag",
+    "State": "undefiniert",
+    "Timeslices": [
+      "31.12.1967",
+      "31.12.1968",
+      "31.12.1969",
+      "31.12.1970",
+      "31.12.1971",
+      "31.12.1972",
+      "31.12.1973",
+      "31.12.1974",
+      "31.12.1975",
+      "31.12.1976",
+      "31.12.1977",
+      "31.12.1978",
+      "31.12.1979",
+      "31.12.1980",
+      "31.12.1981",
+      "31.12.1982",
+      "31.12.1983",
+      "31.12.1984",
+      "31.12.1985",
+      "31.12.1986",
+      "31.12.1987",
+      "31.12.1988",
+      "31.12.1989",
+      "31.12.1990",
+      "31.12.1991",
+      "31.12.1992",
+      "31.12.1993",
+      "31.12.1994",
+      "31.12.1995",
+      "31.12.1996",
+      "31.12.1997",
+      "31.12.1998",
+      "31.12.1999",
+      "31.12.2000",
+      "31.12.2001",
+      "31.12.2002",
+      "31.12.2003",
+      "31.12.2004",
+      "31.12.2005",
+      "31.12.2006",
+      "31.12.2007",
+      "31.12.2008",
+      "31.12.2009",
+      "31.12.2010",
+      "31.12.2011",
+      "31.12.2012",
+      "31.12.2013",
+      "31.12.2014",
+      "31.12.2015",
+      "31.12.2016",
+      "31.12.2017",
+      "31.12.2018",
+      "31.12.2019",
+      "31.12.2020",
+      "31.12.2021",
+      "31.12.2022",
+      "31.12.2023",
+      "31.12.2024",
+      "31.12.2025"
+    ],
+    "Values": "0",
+    "Statistic": {
+      "Code": "12411",
+      "Content": "Fortschreibung des Bevölkerungsstandes",
+      "Updated": "21.09.2026 13:47:49h"
+    },
+    "Structure": {
+      "Axis": [
+        {
+          "Code": "DLAND",
+          "Content": "Bundesländer",
+          "Type": "klassifizierend",
+          "Updated": "29.10.2018 17:13:39h"
+        },
+        {
+          "Code": "ALT103",
+          "Content": "Altersjahre (u1-90m)",
+          "Type": "klassifizierend",
+          "Updated": "25.01.2016 13:55:40h"
+        },
+        {
+          "Code": "GES",
+          "Content": "Geschlecht",
+          "Type": "klassifizierend",
+          "Updated": "25.01.2016 13:54:45h"
+        },
+        {
+          "Code": "STAG",
+          "Content": "Stichtag",
+          "Type": "zeitidentifizierend",
+          "Updated": "28.12.2022 09:31:04h"
+        }
+      ],
+      "Contents": [
+        {
+          "Code": "BEVSTD",
+          "Content": "Bevölkerungsstand",
+          "Type": "Ganzzahl",
+          "Unit": "Anzahl",
+          "Values": "",
+          "Timeslices": null,
+          "Updated": "22.01.2025 16:33:13h"
+        }
+      ]
+    },
+    "Updated": "15.06.2026 18:03:06h"
+  },
+  "Copyright": "© Statistisches Bundesamt (Destatis), 2026"
+}

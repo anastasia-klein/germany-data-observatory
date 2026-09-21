@@ -3,8 +3,10 @@ __pycache__/
 *.py[cod]
 .venv/
 .pytest_cache/
+.env
+.env.*
+!.env.example
 
 # Power BI local/cache files; keep the PBIP project definition itself.
 powerbi/.pbi/
 powerbi/**/*.abf
-
