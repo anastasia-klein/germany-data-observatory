@@ -12,8 +12,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Rebuild analytical tables
@@ -22,4 +22,3 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Confirm generated data are committed
         run: git diff --exit-code -- data/processed
-
