@@ -12,7 +12,7 @@ The first end-to-end data slice is complete. It combines final Bundestag electio
 | Economy and society | GDP and disposable income per capita, employees subject to social insurance, SGB II recipients and unemployment |
 | Elections | Eligible voters, turnout and second-vote party results by state for 2005, 2009, 2013, 2017, 2021 and 2025 |
 
-The repository currently contains nine unchanged official source-data files, one GENESIS metadata snapshot and six analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
+The repository currently contains nine unchanged official source-data files, one GENESIS metadata snapshot and eight analysis-ready CSV tables. The processing is deterministic, uses only the Python standard library, and is covered by data-quality and source-reconciliation tests.
 
 ## Architecture
 
@@ -31,20 +31,15 @@ Power BI semantic model and report (next milestone)
 ## Analytical model
 
 ```text
-                           ┌──────────────────────────────┐
-                           │ dim_state                    │
-                           │ state_code (PK)              │
-                           │ state_name                   │
-                           │ nuts1_code                   │
-                           └──────────────┬───────────────┘
-                                          │ 1
-             ┌───────────┬────────────┼────────────┬────────────┐
-             │ *         │ *          │ *          │ *          │ *
-     state indicators  nationality  foreign-pop.  turnout   party results
-                                      trend
+dim_state ─────┬── state indicators
+               ├── population by nationality
+               ├── foreign-population trend
+               ├── election turnout ───── dim_election
+               └── party results ───────── dim_election
+                         └───────────────── dim_party
 ```
 
-`state_code` is the stable two-digit federal-state key. `nuts1_code` is included for future Eurostat joins and mapping.
+`state_code`, `election_id` and `party_id` are the stable dimension keys used by the fact tables. `nuts1_code` supports future Eurostat joins and mapping. Election CSVs retain readable names and dates alongside the keys so they also remain understandable outside a BI model.
 
 ## Repository structure
 
@@ -95,7 +90,7 @@ make download-genesis-metadata
 make download-genesis
 ```
 
-`.env` is ignored by Git. The token is sent only in the API request header and is never written to downloaded files, the manifest or logs. `make download-genesis` first refreshes the cube metadata and then requests the raw CSV; it does not change the six processed tables yet.
+`.env` is ignored by Git. The token is sent only in the API request header and is never written to downloaded files, the manifest or logs. `make download-genesis` first refreshes the cube metadata and then requests the raw CSV; it does not change the eight processed tables yet.
 
 As of 21 September 2026, authentication and metadata retrieval work, but Destatis returns status `8081` (“data access is currently unavailable”) for this cube’s values. The existing public Destatis datasets remain usable, and the command can be rerun when the service is available.
 
@@ -104,6 +99,7 @@ As of 21 September 2026, authentication and metadata retrieval work, but Destati
 The tests currently verify that:
 
 - the state dimension contains exactly 16 unique German states and NUTS 1 codes;
+- election and party dimension keys are unique and every election fact has valid foreign keys;
 - every selected structural indicator covers all 16 states and has a value;
 - both election fact tables cover all 16 states;
 - every election contains exactly the expected eligible-voter and voter records;
@@ -124,7 +120,7 @@ Source data are published under the Data Licence Germany – Attribution – Ver
 - [x] Select a coherent first data slice
 - [x] Store raw source files separately
 - [x] Build reproducible ingestion and transformation scripts
-- [x] Create state dimension and analytical fact tables
+- [x] Create state, election and party dimensions and analytical fact tables
 - [x] Add initial validation tests and metadata
 - [x] Add a Destatis regional demographic time series
 - [x] Add historical Bundestag results for 2005–2021

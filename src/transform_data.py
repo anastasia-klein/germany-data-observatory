@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import csv
+import re
+import unicodedata
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
@@ -43,13 +45,73 @@ STATES = (
 )
 STATE_BY_NAME = {state.name: state for state in STATES}
 
-ELECTION_FILES = (
-    ("2005-09-18", "btw2005_kerg.csv", "wide"),
-    ("2009-09-27", "btw2009_kerg.csv", "wide"),
-    ("2013-09-22", "btw2013_kerg.csv", "wide"),
-    ("2017-09-24", "btw2017_kerg2.csv", "flat"),
-    ("2021-09-26", "btw2021-w_kerg2.csv", "flat"),
-    ("2025-02-23", "btw25_kerg2.csv", "flat"),
+ELECTIONS = (
+    {
+        "election_id": "BTW2005",
+        "election_date": "2005-09-18",
+        "election_year": 2005,
+        "bundestag_number": 16,
+        "election_name": "Bundestagswahl 2005",
+        "result_status": "final",
+        "result_version": "official_final",
+        "source_file": "btw2005_kerg.csv",
+        "source_format": "wide",
+    },
+    {
+        "election_id": "BTW2009",
+        "election_date": "2009-09-27",
+        "election_year": 2009,
+        "bundestag_number": 17,
+        "election_name": "Bundestagswahl 2009",
+        "result_status": "final",
+        "result_version": "official_final",
+        "source_file": "btw2009_kerg.csv",
+        "source_format": "wide",
+    },
+    {
+        "election_id": "BTW2013",
+        "election_date": "2013-09-22",
+        "election_year": 2013,
+        "bundestag_number": 18,
+        "election_name": "Bundestagswahl 2013",
+        "result_status": "final",
+        "result_version": "official_final",
+        "source_file": "btw2013_kerg.csv",
+        "source_format": "wide",
+    },
+    {
+        "election_id": "BTW2017",
+        "election_date": "2017-09-24",
+        "election_year": 2017,
+        "bundestag_number": 19,
+        "election_name": "Bundestagswahl 2017",
+        "result_status": "final",
+        "result_version": "official_final",
+        "source_file": "btw2017_kerg2.csv",
+        "source_format": "flat",
+    },
+    {
+        "election_id": "BTW2021",
+        "election_date": "2021-09-26",
+        "election_year": 2021,
+        "bundestag_number": 20,
+        "election_name": "Bundestagswahl 2021",
+        "result_status": "final",
+        "result_version": "final_after_berlin_repeat_2024",
+        "source_file": "btw2021-w_kerg2.csv",
+        "source_format": "flat",
+    },
+    {
+        "election_id": "BTW2025",
+        "election_date": "2025-02-23",
+        "election_year": 2025,
+        "bundestag_number": 21,
+        "election_name": "Bundestagswahl 2025",
+        "result_status": "final",
+        "result_version": "official_final",
+        "source_file": "btw25_kerg2.csv",
+        "source_format": "flat",
+    },
 )
 
 PARTY_ALIASES = {
@@ -103,6 +165,15 @@ def percentage(numerator: str, denominator: str) -> str:
 
 def party_name(source_name: str) -> str:
     return PARTY_ALIASES.get(source_name, source_name)
+
+
+def party_id(name: str) -> str:
+    normalized = unicodedata.normalize("NFKD", name.replace("ß", "ss"))
+    ascii_name = normalized.encode("ascii", "ignore").decode("ascii").lower()
+    slug = re.sub(r"[^a-z0-9]+", "_", ascii_name).strip("_")
+    if not slug:
+        raise ValueError(f"Cannot create a party ID from {name!r}")
+    return f"party_{slug}"
 
 
 def integer(value: str) -> int:
@@ -185,6 +256,23 @@ def transform_dimensions() -> None:
             for state in STATES
         ],
     )
+    write_csv(
+        "dim_election.csv",
+        [
+            "election_id",
+            "election_date",
+            "election_year",
+            "bundestag_number",
+            "election_name",
+            "result_status",
+            "result_version",
+            "source_file",
+        ],
+        [
+            {key: value for key, value in election.items() if key != "source_format"}
+            for election in ELECTIONS
+        ],
+    )
 
 
 def transform_structural_data() -> None:
@@ -211,13 +299,16 @@ def transform_structural_data() -> None:
     )
 
 
-def transform_flat_election(path: Path, election_date: str) -> tuple[list[dict], list[dict]]:
+def transform_flat_election(
+    path: Path, election_id: str, election_date: str
+) -> tuple[list[dict], list[dict]]:
     rows = read_csv_from_header(path, "Wahlart")
     state_rows = [row for row in rows if row.get("Gebietsart") == "Land"]
     party_rows = []
     turnout_rows = []
     for row in state_rows:
         common = {
+            "election_id": election_id,
             "election_date": election_date,
             "state_code": row["Gebietsnummer"].zfill(2),
         }
@@ -230,6 +321,7 @@ def transform_flat_election(path: Path, election_date: str) -> tuple[list[dict],
                 common
                 | {
                     "party": party_name(row["Gruppenname"]),
+                    "party_id": party_id(party_name(row["Gruppenname"])),
                     "source_party": row["Gruppenname"],
                     "votes": number(row["Anzahl"]),
                     "vote_share_percent": number(row["Prozent"]),
@@ -250,7 +342,9 @@ def transform_flat_election(path: Path, election_date: str) -> tuple[list[dict],
     return party_rows, turnout_rows
 
 
-def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict], list[dict]]:
+def transform_wide_election(
+    path: Path, election_id: str, election_date: str
+) -> tuple[list[dict], list[dict]]:
     with path.open(encoding="latin-1", newline="") as source:
         rows = list(csv.reader(source, delimiter=";"))
     header_index = next(i for i, row in enumerate(rows) if row and row[0] == "Nr")
@@ -271,6 +365,7 @@ def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict],
         turnout_rows.extend(
             [
                 {
+                    "election_id": election_id,
                     "election_date": election_date,
                     "state_code": state_code,
                     "measure": "eligible_voters",
@@ -278,6 +373,7 @@ def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict],
                     "share_percent": "",
                 },
                 {
+                    "election_id": election_id,
                     "election_date": election_date,
                     "state_code": state_code,
                     "measure": "voters",
@@ -299,9 +395,11 @@ def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict],
                 change = f"{float(current_share) - float(previous_share):.6f}".rstrip("0").rstrip(".")
             party_rows.append(
                 {
+                    "election_id": election_id,
                     "election_date": election_date,
                     "state_code": state_code,
                     "party": party_name(source_party),
+                    "party_id": party_id(party_name(source_party)),
                     "source_party": source_party,
                     "votes": votes,
                     "vote_share_percent": current_share,
@@ -316,16 +414,63 @@ def transform_wide_election(path: Path, election_date: str) -> tuple[list[dict],
 def transform_election_data() -> None:
     party_rows = []
     turnout_rows = []
-    for election_date, filename, source_format in ELECTION_FILES:
-        transformer = transform_flat_election if source_format == "flat" else transform_wide_election
-        election_parties, election_turnout = transformer(RAW_DIR / filename, election_date)
+    for election in ELECTIONS:
+        transformer = (
+            transform_flat_election
+            if election["source_format"] == "flat"
+            else transform_wide_election
+        )
+        election_parties, election_turnout = transformer(
+            RAW_DIR / str(election["source_file"]),
+            str(election["election_id"]),
+            str(election["election_date"]),
+        )
         party_rows.extend(election_parties)
         turnout_rows.extend(election_turnout)
+
+    party_names_by_id = {}
+    for row in party_rows:
+        existing = party_names_by_id.setdefault(row["party_id"], row["party"])
+        if existing != row["party"]:
+            raise ValueError(
+                f"Party ID collision: {row['party_id']} represents both {existing!r} and {row['party']!r}"
+            )
+    party_dimension = []
+    for identifier, name in sorted(party_names_by_id.items(), key=lambda item: item[1].casefold()):
+        election_years = sorted(
+            {
+                int(row["election_date"][:4])
+                for row in party_rows
+                if row["party_id"] == identifier
+            }
+        )
+        party_dimension.append(
+            {
+                "party_id": identifier,
+                "party_name": name,
+                "first_election_year": election_years[0],
+                "last_election_year": election_years[-1],
+                "election_count": len(election_years),
+            }
+        )
+    write_csv(
+        "dim_party.csv",
+        [
+            "party_id",
+            "party_name",
+            "first_election_year",
+            "last_election_year",
+            "election_count",
+        ],
+        party_dimension,
+    )
     write_csv(
         "fact_election_party_results.csv",
         [
+            "election_id",
             "election_date",
             "state_code",
+            "party_id",
             "party",
             "source_party",
             "votes",
@@ -338,7 +483,7 @@ def transform_election_data() -> None:
     )
     write_csv(
         "fact_election_turnout.csv",
-        ["election_date", "state_code", "measure", "value", "share_percent"],
+        ["election_id", "election_date", "state_code", "measure", "value", "share_percent"],
         sorted(turnout_rows, key=lambda row: (row["election_date"], row["state_code"], row["measure"])),
     )
 

@@ -27,6 +27,36 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(16, len({row["state_code"] for row in data}))
         self.assertEqual(16, len({row["nuts1_code"] for row in data}))
 
+    def test_election_dimensions_have_unique_keys_and_no_orphans(self):
+        elections = rows("dim_election.csv")
+        parties = rows("dim_party.csv")
+        party_facts = rows("fact_election_party_results.csv")
+        turnout_facts = rows("fact_election_turnout.csv")
+
+        self.assertEqual(6, len(elections))
+        self.assertEqual(6, len({row["election_id"] for row in elections}))
+        self.assertEqual(6, len({row["election_date"] for row in elections}))
+        election_ids = {row["election_id"] for row in elections}
+        self.assertEqual(election_ids, {row["election_id"] for row in party_facts})
+        self.assertEqual(election_ids, {row["election_id"] for row in turnout_facts})
+
+        self.assertEqual(81, len(parties))
+        self.assertEqual(81, len({row["party_id"] for row in parties}))
+        self.assertEqual(81, len({row["party_name"] for row in parties}))
+        party_ids = {row["party_id"] for row in parties}
+        self.assertEqual(party_ids, {row["party_id"] for row in party_facts})
+        self.assertTrue(all(row["party_id"].startswith("party_") for row in parties))
+
+        for party in parties:
+            observed_years = {
+                int(row["election_date"][:4])
+                for row in party_facts
+                if row["party_id"] == party["party_id"]
+            }
+            self.assertEqual(min(observed_years), int(party["first_election_year"]))
+            self.assertEqual(max(observed_years), int(party["last_election_year"]))
+            self.assertEqual(len(observed_years), int(party["election_count"]))
+
     def test_raw_files_match_download_manifest(self):
         manifest = json.loads((ROOT / "data" / "raw" / "manifest.json").read_text())
         for record in manifest["files"]:

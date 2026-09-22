@@ -1,0 +1,7 @@
+election_id,election_date,election_year,bundestag_number,election_name,result_status,result_version,source_file
+BTW2005,2005-09-18,2005,16,Bundestagswahl 2005,final,official_final,btw2005_kerg.csv
+BTW2009,2009-09-27,2009,17,Bundestagswahl 2009,final,official_final,btw2009_kerg.csv
+BTW2013,2013-09-22,2013,18,Bundestagswahl 2013,final,official_final,btw2013_kerg.csv
+BTW2017,2017-09-24,2017,19,Bundestagswahl 2017,final,official_final,btw2017_kerg2.csv
+BTW2021,2021-09-26,2021,20,Bundestagswahl 2021,final,final_after_berlin_repeat_2024,btw2021-w_kerg2.csv
+BTW2025,2025-02-23,2025,21,Bundestagswahl 2025,final,official_final,btw25_kerg2.csv
