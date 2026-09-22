@@ -76,6 +76,123 @@
       "downloaded_at_utc": "2026-09-21T22:17:29.165778+00:00",
       "bytes": 2093735,
       "sha256": "7057cef6234df64ce5c1724f035ceb1b798c7e80e518714d5903ab3500167c05"
+    },
+    {
+      "file": "data/raw/regionalatlas/services.json",
+      "source_url": "https://regionalatlas.statistikportal.de/taskrunner/services.json",
+      "downloaded_at_utc": "2026-09-22T20:05:12.638614+00:00",
+      "bytes": 1957887,
+      "sha256": "ce5aca545b8f11ba67787f749c46923f447558be68faec94734654a5a76add0b"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai002_1_5_2024.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:12.988340+00:00",
+      "bytes": 211692,
+      "sha256": "9496aa5c89784ef90fe6e1690edc6e1297d67e85291eacecb56df5b9d2e17ddf",
+      "dataset": "AI002-1-5",
+      "reference_year": 2024,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai002_2_5_2024.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:13.239061+00:00",
+      "bytes": 151739,
+      "sha256": "bb155beb4da4e1da2d71c80a5079881c460e063709c5592d6841315deed4144b",
+      "dataset": "AI002-2-5",
+      "reference_year": 2024,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai007_1_2024.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:13.595092+00:00",
+      "bytes": 190586,
+      "sha256": "b22f8b62e1b80707273064cdd4a504f92689aa346375d5321e7aa3ad790a81a3",
+      "dataset": "AI007-1",
+      "reference_year": 2024,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai008_1_5_2025.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:13.832428+00:00",
+      "bytes": 161647,
+      "sha256": "72279bb850f353b7fb4d2f27c8a036f84be43cd1cc1d766ee01c2f2b5b7f30c1",
+      "dataset": "AI008-1-5",
+      "reference_year": 2025,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai016_1_2022.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:14.064470+00:00",
+      "bytes": 114436,
+      "sha256": "2754641368ec8fddfec7a3709e8522b8f2c6509b1187f9858c1f33131768411c",
+      "dataset": "AI016-1",
+      "reference_year": 2022,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai017_1_2023.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:14.311389+00:00",
+      "bytes": 134795,
+      "sha256": "f2640a3869c59870f2d974b71412709ad3c88fc29be0733fdce72ec97695047c",
+      "dataset": "AI017-1",
+      "reference_year": 2023,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai_s_03_2024.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:14.602290+00:00",
+      "bytes": 122837,
+      "sha256": "3e4dc6e6a4be53001b5f954d6291d4a354484eee0a156decebdb9680dc80bc76",
+      "dataset": "AI-S-03",
+      "reference_year": 2024,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai005_2017.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:14.873376+00:00",
+      "bytes": 170673,
+      "sha256": "41aeffb8b9672bc07474b6aeade5215b1f1741edcb5d5d031db9d7ad180085f8",
+      "dataset": "AI005",
+      "reference_year": 2017,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai005_2021.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:15.138038+00:00",
+      "bytes": 170789,
+      "sha256": "702f00a3bbc36fc2fb7ed6280af5db04a45c67f0b805f08079836926a43cce6b",
+      "dataset": "AI005",
+      "reference_year": 2021,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
+    },
+    {
+      "file": "data/raw/regionalatlas/ai005_2025.json",
+      "source_url": "https://www.gis-idmz.nrw.de/arcgis/rest/services/stba/regionalatlas/MapServer/dynamicLayer/query",
+      "downloaded_at_utc": "2026-09-22T20:05:15.390555+00:00",
+      "bytes": 170573,
+      "sha256": "be747019ebc1feb9d0b56a7c6a8a1aa2de2f0ca32d67b0cb6fa220c1f12e2e51",
+      "dataset": "AI005",
+      "reference_year": 2025,
+      "geography_year": 2024,
+      "geography_level": "Kreise and kreisfreie Staedte"
     }
   ]
 }

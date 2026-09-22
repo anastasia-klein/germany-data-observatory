@@ -1,0 +1,41 @@
+{
+  "algorithm": "Ward hierarchical agglomerative clustering",
+  "chosen_k": 3,
+  "selection_rule": "Highest silhouette among candidates meeting the minimum cluster-size rule",
+  "minimum_cluster_size": 20,
+  "features": [
+    "population_density",
+    "population_change_per_10000",
+    "foreign_population_share",
+    "migration_balance_per_10000",
+    "age_under_18_share",
+    "age_65_plus_share",
+    "workplace_density",
+    "manufacturing_employment_share",
+    "unemployment_rate",
+    "disposable_income_per_capita",
+    "gdp_per_capita"
+  ],
+  "excluded_political_features": true,
+  "scaler": "StandardScaler",
+  "feature_transforms": {
+    "population_density": "log1p",
+    "population_change_per_10000": "identity",
+    "foreign_population_share": "identity",
+    "migration_balance_per_10000": "identity",
+    "age_under_18_share": "identity",
+    "age_65_plus_share": "identity",
+    "workplace_density": "log1p",
+    "manufacturing_employment_share": "identity",
+    "unemployment_rate": "identity",
+    "disposable_income_per_capita": "identity",
+    "gdp_per_capita": "log1p"
+  },
+  "pca_components": 4,
+  "pca_explained_variance": 0.8243313547051239,
+  "robustness_adjusted_rand": {
+    "direct_scaled_vs_primary": 0.8159918059032005,
+    "robust_scaled_pca_vs_primary": 0.8077809925435507
+  },
+  "linkage_matrix_rows": 399
+}

@@ -16,8 +16,13 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+          cache: pip
+      - name: Install analytical dependencies
+        run: python -m pip install -r requirements.txt
       - name: Rebuild analytical tables
-        run: python src/transform_data.py
+        run: |
+          python src/transform_data.py
+          python src/build_district_analysis.py
       - name: Run data-quality tests
         run: python -m unittest discover -s tests -v
       - name: Confirm generated data are committed

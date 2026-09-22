@@ -1,0 +1,133 @@
+{
+  "geography_year": 2024,
+  "clustering": {
+    "candidate_k": [3, 4, 5, 6, 7, 8],
+    "minimum_cluster_size": 20,
+    "pca_variance_target": 0.8,
+    "selected_features": {
+      "population_density": "log1p",
+      "population_change_per_10000": "identity",
+      "foreign_population_share": "identity",
+      "migration_balance_per_10000": "identity",
+      "age_under_18_share": "identity",
+      "age_65_plus_share": "identity",
+      "workplace_density": "log1p",
+      "manufacturing_employment_share": "identity",
+      "unemployment_rate": "identity",
+      "disposable_income_per_capita": "identity",
+      "gdp_per_capita": "log1p"
+    },
+    "excluded_correlated_features": {
+      "natural_balance_per_10000": "Strongly overlaps with age_65_plus_share",
+      "services_employment_share": "Compositionally overlaps with manufacturing_employment_share",
+      "minimum_security_rate": "Strongly overlaps with unemployment_rate"
+    }
+  },
+  "sources": [
+    {
+      "dataset": "AI002-1-5",
+      "year": 2024,
+      "fields": {
+        "ai0201": "population_density",
+        "ai0202": "population_change_per_10000",
+        "ai0208": "foreign_population_share",
+        "ai0211": "natural_balance_per_10000",
+        "ai0212": "migration_balance_per_10000"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI002-2-5",
+      "year": 2024,
+      "fields": {
+        "ai0203": "age_under_18_share",
+        "ai0207": "age_65_plus_share"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI007-1",
+      "year": 2024,
+      "fields": {
+        "ai0701": "workplace_density",
+        "ai0704": "manufacturing_employment_share",
+        "ai0706": "services_employment_share"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI008-1-5",
+      "year": 2025,
+      "fields": {
+        "ai0801": "unemployment_rate"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI016-1",
+      "year": 2022,
+      "fields": {
+        "ai1601": "disposable_income_per_capita"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI017-1",
+      "year": 2023,
+      "fields": {
+        "ai1703": "gdp_per_capita"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI-S-03",
+      "year": 2024,
+      "fields": {
+        "ai2001": "minimum_security_rate"
+      },
+      "use_for_clustering": true
+    },
+    {
+      "dataset": "AI005",
+      "year": 2017,
+      "fields": {
+        "ai0501": "cdu_csu_second_vote_share",
+        "ai0502": "spd_second_vote_share",
+        "ai0503": "fdp_second_vote_share",
+        "ai0504": "greens_second_vote_share",
+        "ai0505": "left_second_vote_share",
+        "ai0507": "afd_second_vote_share",
+        "ai0506": "turnout"
+      },
+      "use_for_clustering": false
+    },
+    {
+      "dataset": "AI005",
+      "year": 2021,
+      "fields": {
+        "ai0501": "cdu_csu_second_vote_share",
+        "ai0502": "spd_second_vote_share",
+        "ai0503": "fdp_second_vote_share",
+        "ai0504": "greens_second_vote_share",
+        "ai0505": "left_second_vote_share",
+        "ai0507": "afd_second_vote_share",
+        "ai0506": "turnout"
+      },
+      "use_for_clustering": false
+    },
+    {
+      "dataset": "AI005",
+      "year": 2025,
+      "fields": {
+        "ai0501": "cdu_csu_second_vote_share",
+        "ai0502": "spd_second_vote_share",
+        "ai0503": "fdp_second_vote_share",
+        "ai0504": "greens_second_vote_share",
+        "ai0505": "left_second_vote_share",
+        "ai0507": "afd_second_vote_share",
+        "ai0506": "turnout"
+      },
+      "use_for_clustering": false
+    }
+  ]
+}

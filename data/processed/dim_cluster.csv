@@ -1,0 +1,4 @@
+cluster_id,cluster_name,district_count,profile_summary
+cluster_1,Cluster 1,64,age_65_plus_share high; population_change_per_10000 low; age_under_18_share low
+cluster_2,Cluster 2,234,unemployment_rate low; age_under_18_share high; disposable_income_per_capita high
+cluster_3,Cluster 3,102,population_density high; workplace_density high; foreign_population_share high

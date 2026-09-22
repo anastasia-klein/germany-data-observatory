@@ -1,0 +1,7703 @@
+{
+  "displayFieldName": "ags",
+  "fieldAliases": {
+    "id": "id",
+    "typ": "typ",
+    "ags": "ags",
+    "jahr": "jahr",
+    "gen": "gen",
+    "jahr2": "jahr2",
+    "ags2": "ags2",
+    "gen2": "gen2",
+    "ai0501": "ai0501",
+    "ai0502": "ai0502",
+    "ai0503": "ai0503",
+    "ai0504": "ai0504",
+    "ai0505": "ai0505",
+    "ai0507": "ai0507",
+    "ai0506": "ai0506"
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "esriFieldTypeOID",
+      "alias": "id"
+    },
+    {
+      "name": "typ",
+      "type": "esriFieldTypeInteger",
+      "alias": "typ"
+    },
+    {
+      "name": "ags",
+      "type": "esriFieldTypeString",
+      "alias": "ags",
+      "length": 9
+    },
+    {
+      "name": "jahr",
+      "type": "esriFieldTypeInteger",
+      "alias": "jahr"
+    },
+    {
+      "name": "gen",
+      "type": "esriFieldTypeString",
+      "alias": "gen",
+      "length": 255
+    },
+    {
+      "name": "jahr2",
+      "type": "esriFieldTypeInteger",
+      "alias": "jahr2"
+    },
+    {
+      "name": "ags2",
+      "type": "esriFieldTypeString",
+      "alias": "ags2",
+      "length": 60000
+    },
+    {
+      "name": "gen2",
+      "type": "esriFieldTypeString",
+      "alias": "gen2",
+      "length": 60000
+    },
+    {
+      "name": "ai0501",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0501"
+    },
+    {
+      "name": "ai0502",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0502"
+    },
+    {
+      "name": "ai0503",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0503"
+    },
+    {
+      "name": "ai0504",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0504"
+    },
+    {
+      "name": "ai0505",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0505"
+    },
+    {
+      "name": "ai0507",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0507"
+    },
+    {
+      "name": "ai0506",
+      "type": "esriFieldTypeDouble",
+      "alias": "ai0506"
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "id": 523311,
+        "typ": 3,
+        "ags": "01001",
+        "jahr": 2024,
+        "gen": "Flensburg",
+        "jahr2": 2017,
+        "ags2": "01001",
+        "gen2": "      Flensburg, kreisfreie Stadt",
+        "ai0501": 27.2,
+        "ai0502": 24.6,
+        "ai0503": 10.3,
+        "ai0504": 15.1,
+        "ai0505": 11.6,
+        "ai0507": 7.5,
+        "ai0506": 70.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523312,
+        "typ": 3,
+        "ags": "01002",
+        "jahr": 2024,
+        "gen": "Kiel",
+        "jahr2": 2017,
+        "ags2": "01002",
+        "gen2": "      Kiel, kreisfreie Stadt",
+        "ai0501": 25.9,
+        "ai0502": 24.1,
+        "ai0503": 11.4,
+        "ai0504": 17.5,
+        "ai0505": 10.7,
+        "ai0507": 6.9,
+        "ai0506": 74.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523313,
+        "typ": 3,
+        "ags": "01003",
+        "jahr": 2024,
+        "gen": "Lübeck",
+        "jahr2": 2017,
+        "ags2": "01003",
+        "gen2": "      Lübeck, kreisfreie Stadt, Hansestadt",
+        "ai0501": 28.9,
+        "ai0502": 25.5,
+        "ai0503": 10.7,
+        "ai0504": 12.9,
+        "ai0505": 9.7,
+        "ai0507": 8.9,
+        "ai0506": 71.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523314,
+        "typ": 3,
+        "ags": "01004",
+        "jahr": 2024,
+        "gen": "Neumünster",
+        "jahr2": 2017,
+        "ags2": "01004",
+        "gen2": "      Neumünster, kreisfreie Stadt",
+        "ai0501": 31.1,
+        "ai0502": 25.7,
+        "ai0503": 12.1,
+        "ai0504": 10.5,
+        "ai0505": 7.1,
+        "ai0507": 10.3,
+        "ai0506": 66.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523315,
+        "typ": 3,
+        "ags": "01051",
+        "jahr": 2024,
+        "gen": "Dithmarschen",
+        "jahr2": 2017,
+        "ags2": "01051",
+        "gen2": "      Dithmarschen, Kreis",
+        "ai0501": 36.7,
+        "ai0502": 23.4,
+        "ai0503": 14.6,
+        "ai0504": 8.0,
+        "ai0505": 6.2,
+        "ai0507": 8.6,
+        "ai0506": 72.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523316,
+        "typ": 3,
+        "ags": "01053",
+        "jahr": 2024,
+        "gen": "Herzogtum Lauenburg",
+        "jahr2": 2017,
+        "ags2": "01053",
+        "gen2": "      Herzogtum Lauenburg, Kreis",
+        "ai0501": 34.2,
+        "ai0502": 23.0,
+        "ai0503": 12.8,
+        "ai0504": 10.5,
+        "ai0505": 6.6,
+        "ai0507": 10.2,
+        "ai0506": 77.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523317,
+        "typ": 3,
+        "ags": "01054",
+        "jahr": 2024,
+        "gen": "Nordfriesland",
+        "jahr2": 2017,
+        "ags2": "01054",
+        "gen2": "      Nordfriesland, Kreis",
+        "ai0501": 38.7,
+        "ai0502": 22.2,
+        "ai0503": 12.6,
+        "ai0504": 12.1,
+        "ai0505": 6.3,
+        "ai0507": 5.8,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523318,
+        "typ": 3,
+        "ags": "01055",
+        "jahr": 2024,
+        "gen": "Ostholstein",
+        "jahr2": 2017,
+        "ags2": "01055",
+        "gen2": "      Ostholstein, Kreis",
+        "ai0501": 35.6,
+        "ai0502": 24.8,
+        "ai0503": 13.3,
+        "ai0504": 9.7,
+        "ai0505": 6.0,
+        "ai0507": 8.5,
+        "ai0506": 75.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523319,
+        "typ": 3,
+        "ags": "01056",
+        "jahr": 2024,
+        "gen": "Pinneberg",
+        "jahr2": 2017,
+        "ags2": "01056",
+        "gen2": "      Pinneberg, Kreis",
+        "ai0501": 34.3,
+        "ai0502": 22.9,
+        "ai0503": 13.3,
+        "ai0504": 11.4,
+        "ai0505": 7.0,
+        "ai0507": 8.6,
+        "ai0506": 78.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523320,
+        "typ": 3,
+        "ags": "01057",
+        "jahr": 2024,
+        "gen": "Plön",
+        "jahr2": 2017,
+        "ags2": "01057",
+        "gen2": "      Plön, Kreis",
+        "ai0501": 34.2,
+        "ai0502": 23.2,
+        "ai0503": 12.8,
+        "ai0504": 13.6,
+        "ai0505": 6.3,
+        "ai0507": 7.7,
+        "ai0506": 80.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523321,
+        "typ": 3,
+        "ags": "01058",
+        "jahr": 2024,
+        "gen": "Rendsburg-Eckernförde",
+        "jahr2": 2017,
+        "ags2": "01058",
+        "gen2": "      Rendsburg-Eckernförde, Kreis",
+        "ai0501": 36.1,
+        "ai0502": 22.7,
+        "ai0503": 12.4,
+        "ai0504": 12.6,
+        "ai0505": 6.3,
+        "ai0507": 7.3,
+        "ai0506": 78.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523322,
+        "typ": 3,
+        "ags": "01059",
+        "jahr": 2024,
+        "gen": "Schleswig-Flensburg",
+        "jahr2": 2017,
+        "ags2": "01059",
+        "gen2": "      Schleswig-Flensburg, Kreis",
+        "ai0501": 37.1,
+        "ai0502": 23.3,
+        "ai0503": 11.5,
+        "ai0504": 12.3,
+        "ai0505": 6.9,
+        "ai0507": 6.6,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523323,
+        "typ": 3,
+        "ags": "01060",
+        "jahr": 2024,
+        "gen": "Segeberg",
+        "jahr2": 2017,
+        "ags2": "01060",
+        "gen2": "      Segeberg, Kreis",
+        "ai0501": 35.2,
+        "ai0502": 22.2,
+        "ai0503": 13.5,
+        "ai0504": 10.5,
+        "ai0505": 6.8,
+        "ai0507": 9.0,
+        "ai0506": 77.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523324,
+        "typ": 3,
+        "ags": "01061",
+        "jahr": 2024,
+        "gen": "Steinburg",
+        "jahr2": 2017,
+        "ags2": "01061",
+        "gen2": "      Steinburg, Kreis",
+        "ai0501": 36.1,
+        "ai0502": 23.0,
+        "ai0503": 12.3,
+        "ai0504": 10.6,
+        "ai0505": 7.0,
+        "ai0507": 8.2,
+        "ai0506": 75.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523325,
+        "typ": 3,
+        "ags": "01062",
+        "jahr": 2024,
+        "gen": "Stormarn",
+        "jahr2": 2017,
+        "ags2": "01062",
+        "gen2": "      Stormarn, Kreis",
+        "ai0501": 34.6,
+        "ai0502": 21.7,
+        "ai0503": 14.0,
+        "ai0504": 11.7,
+        "ai0505": 6.5,
+        "ai0507": 9.1,
+        "ai0506": 80.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523326,
+        "typ": 3,
+        "ags": "02",
+        "jahr": 2024,
+        "gen": "Hamburg",
+        "jahr2": 2017,
+        "ags2": "02",
+        "gen2": "  Hamburg",
+        "ai0501": 27.2,
+        "ai0502": 23.5,
+        "ai0503": 10.8,
+        "ai0504": 13.9,
+        "ai0505": 12.2,
+        "ai0507": 7.8,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523327,
+        "typ": 3,
+        "ags": "03101",
+        "jahr": 2024,
+        "gen": "Braunschweig",
+        "jahr2": 2017,
+        "ags2": "03101",
+        "gen2": "      Braunschweig, kreisfreie Stadt",
+        "ai0501": 29.0,
+        "ai0502": 26.4,
+        "ai0503": 10.0,
+        "ai0504": 11.8,
+        "ai0505": 9.3,
+        "ai0507": 8.4,
+        "ai0506": 76.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523328,
+        "typ": 3,
+        "ags": "03102",
+        "jahr": 2024,
+        "gen": "Salzgitter",
+        "jahr2": 2017,
+        "ags2": "03102",
+        "gen2": "      Salzgitter, kreisfreie Stadt",
+        "ai0501": 26.0,
+        "ai0502": 33.6,
+        "ai0503": 6.6,
+        "ai0504": 4.8,
+        "ai0505": 8.2,
+        "ai0507": 16.4,
+        "ai0506": 71.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523329,
+        "typ": 3,
+        "ags": "03103",
+        "jahr": 2024,
+        "gen": "Wolfsburg",
+        "jahr2": 2017,
+        "ags2": "03103",
+        "gen2": "      Wolfsburg, kreisfreie Stadt",
+        "ai0501": 34.1,
+        "ai0502": 28.9,
+        "ai0503": 8.3,
+        "ai0504": 6.2,
+        "ai0505": 7.2,
+        "ai0507": 11.7,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523330,
+        "typ": 3,
+        "ags": "03151",
+        "jahr": 2024,
+        "gen": "Gifhorn",
+        "jahr2": 2017,
+        "ags2": "03151",
+        "gen2": "      Gifhorn, Landkreis",
+        "ai0501": 36.2,
+        "ai0502": 27.3,
+        "ai0503": 8.7,
+        "ai0504": 7.1,
+        "ai0505": 5.9,
+        "ai0507": 11.4,
+        "ai0506": 77.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523331,
+        "typ": 3,
+        "ags": "03153",
+        "jahr": 2024,
+        "gen": "Goslar",
+        "jahr2": 2017,
+        "ags2": "03153",
+        "gen2": "      Goslar, Landkreis",
+        "ai0501": 31.1,
+        "ai0502": 31.8,
+        "ai0503": 9.1,
+        "ai0504": 6.2,
+        "ai0505": 7.0,
+        "ai0507": 11.1,
+        "ai0506": 74.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523332,
+        "typ": 3,
+        "ags": "03154",
+        "jahr": 2024,
+        "gen": "Helmstedt",
+        "jahr2": 2017,
+        "ags2": "03154",
+        "gen2": "      Helmstedt, Landkreis",
+        "ai0501": 34.8,
+        "ai0502": 31.2,
+        "ai0503": 7.9,
+        "ai0504": 5.8,
+        "ai0505": 6.3,
+        "ai0507": 9.9,
+        "ai0506": 74.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523333,
+        "typ": 3,
+        "ags": "03155",
+        "jahr": 2024,
+        "gen": "Northeim",
+        "jahr2": 2017,
+        "ags2": "03155",
+        "gen2": "      Northeim, Landkreis",
+        "ai0501": 32.5,
+        "ai0502": 33.3,
+        "ai0503": 8.8,
+        "ai0504": 6.8,
+        "ai0505": 5.7,
+        "ai0507": 9.5,
+        "ai0506": 75.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523334,
+        "typ": 3,
+        "ags": "03157",
+        "jahr": 2024,
+        "gen": "Peine",
+        "jahr2": 2017,
+        "ags2": "03157",
+        "gen2": "      Peine, Landkreis",
+        "ai0501": 31.0,
+        "ai0502": 33.9,
+        "ai0503": 7.8,
+        "ai0504": 7.1,
+        "ai0505": 6.1,
+        "ai0507": 10.3,
+        "ai0506": 77.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523335,
+        "typ": 3,
+        "ags": "03158",
+        "jahr": 2024,
+        "gen": "Wolfenbüttel",
+        "jahr2": 2017,
+        "ags2": "03158",
+        "gen2": "      Wolfenbüttel, Landkreis",
+        "ai0501": 31.5,
+        "ai0502": 30.4,
+        "ai0503": 9.1,
+        "ai0504": 8.1,
+        "ai0505": 7.1,
+        "ai0507": 9.9,
+        "ai0506": 79.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523336,
+        "typ": 3,
+        "ags": "03159",
+        "jahr": 2024,
+        "gen": "Göttingen",
+        "jahr2": 2017,
+        "ags2": "03159",
+        "gen2": "      Göttingen, Landkreis",
+        "ai0501": 30.5,
+        "ai0502": 29.1,
+        "ai0503": 9.0,
+        "ai0504": 10.9,
+        "ai0505": 8.3,
+        "ai0507": 8.1,
+        "ai0506": 76.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523337,
+        "typ": 3,
+        "ags": "03241",
+        "jahr": 2024,
+        "gen": "Region Hannover",
+        "jahr2": 2017,
+        "ags2": "03241",
+        "gen2": "      Region Hannover, Landkreis",
+        "ai0501": 29.9,
+        "ai0502": 27.5,
+        "ai0503": 10.0,
+        "ai0504": 10.6,
+        "ai0505": 8.2,
+        "ai0507": 9.4,
+        "ai0506": 77.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523338,
+        "typ": 3,
+        "ags": "03251",
+        "jahr": 2024,
+        "gen": "Diepholz",
+        "jahr2": 2017,
+        "ags2": "03251",
+        "gen2": "      Diepholz, Landkreis",
+        "ai0501": 37.7,
+        "ai0502": 25.4,
+        "ai0503": 10.7,
+        "ai0504": 8.2,
+        "ai0505": 6.2,
+        "ai0507": 8.4,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523339,
+        "typ": 3,
+        "ags": "03252",
+        "jahr": 2024,
+        "gen": "Hameln-Pyrmont",
+        "jahr2": 2017,
+        "ags2": "03252",
+        "gen2": "      Hameln-Pyrmont, Landkreis",
+        "ai0501": 32.6,
+        "ai0502": 30.3,
+        "ai0503": 8.6,
+        "ai0504": 7.6,
+        "ai0505": 7.3,
+        "ai0507": 10.5,
+        "ai0506": 74.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523340,
+        "typ": 3,
+        "ags": "03254",
+        "jahr": 2024,
+        "gen": "Hildesheim",
+        "jahr2": 2017,
+        "ags2": "03254",
+        "gen2": "      Hildesheim, Landkreis",
+        "ai0501": 32.6,
+        "ai0502": 30.9,
+        "ai0503": 8.2,
+        "ai0504": 8.8,
+        "ai0505": 6.5,
+        "ai0507": 9.3,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523341,
+        "typ": 3,
+        "ags": "03255",
+        "jahr": 2024,
+        "gen": "Holzminden",
+        "jahr2": 2017,
+        "ags2": "03255",
+        "gen2": "      Holzminden, Landkreis",
+        "ai0501": 31.1,
+        "ai0502": 34.0,
+        "ai0503": 10.2,
+        "ai0504": 6.7,
+        "ai0505": 5.4,
+        "ai0507": 9.6,
+        "ai0506": 74.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523342,
+        "typ": 3,
+        "ags": "03256",
+        "jahr": 2024,
+        "gen": "Nienburg (Weser)",
+        "jahr2": 2017,
+        "ags2": "03256",
+        "gen2": "      Nienburg (Weser), Landkreis",
+        "ai0501": 37.4,
+        "ai0502": 27.9,
+        "ai0503": 8.5,
+        "ai0504": 8.1,
+        "ai0505": 5.2,
+        "ai0507": 9.8,
+        "ai0506": 73.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523343,
+        "typ": 3,
+        "ags": "03257",
+        "jahr": 2024,
+        "gen": "Schaumburg",
+        "jahr2": 2017,
+        "ags2": "03257",
+        "gen2": "      Schaumburg, Landkreis",
+        "ai0501": 33.0,
+        "ai0502": 30.4,
+        "ai0503": 8.7,
+        "ai0504": 8.1,
+        "ai0505": 5.9,
+        "ai0507": 10.3,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523344,
+        "typ": 3,
+        "ags": "03351",
+        "jahr": 2024,
+        "gen": "Celle",
+        "jahr2": 2017,
+        "ags2": "03351",
+        "gen2": "      Celle, Landkreis",
+        "ai0501": 37.0,
+        "ai0502": 24.2,
+        "ai0503": 10.8,
+        "ai0504": 7.2,
+        "ai0505": 5.5,
+        "ai0507": 11.7,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523345,
+        "typ": 3,
+        "ags": "03352",
+        "jahr": 2024,
+        "gen": "Cuxhaven",
+        "jahr2": 2017,
+        "ags2": "03352",
+        "gen2": "      Cuxhaven, Landkreis",
+        "ai0501": 38.0,
+        "ai0502": 27.8,
+        "ai0503": 8.1,
+        "ai0504": 7.0,
+        "ai0505": 6.8,
+        "ai0507": 8.9,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523346,
+        "typ": 3,
+        "ags": "03353",
+        "jahr": 2024,
+        "gen": "Harburg",
+        "jahr2": 2017,
+        "ags2": "03353",
+        "gen2": "      Harburg, Landkreis",
+        "ai0501": 35.9,
+        "ai0502": 22.0,
+        "ai0503": 11.7,
+        "ai0504": 10.2,
+        "ai0505": 6.3,
+        "ai0507": 10.0,
+        "ai0506": 81.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523347,
+        "typ": 3,
+        "ags": "03354",
+        "jahr": 2024,
+        "gen": "Lüchow-Dannenberg",
+        "jahr2": 2017,
+        "ags2": "03354",
+        "gen2": "      Lüchow-Dannenberg, Landkreis",
+        "ai0501": 32.9,
+        "ai0502": 24.1,
+        "ai0503": 7.7,
+        "ai0504": 13.3,
+        "ai0505": 9.8,
+        "ai0507": 7.8,
+        "ai0506": 74.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523348,
+        "typ": 3,
+        "ags": "03355",
+        "jahr": 2024,
+        "gen": "Lüneburg",
+        "jahr2": 2017,
+        "ags2": "03355",
+        "gen2": "      Lüneburg, Landkreis",
+        "ai0501": 30.9,
+        "ai0502": 23.3,
+        "ai0503": 9.6,
+        "ai0504": 13.5,
+        "ai0505": 8.9,
+        "ai0507": 9.2,
+        "ai0506": 79.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523349,
+        "typ": 3,
+        "ags": "03356",
+        "jahr": 2024,
+        "gen": "Osterholz",
+        "jahr2": 2017,
+        "ags2": "03356",
+        "gen2": "      Osterholz, Landkreis",
+        "ai0501": 34.3,
+        "ai0502": 26.9,
+        "ai0503": 8.6,
+        "ai0504": 9.0,
+        "ai0505": 8.2,
+        "ai0507": 9.6,
+        "ai0506": 78.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523350,
+        "typ": 3,
+        "ags": "03357",
+        "jahr": 2024,
+        "gen": "Rotenburg (Wümme)",
+        "jahr2": 2017,
+        "ags2": "03357",
+        "gen2": "      Rotenburg (Wümme), Landkreis",
+        "ai0501": 41.0,
+        "ai0502": 25.0,
+        "ai0503": 8.6,
+        "ai0504": 8.0,
+        "ai0505": 5.8,
+        "ai0507": 8.1,
+        "ai0506": 77.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523351,
+        "typ": 3,
+        "ags": "03358",
+        "jahr": 2024,
+        "gen": "Heidekreis",
+        "jahr2": 2017,
+        "ags2": "03358",
+        "gen2": "      Heidekreis",
+        "ai0501": 37.7,
+        "ai0502": 28.1,
+        "ai0503": 8.3,
+        "ai0504": 7.3,
+        "ai0505": 5.5,
+        "ai0507": 9.7,
+        "ai0506": 75.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523352,
+        "typ": 3,
+        "ags": "03359",
+        "jahr": 2024,
+        "gen": "Stade",
+        "jahr2": 2017,
+        "ags2": "03359",
+        "gen2": "      Stade, Landkreis",
+        "ai0501": 37.2,
+        "ai0502": 24.9,
+        "ai0503": 9.9,
+        "ai0504": 8.4,
+        "ai0505": 6.5,
+        "ai0507": 9.5,
+        "ai0506": 77.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523353,
+        "typ": 3,
+        "ags": "03360",
+        "jahr": 2024,
+        "gen": "Uelzen",
+        "jahr2": 2017,
+        "ags2": "03360",
+        "gen2": "      Uelzen, Landkreis",
+        "ai0501": 35.8,
+        "ai0502": 27.6,
+        "ai0503": 8.9,
+        "ai0504": 8.7,
+        "ai0505": 6.4,
+        "ai0507": 9.4,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523354,
+        "typ": 3,
+        "ags": "03361",
+        "jahr": 2024,
+        "gen": "Verden",
+        "jahr2": 2017,
+        "ags2": "03361",
+        "gen2": "      Verden, Landkreis",
+        "ai0501": 35.5,
+        "ai0502": 26.0,
+        "ai0503": 9.1,
+        "ai0504": 9.5,
+        "ai0505": 6.5,
+        "ai0507": 9.7,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523355,
+        "typ": 3,
+        "ags": "03401",
+        "jahr": 2024,
+        "gen": "Delmenhorst",
+        "jahr2": 2017,
+        "ags2": "03401",
+        "gen2": "      Delmenhorst, kreisfreie Stadt",
+        "ai0501": 30.6,
+        "ai0502": 29.5,
+        "ai0503": 8.4,
+        "ai0504": 6.6,
+        "ai0505": 7.9,
+        "ai0507": 13.1,
+        "ai0506": 70.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523356,
+        "typ": 3,
+        "ags": "03402",
+        "jahr": 2024,
+        "gen": "Emden",
+        "jahr2": 2017,
+        "ags2": "03402",
+        "gen2": "      Emden, kreisfreie Stadt",
+        "ai0501": 22.5,
+        "ai0502": 38.2,
+        "ai0503": 7.1,
+        "ai0504": 8.5,
+        "ai0505": 10.0,
+        "ai0507": 10.0,
+        "ai0506": 71.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523357,
+        "typ": 3,
+        "ags": "03403",
+        "jahr": 2024,
+        "gen": "Oldenburg (Oldb)",
+        "jahr2": 2017,
+        "ags2": "03403",
+        "gen2": "      Oldenburg (Oldenburg), kreisfreie Stadt",
+        "ai0501": 26.9,
+        "ai0502": 25.6,
+        "ai0503": 9.5,
+        "ai0504": 15.1,
+        "ai0505": 11.6,
+        "ai0507": 6.7,
+        "ai0506": 77.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523358,
+        "typ": 3,
+        "ags": "03404",
+        "jahr": 2024,
+        "gen": "Osnabrück",
+        "jahr2": 2017,
+        "ags2": "03404",
+        "gen2": "      Osnabrück, kreisfreie Stadt",
+        "ai0501": 32.0,
+        "ai0502": 24.0,
+        "ai0503": 10.0,
+        "ai0504": 14.1,
+        "ai0505": 9.9,
+        "ai0507": 6.2,
+        "ai0506": 75.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523359,
+        "typ": 3,
+        "ags": "03405",
+        "jahr": 2024,
+        "gen": "Wilhelmshaven",
+        "jahr2": 2017,
+        "ags2": "03405",
+        "gen2": "      Wilhelmshaven, kreisfreie Stadt",
+        "ai0501": 29.9,
+        "ai0502": 30.0,
+        "ai0503": 9.0,
+        "ai0504": 7.2,
+        "ai0505": 8.7,
+        "ai0507": 10.6,
+        "ai0506": 70.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523360,
+        "typ": 3,
+        "ags": "03451",
+        "jahr": 2024,
+        "gen": "Ammerland",
+        "jahr2": 2017,
+        "ags2": "03451",
+        "gen2": "      Ammerland, Landkreis",
+        "ai0501": 35.4,
+        "ai0502": 26.6,
+        "ai0503": 11.5,
+        "ai0504": 9.0,
+        "ai0505": 6.4,
+        "ai0507": 7.9,
+        "ai0506": 77.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523361,
+        "typ": 3,
+        "ags": "03452",
+        "jahr": 2024,
+        "gen": "Aurich",
+        "jahr2": 2017,
+        "ags2": "03452",
+        "gen2": "      Aurich, Landkreis",
+        "ai0501": 29.4,
+        "ai0502": 37.7,
+        "ai0503": 7.2,
+        "ai0504": 7.2,
+        "ai0505": 6.5,
+        "ai0507": 8.9,
+        "ai0506": 75.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523362,
+        "typ": 3,
+        "ags": "03453",
+        "jahr": 2024,
+        "gen": "Cloppenburg",
+        "jahr2": 2017,
+        "ags2": "03453",
+        "gen2": "      Cloppenburg, Landkreis",
+        "ai0501": 52.5,
+        "ai0502": 18.6,
+        "ai0503": 8.8,
+        "ai0504": 4.4,
+        "ai0505": 4.6,
+        "ai0507": 9.1,
+        "ai0506": 72.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523363,
+        "typ": 3,
+        "ags": "03454",
+        "jahr": 2024,
+        "gen": "Emsland",
+        "jahr2": 2017,
+        "ags2": "03454",
+        "gen2": "      Emsland, Landkreis",
+        "ai0501": 52.6,
+        "ai0502": 20.3,
+        "ai0503": 8.9,
+        "ai0504": 5.5,
+        "ai0505": 4.4,
+        "ai0507": 6.3,
+        "ai0506": 77.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523364,
+        "typ": 3,
+        "ags": "03455",
+        "jahr": 2024,
+        "gen": "Friesland",
+        "jahr2": 2017,
+        "ags2": "03455",
+        "gen2": "      Friesland, Landkreis",
+        "ai0501": 33.0,
+        "ai0502": 30.6,
+        "ai0503": 10.1,
+        "ai0504": 7.9,
+        "ai0505": 6.7,
+        "ai0507": 8.2,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523365,
+        "typ": 3,
+        "ags": "03456",
+        "jahr": 2024,
+        "gen": "Grafschaft Bentheim",
+        "jahr2": 2017,
+        "ags2": "03456",
+        "gen2": "      Grafschaft Bentheim, Landkreis",
+        "ai0501": 44.7,
+        "ai0502": 28.0,
+        "ai0503": 8.9,
+        "ai0504": 6.2,
+        "ai0505": 4.8,
+        "ai0507": 5.3,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523366,
+        "typ": 3,
+        "ags": "03457",
+        "jahr": 2024,
+        "gen": "Leer",
+        "jahr2": 2017,
+        "ags2": "03457",
+        "gen2": "      Leer, Landkreis",
+        "ai0501": 34.2,
+        "ai0502": 33.5,
+        "ai0503": 7.1,
+        "ai0504": 6.7,
+        "ai0505": 6.2,
+        "ai0507": 9.2,
+        "ai0506": 74.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523367,
+        "typ": 3,
+        "ags": "03458",
+        "jahr": 2024,
+        "gen": "Oldenburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "03458",
+        "gen2": "      Oldenburg, Landkreis",
+        "ai0501": 35.3,
+        "ai0502": 25.0,
+        "ai0503": 11.6,
+        "ai0504": 9.0,
+        "ai0505": 6.6,
+        "ai0507": 8.9,
+        "ai0506": 78.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523368,
+        "typ": 3,
+        "ags": "03459",
+        "jahr": 2024,
+        "gen": "Osnabrück, Landkreis",
+        "jahr2": 2017,
+        "ags2": "03459",
+        "gen2": "      Osnabrück, Landkreis",
+        "ai0501": 40.8,
+        "ai0502": 25.7,
+        "ai0503": 9.4,
+        "ai0504": 8.4,
+        "ai0505": 6.1,
+        "ai0507": 7.0,
+        "ai0506": 77.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523369,
+        "typ": 3,
+        "ags": "03460",
+        "jahr": 2024,
+        "gen": "Vechta",
+        "jahr2": 2017,
+        "ags2": "03460",
+        "gen2": "      Vechta, Landkreis",
+        "ai0501": 53.8,
+        "ai0502": 16.8,
+        "ai0503": 10.1,
+        "ai0504": 5.8,
+        "ai0505": 4.2,
+        "ai0507": 7.0,
+        "ai0506": 76.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523370,
+        "typ": 3,
+        "ags": "03461",
+        "jahr": 2024,
+        "gen": "Wesermarsch",
+        "jahr2": 2017,
+        "ags2": "03461",
+        "gen2": "      Wesermarsch, Landkreis",
+        "ai0501": 33.0,
+        "ai0502": 32.3,
+        "ai0503": 9.2,
+        "ai0504": 7.6,
+        "ai0505": 6.4,
+        "ai0507": 8.3,
+        "ai0506": 72.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523371,
+        "typ": 3,
+        "ags": "03462",
+        "jahr": 2024,
+        "gen": "Wittmund",
+        "jahr2": 2017,
+        "ags2": "03462",
+        "gen2": "      Wittmund, Landkreis",
+        "ai0501": 36.2,
+        "ai0502": 31.6,
+        "ai0503": 8.8,
+        "ai0504": 6.2,
+        "ai0505": 5.6,
+        "ai0507": 8.6,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523372,
+        "typ": 3,
+        "ags": "04011",
+        "jahr": 2024,
+        "gen": "Bremen",
+        "jahr2": 2017,
+        "ags2": "04011",
+        "gen2": "      Bremen, kreisfreie Stadt",
+        "ai0501": 25.0,
+        "ai0502": 26.0,
+        "ai0503": 9.7,
+        "ai0504": 11.6,
+        "ai0505": 13.8,
+        "ai0507": 9.5,
+        "ai0506": 72.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523373,
+        "typ": 3,
+        "ags": "04012",
+        "jahr": 2024,
+        "gen": "Bremerhaven",
+        "jahr2": 2017,
+        "ags2": "04012",
+        "gen2": "      Bremerhaven, kreisfreie Stadt",
+        "ai0501": 25.4,
+        "ai0502": 30.9,
+        "ai0503": 7.6,
+        "ai0504": 7.8,
+        "ai0505": 11.4,
+        "ai0507": 12.5,
+        "ai0506": 64.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523374,
+        "typ": 3,
+        "ags": "05111",
+        "jahr": 2024,
+        "gen": "Düsseldorf",
+        "jahr2": 2017,
+        "ags2": "05111",
+        "gen2": "      Düsseldorf, kreisfreie Stadt",
+        "ai0501": 30.4,
+        "ai0502": 21.2,
+        "ai0503": 17.6,
+        "ai0504": 10.0,
+        "ai0505": 9.2,
+        "ai0507": 7.9,
+        "ai0506": 76.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523375,
+        "typ": 3,
+        "ags": "05112",
+        "jahr": 2024,
+        "gen": "Duisburg",
+        "jahr2": 2017,
+        "ags2": "05112",
+        "gen2": "      Duisburg, kreisfreie Stadt",
+        "ai0501": 24.2,
+        "ai0502": 32.8,
+        "ai0503": 9.4,
+        "ai0504": 5.6,
+        "ai0505": 8.5,
+        "ai0507": 13.3,
+        "ai0506": 68.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523376,
+        "typ": 3,
+        "ags": "05113",
+        "jahr": 2024,
+        "gen": "Essen",
+        "jahr2": 2017,
+        "ags2": "05113",
+        "gen2": "      Essen, kreisfreie Stadt",
+        "ai0501": 27.3,
+        "ai0502": 28.3,
+        "ai0503": 12.6,
+        "ai0504": 7.6,
+        "ai0505": 8.2,
+        "ai0507": 11.4,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523377,
+        "typ": 3,
+        "ags": "05114",
+        "jahr": 2024,
+        "gen": "Krefeld",
+        "jahr2": 2017,
+        "ags2": "05114",
+        "gen2": "      Krefeld, kreisfreie Stadt",
+        "ai0501": 31.9,
+        "ai0502": 24.9,
+        "ai0503": 14.6,
+        "ai0504": 7.8,
+        "ai0505": 8.1,
+        "ai0507": 8.3,
+        "ai0506": 71.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523378,
+        "typ": 3,
+        "ags": "05116",
+        "jahr": 2024,
+        "gen": "Mönchengladbach",
+        "jahr2": 2017,
+        "ags2": "05116",
+        "gen2": "      Mönchengladbach, kreisfreie Stadt",
+        "ai0501": 35.8,
+        "ai0502": 23.3,
+        "ai0503": 13.7,
+        "ai0504": 6.2,
+        "ai0505": 7.4,
+        "ai0507": 9.5,
+        "ai0506": 69.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523379,
+        "typ": 3,
+        "ags": "05117",
+        "jahr": 2024,
+        "gen": "Mülheim an der Ruhr",
+        "jahr2": 2017,
+        "ags2": "05117",
+        "gen2": "      Mülheim an der Ruhr, kreisfreie Stadt",
+        "ai0501": 28.4,
+        "ai0502": 28.3,
+        "ai0503": 13.9,
+        "ai0504": 7.4,
+        "ai0505": 7.7,
+        "ai0507": 10.6,
+        "ai0506": 77.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523380,
+        "typ": 3,
+        "ags": "05119",
+        "jahr": 2024,
+        "gen": "Oberhausen",
+        "jahr2": 2017,
+        "ags2": "05119",
+        "gen2": "      Oberhausen, kreisfreie Stadt",
+        "ai0501": 26.0,
+        "ai0502": 33.4,
+        "ai0503": 9.5,
+        "ai0504": 5.2,
+        "ai0505": 8.3,
+        "ai0507": 13.1,
+        "ai0506": 72.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523381,
+        "typ": 3,
+        "ags": "05120",
+        "jahr": 2024,
+        "gen": "Remscheid",
+        "jahr2": 2017,
+        "ags2": "05120",
+        "gen2": "      Remscheid, kreisfreie Stadt",
+        "ai0501": 31.8,
+        "ai0502": 25.9,
+        "ai0503": 13.4,
+        "ai0504": 6.3,
+        "ai0505": 7.3,
+        "ai0507": 10.6,
+        "ai0506": 71.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523382,
+        "typ": 3,
+        "ags": "05122",
+        "jahr": 2024,
+        "gen": "Solingen",
+        "jahr2": 2017,
+        "ags2": "05122",
+        "gen2": "      Solingen, kreisfreie Stadt",
+        "ai0501": 31.4,
+        "ai0502": 24.8,
+        "ai0503": 14.4,
+        "ai0504": 7.5,
+        "ai0505": 8.1,
+        "ai0507": 9.7,
+        "ai0506": 72.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523383,
+        "typ": 3,
+        "ags": "05124",
+        "jahr": 2024,
+        "gen": "Wuppertal",
+        "jahr2": 2017,
+        "ags2": "05124",
+        "gen2": "      Wuppertal, kreisfreie Stadt",
+        "ai0501": 27.3,
+        "ai0502": 25.8,
+        "ai0503": 12.8,
+        "ai0504": 8.5,
+        "ai0505": 10.4,
+        "ai0507": 10.8,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523384,
+        "typ": 3,
+        "ags": "05154",
+        "jahr": 2024,
+        "gen": "Kleve",
+        "jahr2": 2017,
+        "ags2": "05154",
+        "gen2": "      Kleve, Kreis",
+        "ai0501": 41.6,
+        "ai0502": 23.5,
+        "ai0503": 13.5,
+        "ai0504": 6.0,
+        "ai0505": 5.6,
+        "ai0507": 6.9,
+        "ai0506": 74.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523385,
+        "typ": 3,
+        "ags": "05158",
+        "jahr": 2024,
+        "gen": "Mettmann",
+        "jahr2": 2017,
+        "ags2": "05158",
+        "gen2": "      Mettmann, Kreis",
+        "ai0501": 33.4,
+        "ai0502": 23.7,
+        "ai0503": 16.0,
+        "ai0504": 7.2,
+        "ai0505": 6.6,
+        "ai0507": 9.5,
+        "ai0506": 77.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523386,
+        "typ": 3,
+        "ags": "05162",
+        "jahr": 2024,
+        "gen": "Rhein-Kreis Neuss",
+        "jahr2": 2017,
+        "ags2": "05162",
+        "gen2": "      Rhein-Kreis Neuss",
+        "ai0501": 37.0,
+        "ai0502": 21.9,
+        "ai0503": 16.8,
+        "ai0504": 6.4,
+        "ai0505": 5.8,
+        "ai0507": 8.6,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523387,
+        "typ": 3,
+        "ags": "05166",
+        "jahr": 2024,
+        "gen": "Viersen",
+        "jahr2": 2017,
+        "ags2": "05166",
+        "gen2": "      Viersen, Kreis",
+        "ai0501": 38.1,
+        "ai0502": 22.3,
+        "ai0503": 16.0,
+        "ai0504": 6.7,
+        "ai0505": 6.0,
+        "ai0507": 7.5,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523388,
+        "typ": 3,
+        "ags": "05170",
+        "jahr": 2024,
+        "gen": "Wesel",
+        "jahr2": 2017,
+        "ags2": "05170",
+        "gen2": "      Wesel, Kreis",
+        "ai0501": 31.4,
+        "ai0502": 30.0,
+        "ai0503": 12.0,
+        "ai0504": 6.1,
+        "ai0505": 7.2,
+        "ai0507": 9.6,
+        "ai0506": 77.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523389,
+        "typ": 3,
+        "ags": "05314",
+        "jahr": 2024,
+        "gen": "Bonn",
+        "jahr2": 2017,
+        "ags2": "05314",
+        "gen2": "      Bonn, kreisfreie Stadt",
+        "ai0501": 29.8,
+        "ai0502": 20.2,
+        "ai0503": 15.7,
+        "ai0504": 14.1,
+        "ai0505": 9.6,
+        "ai0507": 7.3,
+        "ai0506": 79.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523390,
+        "typ": 3,
+        "ags": "05315",
+        "jahr": 2024,
+        "gen": "Köln",
+        "jahr2": 2017,
+        "ags2": "05315",
+        "gen2": "      Köln, kreisfreie Stadt",
+        "ai0501": 26.4,
+        "ai0502": 23.0,
+        "ai0503": 13.8,
+        "ai0504": 13.6,
+        "ai0505": 11.5,
+        "ai0507": 7.2,
+        "ai0506": 75.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523391,
+        "typ": 3,
+        "ags": "05316",
+        "jahr": 2024,
+        "gen": "Leverkusen",
+        "jahr2": 2017,
+        "ags2": "05316",
+        "gen2": "      Leverkusen, kreisfreie Stadt",
+        "ai0501": 30.8,
+        "ai0502": 27.3,
+        "ai0503": 13.0,
+        "ai0504": 6.9,
+        "ai0505": 7.4,
+        "ai0507": 10.3,
+        "ai0506": 75.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523392,
+        "typ": 3,
+        "ags": "05334",
+        "jahr": 2024,
+        "gen": "Städteregion Aachen",
+        "jahr2": 2017,
+        "ags2": "05334",
+        "gen2": "      Städteregion Aachen, Kreis",
+        "ai0501": 29.4,
+        "ai0502": 30.6,
+        "ai0503": 12.5,
+        "ai0504": 8.5,
+        "ai0505": 7.9,
+        "ai0507": 7.4,
+        "ai0506": 77.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523393,
+        "typ": 3,
+        "ags": "05358",
+        "jahr": 2024,
+        "gen": "Düren",
+        "jahr2": 2017,
+        "ags2": "05358",
+        "gen2": "      Düren, Kreis",
+        "ai0501": 34.9,
+        "ai0502": 29.2,
+        "ai0503": 11.4,
+        "ai0504": 5.5,
+        "ai0505": 5.9,
+        "ai0507": 9.6,
+        "ai0506": 75.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523394,
+        "typ": 3,
+        "ags": "05362",
+        "jahr": 2024,
+        "gen": "Rhein-Erft-Kreis",
+        "jahr2": 2017,
+        "ags2": "05362",
+        "gen2": "      Rhein-Erft-Kreis",
+        "ai0501": 33.4,
+        "ai0502": 25.9,
+        "ai0503": 14.4,
+        "ai0504": 6.9,
+        "ai0505": 6.2,
+        "ai0507": 9.6,
+        "ai0506": 77.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523395,
+        "typ": 3,
+        "ags": "05366",
+        "jahr": 2024,
+        "gen": "Euskirchen",
+        "jahr2": 2017,
+        "ags2": "05366",
+        "gen2": "      Euskirchen, Kreis",
+        "ai0501": 37.5,
+        "ai0502": 22.4,
+        "ai0503": 15.0,
+        "ai0504": 5.9,
+        "ai0505": 5.8,
+        "ai0507": 9.9,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523396,
+        "typ": 3,
+        "ags": "05370",
+        "jahr": 2024,
+        "gen": "Heinsberg",
+        "jahr2": 2017,
+        "ags2": "05370",
+        "gen2": "      Heinsberg, Kreis",
+        "ai0501": 39.5,
+        "ai0502": 25.9,
+        "ai0503": 11.4,
+        "ai0504": 5.2,
+        "ai0505": 5.6,
+        "ai0507": 8.7,
+        "ai0506": 74.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523397,
+        "typ": 3,
+        "ags": "05374",
+        "jahr": 2024,
+        "gen": "Oberbergischer Kreis",
+        "jahr2": 2017,
+        "ags2": "05374",
+        "gen2": "      Oberbergischer Kreis",
+        "ai0501": 36.5,
+        "ai0502": 22.6,
+        "ai0503": 13.8,
+        "ai0504": 6.4,
+        "ai0505": 6.4,
+        "ai0507": 10.6,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523398,
+        "typ": 3,
+        "ags": "05378",
+        "jahr": 2024,
+        "gen": "Rheinisch-Bergischer Kreis",
+        "jahr2": 2017,
+        "ags2": "05378",
+        "gen2": "      Rheinisch-Bergischer Kreis",
+        "ai0501": 35.6,
+        "ai0502": 21.0,
+        "ai0503": 16.7,
+        "ai0504": 9.0,
+        "ai0505": 6.4,
+        "ai0507": 8.0,
+        "ai0506": 80.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523399,
+        "typ": 3,
+        "ags": "05382",
+        "jahr": 2024,
+        "gen": "Rhein-Sieg-Kreis",
+        "jahr2": 2017,
+        "ags2": "05382",
+        "gen2": "      Rhein-Sieg-Kreis",
+        "ai0501": 34.8,
+        "ai0502": 21.2,
+        "ai0503": 16.1,
+        "ai0504": 8.1,
+        "ai0505": 6.8,
+        "ai0507": 9.4,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523400,
+        "typ": 3,
+        "ags": "05512",
+        "jahr": 2024,
+        "gen": "Bottrop",
+        "jahr2": 2017,
+        "ags2": "05512",
+        "gen2": "      Bottrop, kreisfreie Stadt",
+        "ai0501": 28.1,
+        "ai0502": 32.5,
+        "ai0503": 10.4,
+        "ai0504": 4.8,
+        "ai0505": 7.2,
+        "ai0507": 12.5,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523401,
+        "typ": 3,
+        "ags": "05513",
+        "jahr": 2024,
+        "gen": "Gelsenkirchen",
+        "jahr2": 2017,
+        "ags2": "05513",
+        "gen2": "      Gelsenkirchen, kreisfreie Stadt",
+        "ai0501": 22.4,
+        "ai0502": 33.5,
+        "ai0503": 9.2,
+        "ai0504": 4.6,
+        "ai0505": 7.4,
+        "ai0507": 17.0,
+        "ai0506": 68.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523402,
+        "typ": 3,
+        "ags": "05515",
+        "jahr": 2024,
+        "gen": "Münster",
+        "jahr2": 2017,
+        "ags2": "05515",
+        "gen2": "      Münster, kreisfreie Stadt",
+        "ai0501": 32.8,
+        "ai0502": 20.9,
+        "ai0503": 13.5,
+        "ai0504": 14.6,
+        "ai0505": 10.1,
+        "ai0507": 4.9,
+        "ai0506": 82.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523403,
+        "typ": 3,
+        "ags": "05554",
+        "jahr": 2024,
+        "gen": "Borken",
+        "jahr2": 2017,
+        "ags2": "05554",
+        "gen2": "      Borken, Kreis",
+        "ai0501": 46.9,
+        "ai0502": 21.4,
+        "ai0503": 13.1,
+        "ai0504": 5.7,
+        "ai0505": 4.4,
+        "ai0507": 6.1,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523404,
+        "typ": 3,
+        "ags": "05558",
+        "jahr": 2024,
+        "gen": "Coesfeld",
+        "jahr2": 2017,
+        "ags2": "05558",
+        "gen2": "      Coesfeld, Kreis",
+        "ai0501": 43.9,
+        "ai0502": 21.1,
+        "ai0503": 13.6,
+        "ai0504": 7.4,
+        "ai0505": 5.4,
+        "ai0507": 6.2,
+        "ai0506": 81.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523405,
+        "typ": 3,
+        "ags": "05562",
+        "jahr": 2024,
+        "gen": "Recklinghausen",
+        "jahr2": 2017,
+        "ags2": "05562",
+        "gen2": "      Recklinghausen, Kreis",
+        "ai0501": 29.6,
+        "ai0502": 31.3,
+        "ai0503": 10.5,
+        "ai0504": 5.3,
+        "ai0505": 6.8,
+        "ai0507": 12.3,
+        "ai0506": 74.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523406,
+        "typ": 3,
+        "ags": "05566",
+        "jahr": 2024,
+        "gen": "Steinfurt",
+        "jahr2": 2017,
+        "ags2": "05566",
+        "gen2": "      Steinfurt, Kreis",
+        "ai0501": 39.8,
+        "ai0502": 25.9,
+        "ai0503": 11.9,
+        "ai0504": 7.1,
+        "ai0505": 6.1,
+        "ai0507": 6.5,
+        "ai0506": 77.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523407,
+        "typ": 3,
+        "ags": "05570",
+        "jahr": 2024,
+        "gen": "Warendorf",
+        "jahr2": 2017,
+        "ags2": "05570",
+        "gen2": "      Warendorf, Kreis",
+        "ai0501": 40.3,
+        "ai0502": 24.0,
+        "ai0503": 13.1,
+        "ai0504": 6.7,
+        "ai0505": 5.5,
+        "ai0507": 7.4,
+        "ai0506": 78.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523408,
+        "typ": 3,
+        "ags": "05711",
+        "jahr": 2024,
+        "gen": "Bielefeld",
+        "jahr2": 2017,
+        "ags2": "05711",
+        "gen2": "      Bielefeld, kreisfreie Stadt",
+        "ai0501": 27.5,
+        "ai0502": 25.4,
+        "ai0503": 11.5,
+        "ai0504": 11.1,
+        "ai0505": 11.2,
+        "ai0507": 9.0,
+        "ai0506": 75.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523409,
+        "typ": 3,
+        "ags": "05754",
+        "jahr": 2024,
+        "gen": "Gütersloh",
+        "jahr2": 2017,
+        "ags2": "05754",
+        "gen2": "      Gütersloh, Kreis",
+        "ai0501": 38.2,
+        "ai0502": 22.8,
+        "ai0503": 13.1,
+        "ai0504": 7.9,
+        "ai0505": 6.1,
+        "ai0507": 8.7,
+        "ai0506": 75.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523410,
+        "typ": 3,
+        "ags": "05758",
+        "jahr": 2024,
+        "gen": "Herford",
+        "jahr2": 2017,
+        "ags2": "05758",
+        "gen2": "      Herford, Kreis",
+        "ai0501": 31.4,
+        "ai0502": 29.0,
+        "ai0503": 11.3,
+        "ai0504": 6.9,
+        "ai0505": 7.0,
+        "ai0507": 10.9,
+        "ai0506": 73.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523411,
+        "typ": 3,
+        "ags": "05762",
+        "jahr": 2024,
+        "gen": "Höxter",
+        "jahr2": 2017,
+        "ags2": "05762",
+        "gen2": "      Höxter, Kreis",
+        "ai0501": 42.4,
+        "ai0502": 22.1,
+        "ai0503": 12.7,
+        "ai0504": 5.4,
+        "ai0505": 5.6,
+        "ai0507": 8.9,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523412,
+        "typ": 3,
+        "ags": "05766",
+        "jahr": 2024,
+        "gen": "Lippe",
+        "jahr2": 2017,
+        "ags2": "05766",
+        "gen2": "      Lippe, Kreis",
+        "ai0501": 31.4,
+        "ai0502": 27.8,
+        "ai0503": 12.3,
+        "ai0504": 7.2,
+        "ai0505": 6.9,
+        "ai0507": 10.8,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523413,
+        "typ": 3,
+        "ags": "05770",
+        "jahr": 2024,
+        "gen": "Minden-Lübbecke",
+        "jahr2": 2017,
+        "ags2": "05770",
+        "gen2": "      Minden-Lübbecke, Kreis",
+        "ai0501": 32.9,
+        "ai0502": 29.0,
+        "ai0503": 11.5,
+        "ai0504": 6.5,
+        "ai0505": 6.4,
+        "ai0507": 10.6,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523414,
+        "typ": 3,
+        "ags": "05774",
+        "jahr": 2024,
+        "gen": "Paderborn",
+        "jahr2": 2017,
+        "ags2": "05774",
+        "gen2": "      Paderborn, Kreis",
+        "ai0501": 40.8,
+        "ai0502": 18.7,
+        "ai0503": 13.4,
+        "ai0504": 7.4,
+        "ai0505": 6.7,
+        "ai0507": 9.9,
+        "ai0506": 75.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523415,
+        "typ": 3,
+        "ags": "05911",
+        "jahr": 2024,
+        "gen": "Bochum",
+        "jahr2": 2017,
+        "ags2": "05911",
+        "gen2": "      Bochum, kreisfreie Stadt",
+        "ai0501": 24.9,
+        "ai0502": 30.7,
+        "ai0503": 10.7,
+        "ai0504": 8.4,
+        "ai0505": 10.1,
+        "ai0507": 10.5,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523416,
+        "typ": 3,
+        "ags": "05913",
+        "jahr": 2024,
+        "gen": "Dortmund",
+        "jahr2": 2017,
+        "ags2": "05913",
+        "gen2": "      Dortmund, kreisfreie Stadt",
+        "ai0501": 24.5,
+        "ai0502": 31.3,
+        "ai0503": 11.0,
+        "ai0504": 8.4,
+        "ai0505": 9.6,
+        "ai0507": 10.3,
+        "ai0506": 72.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523417,
+        "typ": 3,
+        "ags": "05914",
+        "jahr": 2024,
+        "gen": "Hagen",
+        "jahr2": 2017,
+        "ags2": "05914",
+        "gen2": "      Hagen, kreisfreie Stadt",
+        "ai0501": 28.2,
+        "ai0502": 29.6,
+        "ai0503": 11.9,
+        "ai0504": 5.3,
+        "ai0505": 7.5,
+        "ai0507": 12.8,
+        "ai0506": 70.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523418,
+        "typ": 3,
+        "ags": "05915",
+        "jahr": 2024,
+        "gen": "Hamm",
+        "jahr2": 2017,
+        "ags2": "05915",
+        "gen2": "      Hamm, kreisfreie Stadt",
+        "ai0501": 30.6,
+        "ai0502": 31.4,
+        "ai0503": 10.3,
+        "ai0504": 5.2,
+        "ai0505": 7.1,
+        "ai0507": 11.1,
+        "ai0506": 72.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523419,
+        "typ": 3,
+        "ags": "05916",
+        "jahr": 2024,
+        "gen": "Herne",
+        "jahr2": 2017,
+        "ags2": "05916",
+        "gen2": "      Herne, kreisfreie Stadt",
+        "ai0501": 23.6,
+        "ai0502": 34.5,
+        "ai0503": 9.2,
+        "ai0504": 5.3,
+        "ai0505": 7.8,
+        "ai0507": 13.9,
+        "ai0506": 70.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523420,
+        "typ": 3,
+        "ags": "05954",
+        "jahr": 2024,
+        "gen": "Ennepe-Ruhr-Kreis",
+        "jahr2": 2017,
+        "ags2": "05954",
+        "gen2": "      Ennepe-Ruhr-Kreis",
+        "ai0501": 28.1,
+        "ai0502": 29.5,
+        "ai0503": 13.0,
+        "ai0504": 7.7,
+        "ai0505": 7.8,
+        "ai0507": 9.8,
+        "ai0506": 76.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523421,
+        "typ": 3,
+        "ags": "05958",
+        "jahr": 2024,
+        "gen": "Hochsauerlandkreis",
+        "jahr2": 2017,
+        "ags2": "05958",
+        "gen2": "      Hochsauerlandkreis",
+        "ai0501": 41.7,
+        "ai0502": 22.8,
+        "ai0503": 14.3,
+        "ai0504": 4.7,
+        "ai0505": 5.4,
+        "ai0507": 8.0,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523422,
+        "typ": 3,
+        "ags": "05962",
+        "jahr": 2024,
+        "gen": "Märkischer Kreis",
+        "jahr2": 2017,
+        "ags2": "05962",
+        "gen2": "      Märkischer Kreis",
+        "ai0501": 34.0,
+        "ai0502": 26.1,
+        "ai0503": 13.4,
+        "ai0504": 5.0,
+        "ai0505": 6.5,
+        "ai0507": 11.3,
+        "ai0506": 72.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523423,
+        "typ": 3,
+        "ags": "05966",
+        "jahr": 2024,
+        "gen": "Olpe",
+        "jahr2": 2017,
+        "ags2": "05966",
+        "gen2": "      Olpe, Kreis",
+        "ai0501": 46.9,
+        "ai0502": 20.2,
+        "ai0503": 14.1,
+        "ai0504": 4.0,
+        "ai0505": 4.4,
+        "ai0507": 7.7,
+        "ai0506": 76.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523424,
+        "typ": 3,
+        "ags": "05970",
+        "jahr": 2024,
+        "gen": "Siegen-Wittgenstein",
+        "jahr2": 2017,
+        "ags2": "05970",
+        "gen2": "      Siegen-Wittgenstein, Kreis",
+        "ai0501": 34.0,
+        "ai0502": 26.4,
+        "ai0503": 11.9,
+        "ai0504": 5.5,
+        "ai0505": 7.8,
+        "ai0507": 10.7,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523425,
+        "typ": 3,
+        "ags": "05974",
+        "jahr": 2024,
+        "gen": "Soest",
+        "jahr2": 2017,
+        "ags2": "05974",
+        "gen2": "      Soest, Kreis",
+        "ai0501": 36.3,
+        "ai0502": 25.0,
+        "ai0503": 13.5,
+        "ai0504": 6.2,
+        "ai0505": 6.8,
+        "ai0507": 9.3,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523426,
+        "typ": 3,
+        "ags": "05978",
+        "jahr": 2024,
+        "gen": "Unna",
+        "jahr2": 2017,
+        "ags2": "05978",
+        "gen2": "      Unna, Kreis",
+        "ai0501": 28.2,
+        "ai0502": 32.9,
+        "ai0503": 11.2,
+        "ai0504": 6.3,
+        "ai0505": 6.9,
+        "ai0507": 10.3,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523427,
+        "typ": 3,
+        "ags": "06411",
+        "jahr": 2024,
+        "gen": "Darmstadt",
+        "jahr2": 2017,
+        "ags2": "06411",
+        "gen2": "      Darmstadt, kreisfreie Stadt, Wissenschaftsstadt",
+        "ai0501": 23.8,
+        "ai0502": 20.6,
+        "ai0503": 10.7,
+        "ai0504": 18.4,
+        "ai0505": 13.1,
+        "ai0507": 8.4,
+        "ai0506": 78.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523428,
+        "typ": 3,
+        "ags": "06412",
+        "jahr": 2024,
+        "gen": "Frankfurt am Main",
+        "jahr2": 2017,
+        "ags2": "06412",
+        "gen2": "      Frankfurt am Main, kreisfreie Stadt",
+        "ai0501": 26.4,
+        "ai0502": 20.1,
+        "ai0503": 14.1,
+        "ai0504": 14.6,
+        "ai0505": 11.9,
+        "ai0507": 8.6,
+        "ai0506": 74.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523429,
+        "typ": 3,
+        "ags": "06413",
+        "jahr": 2024,
+        "gen": "Offenbach am Main",
+        "jahr2": 2017,
+        "ags2": "06413",
+        "gen2": "      Offenbach am Main, kreisfreie Stadt",
+        "ai0501": 27.2,
+        "ai0502": 23.8,
+        "ai0503": 9.8,
+        "ai0504": 10.6,
+        "ai0505": 11.7,
+        "ai0507": 12.0,
+        "ai0506": 67.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523430,
+        "typ": 3,
+        "ags": "06414",
+        "jahr": 2024,
+        "gen": "Wiesbaden",
+        "jahr2": 2017,
+        "ags2": "06414",
+        "gen2": "      Wiesbaden, kreisfreie Stadt, Landeshauptstadt",
+        "ai0501": 29.0,
+        "ai0502": 21.2,
+        "ai0503": 13.3,
+        "ai0504": 11.8,
+        "ai0505": 9.5,
+        "ai0507": 11.2,
+        "ai0506": 73.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523431,
+        "typ": 3,
+        "ags": "06431",
+        "jahr": 2024,
+        "gen": "Bergstraße",
+        "jahr2": 2017,
+        "ags2": "06431",
+        "gen2": "      Bergstraße, Landkreis",
+        "ai0501": 33.2,
+        "ai0502": 22.3,
+        "ai0503": 11.8,
+        "ai0504": 8.8,
+        "ai0505": 6.6,
+        "ai0507": 12.9,
+        "ai0506": 78.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523432,
+        "typ": 3,
+        "ags": "06432",
+        "jahr": 2024,
+        "gen": "Darmstadt-Dieburg",
+        "jahr2": 2017,
+        "ags2": "06432",
+        "gen2": "      Darmstadt-Dieburg, Landkreis",
+        "ai0501": 30.7,
+        "ai0502": 23.8,
+        "ai0503": 11.0,
+        "ai0504": 10.6,
+        "ai0505": 8.0,
+        "ai0507": 11.1,
+        "ai0506": 79.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523433,
+        "typ": 3,
+        "ags": "06433",
+        "jahr": 2024,
+        "gen": "Groß-Gerau",
+        "jahr2": 2017,
+        "ags2": "06433",
+        "gen2": "      Groß-Gerau, Landkreis",
+        "ai0501": 30.5,
+        "ai0502": 25.4,
+        "ai0503": 9.6,
+        "ai0504": 9.0,
+        "ai0505": 8.2,
+        "ai0507": 12.2,
+        "ai0506": 76.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523434,
+        "typ": 3,
+        "ags": "06434",
+        "jahr": 2024,
+        "gen": "Hochtaunuskreis",
+        "jahr2": 2017,
+        "ags2": "06434",
+        "gen2": "      Hochtaunuskreis",
+        "ai0501": 34.0,
+        "ai0502": 17.5,
+        "ai0503": 17.7,
+        "ai0504": 10.7,
+        "ai0505": 6.3,
+        "ai0507": 10.2,
+        "ai0506": 82.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523435,
+        "typ": 3,
+        "ags": "06435",
+        "jahr": 2024,
+        "gen": "Main-Kinzig-Kreis",
+        "jahr2": 2017,
+        "ags2": "06435",
+        "gen2": "      Main-Kinzig-Kreis",
+        "ai0501": 30.9,
+        "ai0502": 23.3,
+        "ai0503": 11.0,
+        "ai0504": 7.9,
+        "ai0505": 7.1,
+        "ai0507": 14.7,
+        "ai0506": 76.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523436,
+        "typ": 3,
+        "ags": "06436",
+        "jahr": 2024,
+        "gen": "Main-Taunus-Kreis",
+        "jahr2": 2017,
+        "ags2": "06436",
+        "gen2": "      Main-Taunus-Kreis",
+        "ai0501": 34.5,
+        "ai0502": 18.6,
+        "ai0503": 15.7,
+        "ai0504": 10.6,
+        "ai0505": 6.2,
+        "ai0507": 10.6,
+        "ai0506": 81.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523437,
+        "typ": 3,
+        "ags": "06437",
+        "jahr": 2024,
+        "gen": "Odenwaldkreis",
+        "jahr2": 2017,
+        "ags2": "06437",
+        "gen2": "      Odenwaldkreis",
+        "ai0501": 31.2,
+        "ai0502": 26.9,
+        "ai0503": 9.4,
+        "ai0504": 7.3,
+        "ai0505": 7.7,
+        "ai0507": 13.1,
+        "ai0506": 76.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523438,
+        "typ": 3,
+        "ags": "06438",
+        "jahr": 2024,
+        "gen": "Offenbach",
+        "jahr2": 2017,
+        "ags2": "06438",
+        "gen2": "      Offenbach, Landkreis",
+        "ai0501": 33.0,
+        "ai0502": 20.3,
+        "ai0503": 13.2,
+        "ai0504": 9.8,
+        "ai0505": 7.4,
+        "ai0507": 11.9,
+        "ai0506": 78.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523439,
+        "typ": 3,
+        "ags": "06439",
+        "jahr": 2024,
+        "gen": "Rheingau-Taunus-Kreis",
+        "jahr2": 2017,
+        "ags2": "06439",
+        "gen2": "      Rheingau-Taunus-Kreis",
+        "ai0501": 33.4,
+        "ai0502": 20.7,
+        "ai0503": 13.8,
+        "ai0504": 9.8,
+        "ai0505": 6.6,
+        "ai0507": 11.6,
+        "ai0506": 80.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523440,
+        "typ": 3,
+        "ags": "06440",
+        "jahr": 2024,
+        "gen": "Wetteraukreis",
+        "jahr2": 2017,
+        "ags2": "06440",
+        "gen2": "      Wetteraukreis",
+        "ai0501": 31.5,
+        "ai0502": 23.1,
+        "ai0503": 12.3,
+        "ai0504": 9.0,
+        "ai0505": 6.7,
+        "ai0507": 12.3,
+        "ai0506": 78.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523441,
+        "typ": 3,
+        "ags": "06531",
+        "jahr": 2024,
+        "gen": "Gießen",
+        "jahr2": 2017,
+        "ags2": "06531",
+        "gen2": "      Gießen, Landkreis",
+        "ai0501": 29.4,
+        "ai0502": 23.7,
+        "ai0503": 10.6,
+        "ai0504": 10.2,
+        "ai0505": 8.7,
+        "ai0507": 12.1,
+        "ai0506": 76.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523442,
+        "typ": 3,
+        "ags": "06532",
+        "jahr": 2024,
+        "gen": "Lahn-Dill-Kreis",
+        "jahr2": 2017,
+        "ags2": "06532",
+        "gen2": "      Lahn-Dill-Kreis",
+        "ai0501": 33.9,
+        "ai0502": 24.6,
+        "ai0503": 9.6,
+        "ai0504": 6.8,
+        "ai0505": 6.6,
+        "ai0507": 13.9,
+        "ai0506": 73.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523443,
+        "typ": 3,
+        "ags": "06533",
+        "jahr": 2024,
+        "gen": "Limburg-Weilburg",
+        "jahr2": 2017,
+        "ags2": "06533",
+        "gen2": "      Limburg-Weilburg, Landkreis",
+        "ai0501": 35.3,
+        "ai0502": 22.8,
+        "ai0503": 11.5,
+        "ai0504": 7.0,
+        "ai0505": 6.3,
+        "ai0507": 12.7,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523444,
+        "typ": 3,
+        "ags": "06534",
+        "jahr": 2024,
+        "gen": "Marburg-Biedenkopf",
+        "jahr2": 2017,
+        "ags2": "06534",
+        "gen2": "      Marburg-Biedenkopf, Landkreis",
+        "ai0501": 30.1,
+        "ai0502": 26.4,
+        "ai0503": 8.7,
+        "ai0504": 9.3,
+        "ai0505": 10.2,
+        "ai0507": 11.5,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523445,
+        "typ": 3,
+        "ags": "06535",
+        "jahr": 2024,
+        "gen": "Vogelsbergkreis",
+        "jahr2": 2017,
+        "ags2": "06535",
+        "gen2": "      Vogelsbergkreis",
+        "ai0501": 32.1,
+        "ai0502": 26.3,
+        "ai0503": 9.7,
+        "ai0504": 6.7,
+        "ai0505": 6.7,
+        "ai0507": 14.1,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523446,
+        "typ": 3,
+        "ags": "06611",
+        "jahr": 2024,
+        "gen": "Kassel",
+        "jahr2": 2017,
+        "ags2": "06611",
+        "gen2": "      Kassel, kreisfreie Stadt, documenta-Stadt",
+        "ai0501": 23.6,
+        "ai0502": 25.5,
+        "ai0503": 8.9,
+        "ai0504": 13.7,
+        "ai0505": 13.6,
+        "ai0507": 9.9,
+        "ai0506": 73.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523447,
+        "typ": 3,
+        "ags": "06631",
+        "jahr": 2024,
+        "gen": "Fulda",
+        "jahr2": 2017,
+        "ags2": "06631",
+        "gen2": "      Fulda, Landkreis",
+        "ai0501": 40.9,
+        "ai0502": 16.2,
+        "ai0503": 10.9,
+        "ai0504": 6.7,
+        "ai0505": 5.6,
+        "ai0507": 16.2,
+        "ai0506": 77.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523448,
+        "typ": 3,
+        "ags": "06632",
+        "jahr": 2024,
+        "gen": "Hersfeld-Rotenburg",
+        "jahr2": 2017,
+        "ags2": "06632",
+        "gen2": "      Hersfeld-Rotenburg, Landkreis",
+        "ai0501": 30.0,
+        "ai0502": 31.7,
+        "ai0503": 8.8,
+        "ai0504": 5.1,
+        "ai0505": 6.1,
+        "ai0507": 14.7,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523449,
+        "typ": 3,
+        "ags": "06633",
+        "jahr": 2024,
+        "gen": "Kassel, Landkreis",
+        "jahr2": 2017,
+        "ags2": "06633",
+        "gen2": "      Kassel, Landkreis",
+        "ai0501": 27.8,
+        "ai0502": 33.5,
+        "ai0503": 9.0,
+        "ai0504": 7.3,
+        "ai0505": 7.4,
+        "ai0507": 11.3,
+        "ai0506": 78.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523450,
+        "typ": 3,
+        "ags": "06634",
+        "jahr": 2024,
+        "gen": "Schwalm-Eder-Kreis",
+        "jahr2": 2017,
+        "ags2": "06634",
+        "gen2": "      Schwalm-Eder-Kreis",
+        "ai0501": 28.1,
+        "ai0502": 32.6,
+        "ai0503": 9.0,
+        "ai0504": 6.6,
+        "ai0505": 6.4,
+        "ai0507": 12.9,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523451,
+        "typ": 3,
+        "ags": "06635",
+        "jahr": 2024,
+        "gen": "Waldeck-Frankenberg",
+        "jahr2": 2017,
+        "ags2": "06635",
+        "gen2": "      Waldeck-Frankenberg, Landkreis",
+        "ai0501": 33.1,
+        "ai0502": 26.6,
+        "ai0503": 10.9,
+        "ai0504": 6.8,
+        "ai0505": 6.7,
+        "ai0507": 12.4,
+        "ai0506": 75.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523452,
+        "typ": 3,
+        "ags": "06636",
+        "jahr": 2024,
+        "gen": "Werra-Meißner-Kreis",
+        "jahr2": 2017,
+        "ags2": "06636",
+        "gen2": "      Werra-Meißner-Kreis",
+        "ai0501": 28.7,
+        "ai0502": 33.6,
+        "ai0503": 8.0,
+        "ai0504": 7.0,
+        "ai0505": 7.4,
+        "ai0507": 11.2,
+        "ai0506": 75.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523453,
+        "typ": 3,
+        "ags": "07111",
+        "jahr": 2024,
+        "gen": "Koblenz",
+        "jahr2": 2017,
+        "ags2": "07111",
+        "gen2": "      Koblenz, kreisfreie Stadt",
+        "ai0501": 35.9,
+        "ai0502": 22.7,
+        "ai0503": 11.4,
+        "ai0504": 9.9,
+        "ai0505": 8.1,
+        "ai0507": 8.4,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523454,
+        "typ": 3,
+        "ags": "07131",
+        "jahr": 2024,
+        "gen": "Ahrweiler",
+        "jahr2": 2017,
+        "ags2": "07131",
+        "gen2": "      Ahrweiler, Landkreis",
+        "ai0501": 41.8,
+        "ai0502": 20.4,
+        "ai0503": 13.0,
+        "ai0504": 7.2,
+        "ai0505": 5.7,
+        "ai0507": 8.8,
+        "ai0506": 79.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523455,
+        "typ": 3,
+        "ags": "07132",
+        "jahr": 2024,
+        "gen": "Altenkirchen (Westerwald)",
+        "jahr2": 2017,
+        "ags2": "07132",
+        "gen2": "      Altenkirchen (Westerwald), Landkreis",
+        "ai0501": 38.8,
+        "ai0502": 25.5,
+        "ai0503": 10.0,
+        "ai0504": 5.3,
+        "ai0505": 6.3,
+        "ai0507": 10.9,
+        "ai0506": 75.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523456,
+        "typ": 3,
+        "ags": "07133",
+        "jahr": 2024,
+        "gen": "Bad Kreuznach",
+        "jahr2": 2017,
+        "ags2": "07133",
+        "gen2": "      Bad Kreuznach, Landkreis",
+        "ai0501": 34.3,
+        "ai0502": 26.8,
+        "ai0503": 10.1,
+        "ai0504": 6.9,
+        "ai0505": 6.6,
+        "ai0507": 11.6,
+        "ai0506": 76.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523457,
+        "typ": 3,
+        "ags": "07134",
+        "jahr": 2024,
+        "gen": "Birkenfeld",
+        "jahr2": 2017,
+        "ags2": "07134",
+        "gen2": "      Birkenfeld, Landkreis",
+        "ai0501": 33.9,
+        "ai0502": 28.7,
+        "ai0503": 9.4,
+        "ai0504": 5.0,
+        "ai0505": 7.4,
+        "ai0507": 12.0,
+        "ai0506": 73.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523458,
+        "typ": 3,
+        "ags": "07135",
+        "jahr": 2024,
+        "gen": "Cochem-Zell",
+        "jahr2": 2017,
+        "ags2": "07135",
+        "gen2": "      Cochem-Zell, Landkreis",
+        "ai0501": 46.9,
+        "ai0502": 20.9,
+        "ai0503": 11.0,
+        "ai0504": 4.9,
+        "ai0505": 4.9,
+        "ai0507": 8.5,
+        "ai0506": 78.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523459,
+        "typ": 3,
+        "ags": "07137",
+        "jahr": 2024,
+        "gen": "Mayen-Koblenz",
+        "jahr2": 2017,
+        "ags2": "07137",
+        "gen2": "      Mayen-Koblenz, Landkreis",
+        "ai0501": 40.2,
+        "ai0502": 24.2,
+        "ai0503": 10.4,
+        "ai0504": 6.4,
+        "ai0505": 5.7,
+        "ai0507": 10.1,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523460,
+        "typ": 3,
+        "ags": "07138",
+        "jahr": 2024,
+        "gen": "Neuwied",
+        "jahr2": 2017,
+        "ags2": "07138",
+        "gen2": "      Neuwied, Landkreis",
+        "ai0501": 37.7,
+        "ai0502": 25.3,
+        "ai0503": 10.2,
+        "ai0504": 6.5,
+        "ai0505": 6.3,
+        "ai0507": 10.6,
+        "ai0506": 76.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523461,
+        "typ": 3,
+        "ags": "07140",
+        "jahr": 2024,
+        "gen": "Rhein-Hunsrück-Kreis",
+        "jahr2": 2017,
+        "ags2": "07140",
+        "gen2": "      Rhein-Hunsrück-Kreis",
+        "ai0501": 38.7,
+        "ai0502": 24.2,
+        "ai0503": 11.0,
+        "ai0504": 6.0,
+        "ai0505": 6.6,
+        "ai0507": 9.8,
+        "ai0506": 78.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523462,
+        "typ": 3,
+        "ags": "07141",
+        "jahr": 2024,
+        "gen": "Rhein-Lahn-Kreis",
+        "jahr2": 2017,
+        "ags2": "07141",
+        "gen2": "      Rhein-Lahn-Kreis",
+        "ai0501": 33.3,
+        "ai0502": 28.1,
+        "ai0503": 10.2,
+        "ai0504": 6.7,
+        "ai0505": 6.4,
+        "ai0507": 10.9,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523463,
+        "typ": 3,
+        "ags": "07143",
+        "jahr": 2024,
+        "gen": "Westerwaldkreis",
+        "jahr2": 2017,
+        "ags2": "07143",
+        "gen2": "      Westerwaldkreis",
+        "ai0501": 39.5,
+        "ai0502": 23.5,
+        "ai0503": 11.0,
+        "ai0504": 5.9,
+        "ai0505": 5.8,
+        "ai0507": 10.8,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523464,
+        "typ": 3,
+        "ags": "07211",
+        "jahr": 2024,
+        "gen": "Trier",
+        "jahr2": 2017,
+        "ags2": "07211",
+        "gen2": "      Trier, kreisfreie Stadt",
+        "ai0501": 32.5,
+        "ai0502": 23.8,
+        "ai0503": 9.5,
+        "ai0504": 12.2,
+        "ai0505": 10.9,
+        "ai0507": 7.8,
+        "ai0506": 74.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523465,
+        "typ": 3,
+        "ags": "07231",
+        "jahr": 2024,
+        "gen": "Bernkastel-Wittlich",
+        "jahr2": 2017,
+        "ags2": "07231",
+        "gen2": "      Bernkastel-Wittlich, Landkreis",
+        "ai0501": 42.4,
+        "ai0502": 21.9,
+        "ai0503": 11.1,
+        "ai0504": 6.1,
+        "ai0505": 6.3,
+        "ai0507": 8.4,
+        "ai0506": 78.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523466,
+        "typ": 3,
+        "ags": "07232",
+        "jahr": 2024,
+        "gen": "Eifelkreis Bitburg-Prüm",
+        "jahr2": 2017,
+        "ags2": "07232",
+        "gen2": "      Eifelkreis Bitburg-Prüm",
+        "ai0501": 43.9,
+        "ai0502": 23.2,
+        "ai0503": 10.1,
+        "ai0504": 6.4,
+        "ai0505": 5.5,
+        "ai0507": 7.4,
+        "ai0506": 76.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523467,
+        "typ": 3,
+        "ags": "07233",
+        "jahr": 2024,
+        "gen": "Vulkaneifel",
+        "jahr2": 2017,
+        "ags2": "07233",
+        "gen2": "      Vulkaneifel, Landkreis",
+        "ai0501": 45.8,
+        "ai0502": 20.7,
+        "ai0503": 10.4,
+        "ai0504": 5.6,
+        "ai0505": 6.3,
+        "ai0507": 8.2,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523468,
+        "typ": 3,
+        "ags": "07235",
+        "jahr": 2024,
+        "gen": "Trier-Saarburg",
+        "jahr2": 2017,
+        "ags2": "07235",
+        "gen2": "      Trier-Saarburg, Landkreis",
+        "ai0501": 40.5,
+        "ai0502": 25.2,
+        "ai0503": 9.1,
+        "ai0504": 6.9,
+        "ai0505": 7.1,
+        "ai0507": 8.1,
+        "ai0506": 81.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523469,
+        "typ": 3,
+        "ags": "07311",
+        "jahr": 2024,
+        "gen": "Frankenthal (Pfalz)",
+        "jahr2": 2017,
+        "ags2": "07311",
+        "gen2": "      Frankenthal (Pfalz), kreisfreie Stadt",
+        "ai0501": 32.5,
+        "ai0502": 23.0,
+        "ai0503": 9.9,
+        "ai0504": 6.8,
+        "ai0505": 7.6,
+        "ai0507": 16.5,
+        "ai0506": 73.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523470,
+        "typ": 3,
+        "ags": "07312",
+        "jahr": 2024,
+        "gen": "Kaiserslautern",
+        "jahr2": 2017,
+        "ags2": "07312",
+        "gen2": "      Kaiserslautern, kreisfreie Stadt",
+        "ai0501": 28.1,
+        "ai0502": 25.0,
+        "ai0503": 10.3,
+        "ai0504": 8.7,
+        "ai0505": 9.5,
+        "ai0507": 13.7,
+        "ai0506": 71.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523471,
+        "typ": 3,
+        "ags": "07313",
+        "jahr": 2024,
+        "gen": "Landau in der Pfalz",
+        "jahr2": 2017,
+        "ags2": "07313",
+        "gen2": "      Landau in der Pfalz, kreisfreie Stadt",
+        "ai0501": 30.4,
+        "ai0502": 21.1,
+        "ai0503": 10.0,
+        "ai0504": 14.3,
+        "ai0505": 9.3,
+        "ai0507": 10.0,
+        "ai0506": 77.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523472,
+        "typ": 3,
+        "ags": "07314",
+        "jahr": 2024,
+        "gen": "Ludwigshafen am Rhein",
+        "jahr2": 2017,
+        "ags2": "07314",
+        "gen2": "      Ludwigshafen am Rhein, kreisfreie Stadt",
+        "ai0501": 27.6,
+        "ai0502": 27.2,
+        "ai0503": 9.1,
+        "ai0504": 7.2,
+        "ai0505": 7.4,
+        "ai0507": 16.3,
+        "ai0506": 70.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523473,
+        "typ": 3,
+        "ags": "07315",
+        "jahr": 2024,
+        "gen": "Mainz",
+        "jahr2": 2017,
+        "ags2": "07315",
+        "gen2": "      Mainz, kreisfreie Stadt",
+        "ai0501": 30.7,
+        "ai0502": 21.4,
+        "ai0503": 11.1,
+        "ai0504": 15.2,
+        "ai0505": 9.8,
+        "ai0507": 7.3,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523474,
+        "typ": 3,
+        "ags": "07316",
+        "jahr": 2024,
+        "gen": "Neustadt an der Weinstraße",
+        "jahr2": 2017,
+        "ags2": "07316",
+        "gen2": "      Neustadt an der Weinstraße, kreisfreie Stadt",
+        "ai0501": 35.5,
+        "ai0502": 20.1,
+        "ai0503": 10.9,
+        "ai0504": 10.0,
+        "ai0505": 5.8,
+        "ai0507": 12.0,
+        "ai0506": 78.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523475,
+        "typ": 3,
+        "ags": "07317",
+        "jahr": 2024,
+        "gen": "Pirmasens",
+        "jahr2": 2017,
+        "ags2": "07317",
+        "gen2": "      Pirmasens, kreisfreie Stadt",
+        "ai0501": 31.2,
+        "ai0502": 26.2,
+        "ai0503": 9.5,
+        "ai0504": 4.0,
+        "ai0505": 8.0,
+        "ai0507": 16.1,
+        "ai0506": 68.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523476,
+        "typ": 3,
+        "ags": "07318",
+        "jahr": 2024,
+        "gen": "Speyer",
+        "jahr2": 2017,
+        "ags2": "07318",
+        "gen2": "      Speyer, kreisfreie Stadt",
+        "ai0501": 32.0,
+        "ai0502": 21.6,
+        "ai0503": 10.0,
+        "ai0504": 10.8,
+        "ai0505": 8.1,
+        "ai0507": 13.5,
+        "ai0506": 76.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523477,
+        "typ": 3,
+        "ags": "07319",
+        "jahr": 2024,
+        "gen": "Worms",
+        "jahr2": 2017,
+        "ags2": "07319",
+        "gen2": "      Worms, kreisfreie Stadt",
+        "ai0501": 30.6,
+        "ai0502": 25.7,
+        "ai0503": 9.6,
+        "ai0504": 7.7,
+        "ai0505": 7.1,
+        "ai0507": 15.0,
+        "ai0506": 73.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523478,
+        "typ": 3,
+        "ags": "07320",
+        "jahr": 2024,
+        "gen": "Zweibrücken",
+        "jahr2": 2017,
+        "ags2": "07320",
+        "gen2": "      Zweibrücken, kreisfreie Stadt",
+        "ai0501": 30.2,
+        "ai0502": 26.3,
+        "ai0503": 9.1,
+        "ai0504": 6.0,
+        "ai0505": 9.4,
+        "ai0507": 14.5,
+        "ai0506": 71.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523479,
+        "typ": 3,
+        "ags": "07331",
+        "jahr": 2024,
+        "gen": "Alzey-Worms",
+        "jahr2": 2017,
+        "ags2": "07331",
+        "gen2": "      Alzey-Worms, Landkreis",
+        "ai0501": 32.2,
+        "ai0502": 26.3,
+        "ai0503": 10.4,
+        "ai0504": 7.3,
+        "ai0505": 6.1,
+        "ai0507": 13.8,
+        "ai0506": 80.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523480,
+        "typ": 3,
+        "ags": "07332",
+        "jahr": 2024,
+        "gen": "Bad Dürkheim",
+        "jahr2": 2017,
+        "ags2": "07332",
+        "gen2": "      Bad Dürkheim, Landkreis",
+        "ai0501": 34.8,
+        "ai0502": 23.5,
+        "ai0503": 11.7,
+        "ai0504": 7.9,
+        "ai0505": 5.6,
+        "ai0507": 12.4,
+        "ai0506": 81.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523481,
+        "typ": 3,
+        "ags": "07333",
+        "jahr": 2024,
+        "gen": "Donnersbergkreis",
+        "jahr2": 2017,
+        "ags2": "07333",
+        "gen2": "      Donnersbergkreis",
+        "ai0501": 30.0,
+        "ai0502": 28.4,
+        "ai0503": 9.2,
+        "ai0504": 6.3,
+        "ai0505": 6.8,
+        "ai0507": 13.7,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523482,
+        "typ": 3,
+        "ags": "07334",
+        "jahr": 2024,
+        "gen": "Germersheim",
+        "jahr2": 2017,
+        "ags2": "07334",
+        "gen2": "      Germersheim, Landkreis",
+        "ai0501": 34.6,
+        "ai0502": 21.8,
+        "ai0503": 10.4,
+        "ai0504": 6.8,
+        "ai0505": 5.9,
+        "ai0507": 16.3,
+        "ai0506": 78.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523483,
+        "typ": 3,
+        "ags": "07335",
+        "jahr": 2024,
+        "gen": "Kaiserslautern, Landkreis",
+        "jahr2": 2017,
+        "ags2": "07335",
+        "gen2": "      Kaiserslautern, Landkreis",
+        "ai0501": 33.5,
+        "ai0502": 25.9,
+        "ai0503": 8.5,
+        "ai0504": 5.6,
+        "ai0505": 7.2,
+        "ai0507": 14.0,
+        "ai0506": 77.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523484,
+        "typ": 3,
+        "ags": "07336",
+        "jahr": 2024,
+        "gen": "Kusel",
+        "jahr2": 2017,
+        "ags2": "07336",
+        "gen2": "      Kusel, Landkreis",
+        "ai0501": 28.1,
+        "ai0502": 32.4,
+        "ai0503": 7.5,
+        "ai0504": 5.0,
+        "ai0505": 8.0,
+        "ai0507": 14.0,
+        "ai0506": 76.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523485,
+        "typ": 3,
+        "ags": "07337",
+        "jahr": 2024,
+        "gen": "Südliche Weinstraße",
+        "jahr2": 2017,
+        "ags2": "07337",
+        "gen2": "      Südliche Weinstraße, Landkreis",
+        "ai0501": 36.8,
+        "ai0502": 22.3,
+        "ai0503": 10.3,
+        "ai0504": 8.4,
+        "ai0505": 5.9,
+        "ai0507": 12.2,
+        "ai0506": 80.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523486,
+        "typ": 3,
+        "ags": "07338",
+        "jahr": 2024,
+        "gen": "Rhein-Pfalz-Kreis",
+        "jahr2": 2017,
+        "ags2": "07338",
+        "gen2": "      Rhein-Pfalz-Kreis",
+        "ai0501": 35.5,
+        "ai0502": 21.8,
+        "ai0503": 11.2,
+        "ai0504": 7.9,
+        "ai0505": 5.5,
+        "ai0507": 13.8,
+        "ai0506": 81.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523487,
+        "typ": 3,
+        "ags": "07339",
+        "jahr": 2024,
+        "gen": "Mainz-Bingen",
+        "jahr2": 2017,
+        "ags2": "07339",
+        "gen2": "      Mainz-Bingen, Landkreis",
+        "ai0501": 35.4,
+        "ai0502": 23.1,
+        "ai0503": 11.5,
+        "ai0504": 10.0,
+        "ai0505": 6.6,
+        "ai0507": 9.8,
+        "ai0506": 82.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523488,
+        "typ": 3,
+        "ags": "07340",
+        "jahr": 2024,
+        "gen": "Südwestpfalz",
+        "jahr2": 2017,
+        "ags2": "07340",
+        "gen2": "      Südwestpfalz, Landkreis",
+        "ai0501": 38.7,
+        "ai0502": 24.0,
+        "ai0503": 9.2,
+        "ai0504": 4.3,
+        "ai0505": 6.3,
+        "ai0507": 12.9,
+        "ai0506": 80.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523489,
+        "typ": 3,
+        "ags": "08111",
+        "jahr": 2024,
+        "gen": "Stuttgart",
+        "jahr2": 2017,
+        "ags2": "08111",
+        "gen2": "      Stuttgart, Stadtkreis",
+        "ai0501": 29.0,
+        "ai0502": 15.7,
+        "ai0503": 15.2,
+        "ai0504": 17.6,
+        "ai0505": 9.2,
+        "ai0507": 8.8,
+        "ai0506": 79.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523490,
+        "typ": 3,
+        "ags": "08115",
+        "jahr": 2024,
+        "gen": "Böblingen",
+        "jahr2": 2017,
+        "ags2": "08115",
+        "gen2": "      Böblingen, Landkreis",
+        "ai0501": 35.4,
+        "ai0502": 15.4,
+        "ai0503": 15.2,
+        "ai0504": 12.7,
+        "ai0505": 5.3,
+        "ai0507": 11.7,
+        "ai0506": 80.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523491,
+        "typ": 3,
+        "ags": "08116",
+        "jahr": 2024,
+        "gen": "Esslingen",
+        "jahr2": 2017,
+        "ags2": "08116",
+        "gen2": "      Esslingen, Landkreis",
+        "ai0501": 33.5,
+        "ai0502": 15.9,
+        "ai0503": 14.4,
+        "ai0504": 14.4,
+        "ai0505": 5.8,
+        "ai0507": 11.7,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523492,
+        "typ": 3,
+        "ags": "08117",
+        "jahr": 2024,
+        "gen": "Göppingen",
+        "jahr2": 2017,
+        "ags2": "08117",
+        "gen2": "      Göppingen, Landkreis",
+        "ai0501": 33.3,
+        "ai0502": 17.6,
+        "ai0503": 12.6,
+        "ai0504": 12.3,
+        "ai0505": 5.1,
+        "ai0507": 14.7,
+        "ai0506": 77.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523493,
+        "typ": 3,
+        "ags": "08118",
+        "jahr": 2024,
+        "gen": "Ludwigsburg",
+        "jahr2": 2017,
+        "ags2": "08118",
+        "gen2": "      Ludwigsburg, Landkreis",
+        "ai0501": 33.1,
+        "ai0502": 16.6,
+        "ai0503": 14.4,
+        "ai0504": 13.8,
+        "ai0505": 5.8,
+        "ai0507": 11.9,
+        "ai0506": 80.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523494,
+        "typ": 3,
+        "ags": "08119",
+        "jahr": 2024,
+        "gen": "Rems-Murr-Kreis",
+        "jahr2": 2017,
+        "ags2": "08119",
+        "gen2": "      Rems-Murr-Kreis, Landkreis",
+        "ai0501": 32.9,
+        "ai0502": 16.0,
+        "ai0503": 15.5,
+        "ai0504": 12.0,
+        "ai0505": 5.6,
+        "ai0507": 13.7,
+        "ai0506": 79.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523495,
+        "typ": 3,
+        "ags": "08121",
+        "jahr": 2024,
+        "gen": "Heilbronn",
+        "jahr2": 2017,
+        "ags2": "08121",
+        "gen2": "      Heilbronn, Stadtkreis",
+        "ai0501": 29.0,
+        "ai0502": 18.5,
+        "ai0503": 13.4,
+        "ai0504": 11.2,
+        "ai0505": 6.9,
+        "ai0507": 16.4,
+        "ai0506": 73.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523496,
+        "typ": 3,
+        "ags": "08125",
+        "jahr": 2024,
+        "gen": "Heilbronn, Landkreis",
+        "jahr2": 2017,
+        "ags2": "08125",
+        "gen2": "      Heilbronn, Landkreis",
+        "ai0501": 33.2,
+        "ai0502": 16.9,
+        "ai0503": 13.8,
+        "ai0504": 10.7,
+        "ai0505": 5.1,
+        "ai0507": 15.7,
+        "ai0506": 79.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523497,
+        "typ": 3,
+        "ags": "08126",
+        "jahr": 2024,
+        "gen": "Hohenlohekreis",
+        "jahr2": 2017,
+        "ags2": "08126",
+        "gen2": "      Hohenlohekreis, Landkreis",
+        "ai0501": 36.0,
+        "ai0502": 15.5,
+        "ai0503": 13.4,
+        "ai0504": 10.8,
+        "ai0505": 5.2,
+        "ai0507": 14.8,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523498,
+        "typ": 3,
+        "ags": "08127",
+        "jahr": 2024,
+        "gen": "Schwäbisch Hall",
+        "jahr2": 2017,
+        "ags2": "08127",
+        "gen2": "      Schwäbisch Hall, Landkreis",
+        "ai0501": 33.3,
+        "ai0502": 16.6,
+        "ai0503": 12.4,
+        "ai0504": 12.8,
+        "ai0505": 5.9,
+        "ai0507": 14.5,
+        "ai0506": 75.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523499,
+        "typ": 3,
+        "ags": "08128",
+        "jahr": 2024,
+        "gen": "Main-Tauber-Kreis",
+        "jahr2": 2017,
+        "ags2": "08128",
+        "gen2": "      Main-Tauber-Kreis, Landkreis",
+        "ai0501": 39.8,
+        "ai0502": 16.0,
+        "ai0503": 11.2,
+        "ai0504": 9.0,
+        "ai0505": 5.7,
+        "ai0507": 13.6,
+        "ai0506": 78.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523500,
+        "typ": 3,
+        "ags": "08135",
+        "jahr": 2024,
+        "gen": "Heidenheim",
+        "jahr2": 2017,
+        "ags2": "08135",
+        "gen2": "      Heidenheim, Landkreis",
+        "ai0501": 34.0,
+        "ai0502": 20.6,
+        "ai0503": 10.0,
+        "ai0504": 11.6,
+        "ai0505": 6.0,
+        "ai0507": 13.3,
+        "ai0506": 75.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523501,
+        "typ": 3,
+        "ags": "08136",
+        "jahr": 2024,
+        "gen": "Ostalbkreis",
+        "jahr2": 2017,
+        "ags2": "08136",
+        "gen2": "      Ostalbkreis, Landkreis",
+        "ai0501": 39.3,
+        "ai0502": 16.9,
+        "ai0503": 11.2,
+        "ai0504": 10.9,
+        "ai0505": 5.6,
+        "ai0507": 12.3,
+        "ai0506": 77.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523502,
+        "typ": 3,
+        "ags": "08211",
+        "jahr": 2024,
+        "gen": "Baden-Baden",
+        "jahr2": 2017,
+        "ags2": "08211",
+        "gen2": "      Baden-Baden, Stadtkreis",
+        "ai0501": 37.3,
+        "ai0502": 15.8,
+        "ai0503": 13.8,
+        "ai0504": 13.2,
+        "ai0505": 6.1,
+        "ai0507": 10.7,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523503,
+        "typ": 3,
+        "ags": "08212",
+        "jahr": 2024,
+        "gen": "Karlsruhe",
+        "jahr2": 2017,
+        "ags2": "08212",
+        "gen2": "      Karlsruhe, Stadtkreis",
+        "ai0501": 27.8,
+        "ai0502": 16.8,
+        "ai0503": 12.0,
+        "ai0504": 18.3,
+        "ai0505": 9.6,
+        "ai0507": 10.4,
+        "ai0506": 77.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523504,
+        "typ": 3,
+        "ags": "08215",
+        "jahr": 2024,
+        "gen": "Karlsruhe, Landkreis",
+        "jahr2": 2017,
+        "ags2": "08215",
+        "gen2": "      Karlsruhe, Landkreis",
+        "ai0501": 35.7,
+        "ai0502": 16.7,
+        "ai0503": 12.5,
+        "ai0504": 11.5,
+        "ai0505": 5.4,
+        "ai0507": 13.6,
+        "ai0506": 79.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523505,
+        "typ": 3,
+        "ags": "08216",
+        "jahr": 2024,
+        "gen": "Rastatt",
+        "jahr2": 2017,
+        "ags2": "08216",
+        "gen2": "      Rastatt, Landkreis",
+        "ai0501": 38.0,
+        "ai0502": 17.3,
+        "ai0503": 11.0,
+        "ai0504": 11.0,
+        "ai0505": 5.2,
+        "ai0507": 13.2,
+        "ai0506": 76.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523506,
+        "typ": 3,
+        "ags": "08221",
+        "jahr": 2024,
+        "gen": "Heidelberg",
+        "jahr2": 2017,
+        "ags2": "08221",
+        "gen2": "      Heidelberg, Stadtkreis",
+        "ai0501": 26.7,
+        "ai0502": 17.4,
+        "ai0503": 12.1,
+        "ai0504": 21.9,
+        "ai0505": 10.4,
+        "ai0507": 7.8,
+        "ai0506": 81.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523507,
+        "typ": 3,
+        "ags": "08222",
+        "jahr": 2024,
+        "gen": "Mannheim",
+        "jahr2": 2017,
+        "ags2": "08222",
+        "gen2": "      Mannheim, Stadtkreis",
+        "ai0501": 27.1,
+        "ai0502": 21.2,
+        "ai0503": 11.2,
+        "ai0504": 13.2,
+        "ai0505": 9.1,
+        "ai0507": 12.8,
+        "ai0506": 73.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523508,
+        "typ": 3,
+        "ags": "08225",
+        "jahr": 2024,
+        "gen": "Neckar-Odenwald-Kreis",
+        "jahr2": 2017,
+        "ags2": "08225",
+        "gen2": "      Neckar-Odenwald-Kreis, Landkreis",
+        "ai0501": 39.8,
+        "ai0502": 17.7,
+        "ai0503": 10.6,
+        "ai0504": 7.9,
+        "ai0505": 5.4,
+        "ai0507": 14.1,
+        "ai0506": 76.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523509,
+        "typ": 3,
+        "ags": "08226",
+        "jahr": 2024,
+        "gen": "Rhein-Neckar-Kreis",
+        "jahr2": 2017,
+        "ags2": "08226",
+        "gen2": "      Rhein-Neckar-Kreis, Landkreis",
+        "ai0501": 33.0,
+        "ai0502": 18.9,
+        "ai0503": 12.5,
+        "ai0504": 11.8,
+        "ai0505": 6.4,
+        "ai0507": 12.8,
+        "ai0506": 80.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523510,
+        "typ": 3,
+        "ags": "08231",
+        "jahr": 2024,
+        "gen": "Pforzheim",
+        "jahr2": 2017,
+        "ags2": "08231",
+        "gen2": "      Pforzheim, Stadtkreis",
+        "ai0501": 30.2,
+        "ai0502": 16.7,
+        "ai0503": 13.0,
+        "ai0504": 9.4,
+        "ai0505": 6.6,
+        "ai0507": 19.3,
+        "ai0506": 69.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523511,
+        "typ": 3,
+        "ags": "08235",
+        "jahr": 2024,
+        "gen": "Calw",
+        "jahr2": 2017,
+        "ags2": "08235",
+        "gen2": "      Calw, Landkreis",
+        "ai0501": 37.7,
+        "ai0502": 14.3,
+        "ai0503": 13.0,
+        "ai0504": 10.3,
+        "ai0505": 5.3,
+        "ai0507": 15.2,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523512,
+        "typ": 3,
+        "ags": "08236",
+        "jahr": 2024,
+        "gen": "Enzkreis",
+        "jahr2": 2017,
+        "ags2": "08236",
+        "gen2": "      Enzkreis, Landkreis",
+        "ai0501": 33.9,
+        "ai0502": 16.1,
+        "ai0503": 13.9,
+        "ai0504": 11.4,
+        "ai0505": 4.8,
+        "ai0507": 14.9,
+        "ai0506": 80.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523513,
+        "typ": 3,
+        "ags": "08237",
+        "jahr": 2024,
+        "gen": "Freudenstadt",
+        "jahr2": 2017,
+        "ags2": "08237",
+        "gen2": "      Freudenstadt, Landkreis",
+        "ai0501": 36.4,
+        "ai0502": 14.6,
+        "ai0503": 16.0,
+        "ai0504": 9.4,
+        "ai0505": 4.9,
+        "ai0507": 14.7,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523514,
+        "typ": 3,
+        "ags": "08311",
+        "jahr": 2024,
+        "gen": "Freiburg im Breisgau",
+        "jahr2": 2017,
+        "ags2": "08311",
+        "gen2": "      Freiburg im Breisgau, Stadtkreis",
+        "ai0501": 24.5,
+        "ai0502": 17.7,
+        "ai0503": 8.8,
+        "ai0504": 23.3,
+        "ai0505": 13.4,
+        "ai0507": 7.2,
+        "ai0506": 80.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523515,
+        "typ": 3,
+        "ags": "08315",
+        "jahr": 2024,
+        "gen": "Breisgau-Hochschwarzwald",
+        "jahr2": 2017,
+        "ags2": "08315",
+        "gen2": "      Breisgau-Hochschwarzwald, Landkreis",
+        "ai0501": 36.3,
+        "ai0502": 16.6,
+        "ai0503": 11.0,
+        "ai0504": 16.2,
+        "ai0505": 6.2,
+        "ai0507": 9.3,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523516,
+        "typ": 3,
+        "ags": "08316",
+        "jahr": 2024,
+        "gen": "Emmendingen",
+        "jahr2": 2017,
+        "ags2": "08316",
+        "gen2": "      Emmendingen, Landkreis",
+        "ai0501": 35.2,
+        "ai0502": 18.4,
+        "ai0503": 10.5,
+        "ai0504": 14.9,
+        "ai0505": 6.2,
+        "ai0507": 10.0,
+        "ai0506": 79.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523517,
+        "typ": 3,
+        "ags": "08317",
+        "jahr": 2024,
+        "gen": "Ortenaukreis",
+        "jahr2": 2017,
+        "ags2": "08317",
+        "gen2": "      Ortenaukreis, Landkreis",
+        "ai0501": 37.3,
+        "ai0502": 16.8,
+        "ai0503": 11.0,
+        "ai0504": 13.2,
+        "ai0505": 5.3,
+        "ai0507": 12.0,
+        "ai0506": 75.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523518,
+        "typ": 3,
+        "ags": "08325",
+        "jahr": 2024,
+        "gen": "Rottweil",
+        "jahr2": 2017,
+        "ags2": "08325",
+        "gen2": "      Rottweil, Landkreis",
+        "ai0501": 38.2,
+        "ai0502": 14.6,
+        "ai0503": 13.6,
+        "ai0504": 10.1,
+        "ai0505": 4.5,
+        "ai0507": 13.8,
+        "ai0506": 76.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523519,
+        "typ": 3,
+        "ags": "08326",
+        "jahr": 2024,
+        "gen": "Schwarzwald-Baar-Kreis",
+        "jahr2": 2017,
+        "ags2": "08326",
+        "gen2": "      Schwarzwald-Baar-Kreis, Landkreis",
+        "ai0501": 37.4,
+        "ai0502": 15.4,
+        "ai0503": 12.3,
+        "ai0504": 12.2,
+        "ai0505": 5.5,
+        "ai0507": 12.8,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523520,
+        "typ": 3,
+        "ags": "08327",
+        "jahr": 2024,
+        "gen": "Tuttlingen",
+        "jahr2": 2017,
+        "ags2": "08327",
+        "gen2": "      Tuttlingen, Landkreis",
+        "ai0501": 37.8,
+        "ai0502": 14.6,
+        "ai0503": 13.5,
+        "ai0504": 10.3,
+        "ai0505": 5.1,
+        "ai0507": 14.1,
+        "ai0506": 75.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523521,
+        "typ": 3,
+        "ags": "08335",
+        "jahr": 2024,
+        "gen": "Konstanz",
+        "jahr2": 2017,
+        "ags2": "08335",
+        "gen2": "      Konstanz, Landkreis",
+        "ai0501": 33.2,
+        "ai0502": 15.6,
+        "ai0503": 13.2,
+        "ai0504": 16.0,
+        "ai0505": 7.2,
+        "ai0507": 10.3,
+        "ai0506": 77.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523522,
+        "typ": 3,
+        "ags": "08336",
+        "jahr": 2024,
+        "gen": "Lörrach",
+        "jahr2": 2017,
+        "ags2": "08336",
+        "gen2": "      Lörrach, Landkreis",
+        "ai0501": 34.2,
+        "ai0502": 18.3,
+        "ai0503": 10.9,
+        "ai0504": 15.0,
+        "ai0505": 6.1,
+        "ai0507": 10.9,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523523,
+        "typ": 3,
+        "ags": "08337",
+        "jahr": 2024,
+        "gen": "Waldshut",
+        "jahr2": 2017,
+        "ags2": "08337",
+        "gen2": "      Waldshut, Landkreis",
+        "ai0501": 40.1,
+        "ai0502": 16.6,
+        "ai0503": 10.8,
+        "ai0504": 12.7,
+        "ai0505": 5.1,
+        "ai0507": 10.5,
+        "ai0506": 74.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523524,
+        "typ": 3,
+        "ags": "08415",
+        "jahr": 2024,
+        "gen": "Reutlingen",
+        "jahr2": 2017,
+        "ags2": "08415",
+        "gen2": "      Reutlingen, Landkreis",
+        "ai0501": 34.5,
+        "ai0502": 14.9,
+        "ai0503": 13.7,
+        "ai0504": 13.9,
+        "ai0505": 6.1,
+        "ai0507": 12.9,
+        "ai0506": 78.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523525,
+        "typ": 3,
+        "ags": "08416",
+        "jahr": 2024,
+        "gen": "Tübingen",
+        "jahr2": 2017,
+        "ags2": "08416",
+        "gen2": "      Tübingen, Landkreis",
+        "ai0501": 30.1,
+        "ai0502": 15.7,
+        "ai0503": 11.5,
+        "ai0504": 19.5,
+        "ai0505": 10.3,
+        "ai0507": 8.8,
+        "ai0506": 82.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523526,
+        "typ": 3,
+        "ags": "08417",
+        "jahr": 2024,
+        "gen": "Zollernalbkreis",
+        "jahr2": 2017,
+        "ags2": "08417",
+        "gen2": "      Zollernalbkreis, Landkreis",
+        "ai0501": 35.4,
+        "ai0502": 15.2,
+        "ai0503": 14.1,
+        "ai0504": 10.9,
+        "ai0505": 5.4,
+        "ai0507": 14.6,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523527,
+        "typ": 3,
+        "ags": "08421",
+        "jahr": 2024,
+        "gen": "Ulm",
+        "jahr2": 2017,
+        "ags2": "08421",
+        "gen2": "      Ulm, Stadtkreis",
+        "ai0501": 30.9,
+        "ai0502": 17.5,
+        "ai0503": 11.8,
+        "ai0504": 17.0,
+        "ai0505": 7.6,
+        "ai0507": 10.2,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523528,
+        "typ": 3,
+        "ags": "08425",
+        "jahr": 2024,
+        "gen": "Alb-Donau-Kreis",
+        "jahr2": 2017,
+        "ags2": "08425",
+        "gen2": "      Alb-Donau-Kreis, Landkreis",
+        "ai0501": 40.5,
+        "ai0502": 14.9,
+        "ai0503": 11.4,
+        "ai0504": 11.8,
+        "ai0505": 4.5,
+        "ai0507": 12.5,
+        "ai0506": 80.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523529,
+        "typ": 3,
+        "ags": "08426",
+        "jahr": 2024,
+        "gen": "Biberach",
+        "jahr2": 2017,
+        "ags2": "08426",
+        "gen2": "      Biberach, Landkreis",
+        "ai0501": 43.0,
+        "ai0502": 12.8,
+        "ai0503": 11.1,
+        "ai0504": 11.2,
+        "ai0505": 4.6,
+        "ai0507": 12.6,
+        "ai0506": 78.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523530,
+        "typ": 3,
+        "ags": "08435",
+        "jahr": 2024,
+        "gen": "Bodenseekreis",
+        "jahr2": 2017,
+        "ags2": "08435",
+        "gen2": "      Bodenseekreis, Landkreis",
+        "ai0501": 36.8,
+        "ai0502": 14.3,
+        "ai0503": 13.4,
+        "ai0504": 14.8,
+        "ai0505": 6.2,
+        "ai0507": 10.3,
+        "ai0506": 79.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523531,
+        "typ": 3,
+        "ags": "08436",
+        "jahr": 2024,
+        "gen": "Ravensburg",
+        "jahr2": 2017,
+        "ags2": "08436",
+        "gen2": "      Ravensburg, Landkreis",
+        "ai0501": 39.4,
+        "ai0502": 13.3,
+        "ai0503": 11.3,
+        "ai0504": 14.7,
+        "ai0505": 6.0,
+        "ai0507": 10.4,
+        "ai0506": 78.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523532,
+        "typ": 3,
+        "ags": "08437",
+        "jahr": 2024,
+        "gen": "Sigmaringen",
+        "jahr2": 2017,
+        "ags2": "08437",
+        "gen2": "      Sigmaringen, Landkreis",
+        "ai0501": 40.5,
+        "ai0502": 13.0,
+        "ai0503": 12.0,
+        "ai0504": 12.3,
+        "ai0505": 5.0,
+        "ai0507": 12.9,
+        "ai0506": 76.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523533,
+        "typ": 3,
+        "ags": "09161",
+        "jahr": 2024,
+        "gen": "Ingolstadt",
+        "jahr2": 2017,
+        "ags2": "09161",
+        "gen2": "      Ingolstadt, kreisfreie Stadt",
+        "ai0501": 36.8,
+        "ai0502": 14.3,
+        "ai0503": 10.9,
+        "ai0504": 8.7,
+        "ai0505": 6.9,
+        "ai0507": 15.3,
+        "ai0506": 71.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523534,
+        "typ": 3,
+        "ags": "09162",
+        "jahr": 2024,
+        "gen": "München",
+        "jahr2": 2017,
+        "ags2": "09162",
+        "gen2": "      München, kreisfreie Stadt",
+        "ai0501": 30.0,
+        "ai0502": 16.2,
+        "ai0503": 14.2,
+        "ai0504": 17.2,
+        "ai0505": 8.3,
+        "ai0507": 8.4,
+        "ai0506": 78.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523535,
+        "typ": 3,
+        "ags": "09163",
+        "jahr": 2024,
+        "gen": "Rosenheim",
+        "jahr2": 2017,
+        "ags2": "09163",
+        "gen2": "      Rosenheim, kreisfreie Stadt",
+        "ai0501": 35.5,
+        "ai0502": 13.6,
+        "ai0503": 11.0,
+        "ai0504": 11.4,
+        "ai0505": 6.3,
+        "ai0507": 14.7,
+        "ai0506": 74.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523536,
+        "typ": 3,
+        "ags": "09171",
+        "jahr": 2024,
+        "gen": "Altötting",
+        "jahr2": 2017,
+        "ags2": "09171",
+        "gen2": "      Altötting, Landkreis",
+        "ai0501": 44.5,
+        "ai0502": 13.4,
+        "ai0503": 8.4,
+        "ai0504": 6.8,
+        "ai0505": 5.9,
+        "ai0507": 13.6,
+        "ai0506": 74.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523537,
+        "typ": 3,
+        "ags": "09172",
+        "jahr": 2024,
+        "gen": "Berchtesgadener Land",
+        "jahr2": 2017,
+        "ags2": "09172",
+        "gen2": "      Berchtesgadener Land, Landkreis",
+        "ai0501": 45.1,
+        "ai0502": 11.5,
+        "ai0503": 9.1,
+        "ai0504": 8.3,
+        "ai0505": 5.2,
+        "ai0507": 13.1,
+        "ai0506": 75.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523538,
+        "typ": 3,
+        "ags": "09173",
+        "jahr": 2024,
+        "gen": "Bad Tölz-Wolfratshausen",
+        "jahr2": 2017,
+        "ags2": "09173",
+        "gen2": "      Bad Tölz-Wolfratshausen, Landkreis",
+        "ai0501": 41.2,
+        "ai0502": 11.0,
+        "ai0503": 11.7,
+        "ai0504": 10.5,
+        "ai0505": 5.4,
+        "ai0507": 11.9,
+        "ai0506": 79.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523539,
+        "typ": 3,
+        "ags": "09174",
+        "jahr": 2024,
+        "gen": "Dachau",
+        "jahr2": 2017,
+        "ags2": "09174",
+        "gen2": "      Dachau, Landkreis",
+        "ai0501": 42.0,
+        "ai0502": 13.1,
+        "ai0503": 10.6,
+        "ai0504": 9.6,
+        "ai0505": 4.7,
+        "ai0507": 12.3,
+        "ai0506": 81.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523540,
+        "typ": 3,
+        "ags": "09175",
+        "jahr": 2024,
+        "gen": "Ebersberg",
+        "jahr2": 2017,
+        "ags2": "09175",
+        "gen2": "      Ebersberg, Landkreis",
+        "ai0501": 38.4,
+        "ai0502": 12.8,
+        "ai0503": 13.2,
+        "ai0504": 12.4,
+        "ai0505": 5.3,
+        "ai0507": 10.3,
+        "ai0506": 84.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523541,
+        "typ": 3,
+        "ags": "09176",
+        "jahr": 2024,
+        "gen": "Eichstätt",
+        "jahr2": 2017,
+        "ags2": "09176",
+        "gen2": "      Eichstätt, Landkreis",
+        "ai0501": 44.4,
+        "ai0502": 13.2,
+        "ai0503": 8.4,
+        "ai0504": 6.6,
+        "ai0505": 4.5,
+        "ai0507": 14.7,
+        "ai0506": 82.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523542,
+        "typ": 3,
+        "ags": "09177",
+        "jahr": 2024,
+        "gen": "Erding",
+        "jahr2": 2017,
+        "ags2": "09177",
+        "gen2": "      Erding, Landkreis",
+        "ai0501": 39.8,
+        "ai0502": 11.7,
+        "ai0503": 10.7,
+        "ai0504": 9.3,
+        "ai0505": 5.0,
+        "ai0507": 13.5,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523543,
+        "typ": 3,
+        "ags": "09178",
+        "jahr": 2024,
+        "gen": "Freising",
+        "jahr2": 2017,
+        "ags2": "09178",
+        "gen2": "      Freising, Landkreis",
+        "ai0501": 36.8,
+        "ai0502": 12.3,
+        "ai0503": 11.0,
+        "ai0504": 12.1,
+        "ai0505": 5.8,
+        "ai0507": 12.3,
+        "ai0506": 80.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523544,
+        "typ": 3,
+        "ags": "09179",
+        "jahr": 2024,
+        "gen": "Fürstenfeldbruck",
+        "jahr2": 2017,
+        "ags2": "09179",
+        "gen2": "      Fürstenfeldbruck, Landkreis",
+        "ai0501": 37.8,
+        "ai0502": 14.6,
+        "ai0503": 12.4,
+        "ai0504": 12.1,
+        "ai0505": 5.4,
+        "ai0507": 10.9,
+        "ai0506": 82.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523545,
+        "typ": 3,
+        "ags": "09180",
+        "jahr": 2024,
+        "gen": "Garmisch-Partenkirchen",
+        "jahr2": 2017,
+        "ags2": "09180",
+        "gen2": "      Garmisch-Partenkirchen, Landkreis",
+        "ai0501": 45.7,
+        "ai0502": 9.3,
+        "ai0503": 11.3,
+        "ai0504": 8.8,
+        "ai0505": 4.7,
+        "ai0507": 12.6,
+        "ai0506": 79.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523546,
+        "typ": 3,
+        "ags": "09181",
+        "jahr": 2024,
+        "gen": "Landsberg am Lech",
+        "jahr2": 2017,
+        "ags2": "09181",
+        "gen2": "      Landsberg am Lech, Landkreis",
+        "ai0501": 39.8,
+        "ai0502": 12.2,
+        "ai0503": 11.4,
+        "ai0504": 12.4,
+        "ai0505": 5.7,
+        "ai0507": 10.9,
+        "ai0506": 81.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523547,
+        "typ": 3,
+        "ags": "09182",
+        "jahr": 2024,
+        "gen": "Miesbach",
+        "jahr2": 2017,
+        "ags2": "09182",
+        "gen2": "      Miesbach, Landkreis",
+        "ai0501": 42.0,
+        "ai0502": 10.9,
+        "ai0503": 13.3,
+        "ai0504": 10.1,
+        "ai0505": 4.3,
+        "ai0507": 11.4,
+        "ai0506": 80.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523548,
+        "typ": 3,
+        "ags": "09183",
+        "jahr": 2024,
+        "gen": "Mühldorf a.Inn",
+        "jahr2": 2017,
+        "ags2": "09183",
+        "gen2": "      Mühldorf a.Inn, Landkreis",
+        "ai0501": 43.6,
+        "ai0502": 11.3,
+        "ai0503": 9.4,
+        "ai0504": 6.9,
+        "ai0505": 4.7,
+        "ai0507": 15.5,
+        "ai0506": 75.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523549,
+        "typ": 3,
+        "ags": "09184",
+        "jahr": 2024,
+        "gen": "München, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09184",
+        "gen2": "      München, Landkreis",
+        "ai0501": 37.3,
+        "ai0502": 14.0,
+        "ai0503": 15.3,
+        "ai0504": 12.6,
+        "ai0505": 5.1,
+        "ai0507": 9.4,
+        "ai0506": 83.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523550,
+        "typ": 3,
+        "ags": "09185",
+        "jahr": 2024,
+        "gen": "Neuburg-Schrobenhausen",
+        "jahr2": 2017,
+        "ags2": "09185",
+        "gen2": "      Neuburg-Schrobenhausen, Landkreis",
+        "ai0501": 44.9,
+        "ai0502": 12.1,
+        "ai0503": 9.0,
+        "ai0504": 6.2,
+        "ai0505": 4.4,
+        "ai0507": 15.1,
+        "ai0506": 77.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523551,
+        "typ": 3,
+        "ags": "09186",
+        "jahr": 2024,
+        "gen": "Pfaffenhofen a.d.Ilm",
+        "jahr2": 2017,
+        "ags2": "09186",
+        "gen2": "      Pfaffenhofen a.d.Ilm, Landkreis",
+        "ai0501": 42.1,
+        "ai0502": 12.7,
+        "ai0503": 9.8,
+        "ai0504": 7.3,
+        "ai0505": 4.5,
+        "ai0507": 15.2,
+        "ai0506": 77.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523552,
+        "typ": 3,
+        "ags": "09187",
+        "jahr": 2024,
+        "gen": "Rosenheim, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09187",
+        "gen2": "      Rosenheim, Landkreis",
+        "ai0501": 41.5,
+        "ai0502": 10.9,
+        "ai0503": 10.9,
+        "ai0504": 9.7,
+        "ai0505": 4.9,
+        "ai0507": 13.7,
+        "ai0506": 80.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523553,
+        "typ": 3,
+        "ags": "09188",
+        "jahr": 2024,
+        "gen": "Starnberg",
+        "jahr2": 2017,
+        "ags2": "09188",
+        "gen2": "      Starnberg, Landkreis",
+        "ai0501": 37.4,
+        "ai0502": 12.0,
+        "ai0503": 17.1,
+        "ai0504": 14.1,
+        "ai0505": 5.2,
+        "ai0507": 8.8,
+        "ai0506": 84.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523554,
+        "typ": 3,
+        "ags": "09189",
+        "jahr": 2024,
+        "gen": "Traunstein",
+        "jahr2": 2017,
+        "ags2": "09189",
+        "gen2": "      Traunstein, Landkreis",
+        "ai0501": 44.4,
+        "ai0502": 12.1,
+        "ai0503": 9.2,
+        "ai0504": 9.7,
+        "ai0505": 5.4,
+        "ai0507": 11.4,
+        "ai0506": 77.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523555,
+        "typ": 3,
+        "ags": "09190",
+        "jahr": 2024,
+        "gen": "Weilheim-Schongau",
+        "jahr2": 2017,
+        "ags2": "09190",
+        "gen2": "      Weilheim-Schongau, Landkreis",
+        "ai0501": 41.1,
+        "ai0502": 13.0,
+        "ai0503": 9.9,
+        "ai0504": 10.0,
+        "ai0505": 5.8,
+        "ai0507": 11.7,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523556,
+        "typ": 3,
+        "ags": "09261",
+        "jahr": 2024,
+        "gen": "Landshut",
+        "jahr2": 2017,
+        "ags2": "09261",
+        "gen2": "      Landshut, kreisfreie Stadt",
+        "ai0501": 35.1,
+        "ai0502": 13.7,
+        "ai0503": 12.8,
+        "ai0504": 10.7,
+        "ai0505": 6.4,
+        "ai0507": 13.0,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523557,
+        "typ": 3,
+        "ags": "09262",
+        "jahr": 2024,
+        "gen": "Passau",
+        "jahr2": 2017,
+        "ags2": "09262",
+        "gen2": "      Passau, kreisfreie Stadt",
+        "ai0501": 36.3,
+        "ai0502": 15.6,
+        "ai0503": 11.0,
+        "ai0504": 10.9,
+        "ai0505": 7.8,
+        "ai0507": 12.7,
+        "ai0506": 73.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523558,
+        "typ": 3,
+        "ags": "09263",
+        "jahr": 2024,
+        "gen": "Straubing",
+        "jahr2": 2017,
+        "ags2": "09263",
+        "gen2": "      Straubing, kreisfreie Stadt",
+        "ai0501": 38.7,
+        "ai0502": 14.6,
+        "ai0503": 9.5,
+        "ai0504": 6.4,
+        "ai0505": 6.1,
+        "ai0507": 17.2,
+        "ai0506": 67.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523559,
+        "typ": 3,
+        "ags": "09271",
+        "jahr": 2024,
+        "gen": "Deggendorf",
+        "jahr2": 2017,
+        "ags2": "09271",
+        "gen2": "      Deggendorf, Landkreis",
+        "ai0501": 40.8,
+        "ai0502": 13.4,
+        "ai0503": 7.9,
+        "ai0504": 5.0,
+        "ai0505": 5.2,
+        "ai0507": 18.4,
+        "ai0506": 71.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523560,
+        "typ": 3,
+        "ags": "09272",
+        "jahr": 2024,
+        "gen": "Freyung-Grafenau",
+        "jahr2": 2017,
+        "ags2": "09272",
+        "gen2": "      Freyung-Grafenau, Landkreis",
+        "ai0501": 40.5,
+        "ai0502": 15.1,
+        "ai0503": 7.1,
+        "ai0504": 4.1,
+        "ai0505": 4.7,
+        "ai0507": 20.1,
+        "ai0506": 72.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523561,
+        "typ": 3,
+        "ags": "09273",
+        "jahr": 2024,
+        "gen": "Kelheim",
+        "jahr2": 2017,
+        "ags2": "09273",
+        "gen2": "      Kelheim, Landkreis",
+        "ai0501": 41.9,
+        "ai0502": 14.5,
+        "ai0503": 8.3,
+        "ai0504": 6.2,
+        "ai0505": 4.5,
+        "ai0507": 14.9,
+        "ai0506": 76.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523562,
+        "typ": 3,
+        "ags": "09274",
+        "jahr": 2024,
+        "gen": "Landshut, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09274",
+        "gen2": "      Landshut, Landkreis",
+        "ai0501": 39.4,
+        "ai0502": 11.7,
+        "ai0503": 10.3,
+        "ai0504": 6.5,
+        "ai0505": 4.4,
+        "ai0507": 15.1,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523563,
+        "typ": 3,
+        "ags": "09275",
+        "jahr": 2024,
+        "gen": "Passau, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09275",
+        "gen2": "      Passau, Landkreis",
+        "ai0501": 41.5,
+        "ai0502": 15.0,
+        "ai0503": 8.5,
+        "ai0504": 5.2,
+        "ai0505": 5.0,
+        "ai0507": 17.2,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523564,
+        "typ": 3,
+        "ags": "09276",
+        "jahr": 2024,
+        "gen": "Regen",
+        "jahr2": 2017,
+        "ags2": "09276",
+        "gen2": "      Regen, Landkreis",
+        "ai0501": 40.5,
+        "ai0502": 15.4,
+        "ai0503": 6.9,
+        "ai0504": 3.9,
+        "ai0505": 4.5,
+        "ai0507": 20.7,
+        "ai0506": 73.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523565,
+        "typ": 3,
+        "ags": "09277",
+        "jahr": 2024,
+        "gen": "Rottal-Inn",
+        "jahr2": 2017,
+        "ags2": "09277",
+        "gen2": "      Rottal-Inn, Landkreis",
+        "ai0501": 44.0,
+        "ai0502": 12.5,
+        "ai0503": 9.2,
+        "ai0504": 5.5,
+        "ai0505": 4.5,
+        "ai0507": 15.3,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523566,
+        "typ": 3,
+        "ags": "09278",
+        "jahr": 2024,
+        "gen": "Straubing-Bogen",
+        "jahr2": 2017,
+        "ags2": "09278",
+        "gen2": "      Straubing-Bogen, Landkreis",
+        "ai0501": 44.1,
+        "ai0502": 12.0,
+        "ai0503": 8.3,
+        "ai0504": 4.3,
+        "ai0505": 3.6,
+        "ai0507": 17.1,
+        "ai0506": 78.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523567,
+        "typ": 3,
+        "ags": "09279",
+        "jahr": 2024,
+        "gen": "Dingolfing-Landau",
+        "jahr2": 2017,
+        "ags2": "09279",
+        "gen2": "      Dingolfing-Landau, Landkreis",
+        "ai0501": 41.0,
+        "ai0502": 13.3,
+        "ai0503": 9.0,
+        "ai0504": 4.8,
+        "ai0505": 4.5,
+        "ai0507": 18.3,
+        "ai0506": 73.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523568,
+        "typ": 3,
+        "ags": "09361",
+        "jahr": 2024,
+        "gen": "Amberg",
+        "jahr2": 2017,
+        "ags2": "09361",
+        "gen2": "      Amberg, kreisfreie Stadt",
+        "ai0501": 36.0,
+        "ai0502": 17.6,
+        "ai0503": 8.7,
+        "ai0504": 7.9,
+        "ai0505": 7.6,
+        "ai0507": 14.9,
+        "ai0506": 70.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523569,
+        "typ": 3,
+        "ags": "09362",
+        "jahr": 2024,
+        "gen": "Regensburg",
+        "jahr2": 2017,
+        "ags2": "09362",
+        "gen2": "      Regensburg, kreisfreie Stadt",
+        "ai0501": 33.2,
+        "ai0502": 14.9,
+        "ai0503": 10.1,
+        "ai0504": 14.6,
+        "ai0505": 9.4,
+        "ai0507": 10.8,
+        "ai0506": 76.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523570,
+        "typ": 3,
+        "ags": "09363",
+        "jahr": 2024,
+        "gen": "Weiden i.d.OPf.",
+        "jahr2": 2017,
+        "ags2": "09363",
+        "gen2": "      Weiden i.d.OPf., kreisfreie Stadt",
+        "ai0501": 37.3,
+        "ai0502": 20.2,
+        "ai0503": 8.2,
+        "ai0504": 6.5,
+        "ai0505": 6.7,
+        "ai0507": 14.6,
+        "ai0506": 70.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523571,
+        "typ": 3,
+        "ags": "09371",
+        "jahr": 2024,
+        "gen": "Amberg-Sulzbach",
+        "jahr2": 2017,
+        "ags2": "09371",
+        "gen2": "      Amberg-Sulzbach, Landkreis",
+        "ai0501": 41.0,
+        "ai0502": 18.2,
+        "ai0503": 7.1,
+        "ai0504": 6.1,
+        "ai0505": 5.2,
+        "ai0507": 13.0,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523572,
+        "typ": 3,
+        "ags": "09372",
+        "jahr": 2024,
+        "gen": "Cham",
+        "jahr2": 2017,
+        "ags2": "09372",
+        "gen2": "      Cham, Landkreis",
+        "ai0501": 42.7,
+        "ai0502": 13.4,
+        "ai0503": 7.0,
+        "ai0504": 4.3,
+        "ai0505": 4.1,
+        "ai0507": 18.0,
+        "ai0506": 74.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523573,
+        "typ": 3,
+        "ags": "09373",
+        "jahr": 2024,
+        "gen": "Neumarkt i.d.OPf.",
+        "jahr2": 2017,
+        "ags2": "09373",
+        "gen2": "      Neumarkt i.d.OPf., Landkreis",
+        "ai0501": 45.8,
+        "ai0502": 12.8,
+        "ai0503": 7.8,
+        "ai0504": 7.7,
+        "ai0505": 4.7,
+        "ai0507": 12.0,
+        "ai0506": 80.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523574,
+        "typ": 3,
+        "ags": "09374",
+        "jahr": 2024,
+        "gen": "Neustadt a.d.Waldnaab",
+        "jahr2": 2017,
+        "ags2": "09374",
+        "gen2": "      Neustadt a.d.Waldnaab, Landkreis",
+        "ai0501": 42.6,
+        "ai0502": 19.6,
+        "ai0503": 6.1,
+        "ai0504": 4.6,
+        "ai0505": 4.5,
+        "ai0507": 13.9,
+        "ai0506": 79.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523575,
+        "typ": 3,
+        "ags": "09375",
+        "jahr": 2024,
+        "gen": "Regensburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09375",
+        "gen2": "      Regensburg, Landkreis",
+        "ai0501": 41.0,
+        "ai0502": 14.2,
+        "ai0503": 8.2,
+        "ai0504": 7.4,
+        "ai0505": 4.8,
+        "ai0507": 14.4,
+        "ai0506": 80.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523576,
+        "typ": 3,
+        "ags": "09376",
+        "jahr": 2024,
+        "gen": "Schwandorf",
+        "jahr2": 2017,
+        "ags2": "09376",
+        "gen2": "      Schwandorf, Landkreis",
+        "ai0501": 40.4,
+        "ai0502": 18.6,
+        "ai0503": 6.2,
+        "ai0504": 4.7,
+        "ai0505": 5.0,
+        "ai0507": 16.8,
+        "ai0506": 76.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523577,
+        "typ": 3,
+        "ags": "09377",
+        "jahr": 2024,
+        "gen": "Tirschenreuth",
+        "jahr2": 2017,
+        "ags2": "09377",
+        "gen2": "      Tirschenreuth, Landkreis",
+        "ai0501": 46.5,
+        "ai0502": 17.7,
+        "ai0503": 6.3,
+        "ai0504": 4.7,
+        "ai0505": 4.3,
+        "ai0507": 12.3,
+        "ai0506": 79.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523578,
+        "typ": 3,
+        "ags": "09461",
+        "jahr": 2024,
+        "gen": "Bamberg",
+        "jahr2": 2017,
+        "ags2": "09461",
+        "gen2": "      Bamberg, kreisfreie Stadt",
+        "ai0501": 31.2,
+        "ai0502": 16.5,
+        "ai0503": 10.7,
+        "ai0504": 14.5,
+        "ai0505": 9.0,
+        "ai0507": 11.4,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523579,
+        "typ": 3,
+        "ags": "09462",
+        "jahr": 2024,
+        "gen": "Bayreuth",
+        "jahr2": 2017,
+        "ags2": "09462",
+        "gen2": "      Bayreuth, kreisfreie Stadt",
+        "ai0501": 36.0,
+        "ai0502": 18.5,
+        "ai0503": 11.8,
+        "ai0504": 11.1,
+        "ai0505": 7.3,
+        "ai0507": 9.6,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523580,
+        "typ": 3,
+        "ags": "09463",
+        "jahr": 2024,
+        "gen": "Coburg",
+        "jahr2": 2017,
+        "ags2": "09463",
+        "gen2": "      Coburg, kreisfreie Stadt",
+        "ai0501": 33.2,
+        "ai0502": 21.2,
+        "ai0503": 10.5,
+        "ai0504": 10.6,
+        "ai0505": 8.1,
+        "ai0507": 10.7,
+        "ai0506": 74.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523581,
+        "typ": 3,
+        "ags": "09464",
+        "jahr": 2024,
+        "gen": "Hof",
+        "jahr2": 2017,
+        "ags2": "09464",
+        "gen2": "      Hof, kreisfreie Stadt",
+        "ai0501": 36.4,
+        "ai0502": 20.0,
+        "ai0503": 9.3,
+        "ai0504": 7.0,
+        "ai0505": 7.1,
+        "ai0507": 13.9,
+        "ai0506": 70.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523582,
+        "typ": 3,
+        "ags": "09471",
+        "jahr": 2024,
+        "gen": "Bamberg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09471",
+        "gen2": "      Bamberg, Landkreis",
+        "ai0501": 42.7,
+        "ai0502": 15.1,
+        "ai0503": 8.6,
+        "ai0504": 6.2,
+        "ai0505": 4.9,
+        "ai0507": 15.5,
+        "ai0506": 81.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523583,
+        "typ": 3,
+        "ags": "09472",
+        "jahr": 2024,
+        "gen": "Bayreuth, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09472",
+        "gen2": "      Bayreuth, Landkreis",
+        "ai0501": 45.0,
+        "ai0502": 19.1,
+        "ai0503": 7.6,
+        "ai0504": 6.0,
+        "ai0505": 4.6,
+        "ai0507": 10.9,
+        "ai0506": 79.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523584,
+        "typ": 3,
+        "ags": "09473",
+        "jahr": 2024,
+        "gen": "Coburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09473",
+        "gen2": "      Coburg, Landkreis",
+        "ai0501": 39.1,
+        "ai0502": 22.2,
+        "ai0503": 8.4,
+        "ai0504": 6.9,
+        "ai0505": 5.4,
+        "ai0507": 12.0,
+        "ai0506": 78.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523585,
+        "typ": 3,
+        "ags": "09474",
+        "jahr": 2024,
+        "gen": "Forchheim",
+        "jahr2": 2017,
+        "ags2": "09474",
+        "gen2": "      Forchheim, Landkreis",
+        "ai0501": 42.4,
+        "ai0502": 15.4,
+        "ai0503": 8.8,
+        "ai0504": 8.8,
+        "ai0505": 5.6,
+        "ai0507": 11.8,
+        "ai0506": 81.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523586,
+        "typ": 3,
+        "ags": "09475",
+        "jahr": 2024,
+        "gen": "Hof, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09475",
+        "gen2": "      Hof, Landkreis",
+        "ai0501": 41.2,
+        "ai0502": 21.9,
+        "ai0503": 7.6,
+        "ai0504": 5.1,
+        "ai0505": 5.1,
+        "ai0507": 12.4,
+        "ai0506": 78.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523587,
+        "typ": 3,
+        "ags": "09476",
+        "jahr": 2024,
+        "gen": "Kronach",
+        "jahr2": 2017,
+        "ags2": "09476",
+        "gen2": "      Kronach, Landkreis",
+        "ai0501": 43.7,
+        "ai0502": 23.4,
+        "ai0503": 6.7,
+        "ai0504": 4.4,
+        "ai0505": 4.6,
+        "ai0507": 11.8,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523588,
+        "typ": 3,
+        "ags": "09477",
+        "jahr": 2024,
+        "gen": "Kulmbach",
+        "jahr2": 2017,
+        "ags2": "09477",
+        "gen2": "      Kulmbach, Landkreis",
+        "ai0501": 42.3,
+        "ai0502": 20.3,
+        "ai0503": 7.6,
+        "ai0504": 6.3,
+        "ai0505": 5.0,
+        "ai0507": 11.4,
+        "ai0506": 77.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523589,
+        "typ": 3,
+        "ags": "09478",
+        "jahr": 2024,
+        "gen": "Lichtenfels",
+        "jahr2": 2017,
+        "ags2": "09478",
+        "gen2": "      Lichtenfels, Landkreis",
+        "ai0501": 45.1,
+        "ai0502": 17.6,
+        "ai0503": 7.1,
+        "ai0504": 5.5,
+        "ai0505": 4.5,
+        "ai0507": 13.2,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523590,
+        "typ": 3,
+        "ags": "09479",
+        "jahr": 2024,
+        "gen": "Wunsiedel i.Fichtelgebirge",
+        "jahr2": 2017,
+        "ags2": "09479",
+        "gen2": "      Wunsiedel i.Fichtelgebirge, Landkreis",
+        "ai0501": 36.8,
+        "ai0502": 23.8,
+        "ai0503": 7.3,
+        "ai0504": 5.3,
+        "ai0505": 5.8,
+        "ai0507": 13.8,
+        "ai0506": 75.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523591,
+        "typ": 3,
+        "ags": "09561",
+        "jahr": 2024,
+        "gen": "Ansbach",
+        "jahr2": 2017,
+        "ags2": "09561",
+        "gen2": "      Ansbach, kreisfreie Stadt",
+        "ai0501": 32.4,
+        "ai0502": 18.6,
+        "ai0503": 7.9,
+        "ai0504": 10.2,
+        "ai0505": 10.1,
+        "ai0507": 13.2,
+        "ai0506": 71.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523592,
+        "typ": 3,
+        "ags": "09562",
+        "jahr": 2024,
+        "gen": "Erlangen",
+        "jahr2": 2017,
+        "ags2": "09562",
+        "gen2": "      Erlangen, kreisfreie Stadt",
+        "ai0501": 31.7,
+        "ai0502": 17.8,
+        "ai0503": 10.6,
+        "ai0504": 16.2,
+        "ai0505": 9.3,
+        "ai0507": 8.0,
+        "ai0506": 80.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523593,
+        "typ": 3,
+        "ags": "09563",
+        "jahr": 2024,
+        "gen": "Fürth",
+        "jahr2": 2017,
+        "ags2": "09563",
+        "gen2": "      Fürth, kreisfreie Stadt",
+        "ai0501": 28.7,
+        "ai0502": 20.9,
+        "ai0503": 9.1,
+        "ai0504": 11.9,
+        "ai0505": 10.8,
+        "ai0507": 11.9,
+        "ai0506": 73.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523594,
+        "typ": 3,
+        "ags": "09564",
+        "jahr": 2024,
+        "gen": "Nürnberg",
+        "jahr2": 2017,
+        "ags2": "09564",
+        "gen2": "      Nürnberg, kreisfreie Stadt",
+        "ai0501": 28.9,
+        "ai0502": 19.5,
+        "ai0503": 9.6,
+        "ai0504": 12.4,
+        "ai0505": 10.6,
+        "ai0507": 12.0,
+        "ai0506": 74.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523595,
+        "typ": 3,
+        "ags": "09565",
+        "jahr": 2024,
+        "gen": "Schwabach",
+        "jahr2": 2017,
+        "ags2": "09565",
+        "gen2": "      Schwabach, kreisfreie Stadt",
+        "ai0501": 33.7,
+        "ai0502": 19.3,
+        "ai0503": 9.9,
+        "ai0504": 11.2,
+        "ai0505": 7.2,
+        "ai0507": 11.9,
+        "ai0506": 76.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523596,
+        "typ": 3,
+        "ags": "09571",
+        "jahr": 2024,
+        "gen": "Ansbach, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09571",
+        "gen2": "      Ansbach, Landkreis",
+        "ai0501": 40.9,
+        "ai0502": 16.4,
+        "ai0503": 7.7,
+        "ai0504": 8.5,
+        "ai0505": 6.5,
+        "ai0507": 11.7,
+        "ai0506": 77.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523597,
+        "typ": 3,
+        "ags": "09572",
+        "jahr": 2024,
+        "gen": "Erlangen-Höchstadt",
+        "jahr2": 2017,
+        "ags2": "09572",
+        "gen2": "      Erlangen-Höchstadt, Landkreis",
+        "ai0501": 38.4,
+        "ai0502": 17.1,
+        "ai0503": 9.8,
+        "ai0504": 11.5,
+        "ai0505": 6.2,
+        "ai0507": 10.5,
+        "ai0506": 83.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523598,
+        "typ": 3,
+        "ags": "09573",
+        "jahr": 2024,
+        "gen": "Fürth, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09573",
+        "gen2": "      Fürth, Landkreis",
+        "ai0501": 35.9,
+        "ai0502": 18.8,
+        "ai0503": 9.3,
+        "ai0504": 10.4,
+        "ai0505": 6.8,
+        "ai0507": 12.1,
+        "ai0506": 81.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523599,
+        "typ": 3,
+        "ags": "09574",
+        "jahr": 2024,
+        "gen": "Nürnberger Land",
+        "jahr2": 2017,
+        "ags2": "09574",
+        "gen2": "      Nürnberger Land, Landkreis",
+        "ai0501": 35.7,
+        "ai0502": 19.3,
+        "ai0503": 9.0,
+        "ai0504": 10.3,
+        "ai0505": 6.8,
+        "ai0507": 11.4,
+        "ai0506": 82.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523600,
+        "typ": 3,
+        "ags": "09575",
+        "jahr": 2024,
+        "gen": "Neustadt a.d.Aisch-Bad Windsheim",
+        "jahr2": 2017,
+        "ags2": "09575",
+        "gen2": "      Neustadt a.d.Aisch-Bad Windsheim, Landkreis",
+        "ai0501": 41.2,
+        "ai0502": 16.6,
+        "ai0503": 8.1,
+        "ai0504": 8.9,
+        "ai0505": 6.0,
+        "ai0507": 10.9,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523601,
+        "typ": 3,
+        "ags": "09576",
+        "jahr": 2024,
+        "gen": "Roth",
+        "jahr2": 2017,
+        "ags2": "09576",
+        "gen2": "      Roth, Landkreis",
+        "ai0501": 40.6,
+        "ai0502": 17.3,
+        "ai0503": 8.2,
+        "ai0504": 9.1,
+        "ai0505": 5.6,
+        "ai0507": 11.7,
+        "ai0506": 81.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523602,
+        "typ": 3,
+        "ags": "09577",
+        "jahr": 2024,
+        "gen": "Weißenburg-Gunzenhausen",
+        "jahr2": 2017,
+        "ags2": "09577",
+        "gen2": "      Weißenburg-Gunzenhausen, Landkreis",
+        "ai0501": 42.5,
+        "ai0502": 17.8,
+        "ai0503": 6.9,
+        "ai0504": 8.8,
+        "ai0505": 5.4,
+        "ai0507": 11.3,
+        "ai0506": 75.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523603,
+        "typ": 3,
+        "ags": "09661",
+        "jahr": 2024,
+        "gen": "Aschaffenburg",
+        "jahr2": 2017,
+        "ags2": "09661",
+        "gen2": "      Aschaffenburg, kreisfreie Stadt",
+        "ai0501": 33.3,
+        "ai0502": 17.7,
+        "ai0503": 11.7,
+        "ai0504": 11.3,
+        "ai0505": 8.1,
+        "ai0507": 12.0,
+        "ai0506": 73.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523604,
+        "typ": 3,
+        "ags": "09662",
+        "jahr": 2024,
+        "gen": "Schweinfurt",
+        "jahr2": 2017,
+        "ags2": "09662",
+        "gen2": "      Schweinfurt, kreisfreie Stadt",
+        "ai0501": 31.7,
+        "ai0502": 20.0,
+        "ai0503": 9.0,
+        "ai0504": 7.1,
+        "ai0505": 10.8,
+        "ai0507": 15.6,
+        "ai0506": 69.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523605,
+        "typ": 3,
+        "ags": "09663",
+        "jahr": 2024,
+        "gen": "Würzburg",
+        "jahr2": 2017,
+        "ags2": "09663",
+        "gen2": "      Würzburg, kreisfreie Stadt",
+        "ai0501": 31.7,
+        "ai0502": 16.8,
+        "ai0503": 11.4,
+        "ai0504": 16.6,
+        "ai0505": 9.3,
+        "ai0507": 8.0,
+        "ai0506": 77.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523606,
+        "typ": 3,
+        "ags": "09671",
+        "jahr": 2024,
+        "gen": "Aschaffenburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09671",
+        "gen2": "      Aschaffenburg, Landkreis",
+        "ai0501": 40.0,
+        "ai0502": 17.5,
+        "ai0503": 10.6,
+        "ai0504": 8.7,
+        "ai0505": 5.4,
+        "ai0507": 11.5,
+        "ai0506": 81.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523607,
+        "typ": 3,
+        "ags": "09672",
+        "jahr": 2024,
+        "gen": "Bad Kissingen",
+        "jahr2": 2017,
+        "ags2": "09672",
+        "gen2": "      Bad Kissingen, Landkreis",
+        "ai0501": 45.2,
+        "ai0502": 15.2,
+        "ai0503": 9.2,
+        "ai0504": 7.0,
+        "ai0505": 5.8,
+        "ai0507": 11.4,
+        "ai0506": 78.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523608,
+        "typ": 3,
+        "ags": "09673",
+        "jahr": 2024,
+        "gen": "Rhön-Grabfeld",
+        "jahr2": 2017,
+        "ags2": "09673",
+        "gen2": "      Rhön-Grabfeld, Landkreis",
+        "ai0501": 46.7,
+        "ai0502": 14.2,
+        "ai0503": 9.3,
+        "ai0504": 7.0,
+        "ai0505": 6.1,
+        "ai0507": 10.4,
+        "ai0506": 78.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523609,
+        "typ": 3,
+        "ags": "09674",
+        "jahr": 2024,
+        "gen": "Haßberge",
+        "jahr2": 2017,
+        "ags2": "09674",
+        "gen2": "      Haßberge, Landkreis",
+        "ai0501": 42.0,
+        "ai0502": 18.0,
+        "ai0503": 8.1,
+        "ai0504": 6.0,
+        "ai0505": 5.9,
+        "ai0507": 12.9,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523610,
+        "typ": 3,
+        "ags": "09675",
+        "jahr": 2024,
+        "gen": "Kitzingen",
+        "jahr2": 2017,
+        "ags2": "09675",
+        "gen2": "      Kitzingen, Landkreis",
+        "ai0501": 41.4,
+        "ai0502": 16.7,
+        "ai0503": 9.3,
+        "ai0504": 8.4,
+        "ai0505": 5.4,
+        "ai0507": 10.9,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523611,
+        "typ": 3,
+        "ags": "09676",
+        "jahr": 2024,
+        "gen": "Miltenberg",
+        "jahr2": 2017,
+        "ags2": "09676",
+        "gen2": "      Miltenberg, Landkreis",
+        "ai0501": 40.7,
+        "ai0502": 17.8,
+        "ai0503": 9.7,
+        "ai0504": 7.8,
+        "ai0505": 5.8,
+        "ai0507": 11.3,
+        "ai0506": 79.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523612,
+        "typ": 3,
+        "ags": "09677",
+        "jahr": 2024,
+        "gen": "Main-Spessart",
+        "jahr2": 2017,
+        "ags2": "09677",
+        "gen2": "      Main-Spessart, Landkreis",
+        "ai0501": 42.9,
+        "ai0502": 19.2,
+        "ai0503": 8.0,
+        "ai0504": 7.5,
+        "ai0505": 5.2,
+        "ai0507": 10.4,
+        "ai0506": 80.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523613,
+        "typ": 3,
+        "ags": "09678",
+        "jahr": 2024,
+        "gen": "Schweinfurt, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09678",
+        "gen2": "      Schweinfurt, Landkreis",
+        "ai0501": 44.2,
+        "ai0502": 15.9,
+        "ai0503": 8.6,
+        "ai0504": 7.1,
+        "ai0505": 6.3,
+        "ai0507": 12.0,
+        "ai0506": 81.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523614,
+        "typ": 3,
+        "ags": "09679",
+        "jahr": 2024,
+        "gen": "Würzburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09679",
+        "gen2": "      Würzburg, Landkreis",
+        "ai0501": 41.1,
+        "ai0502": 18.3,
+        "ai0503": 9.6,
+        "ai0504": 10.5,
+        "ai0505": 5.6,
+        "ai0507": 9.1,
+        "ai0506": 83.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523615,
+        "typ": 3,
+        "ags": "09761",
+        "jahr": 2024,
+        "gen": "Augsburg",
+        "jahr2": 2017,
+        "ags2": "09761",
+        "gen2": "      Augsburg, kreisfreie Stadt",
+        "ai0501": 31.2,
+        "ai0502": 16.1,
+        "ai0503": 9.9,
+        "ai0504": 12.8,
+        "ai0505": 9.3,
+        "ai0507": 13.6,
+        "ai0506": 72.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523616,
+        "typ": 3,
+        "ags": "09762",
+        "jahr": 2024,
+        "gen": "Kaufbeuren",
+        "jahr2": 2017,
+        "ags2": "09762",
+        "gen2": "      Kaufbeuren, kreisfreie Stadt",
+        "ai0501": 36.3,
+        "ai0502": 13.8,
+        "ai0503": 11.2,
+        "ai0504": 9.8,
+        "ai0505": 8.2,
+        "ai0507": 14.0,
+        "ai0506": 71.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523617,
+        "typ": 3,
+        "ags": "09763",
+        "jahr": 2024,
+        "gen": "Kempten (Allgäu)",
+        "jahr2": 2017,
+        "ags2": "09763",
+        "gen2": "      Kempten (Allgäu), kreisfreie Stadt",
+        "ai0501": 34.0,
+        "ai0502": 14.3,
+        "ai0503": 11.7,
+        "ai0504": 11.3,
+        "ai0505": 7.5,
+        "ai0507": 13.4,
+        "ai0506": 72.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523618,
+        "typ": 3,
+        "ags": "09764",
+        "jahr": 2024,
+        "gen": "Memmingen",
+        "jahr2": 2017,
+        "ags2": "09764",
+        "gen2": "      Memmingen, kreisfreie Stadt",
+        "ai0501": 35.4,
+        "ai0502": 16.0,
+        "ai0503": 11.0,
+        "ai0504": 8.9,
+        "ai0505": 6.2,
+        "ai0507": 15.3,
+        "ai0506": 73.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523619,
+        "typ": 3,
+        "ags": "09771",
+        "jahr": 2024,
+        "gen": "Aichach-Friedberg",
+        "jahr2": 2017,
+        "ags2": "09771",
+        "gen2": "      Aichach-Friedberg, Landkreis",
+        "ai0501": 43.2,
+        "ai0502": 11.7,
+        "ai0503": 10.4,
+        "ai0504": 8.3,
+        "ai0505": 4.4,
+        "ai0507": 14.3,
+        "ai0506": 80.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523620,
+        "typ": 3,
+        "ags": "09772",
+        "jahr": 2024,
+        "gen": "Augsburg, Landkreis",
+        "jahr2": 2017,
+        "ags2": "09772",
+        "gen2": "      Augsburg, Landkreis",
+        "ai0501": 40.6,
+        "ai0502": 13.1,
+        "ai0503": 10.3,
+        "ai0504": 8.8,
+        "ai0505": 5.3,
+        "ai0507": 13.8,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523621,
+        "typ": 3,
+        "ags": "09773",
+        "jahr": 2024,
+        "gen": "Dillingen a.d.Donau",
+        "jahr2": 2017,
+        "ags2": "09773",
+        "gen2": "      Dillingen a.d.Donau, Landkreis",
+        "ai0501": 40.2,
+        "ai0502": 13.4,
+        "ai0503": 10.0,
+        "ai0504": 6.7,
+        "ai0505": 4.6,
+        "ai0507": 16.6,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523622,
+        "typ": 3,
+        "ags": "09774",
+        "jahr": 2024,
+        "gen": "Günzburg",
+        "jahr2": 2017,
+        "ags2": "09774",
+        "gen2": "      Günzburg, Landkreis",
+        "ai0501": 41.5,
+        "ai0502": 12.8,
+        "ai0503": 9.7,
+        "ai0504": 7.0,
+        "ai0505": 4.8,
+        "ai0507": 16.0,
+        "ai0506": 74.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523623,
+        "typ": 3,
+        "ags": "09775",
+        "jahr": 2024,
+        "gen": "Neu-Ulm",
+        "jahr2": 2017,
+        "ags2": "09775",
+        "gen2": "      Neu-Ulm, Landkreis",
+        "ai0501": 37.5,
+        "ai0502": 15.3,
+        "ai0503": 10.9,
+        "ai0504": 9.6,
+        "ai0505": 5.7,
+        "ai0507": 14.2,
+        "ai0506": 76.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523624,
+        "typ": 3,
+        "ags": "09776",
+        "jahr": 2024,
+        "gen": "Lindau (Bodensee)",
+        "jahr2": 2017,
+        "ags2": "09776",
+        "gen2": "      Lindau (Bodensee), Landkreis",
+        "ai0501": 40.7,
+        "ai0502": 13.3,
+        "ai0503": 10.4,
+        "ai0504": 12.9,
+        "ai0505": 7.0,
+        "ai0507": 9.0,
+        "ai0506": 78.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523625,
+        "typ": 3,
+        "ags": "09777",
+        "jahr": 2024,
+        "gen": "Ostallgäu",
+        "jahr2": 2017,
+        "ags2": "09777",
+        "gen2": "      Ostallgäu, Landkreis",
+        "ai0501": 45.1,
+        "ai0502": 11.4,
+        "ai0503": 10.1,
+        "ai0504": 8.7,
+        "ai0505": 5.1,
+        "ai0507": 11.5,
+        "ai0506": 79.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523626,
+        "typ": 3,
+        "ags": "09778",
+        "jahr": 2024,
+        "gen": "Unterallgäu",
+        "jahr2": 2017,
+        "ags2": "09778",
+        "gen2": "      Unterallgäu, Landkreis",
+        "ai0501": 43.0,
+        "ai0502": 10.7,
+        "ai0503": 10.4,
+        "ai0504": 7.3,
+        "ai0505": 4.4,
+        "ai0507": 15.3,
+        "ai0506": 78.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523627,
+        "typ": 3,
+        "ags": "09779",
+        "jahr": 2024,
+        "gen": "Donau-Ries",
+        "jahr2": 2017,
+        "ags2": "09779",
+        "gen2": "      Donau-Ries, Landkreis",
+        "ai0501": 44.6,
+        "ai0502": 14.9,
+        "ai0503": 8.6,
+        "ai0504": 7.1,
+        "ai0505": 4.7,
+        "ai0507": 13.2,
+        "ai0506": 78.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523628,
+        "typ": 3,
+        "ags": "09780",
+        "jahr": 2024,
+        "gen": "Oberallgäu",
+        "jahr2": 2017,
+        "ags2": "09780",
+        "gen2": "      Oberallgäu, Landkreis",
+        "ai0501": 44.7,
+        "ai0502": 11.3,
+        "ai0503": 10.7,
+        "ai0504": 10.5,
+        "ai0505": 4.6,
+        "ai0507": 10.3,
+        "ai0506": 80.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523629,
+        "typ": 3,
+        "ags": "10041",
+        "jahr": 2024,
+        "gen": "Regionalverband Saarbrücken",
+        "jahr2": 2017,
+        "ags2": "10041",
+        "gen2": "      Saarbrücken, Regionalverband",
+        "ai0501": 29.1,
+        "ai0502": 26.8,
+        "ai0503": 8.0,
+        "ai0504": 7.4,
+        "ai0505": 14.4,
+        "ai0507": 10.0,
+        "ai0506": 74.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523630,
+        "typ": 3,
+        "ags": "10042",
+        "jahr": 2024,
+        "gen": "Merzig-Wadern",
+        "jahr2": 2017,
+        "ags2": "10042",
+        "gen2": "      Merzig-Wadern, Landkreis",
+        "ai0501": 34.8,
+        "ai0502": 26.9,
+        "ai0503": 7.9,
+        "ai0504": 5.3,
+        "ai0505": 12.4,
+        "ai0507": 9.3,
+        "ai0506": 78.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523631,
+        "typ": 3,
+        "ags": "10043",
+        "jahr": 2024,
+        "gen": "Neunkirchen",
+        "jahr2": 2017,
+        "ags2": "10043",
+        "gen2": "      Neunkirchen, Landkreis",
+        "ai0501": 30.4,
+        "ai0502": 30.3,
+        "ai0503": 6.7,
+        "ai0504": 4.7,
+        "ai0505": 13.3,
+        "ai0507": 10.9,
+        "ai0506": 74.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523632,
+        "typ": 3,
+        "ags": "10044",
+        "jahr": 2024,
+        "gen": "Saarlouis",
+        "jahr2": 2017,
+        "ags2": "10044",
+        "gen2": "      Saarlouis, Landkreis",
+        "ai0501": 33.7,
+        "ai0502": 26.7,
+        "ai0503": 7.5,
+        "ai0504": 5.4,
+        "ai0505": 12.9,
+        "ai0507": 10.1,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523633,
+        "typ": 3,
+        "ags": "10045",
+        "jahr": 2024,
+        "gen": "Saarpfalz-Kreis",
+        "jahr2": 2017,
+        "ags2": "10045",
+        "gen2": "      Saarpfalz-Kreis",
+        "ai0501": 32.8,
+        "ai0502": 25.8,
+        "ai0503": 8.4,
+        "ai0504": 6.4,
+        "ai0505": 11.6,
+        "ai0507": 11.3,
+        "ai0506": 78.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523634,
+        "typ": 3,
+        "ags": "10046",
+        "jahr": 2024,
+        "gen": "St. Wendel",
+        "jahr2": 2017,
+        "ags2": "10046",
+        "gen2": "      St. Wendel, Landkreis",
+        "ai0501": 39.7,
+        "ai0502": 27.3,
+        "ai0503": 6.4,
+        "ai0504": 4.7,
+        "ai0505": 10.1,
+        "ai0507": 8.3,
+        "ai0506": 81.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523635,
+        "typ": 3,
+        "ags": "11",
+        "jahr": 2024,
+        "gen": "Berlin",
+        "jahr2": 2017,
+        "ags2": "11",
+        "gen2": "  Berlin",
+        "ai0501": 22.7,
+        "ai0502": 17.9,
+        "ai0503": 8.9,
+        "ai0504": 12.6,
+        "ai0505": 18.8,
+        "ai0507": 12.0,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523636,
+        "typ": 3,
+        "ags": "12051",
+        "jahr": 2024,
+        "gen": "Brandenburg an der Havel",
+        "jahr2": 2017,
+        "ags2": "12051",
+        "gen2": "      Brandenburg an der Havel, kreisfreie Stadt",
+        "ai0501": 28.0,
+        "ai0502": 20.6,
+        "ai0503": 6.1,
+        "ai0504": 4.6,
+        "ai0505": 17.3,
+        "ai0507": 17.3,
+        "ai0506": 65.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523637,
+        "typ": 3,
+        "ags": "12052",
+        "jahr": 2024,
+        "gen": "Cottbus",
+        "jahr2": 2017,
+        "ags2": "12052",
+        "gen2": "      Cottbus, kreisfreie Stadt",
+        "ai0501": 22.9,
+        "ai0502": 15.4,
+        "ai0503": 8.1,
+        "ai0504": 3.8,
+        "ai0505": 18.5,
+        "ai0507": 24.3,
+        "ai0506": 72.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523638,
+        "typ": 3,
+        "ags": "12053",
+        "jahr": 2024,
+        "gen": "Frankfurt (Oder)",
+        "jahr2": 2017,
+        "ags2": "12053",
+        "gen2": "      Frankfurt (Oder), kreisfreie Stadt",
+        "ai0501": 23.2,
+        "ai0502": 15.8,
+        "ai0503": 6.1,
+        "ai0504": 4.8,
+        "ai0505": 21.6,
+        "ai0507": 21.9,
+        "ai0506": 69.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523639,
+        "typ": 3,
+        "ags": "12054",
+        "jahr": 2024,
+        "gen": "Potsdam",
+        "jahr2": 2017,
+        "ags2": "12054",
+        "gen2": "      Potsdam, kreisfreie Stadt",
+        "ai0501": 21.6,
+        "ai0502": 18.3,
+        "ai0503": 8.2,
+        "ai0504": 10.9,
+        "ai0505": 21.2,
+        "ai0507": 12.8,
+        "ai0506": 78.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523640,
+        "typ": 3,
+        "ags": "12060",
+        "jahr": 2024,
+        "gen": "Barnim",
+        "jahr2": 2017,
+        "ags2": "12060",
+        "gen2": "      Barnim, Landkreis",
+        "ai0501": 25.4,
+        "ai0502": 15.3,
+        "ai0503": 6.2,
+        "ai0504": 5.0,
+        "ai0505": 20.6,
+        "ai0507": 20.6,
+        "ai0506": 74.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523641,
+        "typ": 3,
+        "ags": "12061",
+        "jahr": 2024,
+        "gen": "Dahme-Spreewald",
+        "jahr2": 2017,
+        "ags2": "12061",
+        "gen2": "      Dahme-Spreewald, Landkreis",
+        "ai0501": 26.7,
+        "ai0502": 17.3,
+        "ai0503": 7.1,
+        "ai0504": 4.7,
+        "ai0505": 16.2,
+        "ai0507": 21.4,
+        "ai0506": 76.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523642,
+        "typ": 3,
+        "ags": "12062",
+        "jahr": 2024,
+        "gen": "Elbe-Elster",
+        "jahr2": 2017,
+        "ags2": "12062",
+        "gen2": "      Elbe-Elster, Landkreis",
+        "ai0501": 29.6,
+        "ai0502": 15.5,
+        "ai0503": 6.5,
+        "ai0504": 2.5,
+        "ai0505": 14.8,
+        "ai0507": 24.2,
+        "ai0506": 74.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523643,
+        "typ": 3,
+        "ags": "12063",
+        "jahr": 2024,
+        "gen": "Havelland",
+        "jahr2": 2017,
+        "ags2": "12063",
+        "gen2": "      Havelland, Landkreis",
+        "ai0501": 28.8,
+        "ai0502": 19.3,
+        "ai0503": 7.4,
+        "ai0504": 6.2,
+        "ai0505": 14.7,
+        "ai0507": 18.0,
+        "ai0506": 73.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523644,
+        "typ": 3,
+        "ags": "12064",
+        "jahr": 2024,
+        "gen": "Märkisch-Oderland",
+        "jahr2": 2017,
+        "ags2": "12064",
+        "gen2": "      Märkisch-Oderland, Landkreis",
+        "ai0501": 25.3,
+        "ai0502": 15.8,
+        "ai0503": 6.6,
+        "ai0504": 4.5,
+        "ai0505": 20.2,
+        "ai0507": 20.8,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523645,
+        "typ": 3,
+        "ags": "12065",
+        "jahr": 2024,
+        "gen": "Oberhavel",
+        "jahr2": 2017,
+        "ags2": "12065",
+        "gen2": "      Oberhavel, Landkreis",
+        "ai0501": 28.0,
+        "ai0502": 18.6,
+        "ai0503": 7.3,
+        "ai0504": 5.6,
+        "ai0505": 14.9,
+        "ai0507": 19.3,
+        "ai0506": 74.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523646,
+        "typ": 3,
+        "ags": "12066",
+        "jahr": 2024,
+        "gen": "Oberspreewald-Lausitz",
+        "jahr2": 2017,
+        "ags2": "12066",
+        "gen2": "      Oberspreewald-Lausitz, Landkreis",
+        "ai0501": 25.8,
+        "ai0502": 16.0,
+        "ai0503": 6.9,
+        "ai0504": 2.7,
+        "ai0505": 16.3,
+        "ai0507": 25.9,
+        "ai0506": 71.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523647,
+        "typ": 3,
+        "ags": "12067",
+        "jahr": 2024,
+        "gen": "Oder-Spree",
+        "jahr2": 2017,
+        "ags2": "12067",
+        "gen2": "      Oder-Spree, Landkreis",
+        "ai0501": 24.9,
+        "ai0502": 16.6,
+        "ai0503": 6.9,
+        "ai0504": 4.1,
+        "ai0505": 18.2,
+        "ai0507": 22.1,
+        "ai0506": 72.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523648,
+        "typ": 3,
+        "ags": "12068",
+        "jahr": 2024,
+        "gen": "Ostprignitz-Ruppin",
+        "jahr2": 2017,
+        "ags2": "12068",
+        "gen2": "      Ostprignitz-Ruppin, Landkreis",
+        "ai0501": 29.8,
+        "ai0502": 20.4,
+        "ai0503": 5.3,
+        "ai0504": 4.0,
+        "ai0505": 16.8,
+        "ai0507": 18.5,
+        "ai0506": 68.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523649,
+        "typ": 3,
+        "ags": "12069",
+        "jahr": 2024,
+        "gen": "Potsdam-Mittelmark",
+        "jahr2": 2017,
+        "ags2": "12069",
+        "gen2": "      Potsdam-Mittelmark, Landkreis",
+        "ai0501": 29.0,
+        "ai0502": 19.3,
+        "ai0503": 9.2,
+        "ai0504": 7.3,
+        "ai0505": 14.4,
+        "ai0507": 15.4,
+        "ai0506": 77.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523650,
+        "typ": 3,
+        "ags": "12070",
+        "jahr": 2024,
+        "gen": "Prignitz",
+        "jahr2": 2017,
+        "ags2": "12070",
+        "gen2": "      Prignitz, Landkreis",
+        "ai0501": 30.4,
+        "ai0502": 21.8,
+        "ai0503": 5.8,
+        "ai0504": 3.0,
+        "ai0505": 16.4,
+        "ai0507": 18.3,
+        "ai0506": 69.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523651,
+        "typ": 3,
+        "ags": "12071",
+        "jahr": 2024,
+        "gen": "Spree-Neiße",
+        "jahr2": 2017,
+        "ags2": "12071",
+        "gen2": "      Spree-Neiße, Landkreis",
+        "ai0501": 25.1,
+        "ai0502": 15.0,
+        "ai0503": 7.3,
+        "ai0504": 2.6,
+        "ai0505": 14.9,
+        "ai0507": 28.9,
+        "ai0506": 75.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523652,
+        "typ": 3,
+        "ags": "12072",
+        "jahr": 2024,
+        "gen": "Teltow-Fläming",
+        "jahr2": 2017,
+        "ags2": "12072",
+        "gen2": "      Teltow-Fläming, Landkreis",
+        "ai0501": 27.1,
+        "ai0502": 18.5,
+        "ai0503": 7.7,
+        "ai0504": 4.7,
+        "ai0505": 15.7,
+        "ai0507": 20.0,
+        "ai0506": 73.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523653,
+        "typ": 3,
+        "ags": "12073",
+        "jahr": 2024,
+        "gen": "Uckermark",
+        "jahr2": 2017,
+        "ags2": "12073",
+        "gen2": "      Uckermark, Landkreis",
+        "ai0501": 30.1,
+        "ai0502": 17.8,
+        "ai0503": 5.1,
+        "ai0504": 3.3,
+        "ai0505": 17.8,
+        "ai0507": 20.8,
+        "ai0506": 69.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523654,
+        "typ": 3,
+        "ags": "13003",
+        "jahr": 2024,
+        "gen": "Rostock",
+        "jahr2": 2017,
+        "ags2": "13003",
+        "gen2": "      Rostock, kreisfreie Stadt",
+        "ai0501": 28.4,
+        "ai0502": 16.4,
+        "ai0503": 6.4,
+        "ai0504": 7.0,
+        "ai0505": 22.1,
+        "ai0507": 14.7,
+        "ai0506": 72.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523655,
+        "typ": 3,
+        "ags": "13004",
+        "jahr": 2024,
+        "gen": "Schwerin",
+        "jahr2": 2017,
+        "ags2": "13004",
+        "gen2": "      Schwerin, kreisfreie Stadt",
+        "ai0501": 30.1,
+        "ai0502": 18.6,
+        "ai0503": 6.6,
+        "ai0504": 5.3,
+        "ai0505": 19.1,
+        "ai0507": 15.6,
+        "ai0506": 72.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523656,
+        "typ": 3,
+        "ags": "13071",
+        "jahr": 2024,
+        "gen": "Mecklenburgische Seenplatte",
+        "jahr2": 2017,
+        "ags2": "13071",
+        "gen2": "      Mecklenburgische Seenplatte, Landkreis",
+        "ai0501": 34.5,
+        "ai0502": 13.7,
+        "ai0503": 5.6,
+        "ai0504": 3.2,
+        "ai0505": 18.9,
+        "ai0507": 19.6,
+        "ai0506": 69.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523657,
+        "typ": 3,
+        "ags": "13072",
+        "jahr": 2024,
+        "gen": "Rostock, Landkreis",
+        "jahr2": 2017,
+        "ags2": "13072",
+        "gen2": "      Landkreis Rostock",
+        "ai0501": 36.0,
+        "ai0502": 14.8,
+        "ai0503": 6.5,
+        "ai0504": 3.9,
+        "ai0505": 16.1,
+        "ai0507": 18.2,
+        "ai0506": 72.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523658,
+        "typ": 3,
+        "ags": "13073",
+        "jahr": 2024,
+        "gen": "Vorpommern-Rügen",
+        "jahr2": 2017,
+        "ags2": "13073",
+        "gen2": "      Vorpommern-Rügen, Landkreis",
+        "ai0501": 33.9,
+        "ai0502": 12.2,
+        "ai0503": 6.5,
+        "ai0504": 4.0,
+        "ai0505": 18.0,
+        "ai0507": 20.5,
+        "ai0506": 69.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523659,
+        "typ": 3,
+        "ags": "13074",
+        "jahr": 2024,
+        "gen": "Nordwestmecklenburg",
+        "jahr2": 2017,
+        "ags2": "13074",
+        "gen2": "      Nordwestmecklenburg, Landkreis",
+        "ai0501": 32.7,
+        "ai0502": 18.9,
+        "ai0503": 6.2,
+        "ai0504": 4.5,
+        "ai0505": 16.3,
+        "ai0507": 17.0,
+        "ai0506": 70.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523660,
+        "typ": 3,
+        "ags": "13075",
+        "jahr": 2024,
+        "gen": "Vorpommern-Greifswald",
+        "jahr2": 2017,
+        "ags2": "13075",
+        "gen2": "      Vorpommern-Greifswald, Landkreis",
+        "ai0501": 32.6,
+        "ai0502": 11.8,
+        "ai0503": 6.3,
+        "ai0504": 4.1,
+        "ai0505": 16.3,
+        "ai0507": 22.7,
+        "ai0506": 69.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523661,
+        "typ": 3,
+        "ags": "13076",
+        "jahr": 2024,
+        "gen": "Ludwigslust-Parchim",
+        "jahr2": 2017,
+        "ags2": "13076",
+        "gen2": "      Ludwigslust-Parchim, Landkreis",
+        "ai0501": 34.5,
+        "ai0502": 17.9,
+        "ai0503": 6.1,
+        "ai0504": 3.1,
+        "ai0505": 16.1,
+        "ai0507": 17.7,
+        "ai0506": 71.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523662,
+        "typ": 3,
+        "ags": "14511",
+        "jahr": 2024,
+        "gen": "Chemnitz",
+        "jahr2": 2017,
+        "ags2": "14511",
+        "gen2": "      Chemnitz, kreisfreie Stadt",
+        "ai0501": 24.9,
+        "ai0502": 11.9,
+        "ai0503": 8.4,
+        "ai0504": 4.7,
+        "ai0505": 19.2,
+        "ai0507": 24.3,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523663,
+        "typ": 3,
+        "ags": "14521",
+        "jahr": 2024,
+        "gen": "Erzgebirgskreis",
+        "jahr2": 2017,
+        "ags2": "14521",
+        "gen2": "      Erzgebirgskreis",
+        "ai0501": 31.0,
+        "ai0502": 9.6,
+        "ai0503": 7.3,
+        "ai0504": 2.3,
+        "ai0505": 14.3,
+        "ai0507": 28.9,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523664,
+        "typ": 3,
+        "ags": "14522",
+        "jahr": 2024,
+        "gen": "Mittelsachsen",
+        "jahr2": 2017,
+        "ags2": "14522",
+        "gen2": "      Mittelsachsen, Landkreis",
+        "ai0501": 28.3,
+        "ai0502": 10.0,
+        "ai0503": 7.9,
+        "ai0504": 2.8,
+        "ai0505": 14.6,
+        "ai0507": 30.4,
+        "ai0506": 75.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523665,
+        "typ": 3,
+        "ags": "14523",
+        "jahr": 2024,
+        "gen": "Vogtlandkreis",
+        "jahr2": 2017,
+        "ags2": "14523",
+        "gen2": "      Vogtlandkreis",
+        "ai0501": 30.2,
+        "ai0502": 11.4,
+        "ai0503": 7.2,
+        "ai0504": 3.0,
+        "ai0505": 16.0,
+        "ai0507": 26.4,
+        "ai0506": 73.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523666,
+        "typ": 3,
+        "ags": "14524",
+        "jahr": 2024,
+        "gen": "Zwickau",
+        "jahr2": 2017,
+        "ags2": "14524",
+        "gen2": "      Zwickau, Landkreis",
+        "ai0501": 30.3,
+        "ai0502": 10.8,
+        "ai0503": 7.7,
+        "ai0504": 3.0,
+        "ai0505": 16.4,
+        "ai0507": 26.0,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523667,
+        "typ": 3,
+        "ags": "14612",
+        "jahr": 2024,
+        "gen": "Dresden",
+        "jahr2": 2017,
+        "ags2": "14612",
+        "gen2": "      Dresden, kreisfreie Stadt",
+        "ai0501": 23.5,
+        "ai0502": 10.2,
+        "ai0503": 9.9,
+        "ai0504": 8.7,
+        "ai0505": 17.6,
+        "ai0507": 22.5,
+        "ai0506": 79.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523668,
+        "typ": 3,
+        "ags": "14625",
+        "jahr": 2024,
+        "gen": "Bautzen",
+        "jahr2": 2017,
+        "ags2": "14625",
+        "gen2": "      Bautzen, Landkreis",
+        "ai0501": 26.9,
+        "ai0502": 9.1,
+        "ai0503": 8.0,
+        "ai0504": 2.6,
+        "ai0505": 14.0,
+        "ai0507": 32.5,
+        "ai0506": 75.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523669,
+        "typ": 3,
+        "ags": "14626",
+        "jahr": 2024,
+        "gen": "Görlitz",
+        "jahr2": 2017,
+        "ags2": "14626",
+        "gen2": "      Görlitz, Landkreis",
+        "ai0501": 26.7,
+        "ai0502": 9.3,
+        "ai0503": 7.0,
+        "ai0504": 2.9,
+        "ai0505": 14.0,
+        "ai0507": 32.9,
+        "ai0506": 73.3
+      }
+    },
+    {
+      "attributes": {
+        "id": 523670,
+        "typ": 3,
+        "ags": "14627",
+        "jahr": 2024,
+        "gen": "Meißen",
+        "jahr2": 2017,
+        "ags2": "14627",
+        "gen2": "      Meißen, Landkreis",
+        "ai0501": 26.1,
+        "ai0502": 8.7,
+        "ai0503": 8.7,
+        "ai0504": 3.7,
+        "ai0505": 13.3,
+        "ai0507": 32.9,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523671,
+        "typ": 3,
+        "ags": "14628",
+        "jahr": 2024,
+        "gen": "Sächsische Schweiz-Osterzgebirge",
+        "jahr2": 2017,
+        "ags2": "14628",
+        "gen2": "      Sächsische Schweiz-Osterzgebirge, Landkreis",
+        "ai0501": 25.6,
+        "ai0502": 7.8,
+        "ai0503": 8.3,
+        "ai0504": 3.0,
+        "ai0505": 12.8,
+        "ai0507": 35.5,
+        "ai0506": 77.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523672,
+        "typ": 3,
+        "ags": "14713",
+        "jahr": 2024,
+        "gen": "Leipzig",
+        "jahr2": 2017,
+        "ags2": "14713",
+        "gen2": "      Leipzig, kreisfreie Stadt",
+        "ai0501": 22.7,
+        "ai0502": 13.0,
+        "ai0503": 8.5,
+        "ai0504": 8.8,
+        "ai0505": 21.0,
+        "ai0507": 18.3,
+        "ai0506": 75.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523673,
+        "typ": 3,
+        "ags": "14729",
+        "jahr": 2024,
+        "gen": "Leipzig, Landkreis",
+        "jahr2": 2017,
+        "ags2": "14729",
+        "gen2": "      Leipzig, Landkreis",
+        "ai0501": 30.1,
+        "ai0502": 11.4,
+        "ai0503": 8.1,
+        "ai0504": 3.2,
+        "ai0505": 14.7,
+        "ai0507": 26.9,
+        "ai0506": 74.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523674,
+        "typ": 3,
+        "ags": "14730",
+        "jahr": 2024,
+        "gen": "Nordsachsen",
+        "jahr2": 2017,
+        "ags2": "14730",
+        "gen2": "      Nordsachsen, Landkreis",
+        "ai0501": 29.4,
+        "ai0502": 12.5,
+        "ai0503": 7.9,
+        "ai0504": 2.6,
+        "ai0505": 14.7,
+        "ai0507": 26.9,
+        "ai0506": 72.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523675,
+        "typ": 3,
+        "ags": "15001",
+        "jahr": 2024,
+        "gen": "Dessau-Roßlau",
+        "jahr2": 2017,
+        "ags2": "15001",
+        "gen2": "      Dessau-Roßlau, kreisfreie Stadt",
+        "ai0501": 29.4,
+        "ai0502": 14.3,
+        "ai0503": 8.1,
+        "ai0504": 4.7,
+        "ai0505": 18.1,
+        "ai0507": 20.1,
+        "ai0506": 69.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523676,
+        "typ": 3,
+        "ags": "15002",
+        "jahr": 2024,
+        "gen": "Halle (Saale)",
+        "jahr2": 2017,
+        "ags2": "15002",
+        "gen2": "      Halle (Saale), kreisfreie Stadt",
+        "ai0501": 25.7,
+        "ai0502": 14.4,
+        "ai0503": 8.8,
+        "ai0504": 7.6,
+        "ai0505": 19.9,
+        "ai0507": 17.1,
+        "ai0506": 70.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523677,
+        "typ": 3,
+        "ags": "15003",
+        "jahr": 2024,
+        "gen": "Magdeburg",
+        "jahr2": 2017,
+        "ags2": "15003",
+        "gen2": "      Magdeburg, kreisfreie Stadt, Landeshauptstadt",
+        "ai0501": 26.6,
+        "ai0502": 16.9,
+        "ai0503": 8.1,
+        "ai0504": 6.0,
+        "ai0505": 19.2,
+        "ai0507": 15.7,
+        "ai0506": 69.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523678,
+        "typ": 3,
+        "ags": "15081",
+        "jahr": 2024,
+        "gen": "Altmarkkreis Salzwedel",
+        "jahr2": 2017,
+        "ags2": "15081",
+        "gen2": "      Altmarkkreis Salzwedel",
+        "ai0501": 34.0,
+        "ai0502": 17.4,
+        "ai0503": 6.7,
+        "ai0504": 3.5,
+        "ai0505": 18.6,
+        "ai0507": 15.6,
+        "ai0506": 67.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523679,
+        "typ": 3,
+        "ags": "15082",
+        "jahr": 2024,
+        "gen": "Anhalt-Bitterfeld",
+        "jahr2": 2017,
+        "ags2": "15082",
+        "gen2": "      Anhalt-Bitterfeld, Landkreis",
+        "ai0501": 30.9,
+        "ai0502": 13.6,
+        "ai0503": 7.3,
+        "ai0504": 2.4,
+        "ai0505": 17.5,
+        "ai0507": 22.4,
+        "ai0506": 67.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523680,
+        "typ": 3,
+        "ags": "15083",
+        "jahr": 2024,
+        "gen": "Börde",
+        "jahr2": 2017,
+        "ags2": "15083",
+        "gen2": "      Börde, Landkreis",
+        "ai0501": 32.5,
+        "ai0502": 16.4,
+        "ai0503": 7.6,
+        "ai0504": 2.8,
+        "ai0505": 16.2,
+        "ai0507": 18.8,
+        "ai0506": 67.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523681,
+        "typ": 3,
+        "ags": "15084",
+        "jahr": 2024,
+        "gen": "Burgenlandkreis",
+        "jahr2": 2017,
+        "ags2": "15084",
+        "gen2": "      Burgenlandkreis",
+        "ai0501": 30.1,
+        "ai0502": 13.2,
+        "ai0503": 7.8,
+        "ai0504": 2.6,
+        "ai0505": 16.4,
+        "ai0507": 24.3,
+        "ai0506": 68.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523682,
+        "typ": 3,
+        "ags": "15085",
+        "jahr": 2024,
+        "gen": "Harz",
+        "jahr2": 2017,
+        "ags2": "15085",
+        "gen2": "      Harz, Landkreis",
+        "ai0501": 34.0,
+        "ai0502": 16.3,
+        "ai0503": 7.0,
+        "ai0504": 3.6,
+        "ai0505": 17.5,
+        "ai0507": 16.5,
+        "ai0506": 66.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523683,
+        "typ": 3,
+        "ags": "15086",
+        "jahr": 2024,
+        "gen": "Jerichower Land",
+        "jahr2": 2017,
+        "ags2": "15086",
+        "gen2": "      Jerichower Land, Landkreis",
+        "ai0501": 31.4,
+        "ai0502": 16.0,
+        "ai0503": 8.0,
+        "ai0504": 3.0,
+        "ai0505": 17.2,
+        "ai0507": 19.0,
+        "ai0506": 68.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523684,
+        "typ": 3,
+        "ags": "15087",
+        "jahr": 2024,
+        "gen": "Mansfeld-Südharz",
+        "jahr2": 2017,
+        "ags2": "15087",
+        "gen2": "      Mansfeld-Südharz, Landkreis",
+        "ai0501": 28.6,
+        "ai0502": 15.1,
+        "ai0503": 7.3,
+        "ai0504": 2.1,
+        "ai0505": 18.0,
+        "ai0507": 23.9,
+        "ai0506": 66.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523685,
+        "typ": 3,
+        "ags": "15088",
+        "jahr": 2024,
+        "gen": "Saalekreis",
+        "jahr2": 2017,
+        "ags2": "15088",
+        "gen2": "      Saalekreis",
+        "ai0501": 29.6,
+        "ai0502": 13.1,
+        "ai0503": 9.1,
+        "ai0504": 2.7,
+        "ai0505": 16.1,
+        "ai0507": 24.0,
+        "ai0506": 70.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523686,
+        "typ": 3,
+        "ags": "15089",
+        "jahr": 2024,
+        "gen": "Salzlandkreis",
+        "jahr2": 2017,
+        "ags2": "15089",
+        "gen2": "      Salzlandkreis",
+        "ai0501": 31.1,
+        "ai0502": 15.7,
+        "ai0503": 7.3,
+        "ai0504": 2.5,
+        "ai0505": 17.9,
+        "ai0507": 20.4,
+        "ai0506": 64.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523687,
+        "typ": 3,
+        "ags": "15090",
+        "jahr": 2024,
+        "gen": "Stendal",
+        "jahr2": 2017,
+        "ags2": "15090",
+        "gen2": "      Stendal, Landkreis",
+        "ai0501": 31.9,
+        "ai0502": 16.8,
+        "ai0503": 7.5,
+        "ai0504": 3.2,
+        "ai0505": 18.5,
+        "ai0507": 17.7,
+        "ai0506": 66.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523688,
+        "typ": 3,
+        "ags": "15091",
+        "jahr": 2024,
+        "gen": "Wittenberg",
+        "jahr2": 2017,
+        "ags2": "15091",
+        "gen2": "      Wittenberg, Landkreis",
+        "ai0501": 33.4,
+        "ai0502": 14.2,
+        "ai0503": 6.8,
+        "ai0504": 2.8,
+        "ai0505": 16.8,
+        "ai0507": 19.9,
+        "ai0506": 69.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523689,
+        "typ": 3,
+        "ags": "16051",
+        "jahr": 2024,
+        "gen": "Erfurt",
+        "jahr2": 2017,
+        "ags2": "16051",
+        "gen2": "      Erfurt, kreisfreie Stadt",
+        "ai0501": 25.2,
+        "ai0502": 14.4,
+        "ai0503": 8.6,
+        "ai0504": 7.0,
+        "ai0505": 19.6,
+        "ai0507": 18.5,
+        "ai0506": 75.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523690,
+        "typ": 3,
+        "ags": "16052",
+        "jahr": 2024,
+        "gen": "Gera",
+        "jahr2": 2017,
+        "ags2": "16052",
+        "gen2": "      Gera, kreisfreie Stadt",
+        "ai0501": 22.6,
+        "ai0502": 10.5,
+        "ai0503": 8.3,
+        "ai0504": 3.0,
+        "ai0505": 20.7,
+        "ai0507": 28.5,
+        "ai0506": 72.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523691,
+        "typ": 3,
+        "ags": "16053",
+        "jahr": 2024,
+        "gen": "Jena",
+        "jahr2": 2017,
+        "ags2": "16053",
+        "gen2": "      Jena, kreisfreie Stadt",
+        "ai0501": 23.0,
+        "ai0502": 13.5,
+        "ai0503": 9.5,
+        "ai0504": 10.2,
+        "ai0505": 22.8,
+        "ai0507": 14.4,
+        "ai0506": 78.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523692,
+        "typ": 3,
+        "ags": "16054",
+        "jahr": 2024,
+        "gen": "Suhl",
+        "jahr2": 2017,
+        "ags2": "16054",
+        "gen2": "      Suhl, kreisfreie Stadt",
+        "ai0501": 25.7,
+        "ai0502": 13.2,
+        "ai0503": 7.6,
+        "ai0504": 3.7,
+        "ai0505": 23.3,
+        "ai0507": 19.9,
+        "ai0506": 71.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523693,
+        "typ": 3,
+        "ags": "16055",
+        "jahr": 2024,
+        "gen": "Weimar",
+        "jahr2": 2017,
+        "ags2": "16055",
+        "gen2": "      Weimar, kreisfreie Stadt",
+        "ai0501": 25.7,
+        "ai0502": 13.8,
+        "ai0503": 8.5,
+        "ai0504": 9.9,
+        "ai0505": 19.3,
+        "ai0507": 16.1,
+        "ai0506": 75.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523694,
+        "typ": 3,
+        "ags": "16061",
+        "jahr": 2024,
+        "gen": "Eichsfeld",
+        "jahr2": 2017,
+        "ags2": "16061",
+        "gen2": "      Eichsfeld, Landkreis",
+        "ai0501": 43.9,
+        "ai0502": 11.3,
+        "ai0503": 8.5,
+        "ai0504": 3.3,
+        "ai0505": 9.2,
+        "ai0507": 18.2,
+        "ai0506": 76.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523695,
+        "typ": 3,
+        "ags": "16062",
+        "jahr": 2024,
+        "gen": "Nordhausen",
+        "jahr2": 2017,
+        "ags2": "16062",
+        "gen2": "      Nordhausen, Landkreis",
+        "ai0501": 28.0,
+        "ai0502": 16.5,
+        "ai0503": 7.1,
+        "ai0504": 3.5,
+        "ai0505": 17.5,
+        "ai0507": 21.1,
+        "ai0506": 70.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523696,
+        "typ": 3,
+        "ags": "16063",
+        "jahr": 2024,
+        "gen": "Wartburgkreis",
+        "jahr2": 2017,
+        "ags2": "16063",
+        "gen2": "      Wartburgkreis",
+        "ai0501": 31.1,
+        "ai0502": 14.3,
+        "ai0503": 6.6,
+        "ai0504": 3.3,
+        "ai0505": 15.4,
+        "ai0507": 22.5,
+        "ai0506": 74.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523697,
+        "typ": 3,
+        "ags": "16064",
+        "jahr": 2024,
+        "gen": "Unstrut-Hainich-Kreis",
+        "jahr2": 2017,
+        "ags2": "16064",
+        "gen2": "      Unstrut-Hainich-Kreis",
+        "ai0501": 30.6,
+        "ai0502": 14.4,
+        "ai0503": 7.8,
+        "ai0504": 3.2,
+        "ai0505": 14.9,
+        "ai0507": 23.2,
+        "ai0506": 71.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523698,
+        "typ": 3,
+        "ags": "16065",
+        "jahr": 2024,
+        "gen": "Kyffhäuserkreis",
+        "jahr2": 2017,
+        "ags2": "16065",
+        "gen2": "      Kyffhäuserkreis",
+        "ai0501": 26.0,
+        "ai0502": 14.6,
+        "ai0503": 7.2,
+        "ai0504": 2.4,
+        "ai0505": 18.6,
+        "ai0507": 25.0,
+        "ai0506": 71.7
+      }
+    },
+    {
+      "attributes": {
+        "id": 523699,
+        "typ": 3,
+        "ags": "16066",
+        "jahr": 2024,
+        "gen": "Schmalkalden-Meiningen",
+        "jahr2": 2017,
+        "ags2": "16066",
+        "gen2": "      Schmalkalden-Meiningen, Landkreis",
+        "ai0501": 32.0,
+        "ai0502": 14.0,
+        "ai0503": 6.8,
+        "ai0504": 3.6,
+        "ai0505": 15.9,
+        "ai0507": 21.6,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523700,
+        "typ": 3,
+        "ags": "16067",
+        "jahr": 2024,
+        "gen": "Gotha",
+        "jahr2": 2017,
+        "ags2": "16067",
+        "gen2": "      Gotha, Landkreis",
+        "ai0501": 28.7,
+        "ai0502": 14.5,
+        "ai0503": 7.6,
+        "ai0504": 3.4,
+        "ai0505": 15.5,
+        "ai0507": 23.2,
+        "ai0506": 73.5
+      }
+    },
+    {
+      "attributes": {
+        "id": 523701,
+        "typ": 3,
+        "ags": "16068",
+        "jahr": 2024,
+        "gen": "Sömmerda",
+        "jahr2": 2017,
+        "ags2": "16068",
+        "gen2": "      Sömmerda, Landkreis",
+        "ai0501": 29.8,
+        "ai0502": 11.9,
+        "ai0503": 7.7,
+        "ai0504": 2.9,
+        "ai0505": 16.3,
+        "ai0507": 24.2,
+        "ai0506": 73.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523702,
+        "typ": 3,
+        "ags": "16069",
+        "jahr": 2024,
+        "gen": "Hildburghausen",
+        "jahr2": 2017,
+        "ags2": "16069",
+        "gen2": "      Hildburghausen, Landkreis",
+        "ai0501": 30.1,
+        "ai0502": 13.1,
+        "ai0503": 6.3,
+        "ai0504": 2.9,
+        "ai0505": 16.1,
+        "ai0507": 25.2,
+        "ai0506": 73.6
+      }
+    },
+    {
+      "attributes": {
+        "id": 523703,
+        "typ": 3,
+        "ags": "16070",
+        "jahr": 2024,
+        "gen": "Ilm-Kreis",
+        "jahr2": 2017,
+        "ags2": "16070",
+        "gen2": "      Ilm-Kreis",
+        "ai0501": 26.8,
+        "ai0502": 13.4,
+        "ai0503": 7.8,
+        "ai0504": 4.1,
+        "ai0505": 15.9,
+        "ai0507": 25.0,
+        "ai0506": 76.1
+      }
+    },
+    {
+      "attributes": {
+        "id": 523704,
+        "typ": 3,
+        "ags": "16071",
+        "jahr": 2024,
+        "gen": "Weimarer Land",
+        "jahr2": 2017,
+        "ags2": "16071",
+        "gen2": "      Weimarer Land, Landkreis",
+        "ai0501": 31.3,
+        "ai0502": 11.6,
+        "ai0503": 8.5,
+        "ai0504": 3.6,
+        "ai0505": 14.4,
+        "ai0507": 23.7,
+        "ai0506": 76.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523705,
+        "typ": 3,
+        "ags": "16072",
+        "jahr": 2024,
+        "gen": "Sonneberg",
+        "jahr2": 2017,
+        "ags2": "16072",
+        "gen2": "      Sonneberg, Landkreis",
+        "ai0501": 29.7,
+        "ai0502": 13.3,
+        "ai0503": 6.6,
+        "ai0504": 2.8,
+        "ai0505": 16.1,
+        "ai0507": 25.6,
+        "ai0506": 70.8
+      }
+    },
+    {
+      "attributes": {
+        "id": 523706,
+        "typ": 3,
+        "ags": "16073",
+        "jahr": 2024,
+        "gen": "Saalfeld-Rudolstadt",
+        "jahr2": 2017,
+        "ags2": "16073",
+        "gen2": "      Saalfeld-Rudolstadt, Landkreis",
+        "ai0501": 26.4,
+        "ai0502": 12.2,
+        "ai0503": 7.6,
+        "ai0504": 3.1,
+        "ai0505": 16.3,
+        "ai0507": 27.0,
+        "ai0506": 73.4
+      }
+    },
+    {
+      "attributes": {
+        "id": 523707,
+        "typ": 3,
+        "ags": "16074",
+        "jahr": 2024,
+        "gen": "Saale-Holzland-Kreis",
+        "jahr2": 2017,
+        "ags2": "16074",
+        "gen2": "      Saale-Holzland-Kreis",
+        "ai0501": 30.0,
+        "ai0502": 11.7,
+        "ai0503": 8.6,
+        "ai0504": 3.3,
+        "ai0505": 16.9,
+        "ai0507": 23.5,
+        "ai0506": 76.9
+      }
+    },
+    {
+      "attributes": {
+        "id": 523708,
+        "typ": 3,
+        "ags": "16075",
+        "jahr": 2024,
+        "gen": "Saale-Orla-Kreis",
+        "jahr2": 2017,
+        "ags2": "16075",
+        "gen2": "      Saale-Orla-Kreis",
+        "ai0501": 28.5,
+        "ai0502": 12.2,
+        "ai0503": 7.2,
+        "ai0504": 2.7,
+        "ai0505": 16.5,
+        "ai0507": 26.5,
+        "ai0506": 75.2
+      }
+    },
+    {
+      "attributes": {
+        "id": 523709,
+        "typ": 3,
+        "ags": "16076",
+        "jahr": 2024,
+        "gen": "Greiz",
+        "jahr2": 2017,
+        "ags2": "16076",
+        "gen2": "      Greiz, Landkreis",
+        "ai0501": 30.2,
+        "ai0502": 11.3,
+        "ai0503": 8.6,
+        "ai0504": 2.8,
+        "ai0505": 15.7,
+        "ai0507": 25.6,
+        "ai0506": 76.0
+      }
+    },
+    {
+      "attributes": {
+        "id": 523710,
+        "typ": 3,
+        "ags": "16077",
+        "jahr": 2024,
+        "gen": "Altenburger Land",
+        "jahr2": 2017,
+        "ags2": "16077",
+        "gen2": "      Altenburger Land, Landkreis",
+        "ai0501": 28.9,
+        "ai0502": 12.3,
+        "ai0503": 7.6,
+        "ai0504": 2.3,
+        "ai0505": 16.1,
+        "ai0507": 27.5,
+        "ai0506": 72.1
+      }
+    }
+  ]
+}

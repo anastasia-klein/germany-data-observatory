@@ -10,6 +10,8 @@
 | Population by nationality and state, 31 December 2025 | Federal Statistical Office (Destatis), population projection based on the 2022 census | 16 states; total, German, non-German and EU-country population | `data/raw/destatis/population_by_nationality_2025.html` | Data Licence Germany – Attribution – Version 2.0 |
 | Foreign population by state, 2018–2025 | Federal Statistical Office (Destatis), Central Register of Foreigners (AZR) | 16 states; annual foreign-population count | `data/raw/destatis/foreign_population_by_state_2018_2025.html` | Data Licence Germany – Attribution – Version 2.0 |
 | GENESIS cube metadata `12411LJ001` | Federal Statistical Office (Destatis), GENESIS-Online API | Population stock by state, age, sex and reference date; metadata only | `data/raw/destatis/genesis_12411LJ001_metadata.json` | Data Licence Germany – Attribution – Version 2.0 |
+| Regionalatlas indicators | Statistical Offices of the Federation and the Länder | 400 Kreise and kreisfreie Städte; demographic, labour-market, income, GDP and social indicators | `data/raw/regionalatlas/*.json` | Data Licence Germany – Attribution – Version 2.0 |
+| Regionalatlas Bundestag indicators | Statistical Offices of the Federation and the Länder; underlying election results from the Federal Returning Officer | 400 Kreise and kreisfreie Städte; party-group second-vote shares and turnout for 2017, 2021 and 2025 | `data/raw/regionalatlas/ai005_*.json` | Data Licence Germany – Attribution – Version 2.0 |
 
 Official landing pages:
 
@@ -24,10 +26,14 @@ Official landing pages:
 - [Foreign population by state and year](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Migration-Integration/Tabellen/auslaendische-bevoelkerung-bundeslaender-jahre.html)
 - [GENESIS-Online](https://genesis.destatis.de/datenbank/online/)
 - [GENESIS web-service documentation](https://genesis.destatis.de/datenbank/online/docs/GENESIS-Webservices_Introduction.pdf)
+- [Regionalatlas Deutschland](https://regionalatlas.statistikportal.de/)
+- [Regionalatlas and Regionaldatenbank open-data information](https://www.statistikportal.de/de/open-data)
 
 The files are stored unchanged in `data/raw`. The download scripts record the source URL, retrieval timestamp, byte count and SHA-256 checksum in `data/raw/manifest.json` on each refresh. Destatis tables are retained as source HTML because these public pages do not require an account and can therefore be reproduced without storing an API credential. The optional GENESIS client reads its token from a git-ignored environment file and never persists it.
 
 The historical election files use two source layouts. The 2005–2013 files have a wide, multi-row header; 2017–2025 use the later flat layout. The transformation preserves each source party label in `source_party` and maps a small set of spelling or capitalization variants to a stable `party` label. The 2021 file is the current official result after the repeat election in parts of Berlin on 11 February 2024; the superseded main-election result is not mixed into the analytical series.
+
+The district downloader queries the official Regionalatlas ArcGIS service with geography type `3`, which represents Kreise and kreisfreie Städte. It stores the complete JSON response for each dataset/year and validates 400 unique districts before transformation. Different indicators have different latest reference years; those years are retained in the feature dimension and fact table rather than being disguised as one common observation date.
 
 ## GENESIS API status
 
@@ -46,6 +52,6 @@ The number of non-German residents from the census-based population statistics i
 
 1. Retry Destatis GENESIS cube `12411LJ001`, validate its age/sex totals and add a state-year population fact table after the values endpoint is available.
 2. Eurostat regional datasets for European context after the Germany-first model is stable.
-3. Constituency-level historical election analysis after the state-level Power BI model is stable.
+3. District-level election history before 2017 after a reproducible municipality-to-current-district crosswalk is available.
 
 These are intentionally not mixed into the first collection before their classifications and revisions have been assessed.

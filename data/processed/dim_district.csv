@@ -1,0 +1,401 @@
+district_id,district_name,district_name_official,district_type,state_code,state_name,geography_year
+01001,Flensburg,"Flensburg, kreisfreie Stadt",urban_district,01,Schleswig-Holstein,2024
+01002,Kiel,"Kiel, kreisfreie Stadt",urban_district,01,Schleswig-Holstein,2024
+01003,Lübeck,"Lübeck, kreisfreie Stadt, Hansestadt",urban_district,01,Schleswig-Holstein,2024
+01004,Neumünster,"Neumünster, kreisfreie Stadt",urban_district,01,Schleswig-Holstein,2024
+01051,Dithmarschen,"Dithmarschen, Kreis",rural_district,01,Schleswig-Holstein,2024
+01053,Herzogtum Lauenburg,"Herzogtum Lauenburg, Kreis",rural_district,01,Schleswig-Holstein,2024
+01054,Nordfriesland,"Nordfriesland, Kreis",rural_district,01,Schleswig-Holstein,2024
+01055,Ostholstein,"Ostholstein, Kreis",rural_district,01,Schleswig-Holstein,2024
+01056,Pinneberg,"Pinneberg, Kreis",rural_district,01,Schleswig-Holstein,2024
+01057,Plön,"Plön, Kreis",rural_district,01,Schleswig-Holstein,2024
+01058,Rendsburg-Eckernförde,"Rendsburg-Eckernförde, Kreis",rural_district,01,Schleswig-Holstein,2024
+01059,Schleswig-Flensburg,"Schleswig-Flensburg, Kreis",rural_district,01,Schleswig-Holstein,2024
+01060,Segeberg,"Segeberg, Kreis",rural_district,01,Schleswig-Holstein,2024
+01061,Steinburg,"Steinburg, Kreis",rural_district,01,Schleswig-Holstein,2024
+01062,Stormarn,"Stormarn, Kreis",rural_district,01,Schleswig-Holstein,2024
+02000,Hamburg,Hamburg,urban_district,02,Hamburg,2024
+03101,Braunschweig,"Braunschweig, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03102,Salzgitter,"Salzgitter, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03103,Wolfsburg,"Wolfsburg, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03151,Gifhorn,"Gifhorn, Landkreis",rural_district,03,Niedersachsen,2024
+03153,Goslar,"Goslar, Landkreis",rural_district,03,Niedersachsen,2024
+03154,Helmstedt,"Helmstedt, Landkreis",rural_district,03,Niedersachsen,2024
+03155,Northeim,"Northeim, Landkreis",rural_district,03,Niedersachsen,2024
+03157,Peine,"Peine, Landkreis",rural_district,03,Niedersachsen,2024
+03158,Wolfenbüttel,"Wolfenbüttel, Landkreis",rural_district,03,Niedersachsen,2024
+03159,Göttingen,"Göttingen, Landkreis",rural_district,03,Niedersachsen,2024
+03241,Region Hannover,"Region Hannover, Landkreis",special_district_association,03,Niedersachsen,2024
+03251,Diepholz,"Diepholz, Landkreis",rural_district,03,Niedersachsen,2024
+03252,Hameln-Pyrmont,"Hameln-Pyrmont, Landkreis",rural_district,03,Niedersachsen,2024
+03254,Hildesheim,"Hildesheim, Landkreis",rural_district,03,Niedersachsen,2024
+03255,Holzminden,"Holzminden, Landkreis",rural_district,03,Niedersachsen,2024
+03256,Nienburg (Weser),"Nienburg (Weser), Landkreis",rural_district,03,Niedersachsen,2024
+03257,Schaumburg,"Schaumburg, Landkreis",rural_district,03,Niedersachsen,2024
+03351,Celle,"Celle, Landkreis",rural_district,03,Niedersachsen,2024
+03352,Cuxhaven,"Cuxhaven, Landkreis",rural_district,03,Niedersachsen,2024
+03353,Harburg,"Harburg, Landkreis",rural_district,03,Niedersachsen,2024
+03354,Lüchow-Dannenberg,"Lüchow-Dannenberg, Landkreis",rural_district,03,Niedersachsen,2024
+03355,Lüneburg,"Lüneburg, Landkreis",rural_district,03,Niedersachsen,2024
+03356,Osterholz,"Osterholz, Landkreis",rural_district,03,Niedersachsen,2024
+03357,Rotenburg (Wümme),"Rotenburg (Wümme), Landkreis",rural_district,03,Niedersachsen,2024
+03358,Heidekreis,Heidekreis,rural_district,03,Niedersachsen,2024
+03359,Stade,"Stade, Landkreis",rural_district,03,Niedersachsen,2024
+03360,Uelzen,"Uelzen, Landkreis",rural_district,03,Niedersachsen,2024
+03361,Verden,"Verden, Landkreis",rural_district,03,Niedersachsen,2024
+03401,Delmenhorst,"Delmenhorst, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03402,Emden,"Emden, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03403,Oldenburg (Oldb),"Oldenburg (Oldenburg), kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03404,Osnabrück,"Osnabrück, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03405,Wilhelmshaven,"Wilhelmshaven, kreisfreie Stadt",urban_district,03,Niedersachsen,2024
+03451,Ammerland,"Ammerland, Landkreis",rural_district,03,Niedersachsen,2024
+03452,Aurich,"Aurich, Landkreis",rural_district,03,Niedersachsen,2024
+03453,Cloppenburg,"Cloppenburg, Landkreis",rural_district,03,Niedersachsen,2024
+03454,Emsland,"Emsland, Landkreis",rural_district,03,Niedersachsen,2024
+03455,Friesland,"Friesland, Landkreis",rural_district,03,Niedersachsen,2024
+03456,Grafschaft Bentheim,"Grafschaft Bentheim, Landkreis",rural_district,03,Niedersachsen,2024
+03457,Leer,"Leer, Landkreis",rural_district,03,Niedersachsen,2024
+03458,"Oldenburg, Landkreis","Oldenburg, Landkreis",rural_district,03,Niedersachsen,2024
+03459,"Osnabrück, Landkreis","Osnabrück, Landkreis",rural_district,03,Niedersachsen,2024
+03460,Vechta,"Vechta, Landkreis",rural_district,03,Niedersachsen,2024
+03461,Wesermarsch,"Wesermarsch, Landkreis",rural_district,03,Niedersachsen,2024
+03462,Wittmund,"Wittmund, Landkreis",rural_district,03,Niedersachsen,2024
+04011,Bremen,"Bremen, kreisfreie Stadt",urban_district,04,Bremen,2024
+04012,Bremerhaven,"Bremerhaven, kreisfreie Stadt",urban_district,04,Bremen,2024
+05111,Düsseldorf,"Düsseldorf, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05112,Duisburg,"Duisburg, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05113,Essen,"Essen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05114,Krefeld,"Krefeld, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05116,Mönchengladbach,"Mönchengladbach, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05117,Mülheim an der Ruhr,"Mülheim an der Ruhr, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05119,Oberhausen,"Oberhausen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05120,Remscheid,"Remscheid, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05122,Solingen,"Solingen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05124,Wuppertal,"Wuppertal, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05154,Kleve,"Kleve, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05158,Mettmann,"Mettmann, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05162,Rhein-Kreis Neuss,Rhein-Kreis Neuss,rural_district,05,Nordrhein-Westfalen,2024
+05166,Viersen,"Viersen, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05170,Wesel,"Wesel, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05314,Bonn,"Bonn, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05315,Köln,"Köln, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05316,Leverkusen,"Leverkusen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05334,Städteregion Aachen,"Städteregion Aachen, Kreis",special_district_association,05,Nordrhein-Westfalen,2024
+05358,Düren,"Düren, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05362,Rhein-Erft-Kreis,Rhein-Erft-Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05366,Euskirchen,"Euskirchen, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05370,Heinsberg,"Heinsberg, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05374,Oberbergischer Kreis,Oberbergischer Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05378,Rheinisch-Bergischer Kreis,Rheinisch-Bergischer Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05382,Rhein-Sieg-Kreis,Rhein-Sieg-Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05512,Bottrop,"Bottrop, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05513,Gelsenkirchen,"Gelsenkirchen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05515,Münster,"Münster, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05554,Borken,"Borken, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05558,Coesfeld,"Coesfeld, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05562,Recklinghausen,"Recklinghausen, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05566,Steinfurt,"Steinfurt, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05570,Warendorf,"Warendorf, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05711,Bielefeld,"Bielefeld, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05754,Gütersloh,"Gütersloh, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05758,Herford,"Herford, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05762,Höxter,"Höxter, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05766,Lippe,"Lippe, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05770,Minden-Lübbecke,"Minden-Lübbecke, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05774,Paderborn,"Paderborn, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05911,Bochum,"Bochum, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05913,Dortmund,"Dortmund, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05914,Hagen,"Hagen, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05915,Hamm,"Hamm, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05916,Herne,"Herne, kreisfreie Stadt",urban_district,05,Nordrhein-Westfalen,2024
+05954,Ennepe-Ruhr-Kreis,Ennepe-Ruhr-Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05958,Hochsauerlandkreis,Hochsauerlandkreis,rural_district,05,Nordrhein-Westfalen,2024
+05962,Märkischer Kreis,Märkischer Kreis,rural_district,05,Nordrhein-Westfalen,2024
+05966,Olpe,"Olpe, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05970,Siegen-Wittgenstein,"Siegen-Wittgenstein, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05974,Soest,"Soest, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+05978,Unna,"Unna, Kreis",rural_district,05,Nordrhein-Westfalen,2024
+06411,Darmstadt,"Darmstadt, kreisfreie Stadt, Wissenschaftsstadt",urban_district,06,Hessen,2024
+06412,Frankfurt am Main,"Frankfurt am Main, kreisfreie Stadt",urban_district,06,Hessen,2024
+06413,Offenbach am Main,"Offenbach am Main, kreisfreie Stadt",urban_district,06,Hessen,2024
+06414,Wiesbaden,"Wiesbaden, kreisfreie Stadt, Landeshauptstadt",urban_district,06,Hessen,2024
+06431,Bergstraße,"Bergstraße, Landkreis",rural_district,06,Hessen,2024
+06432,Darmstadt-Dieburg,"Darmstadt-Dieburg, Landkreis",rural_district,06,Hessen,2024
+06433,Groß-Gerau,"Groß-Gerau, Landkreis",rural_district,06,Hessen,2024
+06434,Hochtaunuskreis,Hochtaunuskreis,rural_district,06,Hessen,2024
+06435,Main-Kinzig-Kreis,Main-Kinzig-Kreis,rural_district,06,Hessen,2024
+06436,Main-Taunus-Kreis,Main-Taunus-Kreis,rural_district,06,Hessen,2024
+06437,Odenwaldkreis,Odenwaldkreis,rural_district,06,Hessen,2024
+06438,Offenbach,"Offenbach, Landkreis",rural_district,06,Hessen,2024
+06439,Rheingau-Taunus-Kreis,Rheingau-Taunus-Kreis,rural_district,06,Hessen,2024
+06440,Wetteraukreis,Wetteraukreis,rural_district,06,Hessen,2024
+06531,Gießen,"Gießen, Landkreis",rural_district,06,Hessen,2024
+06532,Lahn-Dill-Kreis,Lahn-Dill-Kreis,rural_district,06,Hessen,2024
+06533,Limburg-Weilburg,"Limburg-Weilburg, Landkreis",rural_district,06,Hessen,2024
+06534,Marburg-Biedenkopf,"Marburg-Biedenkopf, Landkreis",rural_district,06,Hessen,2024
+06535,Vogelsbergkreis,Vogelsbergkreis,rural_district,06,Hessen,2024
+06611,Kassel,"Kassel, kreisfreie Stadt, documenta-Stadt",urban_district,06,Hessen,2024
+06631,Fulda,"Fulda, Landkreis",rural_district,06,Hessen,2024
+06632,Hersfeld-Rotenburg,"Hersfeld-Rotenburg, Landkreis",rural_district,06,Hessen,2024
+06633,"Kassel, Landkreis","Kassel, Landkreis",rural_district,06,Hessen,2024
+06634,Schwalm-Eder-Kreis,Schwalm-Eder-Kreis,rural_district,06,Hessen,2024
+06635,Waldeck-Frankenberg,"Waldeck-Frankenberg, Landkreis",rural_district,06,Hessen,2024
+06636,Werra-Meißner-Kreis,Werra-Meißner-Kreis,rural_district,06,Hessen,2024
+07111,Koblenz,"Koblenz, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07131,Ahrweiler,"Ahrweiler, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07132,Altenkirchen (Westerwald),"Altenkirchen (Westerwald), Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07133,Bad Kreuznach,"Bad Kreuznach, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07134,Birkenfeld,"Birkenfeld, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07135,Cochem-Zell,"Cochem-Zell, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07137,Mayen-Koblenz,"Mayen-Koblenz, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07138,Neuwied,"Neuwied, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07140,Rhein-Hunsrück-Kreis,Rhein-Hunsrück-Kreis,rural_district,07,Rheinland-Pfalz,2024
+07141,Rhein-Lahn-Kreis,Rhein-Lahn-Kreis,rural_district,07,Rheinland-Pfalz,2024
+07143,Westerwaldkreis,Westerwaldkreis,rural_district,07,Rheinland-Pfalz,2024
+07211,Trier,"Trier, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07231,Bernkastel-Wittlich,"Bernkastel-Wittlich, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07232,Eifelkreis Bitburg-Prüm,Eifelkreis Bitburg-Prüm,rural_district,07,Rheinland-Pfalz,2024
+07233,Vulkaneifel,"Vulkaneifel, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07235,Trier-Saarburg,"Trier-Saarburg, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07311,Frankenthal (Pfalz),"Frankenthal (Pfalz), kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07312,Kaiserslautern,"Kaiserslautern, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07313,Landau in der Pfalz,"Landau in der Pfalz, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07314,Ludwigshafen am Rhein,"Ludwigshafen am Rhein, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07315,Mainz,"Mainz, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07316,Neustadt an der Weinstraße,"Neustadt an der Weinstraße, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07317,Pirmasens,"Pirmasens, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07318,Speyer,"Speyer, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07319,Worms,"Worms, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07320,Zweibrücken,"Zweibrücken, kreisfreie Stadt",urban_district,07,Rheinland-Pfalz,2024
+07331,Alzey-Worms,"Alzey-Worms, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07332,Bad Dürkheim,"Bad Dürkheim, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07333,Donnersbergkreis,Donnersbergkreis,rural_district,07,Rheinland-Pfalz,2024
+07334,Germersheim,"Germersheim, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07335,"Kaiserslautern, Landkreis","Kaiserslautern, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07336,Kusel,"Kusel, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07337,Südliche Weinstraße,"Südliche Weinstraße, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07338,Rhein-Pfalz-Kreis,Rhein-Pfalz-Kreis,rural_district,07,Rheinland-Pfalz,2024
+07339,Mainz-Bingen,"Mainz-Bingen, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+07340,Südwestpfalz,"Südwestpfalz, Landkreis",rural_district,07,Rheinland-Pfalz,2024
+08111,Stuttgart,"Stuttgart, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08115,Böblingen,"Böblingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08116,Esslingen,"Esslingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08117,Göppingen,"Göppingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08118,Ludwigsburg,"Ludwigsburg, Landkreis",rural_district,08,Baden-Württemberg,2024
+08119,Rems-Murr-Kreis,"Rems-Murr-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08121,Heilbronn,"Heilbronn, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08125,"Heilbronn, Landkreis","Heilbronn, Landkreis",rural_district,08,Baden-Württemberg,2024
+08126,Hohenlohekreis,"Hohenlohekreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08127,Schwäbisch Hall,"Schwäbisch Hall, Landkreis",rural_district,08,Baden-Württemberg,2024
+08128,Main-Tauber-Kreis,"Main-Tauber-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08135,Heidenheim,"Heidenheim, Landkreis",rural_district,08,Baden-Württemberg,2024
+08136,Ostalbkreis,"Ostalbkreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08211,Baden-Baden,"Baden-Baden, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08212,Karlsruhe,"Karlsruhe, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08215,"Karlsruhe, Landkreis","Karlsruhe, Landkreis",rural_district,08,Baden-Württemberg,2024
+08216,Rastatt,"Rastatt, Landkreis",rural_district,08,Baden-Württemberg,2024
+08221,Heidelberg,"Heidelberg, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08222,Mannheim,"Mannheim, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08225,Neckar-Odenwald-Kreis,"Neckar-Odenwald-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08226,Rhein-Neckar-Kreis,"Rhein-Neckar-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08231,Pforzheim,"Pforzheim, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08235,Calw,"Calw, Landkreis",rural_district,08,Baden-Württemberg,2024
+08236,Enzkreis,"Enzkreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08237,Freudenstadt,"Freudenstadt, Landkreis",rural_district,08,Baden-Württemberg,2024
+08311,Freiburg im Breisgau,"Freiburg im Breisgau, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08315,Breisgau-Hochschwarzwald,"Breisgau-Hochschwarzwald, Landkreis",rural_district,08,Baden-Württemberg,2024
+08316,Emmendingen,"Emmendingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08317,Ortenaukreis,"Ortenaukreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08325,Rottweil,"Rottweil, Landkreis",rural_district,08,Baden-Württemberg,2024
+08326,Schwarzwald-Baar-Kreis,"Schwarzwald-Baar-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08327,Tuttlingen,"Tuttlingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08335,Konstanz,"Konstanz, Landkreis",rural_district,08,Baden-Württemberg,2024
+08336,Lörrach,"Lörrach, Landkreis",rural_district,08,Baden-Württemberg,2024
+08337,Waldshut,"Waldshut, Landkreis",rural_district,08,Baden-Württemberg,2024
+08415,Reutlingen,"Reutlingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08416,Tübingen,"Tübingen, Landkreis",rural_district,08,Baden-Württemberg,2024
+08417,Zollernalbkreis,"Zollernalbkreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08421,Ulm,"Ulm, Stadtkreis",urban_district,08,Baden-Württemberg,2024
+08425,Alb-Donau-Kreis,"Alb-Donau-Kreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08426,Biberach,"Biberach, Landkreis",rural_district,08,Baden-Württemberg,2024
+08435,Bodenseekreis,"Bodenseekreis, Landkreis",rural_district,08,Baden-Württemberg,2024
+08436,Ravensburg,"Ravensburg, Landkreis",rural_district,08,Baden-Württemberg,2024
+08437,Sigmaringen,"Sigmaringen, Landkreis",rural_district,08,Baden-Württemberg,2024
+09161,Ingolstadt,"Ingolstadt, kreisfreie Stadt",urban_district,09,Bayern,2024
+09162,München,"München, kreisfreie Stadt",urban_district,09,Bayern,2024
+09163,Rosenheim,"Rosenheim, kreisfreie Stadt",urban_district,09,Bayern,2024
+09171,Altötting,"Altötting, Landkreis",rural_district,09,Bayern,2024
+09172,Berchtesgadener Land,"Berchtesgadener Land, Landkreis",rural_district,09,Bayern,2024
+09173,Bad Tölz-Wolfratshausen,"Bad Tölz-Wolfratshausen, Landkreis",rural_district,09,Bayern,2024
+09174,Dachau,"Dachau, Landkreis",rural_district,09,Bayern,2024
+09175,Ebersberg,"Ebersberg, Landkreis",rural_district,09,Bayern,2024
+09176,Eichstätt,"Eichstätt, Landkreis",rural_district,09,Bayern,2024
+09177,Erding,"Erding, Landkreis",rural_district,09,Bayern,2024
+09178,Freising,"Freising, Landkreis",rural_district,09,Bayern,2024
+09179,Fürstenfeldbruck,"Fürstenfeldbruck, Landkreis",rural_district,09,Bayern,2024
+09180,Garmisch-Partenkirchen,"Garmisch-Partenkirchen, Landkreis",rural_district,09,Bayern,2024
+09181,Landsberg am Lech,"Landsberg am Lech, Landkreis",rural_district,09,Bayern,2024
+09182,Miesbach,"Miesbach, Landkreis",rural_district,09,Bayern,2024
+09183,Mühldorf a.Inn,"Mühldorf a.Inn, Landkreis",rural_district,09,Bayern,2024
+09184,"München, Landkreis","München, Landkreis",rural_district,09,Bayern,2024
+09185,Neuburg-Schrobenhausen,"Neuburg-Schrobenhausen, Landkreis",rural_district,09,Bayern,2024
+09186,Pfaffenhofen a.d.Ilm,"Pfaffenhofen a.d.Ilm, Landkreis",rural_district,09,Bayern,2024
+09187,"Rosenheim, Landkreis","Rosenheim, Landkreis",rural_district,09,Bayern,2024
+09188,Starnberg,"Starnberg, Landkreis",rural_district,09,Bayern,2024
+09189,Traunstein,"Traunstein, Landkreis",rural_district,09,Bayern,2024
+09190,Weilheim-Schongau,"Weilheim-Schongau, Landkreis",rural_district,09,Bayern,2024
+09261,Landshut,"Landshut, kreisfreie Stadt",urban_district,09,Bayern,2024
+09262,Passau,"Passau, kreisfreie Stadt",urban_district,09,Bayern,2024
+09263,Straubing,"Straubing, kreisfreie Stadt",urban_district,09,Bayern,2024
+09271,Deggendorf,"Deggendorf, Landkreis",rural_district,09,Bayern,2024
+09272,Freyung-Grafenau,"Freyung-Grafenau, Landkreis",rural_district,09,Bayern,2024
+09273,Kelheim,"Kelheim, Landkreis",rural_district,09,Bayern,2024
+09274,"Landshut, Landkreis","Landshut, Landkreis",rural_district,09,Bayern,2024
+09275,"Passau, Landkreis","Passau, Landkreis",rural_district,09,Bayern,2024
+09276,Regen,"Regen, Landkreis",rural_district,09,Bayern,2024
+09277,Rottal-Inn,"Rottal-Inn, Landkreis",rural_district,09,Bayern,2024
+09278,Straubing-Bogen,"Straubing-Bogen, Landkreis",rural_district,09,Bayern,2024
+09279,Dingolfing-Landau,"Dingolfing-Landau, Landkreis",rural_district,09,Bayern,2024
+09361,Amberg,"Amberg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09362,Regensburg,"Regensburg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09363,Weiden i.d.OPf.,"Weiden i.d.OPf., kreisfreie Stadt",urban_district,09,Bayern,2024
+09371,Amberg-Sulzbach,"Amberg-Sulzbach, Landkreis",rural_district,09,Bayern,2024
+09372,Cham,"Cham, Landkreis",rural_district,09,Bayern,2024
+09373,Neumarkt i.d.OPf.,"Neumarkt i.d.OPf., Landkreis",rural_district,09,Bayern,2024
+09374,Neustadt a.d.Waldnaab,"Neustadt a.d.Waldnaab, Landkreis",rural_district,09,Bayern,2024
+09375,"Regensburg, Landkreis","Regensburg, Landkreis",rural_district,09,Bayern,2024
+09376,Schwandorf,"Schwandorf, Landkreis",rural_district,09,Bayern,2024
+09377,Tirschenreuth,"Tirschenreuth, Landkreis",rural_district,09,Bayern,2024
+09461,Bamberg,"Bamberg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09462,Bayreuth,"Bayreuth, kreisfreie Stadt",urban_district,09,Bayern,2024
+09463,Coburg,"Coburg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09464,Hof,"Hof, kreisfreie Stadt",urban_district,09,Bayern,2024
+09471,"Bamberg, Landkreis","Bamberg, Landkreis",rural_district,09,Bayern,2024
+09472,"Bayreuth, Landkreis","Bayreuth, Landkreis",rural_district,09,Bayern,2024
+09473,"Coburg, Landkreis","Coburg, Landkreis",rural_district,09,Bayern,2024
+09474,Forchheim,"Forchheim, Landkreis",rural_district,09,Bayern,2024
+09475,"Hof, Landkreis","Hof, Landkreis",rural_district,09,Bayern,2024
+09476,Kronach,"Kronach, Landkreis",rural_district,09,Bayern,2024
+09477,Kulmbach,"Kulmbach, Landkreis",rural_district,09,Bayern,2024
+09478,Lichtenfels,"Lichtenfels, Landkreis",rural_district,09,Bayern,2024
+09479,Wunsiedel i.Fichtelgebirge,"Wunsiedel i.Fichtelgebirge, Landkreis",rural_district,09,Bayern,2024
+09561,Ansbach,"Ansbach, kreisfreie Stadt",urban_district,09,Bayern,2024
+09562,Erlangen,"Erlangen, kreisfreie Stadt",urban_district,09,Bayern,2024
+09563,Fürth,"Fürth, kreisfreie Stadt",urban_district,09,Bayern,2024
+09564,Nürnberg,"Nürnberg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09565,Schwabach,"Schwabach, kreisfreie Stadt",urban_district,09,Bayern,2024
+09571,"Ansbach, Landkreis","Ansbach, Landkreis",rural_district,09,Bayern,2024
+09572,Erlangen-Höchstadt,"Erlangen-Höchstadt, Landkreis",rural_district,09,Bayern,2024
+09573,"Fürth, Landkreis","Fürth, Landkreis",rural_district,09,Bayern,2024
+09574,Nürnberger Land,"Nürnberger Land, Landkreis",rural_district,09,Bayern,2024
+09575,Neustadt a.d.Aisch-Bad Windsheim,"Neustadt a.d.Aisch-Bad Windsheim, Landkreis",rural_district,09,Bayern,2024
+09576,Roth,"Roth, Landkreis",rural_district,09,Bayern,2024
+09577,Weißenburg-Gunzenhausen,"Weißenburg-Gunzenhausen, Landkreis",rural_district,09,Bayern,2024
+09661,Aschaffenburg,"Aschaffenburg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09662,Schweinfurt,"Schweinfurt, kreisfreie Stadt",urban_district,09,Bayern,2024
+09663,Würzburg,"Würzburg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09671,"Aschaffenburg, Landkreis","Aschaffenburg, Landkreis",rural_district,09,Bayern,2024
+09672,Bad Kissingen,"Bad Kissingen, Landkreis",rural_district,09,Bayern,2024
+09673,Rhön-Grabfeld,"Rhön-Grabfeld, Landkreis",rural_district,09,Bayern,2024
+09674,Haßberge,"Haßberge, Landkreis",rural_district,09,Bayern,2024
+09675,Kitzingen,"Kitzingen, Landkreis",rural_district,09,Bayern,2024
+09676,Miltenberg,"Miltenberg, Landkreis",rural_district,09,Bayern,2024
+09677,Main-Spessart,"Main-Spessart, Landkreis",rural_district,09,Bayern,2024
+09678,"Schweinfurt, Landkreis","Schweinfurt, Landkreis",rural_district,09,Bayern,2024
+09679,"Würzburg, Landkreis","Würzburg, Landkreis",rural_district,09,Bayern,2024
+09761,Augsburg,"Augsburg, kreisfreie Stadt",urban_district,09,Bayern,2024
+09762,Kaufbeuren,"Kaufbeuren, kreisfreie Stadt",urban_district,09,Bayern,2024
+09763,Kempten (Allgäu),"Kempten (Allgäu), kreisfreie Stadt",urban_district,09,Bayern,2024
+09764,Memmingen,"Memmingen, kreisfreie Stadt",urban_district,09,Bayern,2024
+09771,Aichach-Friedberg,"Aichach-Friedberg, Landkreis",rural_district,09,Bayern,2024
+09772,"Augsburg, Landkreis","Augsburg, Landkreis",rural_district,09,Bayern,2024
+09773,Dillingen a.d.Donau,"Dillingen a.d.Donau, Landkreis",rural_district,09,Bayern,2024
+09774,Günzburg,"Günzburg, Landkreis",rural_district,09,Bayern,2024
+09775,Neu-Ulm,"Neu-Ulm, Landkreis",rural_district,09,Bayern,2024
+09776,Lindau (Bodensee),"Lindau (Bodensee), Landkreis",rural_district,09,Bayern,2024
+09777,Ostallgäu,"Ostallgäu, Landkreis",rural_district,09,Bayern,2024
+09778,Unterallgäu,"Unterallgäu, Landkreis",rural_district,09,Bayern,2024
+09779,Donau-Ries,"Donau-Ries, Landkreis",rural_district,09,Bayern,2024
+09780,Oberallgäu,"Oberallgäu, Landkreis",rural_district,09,Bayern,2024
+10041,Regionalverband Saarbrücken,"Saarbrücken, Regionalverband",special_district_association,10,Saarland,2024
+10042,Merzig-Wadern,"Merzig-Wadern, Landkreis",rural_district,10,Saarland,2024
+10043,Neunkirchen,"Neunkirchen, Landkreis",rural_district,10,Saarland,2024
+10044,Saarlouis,"Saarlouis, Landkreis",rural_district,10,Saarland,2024
+10045,Saarpfalz-Kreis,Saarpfalz-Kreis,rural_district,10,Saarland,2024
+10046,St. Wendel,"St. Wendel, Landkreis",rural_district,10,Saarland,2024
+11000,Berlin,Berlin,urban_district,11,Berlin,2024
+12051,Brandenburg an der Havel,"Brandenburg an der Havel, kreisfreie Stadt",urban_district,12,Brandenburg,2024
+12052,Cottbus,"Cottbus, kreisfreie Stadt",urban_district,12,Brandenburg,2024
+12053,Frankfurt (Oder),"Frankfurt (Oder), kreisfreie Stadt",urban_district,12,Brandenburg,2024
+12054,Potsdam,"Potsdam, kreisfreie Stadt",urban_district,12,Brandenburg,2024
+12060,Barnim,"Barnim, Landkreis",rural_district,12,Brandenburg,2024
+12061,Dahme-Spreewald,"Dahme-Spreewald, Landkreis",rural_district,12,Brandenburg,2024
+12062,Elbe-Elster,"Elbe-Elster, Landkreis",rural_district,12,Brandenburg,2024
+12063,Havelland,"Havelland, Landkreis",rural_district,12,Brandenburg,2024
+12064,Märkisch-Oderland,"Märkisch-Oderland, Landkreis",rural_district,12,Brandenburg,2024
+12065,Oberhavel,"Oberhavel, Landkreis",rural_district,12,Brandenburg,2024
+12066,Oberspreewald-Lausitz,"Oberspreewald-Lausitz, Landkreis",rural_district,12,Brandenburg,2024
+12067,Oder-Spree,"Oder-Spree, Landkreis",rural_district,12,Brandenburg,2024
+12068,Ostprignitz-Ruppin,"Ostprignitz-Ruppin, Landkreis",rural_district,12,Brandenburg,2024
+12069,Potsdam-Mittelmark,"Potsdam-Mittelmark, Landkreis",rural_district,12,Brandenburg,2024
+12070,Prignitz,"Prignitz, Landkreis",rural_district,12,Brandenburg,2024
+12071,Spree-Neiße,"Spree-Neiße, Landkreis",rural_district,12,Brandenburg,2024
+12072,Teltow-Fläming,"Teltow-Fläming, Landkreis",rural_district,12,Brandenburg,2024
+12073,Uckermark,"Uckermark, Landkreis",rural_district,12,Brandenburg,2024
+13003,Rostock,"Rostock, kreisfreie Stadt",urban_district,13,Mecklenburg-Vorpommern,2024
+13004,Schwerin,"Schwerin, kreisfreie Stadt",urban_district,13,Mecklenburg-Vorpommern,2024
+13071,Mecklenburgische Seenplatte,"Mecklenburgische Seenplatte, Landkreis",rural_district,13,Mecklenburg-Vorpommern,2024
+13072,"Rostock, Landkreis",Landkreis Rostock,rural_district,13,Mecklenburg-Vorpommern,2024
+13073,Vorpommern-Rügen,"Vorpommern-Rügen, Landkreis",rural_district,13,Mecklenburg-Vorpommern,2024
+13074,Nordwestmecklenburg,"Nordwestmecklenburg, Landkreis",rural_district,13,Mecklenburg-Vorpommern,2024
+13075,Vorpommern-Greifswald,"Vorpommern-Greifswald, Landkreis",rural_district,13,Mecklenburg-Vorpommern,2024
+13076,Ludwigslust-Parchim,"Ludwigslust-Parchim, Landkreis",rural_district,13,Mecklenburg-Vorpommern,2024
+14511,Chemnitz,"Chemnitz, kreisfreie Stadt",urban_district,14,Sachsen,2024
+14521,Erzgebirgskreis,Erzgebirgskreis,rural_district,14,Sachsen,2024
+14522,Mittelsachsen,"Mittelsachsen, Landkreis",rural_district,14,Sachsen,2024
+14523,Vogtlandkreis,Vogtlandkreis,rural_district,14,Sachsen,2024
+14524,Zwickau,"Zwickau, Landkreis",rural_district,14,Sachsen,2024
+14612,Dresden,"Dresden, kreisfreie Stadt",urban_district,14,Sachsen,2024
+14625,Bautzen,"Bautzen, Landkreis",rural_district,14,Sachsen,2024
+14626,Görlitz,"Görlitz, Landkreis",rural_district,14,Sachsen,2024
+14627,Meißen,"Meißen, Landkreis",rural_district,14,Sachsen,2024
+14628,Sächsische Schweiz-Osterzgebirge,"Sächsische Schweiz-Osterzgebirge, Landkreis",rural_district,14,Sachsen,2024
+14713,Leipzig,"Leipzig, kreisfreie Stadt",urban_district,14,Sachsen,2024
+14729,"Leipzig, Landkreis","Leipzig, Landkreis",rural_district,14,Sachsen,2024
+14730,Nordsachsen,"Nordsachsen, Landkreis",rural_district,14,Sachsen,2024
+15001,Dessau-Roßlau,"Dessau-Roßlau, kreisfreie Stadt",urban_district,15,Sachsen-Anhalt,2024
+15002,Halle (Saale),"Halle (Saale), kreisfreie Stadt",urban_district,15,Sachsen-Anhalt,2024
+15003,Magdeburg,"Magdeburg, kreisfreie Stadt, Landeshauptstadt",urban_district,15,Sachsen-Anhalt,2024
+15081,Altmarkkreis Salzwedel,Altmarkkreis Salzwedel,rural_district,15,Sachsen-Anhalt,2024
+15082,Anhalt-Bitterfeld,"Anhalt-Bitterfeld, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15083,Börde,"Börde, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15084,Burgenlandkreis,Burgenlandkreis,rural_district,15,Sachsen-Anhalt,2024
+15085,Harz,"Harz, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15086,Jerichower Land,"Jerichower Land, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15087,Mansfeld-Südharz,"Mansfeld-Südharz, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15088,Saalekreis,Saalekreis,rural_district,15,Sachsen-Anhalt,2024
+15089,Salzlandkreis,Salzlandkreis,rural_district,15,Sachsen-Anhalt,2024
+15090,Stendal,"Stendal, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+15091,Wittenberg,"Wittenberg, Landkreis",rural_district,15,Sachsen-Anhalt,2024
+16051,Erfurt,"Erfurt, kreisfreie Stadt",urban_district,16,Thüringen,2024
+16052,Gera,"Gera, kreisfreie Stadt",urban_district,16,Thüringen,2024
+16053,Jena,"Jena, kreisfreie Stadt",urban_district,16,Thüringen,2024
+16054,Suhl,"Suhl, kreisfreie Stadt",urban_district,16,Thüringen,2024
+16055,Weimar,"Weimar, kreisfreie Stadt",urban_district,16,Thüringen,2024
+16061,Eichsfeld,"Eichsfeld, Landkreis",rural_district,16,Thüringen,2024
+16062,Nordhausen,"Nordhausen, Landkreis",rural_district,16,Thüringen,2024
+16063,Wartburgkreis,Wartburgkreis,rural_district,16,Thüringen,2024
+16064,Unstrut-Hainich-Kreis,Unstrut-Hainich-Kreis,rural_district,16,Thüringen,2024
+16065,Kyffhäuserkreis,Kyffhäuserkreis,rural_district,16,Thüringen,2024
+16066,Schmalkalden-Meiningen,"Schmalkalden-Meiningen, Landkreis",rural_district,16,Thüringen,2024
+16067,Gotha,"Gotha, Landkreis",rural_district,16,Thüringen,2024
+16068,Sömmerda,"Sömmerda, Landkreis",rural_district,16,Thüringen,2024
+16069,Hildburghausen,"Hildburghausen, Landkreis",rural_district,16,Thüringen,2024
+16070,Ilm-Kreis,Ilm-Kreis,rural_district,16,Thüringen,2024
+16071,Weimarer Land,"Weimarer Land, Landkreis",rural_district,16,Thüringen,2024
+16072,Sonneberg,"Sonneberg, Landkreis",rural_district,16,Thüringen,2024
+16073,Saalfeld-Rudolstadt,"Saalfeld-Rudolstadt, Landkreis",rural_district,16,Thüringen,2024
+16074,Saale-Holzland-Kreis,Saale-Holzland-Kreis,rural_district,16,Thüringen,2024
+16075,Saale-Orla-Kreis,Saale-Orla-Kreis,rural_district,16,Thüringen,2024
+16076,Greiz,"Greiz, Landkreis",rural_district,16,Thüringen,2024
+16077,Altenburger Land,"Altenburger Land, Landkreis",rural_district,16,Thüringen,2024

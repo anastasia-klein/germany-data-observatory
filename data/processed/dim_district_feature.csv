@@ -1,0 +1,15 @@
+feature_id,feature_name,unit,reference_year,source_dataset,included_in_clustering,transform,exclusion_reason
+age_65_plus_share,Population aged 65+,percent,2024,AI002-2-5,True,identity,
+age_under_18_share,Population aged 0–17,percent,2024,AI002-2-5,True,identity,
+disposable_income_per_capita,Disposable income per capita,eur_per_person,2022,AI016-1,True,identity,
+foreign_population_share,Foreign population share,percent,2024,AI002-1-5,True,identity,
+gdp_per_capita,GDP per capita,eur_per_person,2023,AI017-1,True,log1p,
+manufacturing_employment_share,Manufacturing employment share,percent,2024,AI007-1,True,identity,
+migration_balance_per_10000,Migration balance,per_10000_people,2024,AI002-1-5,True,identity,
+minimum_security_rate,Minimum-security benefit rate,percent,2024,AI-S-03,False,not_used,Strongly overlaps with unemployment_rate
+natural_balance_per_10000,Birth/death balance,per_10000_people,2024,AI002-1-5,False,not_used,Strongly overlaps with age_65_plus_share
+population_change_per_10000,Annual population change,per_10000_people,2024,AI002-1-5,True,identity,
+population_density,Population density,people_per_km2,2024,AI002-1-5,True,log1p,
+services_employment_share,Services employment share,percent,2024,AI007-1,False,not_used,Compositionally overlaps with manufacturing_employment_share
+unemployment_rate,Unemployment rate,percent,2025,AI008-1-5,True,identity,
+workplace_density,Workplace density,employed_per_1000_working_age,2024,AI007-1,True,log1p,
