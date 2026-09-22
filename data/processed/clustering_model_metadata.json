@@ -32,10 +32,10 @@
     "gdp_per_capita": "log1p"
   },
   "pca_components": 4,
-  "pca_explained_variance": 0.8243313547051239,
+  "pca_explained_variance": 0.8243313547,
   "robustness_adjusted_rand": {
-    "direct_scaled_vs_primary": 0.8159918059032005,
-    "robust_scaled_pca_vs_primary": 0.8077809925435507
+    "direct_scaled_vs_primary": 0.8159918059,
+    "robust_scaled_pca_vs_primary": 0.8077809925
   },
   "linkage_matrix_rows": 399
 }

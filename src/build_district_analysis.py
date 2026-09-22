@@ -177,7 +177,7 @@ def main() -> None:
     chosen_k = int(eligible.sort_values(["silhouette_score", "k"], ascending=[False, True]).iloc[0]["k"])
     labels = stable_cluster_ids(candidate_labels[chosen_k], scores[:, 0])
     diagnostic_frame["selected"] = diagnostic_frame["k"].eq(chosen_k)
-    diagnostic_frame.to_csv(OUT / "clustering_diagnostics.csv", index=False)
+    diagnostic_frame.to_csv(OUT / "clustering_diagnostics.csv", index=False, float_format="%.10f")
 
     assignments = pd.DataFrame({"district_id": transformed.index, "cluster_id": labels})
     assignments["cluster_id"] = assignments["cluster_id"].map(lambda value: f"cluster_{value}")
@@ -186,19 +186,19 @@ def main() -> None:
     score_columns = [f"pc{number}" for number in range(1, scores.shape[1] + 1)]
     score_frame = pd.DataFrame(scores, columns=score_columns)
     score_frame.insert(0, "district_id", transformed.index)
-    score_frame.to_csv(OUT / "district_pca.csv", index=False)
+    score_frame.to_csv(OUT / "district_pca.csv", index=False, float_format="%.10f")
 
     loadings = pd.DataFrame(
         pca.components_.T,
         index=selected,
         columns=score_columns,
     ).rename_axis("feature_id").reset_index()
-    loadings.to_csv(OUT / "pca_loadings.csv", index=False)
+    loadings.to_csv(OUT / "pca_loadings.csv", index=False, float_format="%.10f")
     pd.DataFrame({
         "component": score_columns,
         "explained_variance_ratio": pca.explained_variance_ratio_,
         "cumulative_explained_variance_ratio": np.cumsum(pca.explained_variance_ratio_),
-    }).to_csv(OUT / "pca_explained_variance.csv", index=False)
+    }).to_csv(OUT / "pca_explained_variance.csv", index=False, float_format="%.10f")
 
     zscores = pd.DataFrame(scaled, index=transformed.index, columns=selected)
     zscores["cluster_id"] = assignments.set_index("district_id")["cluster_id"]
@@ -211,7 +211,7 @@ def main() -> None:
         id_vars="cluster_id", var_name="feature_id", value_name="mean_raw_value"
     )
     profiles = profiles.merge(raw_profiles, on=["cluster_id", "feature_id"])
-    profiles.to_csv(OUT / "cluster_profiles.csv", index=False)
+    profiles.to_csv(OUT / "cluster_profiles.csv", index=False, float_format="%.10f")
 
     cluster_rows = []
     for cluster_id, group in profiles.groupby("cluster_id"):
@@ -266,7 +266,7 @@ def main() -> None:
     )["second_vote_share_percent"].mean()
     election_cluster.rename(
         columns={"second_vote_share_percent": "unweighted_mean_second_vote_share_percent"}
-    ).to_csv(OUT / "cluster_election_results.csv", index=False)
+    ).to_csv(OUT / "cluster_election_results.csv", index=False, float_format="%.10f")
 
     raw_labels = AgglomerativeClustering(n_clusters=chosen_k, linkage="ward").fit_predict(scaled)
     robust_scaled = RobustScaler().fit_transform(transformed)
@@ -282,10 +282,10 @@ def main() -> None:
         "scaler": "StandardScaler",
         "feature_transforms": config["clustering"]["selected_features"],
         "pca_components": scores.shape[1],
-        "pca_explained_variance": float(pca.explained_variance_ratio_.sum()),
+        "pca_explained_variance": round(float(pca.explained_variance_ratio_.sum()), 10),
         "robustness_adjusted_rand": {
-            "direct_scaled_vs_primary": float(adjusted_rand_score(labels, raw_labels)),
-            "robust_scaled_pca_vs_primary": float(adjusted_rand_score(labels, robust_labels)),
+            "direct_scaled_vs_primary": round(float(adjusted_rand_score(labels, raw_labels)), 10),
+            "robust_scaled_pca_vs_primary": round(float(adjusted_rand_score(labels, robust_labels)), 10),
         },
         "linkage_matrix_rows": int(linkage(scores, method="ward").shape[0]),
     }
