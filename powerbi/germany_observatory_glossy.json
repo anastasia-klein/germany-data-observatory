@@ -1,0 +1,23 @@
+{
+  "name": "Germany Data Observatory - Editorial Gloss",
+  "dataColors": [
+    "#DD0000",
+    "#FFCC00",
+    "#171717",
+    "#502379",
+    "#009EE0",
+    "#1AA037",
+    "#BE3075",
+    "#8C8C8C"
+  ],
+  "background": "#F4F1EA",
+  "foreground": "#171717",
+  "tableAccent": "#DD0000",
+  "good": "#49796B",
+  "neutral": "#FFCC00",
+  "bad": "#DD0000",
+  "maximum": "#171717",
+  "center": "#F4F1EA",
+  "minimum": "#D8D2C8",
+  "null": "#8C8C8C"
+}

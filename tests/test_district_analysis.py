@@ -56,10 +56,17 @@ class DistrictAnalysisTest(unittest.TestCase):
         self.assertEqual(400, assignments["district_id"].nunique())
         self.assertEqual(1, len(selected))
         self.assertEqual(metadata["chosen_k"], assignments["cluster_id"].nunique())
-        self.assertEqual(eligible["silhouette_score"].max(), selected.iloc[0]["silhouette_score"])
+        self.assertEqual(4, metadata["chosen_k"])
+        self.assertGreaterEqual(
+            selected.iloc[0]["silhouette_score"],
+            eligible["silhouette_score"].max() - metadata["silhouette_tolerance"],
+        )
         self.assertGreaterEqual(assignments["cluster_id"].value_counts().min(), 20)
         self.assertGreater(metadata["robustness_adjusted_rand"]["direct_scaled_vs_primary"], 0.75)
         self.assertGreater(metadata["robustness_adjusted_rand"]["robust_scaled_pca_vs_primary"], 0.75)
+        clusters = pd.read_csv(PROCESSED / "dim_cluster.csv")
+        self.assertEqual(4, clusters["cluster_color_hex"].nunique())
+        self.assertTrue(clusters["cluster_color_hex"].str.fullmatch(r"#[0-9A-F]{6}").all())
 
     def test_pca_reaches_variance_target(self):
         variance = pd.read_csv(PROCESSED / "pca_explained_variance.csv")

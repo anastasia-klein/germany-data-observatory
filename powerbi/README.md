@@ -1,5 +1,7 @@
 # Power BI implementation guide
 
+The full page architecture, storytelling, visual design system, party colours, Volt scope and build sequence are defined in [`report_blueprint.md`](report_blueprint.md). Import [`germany_observatory_glossy.json`](germany_observatory_glossy.json) as the starting report theme and use [`core_dax_measures.md`](core_dax_measures.md) for the semantic-model measures.
+
 ## Before opening Power BI
 
 1. Run `make transform-districts` and `make test`.

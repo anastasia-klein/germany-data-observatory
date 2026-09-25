@@ -1,7 +1,9 @@
 {
   "algorithm": "Ward hierarchical agglomerative clustering",
-  "chosen_k": 3,
-  "selection_rule": "Highest silhouette among candidates meeting the minimum cluster-size rule",
+  "chosen_k": 4,
+  "selection_rule": "Preferred interpretable k within the configured silhouette tolerance and meeting the minimum cluster-size rule",
+  "preferred_k": 4,
+  "silhouette_tolerance": 0.01,
   "minimum_cluster_size": 20,
   "features": [
     "population_density",
@@ -34,8 +36,8 @@
   "pca_components": 4,
   "pca_explained_variance": 0.8243313547,
   "robustness_adjusted_rand": {
-    "direct_scaled_vs_primary": 0.8159918059,
-    "robust_scaled_pca_vs_primary": 0.8077809925
+    "direct_scaled_vs_primary": 0.8047656081,
+    "robust_scaled_pca_vs_primary": 0.7924907567
   },
   "linkage_matrix_rows": 399
 }

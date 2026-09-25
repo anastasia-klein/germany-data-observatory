@@ -21,7 +21,7 @@ Population density, workplace density and GDP per capita receive a `log1p` trans
 
 Principal component analysis retains the minimum number of components needed to explain at least 80% of total standardized variance. The current run retains four components and explains 82.4%.
 
-Ward hierarchical agglomerative clustering is evaluated for `k = 3…8`. The selected solution maximizes the silhouette score among candidates whose smallest cluster contains at least 20 districts. The current run selects three clusters with 64, 234 and 102 districts.
+Ward hierarchical agglomerative clustering is evaluated for `k = 3…8`. A candidate must contain at least 20 districts in every cluster. The report prefers four clusters when its silhouette score is within 0.01 of the statistical maximum; otherwise the maximum-silhouette solution is used. This preserves statistical quality while separating two substantively different urban profiles. The current run selects four clusters with 64, 234, 67 and 35 districts; its silhouette score is 0.301 versus 0.305 for three clusters.
 
 Cluster numbers are neutral identifiers, not rankings. They are ordered by the mean first principal-component score only to make reruns deterministic. `cluster_profiles.csv` contains both mean z-scores and mean values; these should be used to assign human-readable analytical names in the report.
 

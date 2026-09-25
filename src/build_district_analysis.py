@@ -52,12 +52,12 @@ FEATURE_METADATA = {
 }
 
 PARTIES = {
-    "ai0501": ("party_group_cdu_csu", "CDU/CSU"),
-    "ai0502": ("party_group_spd", "SPD"),
-    "ai0503": ("party_group_fdp", "FDP"),
-    "ai0504": ("party_group_greens", "GRÜNE"),
-    "ai0505": ("party_group_left", "Die Linke"),
-    "ai0507": ("party_group_afd", "AfD"),
+    "ai0501": ("party_group_cdu_csu", "CDU/CSU", "#171717", 1),
+    "ai0502": ("party_group_spd", "SPD", "#E3000F", 2),
+    "ai0503": ("party_group_fdp", "FDP", "#FFED00", 4),
+    "ai0504": ("party_group_greens", "GRÜNE", "#1AA037", 3),
+    "ai0505": ("party_group_left", "Die Linke", "#BE3075", 5),
+    "ai0507": ("party_group_afd", "AfD", "#009EE0", 6),
 }
 
 
@@ -174,7 +174,21 @@ def main() -> None:
     eligible = diagnostic_frame[diagnostic_frame["passes_minimum_size"]]
     if eligible.empty:
         eligible = diagnostic_frame
-    chosen_k = int(eligible.sort_values(["silhouette_score", "k"], ascending=[False, True]).iloc[0]["k"])
+    best_silhouette = float(eligible["silhouette_score"].max())
+    preferred_k = int(config["clustering"]["preferred_k"])
+    tolerance = float(config["clustering"]["silhouette_tolerance"])
+    preferred = eligible[eligible["k"].eq(preferred_k)]
+    if not preferred.empty and float(preferred.iloc[0]["silhouette_score"]) >= best_silhouette - tolerance:
+        chosen_k = preferred_k
+        selection_rule = (
+            "Preferred interpretable k within the configured silhouette tolerance "
+            "and meeting the minimum cluster-size rule"
+        )
+    else:
+        chosen_k = int(
+            eligible.sort_values(["silhouette_score", "k"], ascending=[False, True]).iloc[0]["k"]
+        )
+        selection_rule = "Highest silhouette among candidates meeting the minimum cluster-size rule"
     labels = stable_cluster_ids(candidate_labels[chosen_k], scores[:, 0])
     diagnostic_frame["selected"] = diagnostic_frame["k"].eq(chosen_k)
     diagnostic_frame.to_csv(OUT / "clustering_diagnostics.csv", index=False, float_format="%.10f")
@@ -215,6 +229,7 @@ def main() -> None:
 
     cluster_rows = []
     for cluster_id, group in profiles.groupby("cluster_id"):
+        display = config["clustering"]["cluster_display"][cluster_id]
         top = group.reindex(group["mean_z_score"].abs().sort_values(ascending=False).index).head(3)
         summary = "; ".join(
             f"{row.feature_id} {'high' if row.mean_z_score > 0 else 'low'}"
@@ -222,14 +237,24 @@ def main() -> None:
         )
         cluster_rows.append({
             "cluster_id": cluster_id,
-            "cluster_name": cluster_id.replace("_", " ").title(),
+            "cluster_name": display["name"],
+            "cluster_short_name": display["short_name"],
+            "cluster_color_hex": display["color_hex"],
             "district_count": int((assignments["cluster_id"] == cluster_id).sum()),
             "profile_summary": summary,
         })
     pd.DataFrame(cluster_rows).sort_values("cluster_id").to_csv(OUT / "dim_cluster.csv", index=False)
 
     party_dimension = pd.DataFrame(
-        [{"party_group_id": identifier, "party_group_name": name} for identifier, name in PARTIES.values()]
+        [
+            {
+                "party_group_id": identifier,
+                "party_group_name": name,
+                "party_color_hex": color,
+                "party_display_order": order,
+            }
+            for identifier, name, color, order in PARTIES.values()
+        ]
     )
     party_dimension.to_csv(OUT / "dim_party_group.csv", index=False)
     election_rows, turnout_rows = [], []
@@ -237,7 +262,7 @@ def main() -> None:
         frame = raw_rows(source["dataset"], source["year"])
         election_id = f"BTW{source['year']}"
         for row in frame.itertuples(index=False):
-            for raw_field, (party_group_id, _) in PARTIES.items():
+            for raw_field, (party_group_id, _, _, _) in PARTIES.items():
                 value = getattr(row, raw_field)
                 unavailable = pd.isna(value) or value < 0 or value > 100
                 election_rows.append({
@@ -275,7 +300,9 @@ def main() -> None:
     metadata = {
         "algorithm": "Ward hierarchical agglomerative clustering",
         "chosen_k": chosen_k,
-        "selection_rule": "Highest silhouette among candidates meeting the minimum cluster-size rule",
+        "selection_rule": selection_rule,
+        "preferred_k": preferred_k,
+        "silhouette_tolerance": tolerance,
         "minimum_cluster_size": config["clustering"]["minimum_cluster_size"],
         "features": selected,
         "excluded_political_features": True,

@@ -122,6 +122,17 @@ PARTY_ALIASES = {
     "ödp": "ÖDP",
 }
 
+PARTY_DISPLAY = {
+    "CDU": ("#171717", 1, True),
+    "CSU": ("#008AC5", 1, True),
+    "SPD": ("#E3000F", 2, True),
+    "GRÜNE": ("#1AA037", 3, True),
+    "FDP": ("#FFED00", 4, True),
+    "Die Linke": ("#BE3075", 5, True),
+    "AfD": ("#009EE0", 6, True),
+    "Volt": ("#502379", 7, True),
+}
+
 # A focused first set that maps directly to the proposed dashboard pages.
 INDICATORS = {
     "Fläche am 31.12.2023 (km²)": ("area_km2", 2023, "km2"),
@@ -437,6 +448,7 @@ def transform_election_data() -> None:
             )
     party_dimension = []
     for identifier, name in sorted(party_names_by_id.items(), key=lambda item: item[1].casefold()):
+        color, display_order, is_report_focus = PARTY_DISPLAY.get(name, ("#8C8C8C", 99, False))
         election_years = sorted(
             {
                 int(row["election_date"][:4])
@@ -451,6 +463,9 @@ def transform_election_data() -> None:
                 "first_election_year": election_years[0],
                 "last_election_year": election_years[-1],
                 "election_count": len(election_years),
+                "party_color_hex": color,
+                "party_display_order": display_order,
+                "is_report_focus": is_report_focus,
             }
         )
     write_csv(
@@ -461,6 +476,9 @@ def transform_election_data() -> None:
             "first_election_year",
             "last_election_year",
             "election_count",
+            "party_color_hex",
+            "party_display_order",
+            "is_report_focus",
         ],
         party_dimension,
     )

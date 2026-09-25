@@ -2,6 +2,8 @@
   "geography_year": 2024,
   "clustering": {
     "candidate_k": [3, 4, 5, 6, 7, 8],
+    "preferred_k": 4,
+    "silhouette_tolerance": 0.01,
     "minimum_cluster_size": 20,
     "pca_variance_target": 0.8,
     "selected_features": {
@@ -21,6 +23,28 @@
       "natural_balance_per_10000": "Strongly overlaps with age_65_plus_share",
       "services_employment_share": "Compositionally overlaps with manufacturing_employment_share",
       "minimum_security_rate": "Strongly overlaps with unemployment_rate"
+    },
+    "cluster_display": {
+      "cluster_1": {
+        "name": "Ageing & shrinking periphery",
+        "short_name": "Ageing periphery",
+        "color_hex": "#B56A42"
+      },
+      "cluster_2": {
+        "name": "Stable & affluent regions",
+        "short_name": "Stable regions",
+        "color_hex": "#49796B"
+      },
+      "cluster_3": {
+        "name": "Urban pressure centres",
+        "short_name": "Urban pressure",
+        "color_hex": "#6E6B7E"
+      },
+      "cluster_4": {
+        "name": "Dynamic metropolitan hubs",
+        "short_name": "Metropolitan hubs",
+        "color_hex": "#D3A62C"
+      }
     }
   },
   "sources": [

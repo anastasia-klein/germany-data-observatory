@@ -1,82 +1,82 @@
-party_id,party_name,first_election_year,last_election_year,election_count
-party_50plus,50Plus,2005,2005,1
-party_ad_demokraten,AD-DEMOKRATEN,2017,2017,1
-party_adm,ADM,2009,2009,1
-party_afd,AfD,2013,2025,4
-party_agfg,AGFG,2005,2005,1
-party_appd,APPD,2005,2005,1
-party_b,B*,2017,2017,1
-party_bge,BGE,2017,2017,1
-party_big,BIG,2013,2013,1
-party_bp,BP,2005,2025,6
-party_bsw,BSW,2025,2025,1
-party_bundnis_21_rrp,Bündnis 21/RRP,2013,2013,1
-party_bundnis_c,Bündnis C,2021,2025,2
-party_bundnis_deutschland,BÜNDNIS DEUTSCHLAND,2025,2025,1
-party_bundnis21,BÜNDNIS21,2021,2021,1
-party_burgerbewegung,BÜRGERBEWEGUNG,2021,2021,1
-party_buso,BüSo,2005,2025,6
-party_cdu,CDU,2005,2025,6
-party_cm,CM,2009,2009,1
-party_csu,CSU,2005,2025,6
-party_deutschland,Deutschland,2005,2005,1
-party_dib,DiB,2017,2021,2
-party_die_frauen,DIE FRAUEN,2005,2013,2
-party_die_grauen,Die Grauen,2017,2021,2
-party_die_humanisten,Die Humanisten,2017,2021,2
-party_die_linke,Die Linke,2005,2025,6
-party_die_partei,Die PARTEI,2005,2025,5
-party_die_rechte,DIE RECHTE,2013,2017,2
-party_die_violetten,DIE VIOLETTEN,2009,2013,2
-party_diebasis,dieBasis,2021,2025,2
-party_dkp,DKP,2009,2021,3
-party_dm,DM,2017,2017,1
-party_du,du.,2017,2021,2
-party_dvu,DVU,2009,2009,1
-party_familie,FAMILIE,2005,2013,3
-party_fdp,FDP,2005,2025,6
-party_freie_wahler,FREIE WÄHLER,2013,2025,4
-party_fwd,FWD,2009,2009,1
-party_gartenpartei,Gartenpartei,2021,2021,1
-party_gesundheitsforschung,Gesundheitsforschung,2017,2017,1
-party_graue,GRAUE,2005,2005,1
-party_grune,GRÜNE,2005,2025,6
-party_heimat_2021_npd,HEIMAT (2021: NPD),2021,2021,1
-party_iii_weg,III. Weg,2021,2021,1
-party_lfk,LfK,2021,2021,1
-party_liebe,LIEBE,2021,2021,1
-party_menschliche_welt,MENSCHLICHE WELT,2017,2025,3
-party_mera25,MERA25,2025,2025,1
-party_mg,MG,2017,2017,1
-party_mlpd,MLPD,2005,2025,6
-party_nichtwahler,Nichtwähler,2013,2013,1
-party_npd,NPD,2005,2017,4
-party_offensive_d,Offensive D,2005,2005,1
-party_partei_der_vernunft,PARTEI DER VERNUNFT,2013,2013,1
-party_pbc,PBC,2005,2013,3
-party_pdf,PdF,2021,2025,2
-party_pdh,PdH,2025,2025,1
-party_pdv,PDV,2017,2017,1
-party_piraten,PIRATEN,2009,2025,5
-party_pro_deutschland,pro Deutschland,2013,2013,1
-party_pro_dm,Pro DM,2005,2005,1
-party_psg,PSG,2005,2013,3
-party_rentner,RENTNER,2009,2013,2
-party_rep,REP,2005,2013,3
-party_rrp,RRP,2009,2009,1
-party_sgp,SGP,2017,2025,3
-party_spd,SPD,2005,2025,6
-party_ssw,SSW,2021,2025,2
-party_team_todenhofer,Team Todenhöfer,2021,2025,2
-party_tierschutzallianz,Tierschutzallianz,2017,2021,2
-party_tierschutzpartei,Tierschutzpartei,2005,2025,6
-party_unabhangige,UNABHÄNGIGE,2021,2021,1
-party_v_partei3,V-Partei³,2017,2021,2
-party_verjungungsforschung,Verjüngungsforschung,2025,2025,1
-party_verjungungsforschung_2021_gesundheitsforschung,Verjüngungsforschung (2021: Gesundheitsforschung),2021,2021,1
-party_volksabstimmung,Volksabstimmung,2009,2017,3
-party_volt,Volt,2021,2025,2
-party_werteunion,WerteUnion,2025,2025,1
-party_wir_burger_2021_lkr,Wir Bürger (2021: LKR),2021,2021,1
-party_zentrum,ZENTRUM,2005,2009,2
-party_odp,ÖDP,2009,2025,5
+party_id,party_name,first_election_year,last_election_year,election_count,party_color_hex,party_display_order,is_report_focus
+party_50plus,50Plus,2005,2005,1,#8C8C8C,99,False
+party_ad_demokraten,AD-DEMOKRATEN,2017,2017,1,#8C8C8C,99,False
+party_adm,ADM,2009,2009,1,#8C8C8C,99,False
+party_afd,AfD,2013,2025,4,#009EE0,6,True
+party_agfg,AGFG,2005,2005,1,#8C8C8C,99,False
+party_appd,APPD,2005,2005,1,#8C8C8C,99,False
+party_b,B*,2017,2017,1,#8C8C8C,99,False
+party_bge,BGE,2017,2017,1,#8C8C8C,99,False
+party_big,BIG,2013,2013,1,#8C8C8C,99,False
+party_bp,BP,2005,2025,6,#8C8C8C,99,False
+party_bsw,BSW,2025,2025,1,#8C8C8C,99,False
+party_bundnis_21_rrp,Bündnis 21/RRP,2013,2013,1,#8C8C8C,99,False
+party_bundnis_c,Bündnis C,2021,2025,2,#8C8C8C,99,False
+party_bundnis_deutschland,BÜNDNIS DEUTSCHLAND,2025,2025,1,#8C8C8C,99,False
+party_bundnis21,BÜNDNIS21,2021,2021,1,#8C8C8C,99,False
+party_burgerbewegung,BÜRGERBEWEGUNG,2021,2021,1,#8C8C8C,99,False
+party_buso,BüSo,2005,2025,6,#8C8C8C,99,False
+party_cdu,CDU,2005,2025,6,#171717,1,True
+party_cm,CM,2009,2009,1,#8C8C8C,99,False
+party_csu,CSU,2005,2025,6,#008AC5,1,True
+party_deutschland,Deutschland,2005,2005,1,#8C8C8C,99,False
+party_dib,DiB,2017,2021,2,#8C8C8C,99,False
+party_die_frauen,DIE FRAUEN,2005,2013,2,#8C8C8C,99,False
+party_die_grauen,Die Grauen,2017,2021,2,#8C8C8C,99,False
+party_die_humanisten,Die Humanisten,2017,2021,2,#8C8C8C,99,False
+party_die_linke,Die Linke,2005,2025,6,#BE3075,5,True
+party_die_partei,Die PARTEI,2005,2025,5,#8C8C8C,99,False
+party_die_rechte,DIE RECHTE,2013,2017,2,#8C8C8C,99,False
+party_die_violetten,DIE VIOLETTEN,2009,2013,2,#8C8C8C,99,False
+party_diebasis,dieBasis,2021,2025,2,#8C8C8C,99,False
+party_dkp,DKP,2009,2021,3,#8C8C8C,99,False
+party_dm,DM,2017,2017,1,#8C8C8C,99,False
+party_du,du.,2017,2021,2,#8C8C8C,99,False
+party_dvu,DVU,2009,2009,1,#8C8C8C,99,False
+party_familie,FAMILIE,2005,2013,3,#8C8C8C,99,False
+party_fdp,FDP,2005,2025,6,#FFED00,4,True
+party_freie_wahler,FREIE WÄHLER,2013,2025,4,#8C8C8C,99,False
+party_fwd,FWD,2009,2009,1,#8C8C8C,99,False
+party_gartenpartei,Gartenpartei,2021,2021,1,#8C8C8C,99,False
+party_gesundheitsforschung,Gesundheitsforschung,2017,2017,1,#8C8C8C,99,False
+party_graue,GRAUE,2005,2005,1,#8C8C8C,99,False
+party_grune,GRÜNE,2005,2025,6,#1AA037,3,True
+party_heimat_2021_npd,HEIMAT (2021: NPD),2021,2021,1,#8C8C8C,99,False
+party_iii_weg,III. Weg,2021,2021,1,#8C8C8C,99,False
+party_lfk,LfK,2021,2021,1,#8C8C8C,99,False
+party_liebe,LIEBE,2021,2021,1,#8C8C8C,99,False
+party_menschliche_welt,MENSCHLICHE WELT,2017,2025,3,#8C8C8C,99,False
+party_mera25,MERA25,2025,2025,1,#8C8C8C,99,False
+party_mg,MG,2017,2017,1,#8C8C8C,99,False
+party_mlpd,MLPD,2005,2025,6,#8C8C8C,99,False
+party_nichtwahler,Nichtwähler,2013,2013,1,#8C8C8C,99,False
+party_npd,NPD,2005,2017,4,#8C8C8C,99,False
+party_offensive_d,Offensive D,2005,2005,1,#8C8C8C,99,False
+party_partei_der_vernunft,PARTEI DER VERNUNFT,2013,2013,1,#8C8C8C,99,False
+party_pbc,PBC,2005,2013,3,#8C8C8C,99,False
+party_pdf,PdF,2021,2025,2,#8C8C8C,99,False
+party_pdh,PdH,2025,2025,1,#8C8C8C,99,False
+party_pdv,PDV,2017,2017,1,#8C8C8C,99,False
+party_piraten,PIRATEN,2009,2025,5,#8C8C8C,99,False
+party_pro_deutschland,pro Deutschland,2013,2013,1,#8C8C8C,99,False
+party_pro_dm,Pro DM,2005,2005,1,#8C8C8C,99,False
+party_psg,PSG,2005,2013,3,#8C8C8C,99,False
+party_rentner,RENTNER,2009,2013,2,#8C8C8C,99,False
+party_rep,REP,2005,2013,3,#8C8C8C,99,False
+party_rrp,RRP,2009,2009,1,#8C8C8C,99,False
+party_sgp,SGP,2017,2025,3,#8C8C8C,99,False
+party_spd,SPD,2005,2025,6,#E3000F,2,True
+party_ssw,SSW,2021,2025,2,#8C8C8C,99,False
+party_team_todenhofer,Team Todenhöfer,2021,2025,2,#8C8C8C,99,False
+party_tierschutzallianz,Tierschutzallianz,2017,2021,2,#8C8C8C,99,False
+party_tierschutzpartei,Tierschutzpartei,2005,2025,6,#8C8C8C,99,False
+party_unabhangige,UNABHÄNGIGE,2021,2021,1,#8C8C8C,99,False
+party_v_partei3,V-Partei³,2017,2021,2,#8C8C8C,99,False
+party_verjungungsforschung,Verjüngungsforschung,2025,2025,1,#8C8C8C,99,False
+party_verjungungsforschung_2021_gesundheitsforschung,Verjüngungsforschung (2021: Gesundheitsforschung),2021,2021,1,#8C8C8C,99,False
+party_volksabstimmung,Volksabstimmung,2009,2017,3,#8C8C8C,99,False
+party_volt,Volt,2021,2025,2,#502379,7,True
+party_werteunion,WerteUnion,2025,2025,1,#8C8C8C,99,False
+party_wir_burger_2021_lkr,Wir Bürger (2021: LKR),2021,2021,1,#8C8C8C,99,False
+party_zentrum,ZENTRUM,2005,2009,2,#8C8C8C,99,False
+party_odp,ÖDP,2009,2025,5,#8C8C8C,99,False

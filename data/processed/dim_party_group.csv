@@ -1,7 +1,7 @@
-party_group_id,party_group_name
-party_group_cdu_csu,CDU/CSU
-party_group_spd,SPD
-party_group_fdp,FDP
-party_group_greens,GRÜNE
-party_group_left,Die Linke
-party_group_afd,AfD
+party_group_id,party_group_name,party_color_hex,party_display_order
+party_group_cdu_csu,CDU/CSU,#171717,1
+party_group_spd,SPD,#E3000F,2
+party_group_fdp,FDP,#FFED00,4
+party_group_greens,GRÜNE,#1AA037,3
+party_group_left,Die Linke,#BE3075,5
+party_group_afd,AfD,#009EE0,6

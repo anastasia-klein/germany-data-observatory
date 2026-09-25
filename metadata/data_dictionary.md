@@ -10,7 +10,7 @@ One row per Bundestag election. `election_id` is the stable primary key used by 
 
 ## `dim_party.csv`
 
-One row per normalized party label observed in the election facts. `party_id` is a deterministic, text-safe primary key derived from `party_name`. `first_election_year`, `last_election_year` and `election_count` describe coverage in this dataset, not the legal lifetime of the party. The dimension currently contains 81 parties.
+One row per normalized party label observed in the election facts. `party_id` is a deterministic, text-safe primary key derived from `party_name`. `first_election_year`, `last_election_year` and `election_count` describe coverage in this dataset, not the legal lifetime of the party. Report-focus parties, including Volt, receive stable colour and display-order attributes; all other parties use a neutral fallback. The dimension currently contains 81 parties.
 
 ## `fact_state_indicators.csv`
 

@@ -93,7 +93,7 @@ make test
 
 The download step overwrites raw source copies intentionally and writes retrieval timestamps, sizes and SHA-256 hashes to `data/raw/manifest.json`. Review source changes before committing a refresh.
 
-The current cluster solution selects `k = 3`: 64, 234 and 102 districts. Four principal components explain 82.4% of the standardized feature variance. See [`metadata/district_clustering_methodology.md`](metadata/district_clustering_methodology.md) for feature decisions, model selection, robustness checks and interpretation limits.
+The report-oriented cluster solution selects `k = 4`: 64, 234, 67 and 35 districts. Its silhouette score (0.301) is within 0.01 of the statistical maximum at `k = 3` (0.305), while separating two substantively different urban profiles. Four principal components explain 82.4% of the standardized feature variance. See [`metadata/district_clustering_methodology.md`](metadata/district_clustering_methodology.md) for feature decisions, model selection, robustness checks and interpretation limits.
 
 ### Optional GENESIS API source
 
