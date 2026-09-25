@@ -9,4 +9,6 @@ __pycache__/
 
 # Power BI local/cache files; keep the PBIP project definition itself.
 powerbi/.pbi/
+powerbi/**/.pbi/localSettings.json
+powerbi/**/.pbi/cache.abf
 powerbi/**/*.abf
