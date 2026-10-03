@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Population Aged 65+ %",
-              "nativeQueryRef": "Age 65+",
-              "displayName": "Age 65+"
+              "nativeQueryRef": "Population Aged 65+ %"
             }
           ]
         }

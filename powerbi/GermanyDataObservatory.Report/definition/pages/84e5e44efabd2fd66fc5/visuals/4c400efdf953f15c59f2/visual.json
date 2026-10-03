@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Tooltip Structural Cluster",
-              "nativeQueryRef": "Structural cluster",
-              "displayName": "Structural cluster"
+              "nativeQueryRef": "Structural cluster"
             }
           ]
         }

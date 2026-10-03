@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Disposable Income per Capita",
-              "nativeQueryRef": "Income per capita",
-              "displayName": "Income per capita"
+              "nativeQueryRef": "Disposable Income per Capita"
             }
           ]
         }

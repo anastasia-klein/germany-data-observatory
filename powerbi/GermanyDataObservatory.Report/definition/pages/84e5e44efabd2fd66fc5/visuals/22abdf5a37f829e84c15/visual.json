@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Unemployment Rate %",
-              "nativeQueryRef": "Unemployment",
-              "displayName": "Unemployment"
+              "nativeQueryRef": "Unemployment Rate %"
             }
           ]
         }
