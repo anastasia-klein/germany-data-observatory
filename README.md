@@ -13,6 +13,7 @@ The data foundation now covers both Germany's 16 federal states and all 400 Krei
 | Elections | Eligible voters, turnout and second-vote party results by state for 2005, 2009, 2013, 2017, 2021 and 2025 |
 | District typology | 14 official Regionalatlas indicators, 11 clustering features, PCA scores, cluster diagnostics and profiles for 400 districts |
 | District elections | Turnout and six party-group second-vote shares for 2017, 2021 and 2025, joined after clustering |
+| District geography | Reviewed BKG VG250 boundaries for all 400 districts, keyed by AGS for Power BI mapping |
 
 The processing is deterministic and covered by data-quality, source-reconciliation and model-integrity tests. State transformations use the Python standard library; the district analysis uses pinned versions of pandas, NumPy, SciPy and scikit-learn.
 
@@ -57,12 +58,14 @@ data/
 └── processed/              # clean dimensional and fact tables
 metadata/
 ├── data_dictionary.md
+├── district_geometry.md
 ├── district_clustering_methodology.md
 └── sources.md
 powerbi/                    # PBIP implementation guide and future project
 src/
 ├── download_data.py        # reproducible acquisition
 ├── download_district_data.py
+├── build_district_geometry.py
 ├── download_genesis.py     # token-safe optional GENESIS API acquisition
 ├── transform_data.py       # deterministic state transformations
 └── build_district_analysis.py
@@ -86,6 +89,7 @@ Or run the stages separately:
 ```bash
 make download
 make download-districts
+make download-geometry      # requires mapshaper 0.6.113
 make transform
 make transform-districts
 make test
@@ -128,6 +132,7 @@ The tests currently verify that:
 - the selected cluster count obeys the minimum-size rule and maximizes eligible silhouette score;
 - PCA reaches the 80% variance target and alternative scaling/model specifications remain substantially consistent;
 - district election tables cover all 400 districts for 2017, 2021 and 2025.
+- both district map formats contain exactly the same 400 AGS keys as the district dimension.
 
 The same checks run in GitHub Actions on every push and pull request. The workflow also confirms that committed processed data match the transformation code.
 
@@ -149,8 +154,9 @@ Source data are published under the Data Licence Germany – Attribution – Ver
 - [x] Build a 400-district feature mart from official Regionalatlas data
 - [x] Add reproducible PCA, hierarchical clustering, diagnostics and robustness checks
 - [x] Join district election indicators only after cluster assignment
-- [ ] Build the Power BI semantic model and 15–20 meaningful DAX measures
-- [ ] Create overview, cluster map, profiles, PCA explorer and election-comparison pages
+- [x] Build the Power BI semantic model and core DAX measures
+- [x] Add reviewed 400-district geometry for the cluster map
+- [ ] Complete overview, cluster map, profiles, PCA explorer and election-comparison pages
 - [ ] Publish the interactive public dashboard
 
 ## Scope

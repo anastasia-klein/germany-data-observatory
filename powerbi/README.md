@@ -2,6 +2,12 @@
 
 The full page architecture, storytelling, visual design system, party colours, Volt scope and build sequence are defined in [`report_blueprint.md`](report_blueprint.md). Import [`germany_observatory_glossy.json`](germany_observatory_glossy.json) as the starting report theme and use [`core_dax_measures.md`](core_dax_measures.md) for the semantic-model measures.
 
+Use [`power_query_setup.md`](power_query_setup.md) to create the `DataRoot` parameter, the shared CSV loader and all typed queries for `data/processed`.
+
+After loading the queries, follow [`model_relationships.md`](model_relationships.md) for the exact cardinality and filter direction of every semantic-model relationship.
+
+After model QA and core measures are complete, follow [`overview_build_guide.md`](overview_build_guide.md) to clean the field list, import the theme, create the page shell and build the first Overview page.
+
 ## Before opening Power BI
 
 1. Run `make transform-districts` and `make test`.
@@ -13,7 +19,7 @@ The full page architecture, storytelling, visual design system, party colours, V
 
 Create a text parameter named `DataRoot` pointing to the repository's `data/processed` directory. Use it in every CSV query instead of embedding separate absolute paths.
 
-Build these one-to-many, single-direction relationships:
+Build the relationships documented in `model_relationships.md`. Almost all are one-to-many and single-direction. The one deliberate exception is the one-to-one, bidirectional relationship between `dim_district` and `fact_cluster_assignment`, which allows a cluster selection to filter the district dimension and its facts.
 
 - `dim_state[state_code]` → `dim_district[state_code]`;
 - `dim_district[district_id]` → district features, cluster assignment, election results, turnout and PCA scores;

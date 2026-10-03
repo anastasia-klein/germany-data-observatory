@@ -389,7 +389,7 @@ How does one selected district compare with its cluster and Germany?
 
 ### Priority 0 — needed for the first PBIP
 
-1. Add official district geometry and validate all 400 AGS matches.
+1. Import the validated BKG TopoJSON from `data/processed/germany_districts_2024.topojson` into the Shape map.
 2. Create a four-cluster semantic layer and business display names.
 3. Add party colour and display-order dimensions.
 4. Create a Date/Election dimension suitable for time-intelligence-like comparisons.
