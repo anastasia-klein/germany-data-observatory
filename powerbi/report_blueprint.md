@@ -49,6 +49,8 @@ Use a persistent top navigation bar:
 
 Keep `Methodology` visually quieter but always available. Use a Home button and Back button on drill-through pages. Synchronise Election, Party, State and Cluster slicers only where their meaning is consistent.
 
+All reader-facing pages use the same 1280 × 720 shell: a 60 px white header, the shared Page Navigator and a full-width 3 px black-red-gold rule. Maintain the shell in PBIR so navigation and branding remain identical across pages; exclude hidden QA and tooltip pages.
+
 ## Canvas and layout system
 
 - Canvas: 16:9, 1280 × 720.

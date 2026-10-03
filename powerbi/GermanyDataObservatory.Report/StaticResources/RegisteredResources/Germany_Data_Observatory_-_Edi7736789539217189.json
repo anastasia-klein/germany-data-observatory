@@ -675,6 +675,22 @@
             }
           }
         ],
+        "spacing": [
+          {
+            "customizeSpacing": true,
+            "spaceBelowTitle": 0,
+            "spaceBelowTitleArea": 0,
+            "spaceAbovePlotArea": 0
+          }
+        ],
+        "padding": [
+          {
+            "top": 4,
+            "bottom": 4,
+            "left": 8,
+            "right": 8
+          }
+        ],
         "background": [
           {
             "show": true,
