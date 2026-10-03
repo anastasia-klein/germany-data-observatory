@@ -1,0 +1,365 @@
+table _Measures
+	lineageTag: fe8fed8d-6429-4c4b-b65a-080b4bbca7f2
+
+	measure 'District Count' =
+			
+			DISTINCTCOUNT ( dim_district[district_id] )
+		formatString: #,0
+		displayFolder: Districts
+		lineageTag: c32a7f7a-7672-49ad-9b71-dda1662008e9
+
+	measure 'Average Feature Value' =
+			
+			AVERAGE ( fact_district_features[value] )
+		displayFolder: Features
+		lineageTag: 6764e374-6c56-4870-83ca-7afe0d9d548d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Germany Feature Average' =
+			
+			VAR CurValue = [Average Feature Value]
+			VAR NationalAverage =
+			    CALCULATE (
+			        [Average Feature Value],
+			        REMOVEFILTERS ( dim_district ),
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        NationalAverage
+			    )
+		displayFolder: Features
+		lineageTag: 1437b410-9a57-43a0-ab45-81f300cb20d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Difference from Germany' =
+			
+			VAR CurValue = [Average Feature Value]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        CurValue - [Germany Feature Average]
+			    )
+		displayFolder: Features
+		lineageTag: 3768fe64-95ff-43a6-8dbf-77f9f7f2bfda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Difference from Germany %' =
+			
+			VAR CurValue = [Average Feature Value]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        DIVIDE (
+			            [Difference from Germany],
+			            [Germany Feature Average]
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Features
+		lineageTag: f2ddeec7-57b8-4816-87df-e0defeea0d7d
+
+	measure 'Cluster Mean Z Score' =
+			
+			AVERAGE ( cluster_profiles[mean_z_score] )
+		formatString: 0.00
+		displayFolder: Clusters
+		lineageTag: 3ce69e51-529e-4789-8159-1a8d2cae9de6
+
+	measure 'Second Votes' =
+			
+			SUM ( fact_election_party_results[votes] )
+		formatString: 0
+		displayFolder: Elections\State
+		lineageTag: 37d7ac5f-ec5d-4df2-be3a-87abc21663ed
+
+	measure 'Valid Second Votes' =
+			
+			CALCULATE (
+			    [Second Votes],
+			    REMOVEFILTERS ( dim_party ),
+			    REMOVEFILTERS ( fact_election_party_results[party_id] ),
+			    REMOVEFILTERS ( fact_election_party_results[party] ),
+			    REMOVEFILTERS ( fact_election_party_results[source_party] )
+			)
+		formatString: 0
+		displayFolder: Elections\State
+		lineageTag: b6035c12-179e-45a3-b427-9c994efaca29
+
+	measure 'Second Vote Share' =
+			
+			DIVIDE ( [Second Votes], [Valid Second Votes] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State
+		lineageTag: 594b32a4-2253-4df3-9cc0-d89dd70dc136
+
+	measure 'Previous Election Vote Share' =
+			
+			VAR CurYear = MAX ( dim_election[election_year] )
+			VAR PrevYear =
+			    MAXX (
+			        FILTER (
+			            ALL ( dim_election[election_year] ),
+			            dim_election[election_year] < CurYear
+			        ),
+			        dim_election[election_year]
+			    )
+			VAR PrevShare =
+			    CALCULATE (
+			        [Second Vote Share],
+			        REMOVEFILTERS ( dim_election ),
+			        dim_election[election_year] = PrevYear
+			    )
+			RETURN
+			    IF (
+			        HASONEVALUE ( dim_election[election_year] ),
+			        PrevShare
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State
+		lineageTag: 82c3a56e-4391-4c7f-957f-77c6cf8333a9
+
+	measure 'Vote Share Change pp' =
+			
+			VAR PrevShare = [Previous Election Vote Share]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( PrevShare ),
+			        100 * ( [Second Vote Share] - PrevShare )
+			    )
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\State
+		lineageTag: a0bad478-6960-4865-897e-b17a33165fcb
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Mean District Vote Share %' =
+			
+			AVERAGE ( fact_district_election_results[second_vote_share_percent] )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: b32eba6c-39a8-4b30-adae-f045e77fef1d
+
+	measure 'Mean District Turnout %' =
+			
+			AVERAGE ( fact_district_election_turnout[turnout_percent] )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: 45cc400d-d195-4e0e-9fa4-3346d3f8d24d
+
+	measure 'Previous District Vote Share %' =
+			
+			VAR CurYear = MAX ( dim_election[election_year] )
+			VAR PrevYear =
+			    MAXX (
+			        FILTER (
+			            ALL ( dim_election[election_year] ),
+			            dim_election[election_year] < CurYear
+			                && dim_election[election_year] >= 2017
+			        ),
+			        dim_election[election_year]
+			    )
+			RETURN
+			    CALCULATE (
+			        [Mean District Vote Share %],
+			        REMOVEFILTERS ( dim_election ),
+			        dim_election[election_year] = PrevYear
+			    )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: 9b17af87-e072-4830-83c0-0fd7efe29314
+
+	measure 'District Vote Share Change pp' =
+			
+			[Mean District Vote Share %] - [Previous District Vote Share %]
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\District
+		lineageTag: d1b9510a-f612-4d61-82bd-f59d6d298d87
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Selected Party' =
+			
+			COALESCE (
+			    SELECTEDVALUE ( dim_party_group[party_group_name] ),
+			    SELECTEDVALUE ( dim_party[party_name] ),
+			    "All parties"
+			)
+		displayFolder: UX
+		lineageTag: 991bc0de-27e3-48da-bbf8-3ac2155b2ce9
+
+	measure 'Party Colour' =
+			
+			SWITCH (
+			    [Selected Party],
+			    "CDU/CSU", "#171717",
+			    "CDU", "#171717",
+			    "CSU", "#008AC5",
+			    "SPD", "#E3000F",
+			    "GRÜNE", "#1AA037",
+			    "FDP", "#FFED00",
+			    "Die Linke", "#BE3075",
+			    "AfD", "#009EE0",
+			    "Volt", "#502379",
+			    "#8C8C8C"
+			)
+		displayFolder: UX
+		lineageTag: 2d378087-6e57-4391-b163-953d062f91f6
+
+	measure 'Selected Geography Label' =
+			
+			VAR District = SELECTEDVALUE ( dim_district[district_name] )
+			VAR State = SELECTEDVALUE ( dim_state[state_name] )
+			RETURN
+			    COALESCE ( District, State, "Germany" )
+		displayFolder: UX
+		lineageTag: ffb9fb32-048f-429c-b846-9cc0e7794483
+
+	measure 'Party Map Title' =
+			
+			[Selected Party] & " support in " & [Selected Geography Label]
+		displayFolder: UX
+		lineageTag: 685186fb-6a51-411c-8053-bf34f35f8d35
+
+	measure 'Disposable Income per Capita' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "disposable_income_per_capita"
+			)
+		formatString: #,0.0\ "€";-#,0.0\ "€";#,0.0\ "€"
+		displayFolder: Overview\Indicators
+		lineageTag: b9ec2d08-3a31-4cea-93a5-65615bac115a
+
+	measure 'GDP per Capita' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "gdp_per_capita"
+			)
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		displayFolder: KPI
+		lineageTag: dc192b9f-c826-40f7-bce3-90274e237b26
+
+	measure 'Eligible Voters' =
+			
+			CALCULATE (
+			    SUM ( fact_election_turnout[value] ),
+			    fact_election_turnout[measure] = "eligible_voters"
+			)
+		formatString: #,0
+		displayFolder: Elections\State\Turnout
+		lineageTag: 1232d6b5-6902-4203-a6d1-fe3b6c8dbc22
+
+	measure Voters =
+			
+			CALCULATE (
+			    SUM ( fact_election_turnout[value] ),
+			    fact_election_turnout[measure] = "voters"
+			)
+		formatString: #,0
+		displayFolder: Elections\State\Turnout
+		lineageTag: 90b1aca7-359a-4813-9bbd-e696193febf9
+
+	measure Turnout =
+			
+			DIVIDE ( [Voters], [Eligible Voters] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State\Turnout
+		lineageTag: 6d177c3a-7dc9-4667-b41c-3cbfccc327fb
+
+	measure 'Observed Indicator Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_district_feature[feature_id] ),
+			    REMOVEFILTERS ( dim_district_feature )
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: 6b2b852f-3b50-4553-b99d-a2b0f31091d9
+
+	measure 'Model Feature Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_district_feature[feature_id] ),
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[included_in_clustering] = TRUE ()
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: ea20588b-11e0-47a9-a276-6f01cad9bb3e
+
+	measure 'Cluster Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_cluster[cluster_id] ),
+			    REMOVEFILTERS ( dim_cluster )
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: a819aa3f-234d-45b4-affd-80761c76f77f
+
+	measure 'Population Aged 65+ %' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "age_65_plus_share"
+			)
+		displayFolder: Overview\Indicators
+		lineageTag: 873e9b83-bd6f-4dc7-a527-007d50fc9284
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unemployment Rate %' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "unemployment_rate"
+			)
+		displayFolder: Overview\Indicators
+		lineageTag: 405f8f9e-70d4-47f5-89c2-98ad2836de90
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '2025 Turnout %' =
+			
+			CALCULATE (
+			    [Mean District Turnout %],
+			    REMOVEFILTERS ( dim_election ),
+			    dim_election[election_year] = 2025
+			)
+		displayFolder: Overview\Indicators
+		lineageTag: 417d4605-2864-44e2-896d-84ab93e5da4b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Placeholder
+		isHidden
+		lineageTag: 0a9c6e77-e28a-4d60-8bfa-2d3d710b9dcb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Placeholder",
+				    STRING,
+				    { { "" } }
+				)
+
+	annotation PBI_Id = 8cf3717a7ea04a4c95ffabedeba75b39
+

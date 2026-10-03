@@ -1,0 +1,73 @@
+table fact_state_indicators
+	lineageTag: 989c2b6a-d985-4194-9167-62773b4a8990
+
+	column state_code
+		dataType: string
+		lineageTag: e8e5eb1c-8eb4-474a-b8a1-ccd038891b37
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: fb370bf0-1507-4927-bd5c-59b8edea50a9
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = User
+
+	column indicator
+		dataType: string
+		lineageTag: 4efa6812-c7ab-45c2-9501-04f995d37abf
+		summarizeBy: none
+		sourceColumn: indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: a42b5eac-fb03-4230-bce8-796d0e285d67
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit
+		dataType: string
+		lineageTag: 43302a3b-5fe9-4ddc-a12f-fd849e8335ba
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: 46a990ba-0892-4a06-9c48-f45938bb8d2c
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_state_indicators = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_state_indicators.csv", {
+				        {"state_code", type text},
+				        {"year", Int64.Type},
+				        {"indicator", type text},
+				        {"value", type number},
+				        {"unit", type text},
+				        {"source", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

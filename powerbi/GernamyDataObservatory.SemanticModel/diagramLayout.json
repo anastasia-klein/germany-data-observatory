@@ -1,0 +1,742 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1383,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1531.5041704850328,
+            "y": 0
+          },
+          "nodeIndex": "cluster_election_results",
+          "nodeLineageTag": "6499e0cf-ddcc-4153-83df-717aea6bf2bc",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1316.3896399113751,
+            "y": 801.3368158191837
+          },
+          "nodeIndex": "cluster_profiles",
+          "nodeLineageTag": "55de89d8-4085-4d94-8b37-780e42820013",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 2328.7020336458181,
+            "y": 859.56134810569779
+          },
+          "nodeIndex": "clustering_diagnostics",
+          "nodeLineageTag": "1c41ab26-6fa3-4e5c-ab28-03435e68b805",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 685.49157334003712,
+            "y": 0
+          },
+          "nodeIndex": "dim_cluster",
+          "nodeLineageTag": "840ed9a2-4ba4-4828-9309-89b83e8ab08d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 333.72019639117661,
+            "y": 0
+          },
+          "nodeIndex": "dim_district",
+          "nodeLineageTag": "b322b4b4-5298-4eb4-93e5-4d89ab1b6cb5",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1460.3668497560918,
+            "y": 1211.3544385973178
+          },
+          "nodeIndex": "dim_district_feature",
+          "nodeLineageTag": "f60a31c5-e6b9-4788-a498-4cb12389650c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1015.2248057792281,
+            "y": 120
+          },
+          "nodeIndex": "dim_election",
+          "nodeLineageTag": "da3f18d2-2ab3-4a30-8e40-bded9d007254",
+          "size": {
+            "height": 315,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1897.7412444762176,
+            "y": 0
+          },
+          "nodeIndex": "dim_party",
+          "nodeLineageTag": "c9a31c44-a53f-4791-915f-035e1853609b",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1543.9865516859845,
+            "y": 260
+          },
+          "nodeIndex": "dim_party_group",
+          "nodeLineageTag": "bd1a3604-1daf-4cac-bfe2-4d113fbb37c7",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dim_state",
+          "nodeLineageTag": "ba9506ec-d82f-479e-9a80-ed6d7947ccbe",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 318.19667331661617,
+            "y": 1035.1226962113956
+          },
+          "nodeIndex": "district_pca",
+          "nodeLineageTag": "41eef148-b1bd-4e1c-bf7c-167429a2aa3a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 498.14327573846663,
+            "y": 847.56855874345024
+          },
+          "nodeIndex": "fact_cluster_assignment",
+          "nodeLineageTag": "3511eec4-ef9b-4b79-bf23-6dad241c26d4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 728.38601920921815,
+            "y": 1236.7743986098253
+          },
+          "nodeIndex": "fact_district_election_results",
+          "nodeLineageTag": "12151f11-ea17-4519-91bf-a15d1b4f35c6",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 668.06849399274688,
+            "y": 547.42610100825482
+          },
+          "nodeIndex": "fact_district_election_turnout",
+          "nodeLineageTag": "a748922f-a8ec-41a0-8d72-aec5f813fb3b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 327.16454146734304,
+            "y": 393.27059059488784
+          },
+          "nodeIndex": "fact_district_features",
+          "nodeLineageTag": "b9f05676-714b-4fda-8fd7-6fe7dee39f23",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1585.588222176609,
+            "y": 665.44357084996
+          },
+          "nodeIndex": "fact_election_party_results",
+          "nodeLineageTag": "998c8b7f-12b0-4eb3-b5f2-733e89278ab2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1190.3726445845912,
+            "y": 542.34829760157049
+          },
+          "nodeIndex": "fact_election_turnout",
+          "nodeLineageTag": "603dacf8-466b-4388-af7d-a3c91722f8d2",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 112,
+            "y": 746.79186845153049
+          },
+          "nodeIndex": "fact_foreign_population",
+          "nodeLineageTag": "1a5c3eb1-415e-4d95-9e36-ec046d182fc4",
+          "size": {
+            "height": 198,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 972.92717752524686
+          },
+          "nodeIndex": "fact_population_nationality",
+          "nodeLineageTag": "40e56ad5-7da0-4ba6-a371-5f98266f2ef1",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 25,
+            "y": 378.74697564681924
+          },
+          "nodeIndex": "fact_state_indicators",
+          "nodeLineageTag": "989c2b6a-d985-4194-9167-62773b4a8990",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 2722.5641963500289,
+            "y": 907.56134810569779
+          },
+          "nodeIndex": "pca_explained_variance",
+          "nodeLineageTag": "62c45b96-1db1-4912-a7a1-8a68bff441be",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 1878.52572469932,
+            "y": 841.00614099574727
+          },
+          "nodeIndex": "pca_loadings",
+          "nodeLineageTag": "5cd4e814-6fb8-4919-85fd-852b83b82488",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 3006.5641963500289,
+            "y": 642.38719930491266
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 250,
+            "y": 0
+          },
+          "nodeIndex": "dim_state",
+          "nodeLineageTag": "ba9506ec-d82f-479e-9a80-ed6d7947ccbe",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 610,
+            "y": 0
+          },
+          "nodeIndex": "dim_district",
+          "nodeLineageTag": "b322b4b4-5298-4eb4-93e5-4d89ab1b6cb5",
+          "size": {
+            "height": 308,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1239,
+            "y": 169
+          },
+          "nodeIndex": "dim_cluster",
+          "nodeLineageTag": "840ed9a2-4ba4-4828-9309-89b83e8ab08d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 23,
+            "y": 541
+          },
+          "nodeIndex": "dim_election",
+          "nodeLineageTag": "da3f18d2-2ab3-4a30-8e40-bded9d007254",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1303,
+            "y": 809
+          },
+          "nodeIndex": "dim_party_group",
+          "nodeLineageTag": "bd1a3604-1daf-4cac-bfe2-4d113fbb37c7",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1591,
+            "y": 498
+          },
+          "nodeIndex": "dim_district_feature",
+          "nodeLineageTag": "f60a31c5-e6b9-4788-a498-4cb12389650c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1328,
+            "y": 0
+          },
+          "nodeIndex": "fact_cluster_assignment",
+          "nodeLineageTag": "3511eec4-ef9b-4b79-bf23-6dad241c26d4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1040,
+            "y": 453
+          },
+          "nodeIndex": "fact_district_features",
+          "nodeLineageTag": "b9f05676-714b-4fda-8fd7-6fe7dee39f23",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 743,
+            "y": 706
+          },
+          "nodeIndex": "fact_district_election_results",
+          "nodeLineageTag": "12151f11-ea17-4519-91bf-a15d1b4f35c6",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 209
+          },
+          "nodeIndex": "fact_district_election_turnout",
+          "nodeLineageTag": "a748922f-a8ec-41a0-8d72-aec5f813fb3b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1675,
+            "y": 124
+          },
+          "nodeIndex": "cluster_profiles",
+          "nodeLineageTag": "55de89d8-4085-4d94-8b37-780e42820013",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1680,
+            "y": 896
+          },
+          "nodeIndex": "cluster_election_results",
+          "nodeLineageTag": "6499e0cf-ddcc-4153-83df-717aea6bf2bc",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 878,
+            "y": 237
+          },
+          "nodeIndex": "district_pca",
+          "nodeLineageTag": "41eef148-b1bd-4e1c-bf7c-167429a2aa3a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "District model",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 699,
+            "y": 202
+          },
+          "nodeIndex": "dim_state",
+          "nodeLineageTag": "ba9506ec-d82f-479e-9a80-ed6d7947ccbe",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 998,
+            "y": 442
+          },
+          "nodeIndex": "dim_election",
+          "nodeLineageTag": "da3f18d2-2ab3-4a30-8e40-bded9d007254",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 903,
+            "y": 797
+          },
+          "nodeIndex": "dim_party",
+          "nodeLineageTag": "c9a31c44-a53f-4791-915f-035e1853609b",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1507,
+            "y": 516
+          },
+          "nodeIndex": "fact_election_party_results",
+          "nodeLineageTag": "998c8b7f-12b0-4eb3-b5f2-733e89278ab2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 577,
+            "y": 454
+          },
+          "nodeIndex": "fact_election_turnout",
+          "nodeLineageTag": "603dacf8-466b-4388-af7d-a3c91722f8d2",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1424,
+            "y": 0
+          },
+          "nodeIndex": "fact_state_indicators",
+          "nodeLineageTag": "989c2b6a-d985-4194-9167-62773b4a8990",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 175,
+            "y": 12
+          },
+          "nodeIndex": "fact_foreign_population",
+          "nodeLineageTag": "1a5c3eb1-415e-4d95-9e36-ec046d182fc4",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 155,
+            "y": 206
+          },
+          "nodeIndex": "fact_population_nationality",
+          "nodeLineageTag": "40e56ad5-7da0-4ba6-a371-5f98266f2ef1",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "State trends",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 3,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 889,
+            "y": 66
+          },
+          "nodeIndex": "dim_district_feature",
+          "nodeLineageTag": "f60a31c5-e6b9-4788-a498-4cb12389650c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 871,
+            "y": 402
+          },
+          "nodeIndex": "dim_cluster",
+          "nodeLineageTag": "840ed9a2-4ba4-4828-9309-89b83e8ab08d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1268,
+            "y": 430
+          },
+          "nodeIndex": "fact_cluster_assignment",
+          "nodeLineageTag": "3511eec4-ef9b-4b79-bf23-6dad241c26d4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1269,
+            "y": 228
+          },
+          "nodeIndex": "cluster_profiles",
+          "nodeLineageTag": "55de89d8-4085-4d94-8b37-780e42820013",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1604,
+            "y": 511
+          },
+          "nodeIndex": "district_pca",
+          "nodeLineageTag": "41eef148-b1bd-4e1c-bf7c-167429a2aa3a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1645,
+            "y": 220
+          },
+          "nodeIndex": "pca_loadings",
+          "nodeLineageTag": "5cd4e814-6fb8-4919-85fd-852b83b82488",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1571,
+            "y": 804
+          },
+          "nodeIndex": "pca_explained_variance",
+          "nodeLineageTag": "62c45b96-1db1-4912-a7a1-8a68bff441be",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 933,
+            "y": 755
+          },
+          "nodeIndex": "clustering_diagnostics",
+          "nodeLineageTag": "1c41ab26-6fa3-4e5c-ab28-03435e68b805",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Methodology",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,76 @@
+table fact_district_election_turnout
+	lineageTag: a748922f-a8ec-41a0-8d72-aec5f813fb3b
+
+	column district_id
+		dataType: string
+		isHidden
+		lineageTag: e5170a0b-ef9d-46a3-be78-3103e594e38e
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_id
+		dataType: string
+		isHidden
+		lineageTag: ef8f363e-0b9a-41f6-88c2-e794f1846d37
+		summarizeBy: none
+		sourceColumn: election_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6ac296aa-2f93-44a9-8a54-7c064188ce85
+		summarizeBy: none
+		sourceColumn: election_year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column turnout_percent
+		dataType: double
+		lineageTag: a41b4223-fae1-4040-94af-7865bf594315
+		summarizeBy: none
+		sourceColumn: turnout_percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source_dataset
+		dataType: string
+		isHidden
+		lineageTag: a71e36fe-7147-4a69-8836-524910549bb5
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_district_election_turnout = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_district_election_turnout.csv", {
+				        {"district_id", type text},
+				        {"election_id", type text},
+				        {"election_year", Int64.Type},
+				        {"turnout_percent", type number},
+				        {"source_dataset", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

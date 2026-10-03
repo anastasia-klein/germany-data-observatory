@@ -1,0 +1,105 @@
+relationship AutoDetected_f4cd0171-7809-4151-92ff-e154ebc455f9
+	fromColumn: dim_district.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_efe83bba-b40d-4714-afbb-c5865c5febf7
+	fromColumn: fact_election_party_results.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_6e081cc5-a08a-48f5-93e9-acda8c46a78a
+	fromColumn: fact_election_turnout.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_e0182ecc-16db-4216-b1ac-6b3e2be67793
+	fromColumn: fact_state_indicators.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_e5f9a1c1-63d3-4937-b3c3-1a0eaa5af4b9
+	fromColumn: fact_foreign_population.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_dca593a4-57c8-42f1-9fd3-99a64c309292
+	fromColumn: fact_population_nationality.state_code
+	toColumn: dim_state.state_code
+
+relationship AutoDetected_6c45eb0c-06c0-4a76-a31d-2b391bce01a1
+	fromColumn: fact_district_features.district_id
+	toColumn: dim_district.district_id
+
+relationship AutoDetected_40a44563-16d1-4394-a0d6-d4ebc5852211
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fact_cluster_assignment.district_id
+	toColumn: dim_district.district_id
+
+relationship AutoDetected_d0889e62-926b-489c-b577-611c2bc6b76a
+	fromColumn: fact_district_election_results.district_id
+	toColumn: dim_district.district_id
+
+relationship AutoDetected_da258846-1c4e-476d-9758-d2e325dd40b8
+	fromColumn: fact_district_election_turnout.district_id
+	toColumn: dim_district.district_id
+
+relationship AutoDetected_f3b46ff8-8bfc-4226-9127-042f725b4489
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: district_pca.district_id
+	toColumn: dim_district.district_id
+
+relationship AutoDetected_d633bc9b-7c49-4e55-88aa-05bfb2bd37cd
+	fromColumn: fact_district_features.feature_id
+	toColumn: dim_district_feature.feature_id
+
+relationship AutoDetected_6eaabd86-f490-49e8-bb18-a0b25d2ce4b7
+	fromColumn: cluster_profiles.feature_id
+	toColumn: dim_district_feature.feature_id
+
+relationship AutoDetected_a72caee7-0403-44fe-b2ae-33cfa81270ae
+	crossFilteringBehavior: bothDirections
+	fromColumn: pca_loadings.feature_id
+	toColumn: dim_district_feature.feature_id
+
+relationship AutoDetected_627d10ce-c12d-4462-9610-99018843760b
+	fromColumn: fact_cluster_assignment.cluster_id
+	toColumn: dim_cluster.cluster_id
+
+relationship AutoDetected_98d10e9a-763b-443f-925a-2c6aa34290a7
+	fromColumn: cluster_profiles.cluster_id
+	toColumn: dim_cluster.cluster_id
+
+relationship AutoDetected_f1178414-eb8b-441d-905f-1b420bf066a0
+	fromColumn: cluster_election_results.cluster_id
+	toColumn: dim_cluster.cluster_id
+
+relationship AutoDetected_a00924ef-a8fc-4226-828f-25ed1c25cde3
+	fromColumn: fact_district_election_results.election_id
+	toColumn: dim_election.election_id
+
+relationship AutoDetected_9ed24d5e-8bee-4481-817d-f2dadb1313dc
+	fromColumn: fact_district_election_turnout.election_id
+	toColumn: dim_election.election_id
+
+relationship AutoDetected_e92977bd-232c-4d47-80c4-79c9d2772f3d
+	fromColumn: cluster_election_results.election_id
+	toColumn: dim_election.election_id
+
+relationship AutoDetected_905f818a-ec60-4e55-9fea-decaa94c0451
+	fromColumn: fact_election_party_results.election_id
+	toColumn: dim_election.election_id
+
+relationship AutoDetected_569c028f-004b-4103-9193-b658863bf54e
+	fromColumn: fact_election_turnout.election_id
+	toColumn: dim_election.election_id
+
+relationship AutoDetected_98f67bb1-c945-422d-8f27-63ca6728893a
+	fromColumn: fact_district_election_results.party_group_id
+	toColumn: dim_party_group.party_group_id
+
+relationship AutoDetected_77499b44-1677-4613-8477-7773dad1399a
+	fromColumn: cluster_election_results.party_group_id
+	toColumn: dim_party_group.party_group_id
+
+relationship AutoDetected_32ec45a5-4dde-495c-908c-dc4e924dae21
+	fromColumn: fact_election_party_results.party_id
+	toColumn: dim_party.party_id
+

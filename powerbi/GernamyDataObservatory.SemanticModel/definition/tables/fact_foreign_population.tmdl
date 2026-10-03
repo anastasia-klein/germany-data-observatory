@@ -1,0 +1,54 @@
+table fact_foreign_population
+	lineageTag: 1a5c3eb1-415e-4d95-9e36-ec046d182fc4
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: d598751b-5265-4762-afdd-9b6ca45820b0
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = User
+
+	column state_code
+		dataType: string
+		lineageTag: 47e9d256-47c7-4c2c-a6c6-ae599e8bbe13
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column foreign_population_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 2bda8a10-3a47-4ade-a425-f69c6c797af1
+		summarizeBy: sum
+		sourceColumn: foreign_population_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_register
+		dataType: string
+		lineageTag: 84078ca2-a5cc-4fa5-852e-d037a6ac949e
+		summarizeBy: none
+		sourceColumn: source_register
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_foreign_population = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_foreign_population.csv", {
+				        {"year", Int64.Type},
+				        {"state_code", type text},
+				        {"foreign_population_count", Int64.Type},
+				        {"source_register", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

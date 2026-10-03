@@ -1,0 +1,41 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["DataRoot","fnLoadProcessedCsv","dim_state","dim_district","dim_district_feature","dim_cluster","dim_election","dim_party_group","dim_party","fact_district_features","fact_cluster_assignment","fact_district_election_results","fact_district_election_turnout","cluster_profiles","cluster_election_results","district_pca","pca_loadings","pca_explained_variance","clustering_diagnostics","fact_election_party_results","fact_election_turnout","fact_state_indicators","fact_foreign_population","fact_population_nationality"]
+
+ref table dim_state
+ref table dim_district
+ref table dim_district_feature
+ref table dim_cluster
+ref table dim_election
+ref table dim_party_group
+ref table dim_party
+ref table fact_district_features
+ref table fact_cluster_assignment
+ref table fact_district_election_results
+ref table fact_district_election_turnout
+ref table cluster_profiles
+ref table cluster_election_results
+ref table district_pca
+ref table pca_loadings
+ref table pca_explained_variance
+ref table clustering_diagnostics
+ref table fact_election_party_results
+ref table fact_election_turnout
+ref table fact_state_indicators
+ref table fact_foreign_population
+ref table fact_population_nationality
+ref table _Measures
+
+ref cultureInfo en-US
+

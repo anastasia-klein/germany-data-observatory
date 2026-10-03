@@ -1,0 +1,89 @@
+table clustering_diagnostics
+	lineageTag: 1c41ab26-6fa3-4e5c-ab28-03435e68b805
+
+	column k
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cf3d70b-7b69-4eea-b4ab-47f6f272605d
+		summarizeBy: sum
+		sourceColumn: k
+
+		annotation SummarizationSetBy = Automatic
+
+	column silhouette_score
+		dataType: double
+		lineageTag: c073c11b-bcfe-416a-bed1-ff8a99e2c21b
+		summarizeBy: sum
+		sourceColumn: silhouette_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column calinski_harabasz_score
+		dataType: double
+		lineageTag: 5c55ca46-25a2-4086-8c41-1868d77d61ec
+		summarizeBy: sum
+		sourceColumn: calinski_harabasz_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column davies_bouldin_score
+		dataType: double
+		lineageTag: b58804e2-7adc-498e-92ab-d77aea026416
+		summarizeBy: sum
+		sourceColumn: davies_bouldin_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column minimum_cluster_size
+		dataType: int64
+		formatString: 0
+		lineageTag: ea7d032a-cf31-4d1f-9f4c-1bc228c63eed
+		summarizeBy: sum
+		sourceColumn: minimum_cluster_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column passes_minimum_size
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a299c3f-56c4-45df-942e-292aa4172312
+		summarizeBy: none
+		sourceColumn: passes_minimum_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column selected
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 89290e3f-4a3a-4b93-8db6-ffdd889b966e
+		summarizeBy: none
+		sourceColumn: selected
+
+		annotation SummarizationSetBy = Automatic
+
+	partition clustering_diagnostics = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("clustering_diagnostics.csv", {
+				        {"k", Int64.Type},
+				        {"silhouette_score", type number},
+				        {"calinski_harabasz_score", type number},
+				        {"davies_bouldin_score", type number},
+				        {"minimum_cluster_size", Int64.Type},
+				        {"passes_minimum_size", type logical},
+				        {"selected", type logical}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

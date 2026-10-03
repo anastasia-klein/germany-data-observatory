@@ -1,0 +1,208 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "7b50fc52a3da2a6a0e74",
+  "position": {
+    "x": 495.76443941109852,
+    "y": 310.93997734994338,
+    "z": 4,
+    "height": 251.14382785956965,
+    "width": 744.73386183465459,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_election"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "dim_election.election_year",
+              "nativeQueryRef": "election_year",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Second Votes"
+                }
+              },
+              "queryRef": "_Measures.Second Votes",
+              "nativeQueryRef": "Second Votes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Second Vote Share"
+                }
+              },
+              "queryRef": "_Measures.Second Vote Share",
+              "nativeQueryRef": "Second Vote Share"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Vote Share Change pp"
+                }
+              },
+              "queryRef": "_Measures.Vote Share Change pp",
+              "nativeQueryRef": "Vote Share Change pp"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Previous Election Vote Share"
+                }
+              },
+              "queryRef": "_Measures.Previous Election Vote Share",
+              "nativeQueryRef": "Previous Election Vote Share"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnTotal": [
+        {
+          "properties": {
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4c77d5be4eaef0895453",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_election"
+              }
+            },
+            "Property": "election_year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "09133b697042f05723b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Second Votes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0772d830354135984100",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Second Vote Share"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d50af73d3e39bd07ca55",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Vote Share Change pp"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7eddb419b5284253b980",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Previous Election Vote Share"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

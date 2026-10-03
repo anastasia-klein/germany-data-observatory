@@ -1,0 +1,95 @@
+table dim_district_feature
+	lineageTag: f60a31c5-e6b9-4788-a498-4cb12389650c
+
+	column feature_id
+		dataType: string
+		lineageTag: 5a803eec-d7f8-477f-a0a9-54d29e5110d1
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_name
+		dataType: string
+		lineageTag: f3613b99-6039-4dd4-8d09-8afa3100a9da
+		summarizeBy: none
+		sourceColumn: feature_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: f573bffa-b54d-4fd7-bc7c-e770209b60de
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dbbf30f-2964-4d6c-8586-91fc926cdaa5
+		summarizeBy: none
+		sourceColumn: reference_year
+
+		annotation SummarizationSetBy = User
+
+	column source_dataset
+		dataType: string
+		isHidden
+		lineageTag: 6ea8f8c6-f063-4309-8185-f8753f1c2e0a
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column included_in_clustering
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ae5e3447-e869-47ee-9a94-d79cac9f05b2
+		summarizeBy: none
+		sourceColumn: included_in_clustering
+
+		annotation SummarizationSetBy = Automatic
+
+	column transform
+		dataType: string
+		lineageTag: e5a530b3-fac2-46f9-a177-fae9d41dfde2
+		summarizeBy: none
+		sourceColumn: transform
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclusion_reason
+		dataType: string
+		lineageTag: 04d61260-27eb-429b-be16-3354db3d3971
+		summarizeBy: none
+		sourceColumn: exclusion_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_district_feature = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_district_feature.csv", {
+				        {"feature_id", type text},
+				        {"feature_name", type text},
+				        {"unit", type text},
+				        {"reference_year", Int64.Type},
+				        {"source_dataset", type text},
+				        {"included_in_clustering", type logical},
+				        {"transform", type text},
+				        {"exclusion_reason", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

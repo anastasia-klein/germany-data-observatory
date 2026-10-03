@@ -1,0 +1,43 @@
+table dim_state
+	lineageTag: ba9506ec-d82f-479e-9a80-ed6d7947ccbe
+
+	column state_code
+		dataType: string
+		lineageTag: 75539156-0af0-481f-854d-67bbe4c9ff49
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: 4dbff7f1-45ff-4ac3-a5dc-3fc1acd61c09
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column nuts1_code
+		dataType: string
+		lineageTag: 08bb7b98-ec49-48e1-a34d-e7f3dbb554b7
+		summarizeBy: none
+		sourceColumn: nuts1_code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_state = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_state.csv", {
+				        {"state_code", type text},
+				        {"state_name", type text},
+				        {"nuts1_code", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

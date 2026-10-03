@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "97b54995800ebb83b0a0",
+  "position": {
+    "x": 802.35560588901467,
+    "y": 0,
+    "z": 2,
+    "height": 280.49830124575311,
+    "width": 564.25821064552656,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "district_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_type"
+                }
+              },
+              "queryRef": "dim_district.district_type",
+              "nativeQueryRef": "district_type"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "District Count"
+                }
+              },
+              "queryRef": "_Measures.District Count",
+              "nativeQueryRef": "District Count"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b2f7920535913b7590e0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "district_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "39ddd68532bb09447687",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "district_type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "79873c381db0dc60c0e2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "District Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

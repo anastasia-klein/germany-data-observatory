@@ -1,0 +1,75 @@
+table dim_cluster
+	lineageTag: 840ed9a2-4ba4-4828-9309-89b83e8ab08d
+
+	column cluster_id
+		dataType: string
+		lineageTag: 22f6a637-6ec3-40e9-a291-5ef71a663f1f
+		summarizeBy: none
+		sourceColumn: cluster_id
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_name
+		dataType: string
+		lineageTag: b5adbbb3-4b4a-44ed-bbef-884ec7873f8d
+		summarizeBy: none
+		sourceColumn: cluster_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_short_name
+		dataType: string
+		lineageTag: 1a9e6d81-560a-44f4-a608-bbe031b43397
+		summarizeBy: none
+		sourceColumn: cluster_short_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_color_hex
+		dataType: string
+		lineageTag: f0493c71-2d31-41bb-a3ae-4e580bc362a6
+		summarizeBy: none
+		sourceColumn: cluster_color_hex
+
+		annotation SummarizationSetBy = Automatic
+
+	column district_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 2bec9dac-b2be-4e0f-8a01-382a71a4ebfd
+		summarizeBy: none
+		sourceColumn: district_count
+
+		annotation SummarizationSetBy = User
+
+	column profile_summary
+		dataType: string
+		lineageTag: 331d6796-c062-44c4-9177-36a411ebad6f
+		summarizeBy: none
+		sourceColumn: profile_summary
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cluster = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_cluster.csv", {
+				        {"cluster_id", type text},
+				        {"cluster_name", type text},
+				        {"cluster_short_name", type text},
+				        {"cluster_color_hex", type text},
+				        {"district_count", Int64.Type},
+				        {"profile_summary", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

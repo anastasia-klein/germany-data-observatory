@@ -1,0 +1,100 @@
+table dim_election
+	lineageTag: da3f18d2-2ab3-4a30-8e40-bded9d007254
+
+	column election_id
+		dataType: string
+		lineageTag: 7607935d-5df0-4e0d-add4-71b7e03e5ee5
+		summarizeBy: none
+		sourceColumn: election_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 324d8d29-27f6-43a0-9927-8894b406656e
+		summarizeBy: none
+		sourceColumn: election_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column election_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ebafe78-ae1b-4efa-a1c6-86507be9717d
+		summarizeBy: none
+		sourceColumn: election_year
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = User
+
+	column bundestag_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 527af410-2301-4ae8-b546-f2f7300fbe1d
+		summarizeBy: none
+		sourceColumn: bundestag_number
+
+		annotation SummarizationSetBy = User
+
+	column election_name
+		dataType: string
+		lineageTag: 9d19e6c5-93e8-45f1-8b73-35b21904042b
+		summarizeBy: none
+		sourceColumn: election_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column result_status
+		dataType: string
+		lineageTag: 65ca0fb2-d2a7-4adb-ba6c-042bf6a22bd2
+		summarizeBy: none
+		sourceColumn: result_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column result_version
+		dataType: string
+		lineageTag: 0a175afc-8188-4cdb-a2fd-6d247adda355
+		summarizeBy: none
+		sourceColumn: result_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: e244cd5d-71cc-4901-99c0-0340ce130ea4
+		summarizeBy: none
+		sourceColumn: source_file
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_election = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_election.csv", {
+				        {"election_id", type text},
+				        {"election_date", type date},
+				        {"election_year", Int64.Type},
+				        {"bundestag_number", Int64.Type},
+				        {"election_name", type text},
+				        {"result_status", type text},
+				        {"result_version", type text},
+				        {"source_file", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

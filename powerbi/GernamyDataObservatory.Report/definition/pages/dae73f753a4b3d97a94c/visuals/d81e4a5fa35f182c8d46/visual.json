@@ -1,0 +1,274 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "d81e4a5fa35f182c8d46",
+  "position": {
+    "x": 0,
+    "y": 136,
+    "z": 6,
+    "height": 216,
+    "width": 1150,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_cluster"
+                    }
+                  },
+                  "Property": "cluster_name"
+                }
+              },
+              "queryRef": "dim_cluster.cluster_name",
+              "nativeQueryRef": "cluster_name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Population Aged 65+ %"
+                }
+              },
+              "queryRef": "_Measures.Population Aged 65+ %",
+              "nativeQueryRef": "Population Aged 65+ %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Unemployment Rate %"
+                }
+              },
+              "queryRef": "_Measures.Unemployment Rate %",
+              "nativeQueryRef": "Unemployment Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Disposable Income per Capita"
+                }
+              },
+              "queryRef": "_Measures.Disposable Income per Capita",
+              "nativeQueryRef": "Disposable Income per Capita"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "2025 Turnout %"
+                }
+              },
+              "queryRef": "_Measures.2025 Turnout %",
+              "nativeQueryRef": "2025 Turnout %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Unemployment Rate %"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "199.39572024490363D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Population Aged 65+ %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "224.27596357075294D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Unemployment Rate %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "264.76380656680203D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Disposable Income per Capita"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "213.89101563114977D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.2025 Turnout %"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F4F1EA'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ed1aab1485350fcc1568",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_cluster"
+              }
+            },
+            "Property": "cluster_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "93505f689afbead4d5c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Population Aged 65+ %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d1f1d1f9d04781bc5f89",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Unemployment Rate %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "092621b4aa98262c5a05",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Disposable Income per Capita"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "984860e7dae2403e9684",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "2025 Turnout %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

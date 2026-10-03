@@ -1,0 +1,82 @@
+table dim_district
+	lineageTag: b322b4b4-5298-4eb4-93e5-4d89ab1b6cb5
+
+	column district_id
+		dataType: string
+		lineageTag: b9c27f3c-5fd9-446d-8c4a-fd8b0a450838
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column district_name
+		dataType: string
+		lineageTag: ebca501f-c875-4ae2-a005-efceac14aa2e
+		summarizeBy: none
+		sourceColumn: district_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column district_name_official
+		dataType: string
+		lineageTag: ed72ee52-b7c9-428f-895c-af6cde775c4e
+		summarizeBy: none
+		sourceColumn: district_name_official
+
+		annotation SummarizationSetBy = Automatic
+
+	column district_type
+		dataType: string
+		lineageTag: f5215afb-d6f3-4ae2-86ac-4d90a2ee33c0
+		summarizeBy: none
+		sourceColumn: district_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_code
+		dataType: string
+		lineageTag: b669c22e-c0f5-49c4-aa90-766fe4c1b394
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: c0f829b8-0335-49c7-8378-3bc82d03b5c6
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column geography_year
+		dataType: int64
+		formatString: 0
+		lineageTag: d6c8bfd1-73a7-4bfa-96dc-8025893b6c57
+		summarizeBy: none
+		sourceColumn: geography_year
+
+		annotation SummarizationSetBy = User
+
+	partition dim_district = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_district.csv", {
+				        {"district_id", type text},
+				        {"district_name", type text},
+				        {"district_name_official", type text},
+				        {"district_type", type text},
+				        {"state_code", type text},
+				        {"state_name", type text},
+				        {"geography_year", Int64.Type}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

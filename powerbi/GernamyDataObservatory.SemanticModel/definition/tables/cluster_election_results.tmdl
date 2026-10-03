@@ -1,0 +1,66 @@
+table cluster_election_results
+	lineageTag: 6499e0cf-ddcc-4153-83df-717aea6bf2bc
+
+	column cluster_id
+		dataType: string
+		lineageTag: bb3286e8-e3a3-4a08-b640-970356f52fa1
+		summarizeBy: none
+		sourceColumn: cluster_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_id
+		dataType: string
+		lineageTag: 0c58ae22-e44a-43f5-9518-8c3819697836
+		summarizeBy: none
+		sourceColumn: election_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d0e9600-0a4c-4028-96c9-8543fe672774
+		summarizeBy: none
+		sourceColumn: election_year
+
+		annotation SummarizationSetBy = User
+
+	column party_group_id
+		dataType: string
+		lineageTag: 8a26adbd-f117-4e9c-b2ac-add7a603f821
+		summarizeBy: none
+		sourceColumn: party_group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column unweighted_mean_second_vote_share_percent
+		dataType: double
+		lineageTag: 73472789-126d-4a3f-9c26-ded6789698fc
+		summarizeBy: sum
+		sourceColumn: unweighted_mean_second_vote_share_percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition cluster_election_results = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("cluster_election_results.csv", {
+				        {"cluster_id", type text},
+				        {"election_id", type text},
+				        {"election_year", Int64.Type},
+				        {"party_group_id", type text},
+				        {"unweighted_mean_second_vote_share_percent", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

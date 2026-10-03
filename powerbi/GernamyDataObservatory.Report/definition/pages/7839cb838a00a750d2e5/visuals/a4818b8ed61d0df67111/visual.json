@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "a4818b8ed61d0df67111",
+  "position": {
+    "x": 0,
+    "y": 602.31030577576439,
+    "z": 6,
+    "height": 280.49830124575311,
+    "width": 759.95469988674972,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "district_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Feature Value"
+                }
+              },
+              "queryRef": "_Measures.Average Feature Value",
+              "nativeQueryRef": "Average Feature Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Germany Feature Average"
+                }
+              },
+              "queryRef": "_Measures.Germany Feature Average",
+              "nativeQueryRef": "Germany Feature Average"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Difference from Germany"
+                }
+              },
+              "queryRef": "_Measures.Difference from Germany",
+              "nativeQueryRef": "Difference from Germany"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f75f50b0d4af459a405f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "district_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f1b8a1cabed8ced3edb3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Average Feature Value"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0dc8b267a559965ad9cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Germany Feature Average"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b06b092a6104b6ea2ee1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Difference from Germany"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

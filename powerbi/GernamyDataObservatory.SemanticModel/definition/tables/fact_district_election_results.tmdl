@@ -1,0 +1,97 @@
+table fact_district_election_results
+	lineageTag: 12151f11-ea17-4519-91bf-a15d1b4f35c6
+
+	column district_id
+		dataType: string
+		isHidden
+		lineageTag: c15a4ce0-9c80-4bf2-9f50-de673276810a
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_id
+		dataType: string
+		isHidden
+		lineageTag: 90a31e4a-88aa-49f9-b6d7-1b1446aa21f8
+		summarizeBy: none
+		sourceColumn: election_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 850264ea-ff05-4f13-83db-f37ebe2f9c97
+		summarizeBy: none
+		sourceColumn: election_year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column party_group_id
+		dataType: string
+		isHidden
+		lineageTag: a9bb9c29-3eee-4031-96fd-e4052bb40f19
+		summarizeBy: none
+		sourceColumn: party_group_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column second_vote_share_percent
+		dataType: double
+		lineageTag: c85a4278-35e9-45f0-9ec6-e176713b0cca
+		summarizeBy: none
+		sourceColumn: second_vote_share_percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column value_status
+		dataType: string
+		lineageTag: c8a0e786-5db4-432c-a75c-5aa340232b9e
+		summarizeBy: none
+		sourceColumn: value_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_dataset
+		dataType: string
+		isHidden
+		lineageTag: 06539eb9-0c92-4cd0-8154-80493284738d
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_district_election_results = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_district_election_results.csv", {
+				        {"district_id", type text},
+				        {"election_id", type text},
+				        {"election_year", Int64.Type},
+				        {"party_group_id", type text},
+				        {"second_vote_share_percent", type number},
+				        {"value_status", type text},
+				        {"source_dataset", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

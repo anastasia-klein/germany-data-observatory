@@ -1,0 +1,71 @@
+table pca_loadings
+	lineageTag: 5cd4e814-6fb8-4919-85fd-852b83b82488
+
+	column feature_id
+		dataType: string
+		lineageTag: 5ae85286-668f-4254-a9e2-4edc7bf1fcb8
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc1
+		dataType: double
+		lineageTag: 48bc9e91-f60c-45eb-b91f-92a7741fcc5a
+		summarizeBy: none
+		sourceColumn: pc1
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc2
+		dataType: double
+		lineageTag: 4515a47f-ca59-4f9a-b99b-28ca31e4d61a
+		summarizeBy: none
+		sourceColumn: pc2
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc3
+		dataType: double
+		lineageTag: 72d23061-7dbe-45d5-b584-491c1399a3b4
+		summarizeBy: none
+		sourceColumn: pc3
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc4
+		dataType: double
+		lineageTag: 3ec8a52c-4008-492c-b3e3-33827ff77e6c
+		summarizeBy: none
+		sourceColumn: pc4
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition pca_loadings = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("pca_loadings.csv", {
+				        {"feature_id", type text},
+				        {"pc1", type number},
+				        {"pc2", type number},
+				        {"pc3", type number},
+				        {"pc4", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

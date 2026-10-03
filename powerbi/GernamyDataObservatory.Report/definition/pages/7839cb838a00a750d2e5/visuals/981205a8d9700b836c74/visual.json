@@ -1,0 +1,145 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "981205a8d9700b836c74",
+  "position": {
+    "x": 0,
+    "y": 310.93997734994338,
+    "z": 3,
+    "height": 281,
+    "width": 457,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_election"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "dim_election.election_year",
+              "nativeQueryRef": "election_year",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Eligible Voters"
+                }
+              },
+              "queryRef": "_Measures.Eligible Voters",
+              "nativeQueryRef": "Eligible Voters"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Voters"
+                }
+              },
+              "queryRef": "_Measures.Voters",
+              "nativeQueryRef": "Voters"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Turnout"
+                }
+              },
+              "queryRef": "_Measures.Turnout",
+              "nativeQueryRef": "Turnout"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "73912bc242ec50f8fdba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_election"
+              }
+            },
+            "Property": "election_year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "01fed5f052dd614b7041",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Eligible Voters"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25f98bbcf9c1f9163b13",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Voters"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "620233c02aa8b59dafb9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Turnout"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
