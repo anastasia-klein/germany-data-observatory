@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "344eca30565042c08463",
   "position": {
-    "x": 0,
-    "y": 48,
+    "x": 8,
+    "y": 60,
     "z": 2,
     "height": 40,
-    "width": 400,
+    "width": 384,
     "tabOrder": 2
   },
   "visual": {
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_district"
-                        }
-                      },
-                      "Property": "state_name"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 3
+                  "Property": "Tooltip Federal State"
                 }
               },
-              "queryRef": "Min(dim_district.state_name)",
-              "nativeQueryRef": "First state_name"
+              "queryRef": "_Measures.Tooltip Federal State",
+              "nativeQueryRef": "Federal state"
             }
           ]
         }
@@ -45,13 +40,26 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "13D"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
           }
         }
       ]
