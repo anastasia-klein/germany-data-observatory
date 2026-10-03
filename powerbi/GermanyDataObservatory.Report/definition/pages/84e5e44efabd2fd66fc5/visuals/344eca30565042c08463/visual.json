@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Tooltip Federal State",
-              "nativeQueryRef": "Federal state",
-              "displayName": "Federal state"
+              "nativeQueryRef": "Federal state"
             }
           ]
         }

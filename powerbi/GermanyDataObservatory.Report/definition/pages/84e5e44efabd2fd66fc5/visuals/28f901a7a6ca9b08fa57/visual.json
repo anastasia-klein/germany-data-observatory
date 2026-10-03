@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "_Measures.Tooltip District",
-              "nativeQueryRef": "District",
-              "displayName": "District"
+              "nativeQueryRef": "District"
             }
           ]
         }
