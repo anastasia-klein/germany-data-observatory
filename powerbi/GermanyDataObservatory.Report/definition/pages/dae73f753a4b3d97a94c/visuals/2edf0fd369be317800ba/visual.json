@@ -37,15 +37,15 @@
               "field": {
                 "Column": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_cluster"
-                    }
-                  },
-                  "Property": "cluster_name"
+                  "SourceRef": {
+                    "Entity": "dim_cluster"
+                  }
+                },
+                  "Property": "cluster_short_name"
                 }
               },
-              "queryRef": "dim_cluster.cluster_name",
-              "nativeQueryRef": "cluster_name"
+              "queryRef": "dim_cluster.cluster_short_name",
+              "nativeQueryRef": "cluster_short_name"
             }
           ]
         },
@@ -172,7 +172,21 @@
             "showTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'RightCenter'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
                 }
               }
             }
@@ -203,16 +217,16 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_name"
+                        "SourceRef": {
+                          "Entity": "dim_cluster"
+                        }
+                      },
+                        "Property": "cluster_short_name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Ageing & shrinking periphery'"
+                        "Value": "'Ageing periphery'"
                       }
                     }
                   }
@@ -244,16 +258,16 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_name"
+                        "SourceRef": {
+                          "Entity": "dim_cluster"
+                        }
+                      },
+                        "Property": "cluster_short_name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Stable & affluent regions'"
+                        "Value": "'Stable regions'"
                       }
                     }
                   }
@@ -285,16 +299,16 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_name"
+                        "SourceRef": {
+                          "Entity": "dim_cluster"
+                        }
+                      },
+                        "Property": "cluster_short_name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Urban pressure centres'"
+                        "Value": "'Urban pressure'"
                       }
                     }
                   }
@@ -326,16 +340,16 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_name"
+                        "SourceRef": {
+                          "Entity": "dim_cluster"
+                        }
+                      },
+                        "Property": "cluster_short_name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Dynamic metropolitan hubs'"
+                        "Value": "'Metropolitan hubs'"
                       }
                     }
                   }
