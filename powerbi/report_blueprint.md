@@ -124,12 +124,13 @@ These are descriptive names, not rankings. Keep the neutral cluster ID in toolti
 ### Typography
 
 - Font: Segoe UI for reliable Power BI Service rendering.
-- Page title: 18–22 pt, semibold.
-- Section title: 14–16 pt.
-- KPI: 22–28 pt.
-- Visual title: 12–14 pt.
-- Body and axes: 10–12 pt; never smaller than 10 pt.
+- Page title: 18 pt, semibold.
+- Section and visual title: 11 pt, semibold.
+- KPI value: 18 pt, semibold; KPI label: 9 pt.
+- Body, table and axes: 9 pt; explanatory subtitles may use 8 pt.
 - Use sentence case. Avoid all-caps except tiny navigation labels.
+
+These defaults are stored in `powerbi/germany_observatory_glossy.json` for cards, slicers, matrices, bar charts and the most common supporting charts. Override them only when a page has a documented analytical reason.
 
 ## Page 1 — Overview: “Germany’s electoral landscape begins with place”
 

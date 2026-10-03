@@ -5,7 +5,7 @@
     "x": 440,
     "y": 160,
     "z": 9502,
-    "height": 70,
+    "height": 56,
     "width": 420,
     "tabOrder": 9002
   },
@@ -130,6 +130,20 @@
               "expr": {
                 "Literal": {
                   "Value": "'Federal state'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

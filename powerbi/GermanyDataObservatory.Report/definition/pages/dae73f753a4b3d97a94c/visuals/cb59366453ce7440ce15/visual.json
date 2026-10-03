@@ -5,7 +5,7 @@
     "x": 12,
     "y": 160,
     "z": 9501,
-    "height": 70,
+    "height": 56,
     "width": 420,
     "tabOrder": 9001
   },
@@ -163,6 +163,20 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
