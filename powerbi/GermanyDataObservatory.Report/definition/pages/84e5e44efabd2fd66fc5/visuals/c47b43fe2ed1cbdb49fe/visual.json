@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "cb0f5f6e69c98788371b",
+  "name": "c47b43fe2ed1cbdb49fe",
   "position": {
     "x": 0,
-    "y": 64,
-    "z": 3000,
-    "height": 70,
-    "width": 320,
-    "tabOrder": 2000
+    "y": 128,
+    "z": 4,
+    "height": 56,
+    "width": 400,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "District Count"
+                  "Property": "Population Aged 65+ %"
                 }
               },
-              "queryRef": "_Measures.District Count",
-              "nativeQueryRef": "District Count"
+              "queryRef": "_Measures.Population Aged 65+ %",
+              "nativeQueryRef": "Population Aged 65+ %"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "District Count"
+                "Property": "Population Aged 65+ %"
               }
             },
             "direction": "Descending"
@@ -51,24 +51,39 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6a63585b8c86f69cb159",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
               }
-            },
-            "Property": "District Count"
+            }
+          },
+          "selector": {
+            "id": "default"
           }
-        },
-        "type": "Advanced"
-      }
-    ]
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

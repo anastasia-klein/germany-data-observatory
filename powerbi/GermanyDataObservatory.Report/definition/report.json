@@ -40,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           }
@@ -68,6 +68,11 @@
           "name": "Germany_Data_Observatory_-_Edi7736789539217189.json",
           "path": "Germany_Data_Observatory_-_Edi7736789539217189.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "germany_districts_20248077705754270155.topojson",
+          "path": "germany_districts_20248077705754270155.topojson",
+          "type": "ShapeMap"
         }
       ]
     }

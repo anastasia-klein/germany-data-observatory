@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "683144ac3ec29f734857",
+  "position": {
+    "x": 1072,
+    "y": 702,
+    "z": 9500,
+    "height": 16,
+    "width": 208,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "© GeoBasis-DE / ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#666666"
+                    }
+                  },
+                  {
+                    "value": "BKG",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#666666"
+                    },
+                    "url": "https://gdz.bkg.bund.de/index.php/default/open-data/verwaltungsgebiete-1-250-000-stand-01-01-vg250-01-01.html"
+                  },
+                  {
+                    "value": " (2026) ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#666666"
+                    }
+                  },
+                  {
+                    "value": "dl-de/by-2-0",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#666666"
+                    },
+                    "url": "https://www.govdata.de/dl-de/by-2-0"
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#666666"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

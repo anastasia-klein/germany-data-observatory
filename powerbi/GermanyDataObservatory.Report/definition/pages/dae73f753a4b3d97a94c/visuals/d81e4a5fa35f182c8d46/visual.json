@@ -3,11 +3,11 @@
   "name": "d81e4a5fa35f182c8d46",
   "position": {
     "x": 0,
-    "y": 136,
-    "z": 6,
-    "height": 216,
-    "width": 1150,
-    "tabOrder": 6
+    "y": 216,
+    "z": 7000,
+    "height": 208,
+    "width": 872.00000000000011,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -103,10 +103,10 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Unemployment Rate %"
+                "Property": "Disposable Income per Capita"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -118,7 +118,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "199.39572024490363D"
+                  "Value": "160.7863803572523D"
                 }
               }
             }
@@ -132,7 +132,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "224.27596357075294D"
+                  "Value": "153.9879491952933D"
                 }
               }
             }
@@ -146,7 +146,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "264.76380656680203D"
+                  "Value": "209.3435043227852D"
                 }
               }
             }
@@ -160,7 +160,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "213.89101563114977D"
+                  "Value": "114.52988751670601D"
                 }
               }
             }
@@ -168,11 +168,41 @@
           "selector": {
             "metadata": "_Measures.2025 Turnout %"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "194.06316318454822D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_cluster.cluster_name"
+          }
         }
       ],
       "columnHeaders": [
         {
           "properties": {}
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "Row"
+          }
         }
       ]
     },

@@ -342,6 +342,58 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Share of Selected Geography' =
+			
+			VAR SelectedDistricts =
+			    [District Count]
+			VAR GeographyDistricts =
+			    CALCULATE (
+			        [District Count],
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			RETURN
+			    DIVIDE (
+			        SelectedDistricts,
+			        GeographyDistricts
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Overview\Selection
+		lineageTag: a6259054-048b-44e6-94ab-8a048460b553
+
+	measure 'Federal States Represented' =
+			
+			COUNTROWS (
+			    FILTER (
+			        VALUES ( dim_state[state_code] ),
+			        CALCULATE ( [District Count] ) > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: Overview\Selection
+		lineageTag: 9ef54256-fbe4-4710-96ab-a9ae910713a9
+
+	measure Selection =
+			
+			VAR SelectedCluster =
+			    SELECTEDVALUE ( dim_cluster[cluster_name] )
+			VAR SelectedState =
+			    SELECTEDVALUE ( dim_state[state_name] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        NOT ISBLANK ( SelectedCluster )
+			            && NOT ISBLANK ( SelectedState ),
+			            SelectedCluster & " · " & SelectedState,
+			        NOT ISBLANK ( SelectedCluster ),
+			            SelectedCluster,
+			        NOT ISBLANK ( SelectedState ),
+			            SelectedState,
+			        "All districts"
+			    )
+		displayFolder: Overview\Selection
+		lineageTag: 3715dada-953e-41fc-9126-0b53910726d8
+
 	column Placeholder
 		isHidden
 		lineageTag: 0a9c6e77-e28a-4d60-8bfa-2d3d710b9dcb

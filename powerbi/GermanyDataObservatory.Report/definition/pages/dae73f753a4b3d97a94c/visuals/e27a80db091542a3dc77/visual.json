@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "e27a80db091542a3dc77",
   "position": {
-    "x": 1151,
-    "y": 0,
-    "z": 7,
-    "height": 352,
-    "width": 127
+    "x": 576,
+    "y": 4,
+    "z": 8000,
+    "height": 56,
+    "width": 704.00000000000011,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "pageNavigator",
@@ -37,7 +38,7 @@
             "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "2D"
                 }
               }
             }
@@ -53,7 +54,98 @@
                   "Value": "false"
                 }
               }
+            },
+            "showByDefault": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "dae73f753a4b3d97a94c"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "4f3295cf081f68adc10a"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "129c813b87abfac15531"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "e5cf30606a74c999b189"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "f46b5f7f784039f934d3"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "4e80b8dca4d62d9a56d6"
           }
         }
       ]

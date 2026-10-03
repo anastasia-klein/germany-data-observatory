@@ -24,6 +24,12 @@
       }
     ]
   },
+  "pageBinding": {
+    "name": "2dcf391e198de34270e3",
+    "type": "Default",
+    "parameters": [],
+    "referenceScope": "CrossReport"
+  },
   "objects": {
     "background": [
       {
@@ -86,5 +92,12 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "26e2f76b44cd9795acae",
+      "target": "cb59366453ce7440ce15",
+      "type": "DataFilter"
+    }
+  ]
 }

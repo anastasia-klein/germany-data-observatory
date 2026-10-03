@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "fd880518a4b84b064355",
   "position": {
-    "x": 864,
+    "x": 960,
     "y": 64,
-    "z": 5,
+    "z": 6000,
     "height": 70,
-    "width": 285,
-    "tabOrder": 5
+    "width": 320,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Cluster Count"
+                  "Property": "Selection"
                 }
               },
-              "queryRef": "_Measures.Cluster Count",
-              "nativeQueryRef": "Cluster Count"
+              "queryRef": "_Measures.Selection",
+              "nativeQueryRef": "Selection"
             }
           ]
         }
@@ -42,33 +42,15 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Cluster Count"
+                "Property": "Selection"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ],
         "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7b980ee814858c8ce1a5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Cluster Count"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

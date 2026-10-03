@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "f12f32ac68e31f15fc38",
   "position": {
-    "x": 288,
+    "x": 320,
     "y": 64,
-    "z": 3,
+    "z": 4000,
     "height": 70,
-    "width": 285,
-    "tabOrder": 3
+    "width": 320,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Observed Indicator Count"
+                  "Property": "Share of Selected Geography"
                 }
               },
-              "queryRef": "_Measures.Observed Indicator Count",
-              "nativeQueryRef": "Observed Indicator Count"
+              "queryRef": "_Measures.Share of Selected Geography",
+              "nativeQueryRef": "Share of Selected Geography"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Observed Indicator Count"
+                "Property": "Share of Selected Geography"
               }
             },
             "direction": "Descending"
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "dd7a8da639124545c2e5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Observed Indicator Count"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
