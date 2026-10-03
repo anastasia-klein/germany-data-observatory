@@ -28,22 +28,22 @@
       "cluster_1": {
         "name": "Ageing & shrinking periphery",
         "short_name": "Ageing periphery",
-        "color_hex": "#B56A42"
+        "color_hex": "#FF6B57"
       },
       "cluster_2": {
         "name": "Stable & affluent regions",
         "short_name": "Stable regions",
-        "color_hex": "#49796B"
+        "color_hex": "#11B89A"
       },
       "cluster_3": {
         "name": "Urban pressure centres",
         "short_name": "Urban pressure",
-        "color_hex": "#6E6B7E"
+        "color_hex": "#7357E8"
       },
       "cluster_4": {
         "name": "Dynamic metropolitan hubs",
         "short_name": "Metropolitan hubs",
-        "color_hex": "#D3A62C"
+        "color_hex": "#F9C642"
       }
     }
   },

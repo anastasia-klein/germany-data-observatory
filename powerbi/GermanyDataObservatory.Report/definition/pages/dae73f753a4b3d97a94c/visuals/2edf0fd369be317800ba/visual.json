@@ -110,50 +110,6 @@
               "queryRef": "Min(dim_cluster.cluster_name)",
               "nativeQueryRef": "Structural cluster",
               "displayName": "Structural cluster"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Population Aged 65+ %"
-                }
-              },
-              "queryRef": "_Measures.Population Aged 65+ %",
-              "nativeQueryRef": "Population Aged 65+ %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Unemployment Rate %"
-                }
-              },
-              "queryRef": "_Measures.Unemployment Rate %",
-              "nativeQueryRef": "Unemployment rate",
-              "displayName": "Unemployment rate"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Disposable Income per Capita"
-                }
-              },
-              "queryRef": "_Measures.Disposable Income per Capita",
-              "nativeQueryRef": "Disposable income per capita",
-              "displayName": "Disposable income per capita"
             }
           ]
         },
@@ -226,37 +182,166 @@
       "dataPoint": [
         {
           "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FF6B57'"
                     }
                   }
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
+                        "Property": "cluster_name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ageing & shrinking periphery'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#11B89A'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
+                        "Property": "cluster_name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Stable & affluent regions'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7357E8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
+                        "Property": "cluster_name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Urban pressure centres'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F9C642'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
+                        "Property": "cluster_name"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Dynamic metropolitan hubs'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         }
       ]
@@ -388,34 +473,6 @@
               }
             },
             "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4e9fb74e423e73d5611c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Unemployment Rate %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "aa070639343ef39f8d64",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Disposable Income per Capita"
           }
         },
         "type": "Advanced"

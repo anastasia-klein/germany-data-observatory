@@ -3,9 +3,9 @@
   "name": "d81e4a5fa35f182c8d46",
   "position": {
     "x": 12,
-    "y": 238,
+    "y": 224,
     "z": 7000,
-    "height": 188,
+    "height": 176,
     "width": 848,
     "tabOrder": 6000
   },
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_cluster.cluster_name",
               "nativeQueryRef": "Cluster",
+              "displayName": "Cluster",
               "active": true
             }
           ]

@@ -398,16 +398,20 @@ table _Measures
 		lineageTag: 3715dada-953e-41fc-9126-0b53910726d8
 
 	measure 'Districts Outside Selected Cluster' =
-			VAR AllDistrictsInGeography =
+			VAR StatesInCurrentBar =
+			    VALUES ( dim_district[state_name] )
+			VAR AllDistrictsInCurrentStates =
 			    CALCULATE (
 			        [District Count],
 			        REMOVEFILTERS ( dim_cluster ),
-			        REMOVEFILTERS ( fact_cluster_assignment )
+			        REMOVEFILTERS ( fact_cluster_assignment ),
+			        REMOVEFILTERS ( dim_district ),
+			        TREATAS ( StatesInCurrentBar, dim_district[state_name] )
 			    )
 			RETURN
 			    MAX (
 			        0,
-			        AllDistrictsInGeography - [District Count]
+			        AllDistrictsInCurrentStates - [District Count]
 			    )
 		formatString: 0
 		displayFolder: Overview\Selection

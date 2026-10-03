@@ -3,9 +3,9 @@
   "name": "26e2f76b44cd9795acae",
   "position": {
     "x": 12,
-    "y": 434,
+    "y": 408,
     "z": 9503,
-    "height": 274,
+    "height": 300,
     "width": 848,
     "tabOrder": 9003
   },
@@ -192,6 +192,20 @@
                   "Value": "'Where the selected cluster is located'"
                 }
               }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
             }
           }
         }
@@ -209,14 +223,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Selected cluster in blue · other districts in grey'"
+                  "Value": "'Selected cluster in blue · other districts in the same state in grey'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8D"
                 }
               }
             }
