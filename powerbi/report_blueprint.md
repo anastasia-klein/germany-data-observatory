@@ -52,8 +52,8 @@ Keep `Methodology` visually quieter but always available. Use a Home button and 
 ## Canvas and layout system
 
 - Canvas: 16:9, 1280 × 720.
-- Content grid: 12 columns, 24 px outer margin, 16 px gutters.
-- Header: 64 px.
+- Content grid: 12 columns, 12 px outer margin, 8–12 px gutters.
+- Header: 60 px plus a 3 px black-red-gold rule.
 - Footer/source line: 24 px.
 - Primary visual area: 616 px high.
 - Use at most one dominant visual, two supporting visuals and three small KPI cards per page.
@@ -64,12 +64,13 @@ Keep `Methodology` visually quieter but always available. Use a Home button and 
 
 ### Design direction
 
-Use an editorial “German data magazine” aesthetic rather than a conventional corporate dashboard:
+Use a light editorial “German data magazine” aesthetic rather than a conventional corporate dashboard:
 
-- deep graphite page shell;
-- warm ivory analytical surfaces;
-- restrained gloss through soft highlights, subtle shadows and generous spacing;
-- black-red-gold as navigation and structural accents;
+- pale blue-grey page canvas;
+- white analytical surfaces with soft separation from the canvas;
+- restrained gloss through blue/cyan transitions on selected interface accents;
+- Tagesschau-inspired blue for navigation and interaction;
+- black-red-gold as a thin structural rule and for non-party analytical emphasis;
 - party colours only when party is the encoded category;
 - cluster colours only on structural pages.
 
@@ -79,15 +80,18 @@ Do not place red, yellow and black series together merely as decoration. Readers
 
 | Role | Colour |
 |---|---|
-| Graphite shell | `#111113` |
-| Ivory surface | `#F4F1EA` |
-| Primary text | `#171717` |
-| Secondary text | `#66615A` |
-| German red accent | `#DD0000` |
-| German gold accent | `#FFCC00` |
-| Divider | `#D8D2C8` |
+| Canvas | `#F3F6F8` |
+| Analytical surface | `#FFFFFF` |
+| Primary text | `#20242A` |
+| Secondary text | `#68727D` |
+| News blue | `#0878BE` |
+| Cyan accent | `#2FB6E8` |
+| German black | `#202124` |
+| German red | `#E2231A` |
+| German gold | `#F9C642` |
+| Divider | `#E6EBEF` |
 
-Use a thin red-to-gold line in the header and a small black-red-gold mark beside the report title. Avoid flag backgrounds, large flag graphics and decorative eagles.
+Use a thin black-red-gold rule below the header. Avoid flag backgrounds, large flag graphics and decorative eagles. Gradients are reserved for selection surfaces and continuous chart marks; categorical maps use solid colours.
 
 ### Party palette
 
@@ -110,20 +114,20 @@ Cluster colours are intentionally different in tone from the party palette and a
 
 | ID | Report name | Colour |
 |---|---|---|
-| `cluster_1` | Ageing & shrinking periphery | `#B56A42` |
-| `cluster_2` | Stable & affluent regions | `#49796B` |
-| `cluster_3` | Urban pressure centres | `#6E6B7E` |
-| `cluster_4` | Dynamic metropolitan hubs | `#D3A62C` |
+| `cluster_1` | Ageing & shrinking periphery | `#FF6B57` |
+| `cluster_2` | Stable & affluent regions | `#11B89A` |
+| `cluster_3` | Urban pressure centres | `#7357E8` |
+| `cluster_4` | Dynamic metropolitan hubs | `#198FE3` |
 
 These are descriptive names, not rankings. Keep the neutral cluster ID in tooltips and methodology.
 
 ### Typography
 
 - Font: Segoe UI for reliable Power BI Service rendering.
-- Page title: 26–30 pt, semibold.
-- Section title: 16–18 pt.
-- KPI: 28–36 pt.
-- Visual title: 13–15 pt.
+- Page title: 18–22 pt, semibold.
+- Section title: 14–16 pt.
+- KPI: 22–28 pt.
+- Visual title: 12–14 pt.
 - Body and axes: 10–12 pt; never smaller than 10 pt.
 - Use sentence case. Avoid all-caps except tiny navigation labels.
 
