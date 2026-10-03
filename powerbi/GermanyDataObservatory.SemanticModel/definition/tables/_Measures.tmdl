@@ -397,6 +397,22 @@ table _Measures
 		displayFolder: Overview\Selection
 		lineageTag: 3715dada-953e-41fc-9126-0b53910726d8
 
+	measure 'Districts Outside Selected Cluster' =
+			VAR AllDistrictsInGeography =
+			    CALCULATE (
+			        [District Count],
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			RETURN
+			    MAX (
+			        0,
+			        AllDistrictsInGeography - [District Count]
+			    )
+		formatString: 0
+		displayFolder: Overview\Selection
+		lineageTag: f854753a-6d95-4c53-9fbc-b57474886f23
+
 	measure 'Tooltip District' =
 			SELECTEDVALUE ( dim_district[district_name] )
 		displayFolder: UX\Tooltips

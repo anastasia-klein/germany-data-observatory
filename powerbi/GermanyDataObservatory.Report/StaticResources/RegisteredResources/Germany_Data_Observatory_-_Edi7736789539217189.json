@@ -4,10 +4,10 @@
     "#7357E8",
     "#11B89A",
     "#FF6B57",
+    "#F9C642",
     "#198FE3",
     "#202124",
     "#E2231A",
-    "#F9C642",
     "#2FB6E8",
     "#3599B8",
     "#DFBFBF",
@@ -532,7 +532,7 @@
             "fontSize": 10,
             "fontColor": {
               "solid": {
-                "color": "#FFFFFF"
+                "color": "#075F96"
               }
             }
           }
@@ -557,7 +557,7 @@
             "$id": "hover",
             "fillColor": {
               "solid": {
-                "color": "#E7F3FB"
+                "color": "#F3F8FC"
               }
             }
           },
@@ -565,7 +565,7 @@
             "$id": "selected",
             "fillColor": {
               "solid": {
-                "color": "#0878BE"
+                "color": "#E7F3FB"
               }
             }
           }
@@ -573,11 +573,15 @@
         "outline": [
           {
             "$id": "default",
-            "lineColor": {
-              "solid": {
-                "color": "#E6EBEF"
-              }
-            }
+            "transparency": 100
+          },
+          {
+            "$id": "hover",
+            "transparency": 100
+          },
+          {
+            "$id": "press",
+            "transparency": 100
           },
           {
             "$id": "selected",

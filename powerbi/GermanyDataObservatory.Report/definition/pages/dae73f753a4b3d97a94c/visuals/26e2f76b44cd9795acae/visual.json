@@ -10,7 +10,7 @@
     "tabOrder": 9003
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -46,7 +46,21 @@
                 }
               },
               "queryRef": "_Measures.District Count",
-              "nativeQueryRef": "District Count"
+              "nativeQueryRef": "Selected cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Districts Outside Selected Cluster"
+                }
+              },
+              "queryRef": "_Measures.Districts Outside Selected Cluster",
+              "nativeQueryRef": "Other districts"
             }
           ]
         }
@@ -124,9 +138,43 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2231A'"
+                      "Value": "'#198FE3'"
                     }
                   }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.District Count"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DCE5EB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Districts Outside Selected Cluster"
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -154,7 +202,21 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Selected cluster in blue · other districts in grey'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
                 }
               }
             }
