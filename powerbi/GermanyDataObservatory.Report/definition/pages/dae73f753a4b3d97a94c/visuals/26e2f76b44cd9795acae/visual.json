@@ -3,9 +3,9 @@
   "name": "26e2f76b44cd9795acae",
   "position": {
     "x": 12,
-    "y": 408,
+    "y": 416,
     "z": 9503,
-    "height": 300,
+    "height": 292,
     "width": 848,
     "tabOrder": 9003
   },
@@ -127,6 +127,24 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.District Count"
           }
         }
       ],
