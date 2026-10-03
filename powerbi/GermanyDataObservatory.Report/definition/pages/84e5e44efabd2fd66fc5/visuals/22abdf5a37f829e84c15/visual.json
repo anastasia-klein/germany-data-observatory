@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "22abdf5a37f829e84c15",
   "position": {
-    "x": 8,
-    "y": 196,
+    "x": 142,
+    "y": 158,
     "z": 5,
-    "height": 44,
-    "width": 384,
+    "height": 126,
+    "width": 116,
     "tabOrder": 5
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Unemployment Rate %",
-              "nativeQueryRef": "Unemployment Rate %"
+              "nativeQueryRef": "Unemployment",
+              "displayName": "Unemployment"
             }
           ]
         }
@@ -58,7 +59,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "16D"
                 }
               }
             }
@@ -74,7 +75,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8D"
                 }
               }
             }
@@ -93,6 +94,25 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F3F6F8'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F3F6F8'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "10D" } } },
+            "width": { "expr": { "Literal": { "Value": "1D" } } }
           }
         }
       ]
