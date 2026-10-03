@@ -116,7 +116,18 @@ Use short labels: **Districts**, **Observed indicators**, **Model features**, **
 
 ### Main analytical area
 
-Reserve columns 1–8 for the district cluster map. The repository does not yet contain district boundary geometry, so use a labelled placeholder rather than relying on ambiguous name-based geocoding. The next data task is to add a reviewed Germany district GeoJSON/TopoJSON keyed by `district_id`.
+Reserve columns 1–8 for the district cluster map. Use the reviewed BKG geometry in `data/processed/germany_districts_2024.topojson`; its `district_id` region key matches all 400 rows of `dim_district` exactly.
+
+Add the map in Power BI Desktop or the Power BI service:
+
+1. Add a **Shape map** visual. If it is absent in Desktop, enable **File → Options and settings → Options → Preview features → Shape map visual**, then restart Desktop.
+2. In **Build visual**, add `dim_district[district_id]` to **Location** and `dim_cluster[cluster_name]` to **Legend**. Add `dim_district[district_name]`, `[District Count]` and the selected profile measures to **Tooltips**.
+3. Open **Format visual → Map settings**. Set **Map type** to **Custom map**, choose **Add a map type**, and open `data/processed/germany_districts_2024.topojson`.
+4. Choose `district_id` as the region key if Power BI asks. Use **View map type key** to confirm that the values look like `01001`, `01002`, … and preserve leading zeroes.
+5. In **Colors**, assign the four colors from `dim_cluster[cluster_color_hex]` manually if conditional formatting is unavailable for the legend.
+6. Add the attribution `© GeoBasis-DE / BKG (2026) dl-de/by-2-0` in a small text box below the map, with links documented in `metadata/district_geometry.md`.
+
+Do not use `district_name` as Location: names are less stable than AGS and can be interpreted ambiguously by geocoding services.
 
 In columns 9–12 add a cluster selector using `dim_cluster[cluster_name]` and a small cluster identity panel showing:
 
@@ -136,7 +147,7 @@ Turn off totals. This matrix validates the four measures and can later be replac
 
 ## 8. Configure interactions
 
-- The cluster selector should filter the district count, district map placeholder replacement and cluster comparison.
+- The cluster selector should filter the district count, district map and cluster comparison.
 - The fixed counts `Observed Indicator Count`, `Model Feature Count` and `Cluster Count` intentionally ignore feature/cluster filters.
 - Keep Germany context available in tooltips and comparison measures.
 - Do not sync party slicers to Overview because this page establishes the non-political structural context.
@@ -153,5 +164,5 @@ The phase is complete when:
 - the theme and page shell are applied;
 - four KPI cards return 400, 14, 11 and 4;
 - the cluster comparison shows four clusters and four correctly formatted indicators;
-- a clearly labelled map placeholder remains for the pending district boundary layer;
+- the Shape map renders 400 districts and responds to the cluster selector;
 - the PBIP project is saved inside the repository and its source files are ready for Git.

@@ -1,10 +1,13 @@
-.PHONY: download download-districts check-genesis download-genesis-metadata download-genesis transform transform-districts test all
+.PHONY: download download-districts download-geometry check-genesis download-genesis-metadata download-genesis transform transform-districts test all
 
 download:
 	python3 src/download_data.py
 
 download-districts:
 	python3 src/download_district_data.py
+
+download-geometry:
+	python3 src/build_district_geometry.py
 
 check-genesis:
 	python3 src/download_genesis.py --check-auth

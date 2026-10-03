@@ -12,6 +12,7 @@
 | GENESIS cube metadata `12411LJ001` | Federal Statistical Office (Destatis), GENESIS-Online API | Population stock by state, age, sex and reference date; metadata only | `data/raw/destatis/genesis_12411LJ001_metadata.json` | Data Licence Germany – Attribution – Version 2.0 |
 | Regionalatlas indicators | Statistical Offices of the Federation and the Länder | 400 Kreise and kreisfreie Städte; demographic, labour-market, income, GDP and social indicators | `data/raw/regionalatlas/*.json` | Data Licence Germany – Attribution – Version 2.0 |
 | Regionalatlas Bundestag indicators | Statistical Offices of the Federation and the Länder; underlying election results from the Federal Returning Officer | 400 Kreise and kreisfreie Städte; party-group second-vote shares and turnout for 2017, 2021 and 2025 | `data/raw/regionalatlas/ai005_*.json` | Data Licence Germany – Attribution – Version 2.0 |
+| VG250 administrative boundaries, 1 January 2024 | Federal Agency for Cartography and Geodesy (BKG) | 400 land areas for Kreise and kreisfreie Städte; EPSG:4326 | WFS layer `vg250:vg250_krs`; derived files `data/processed/germany_districts_2024.*` | Data Licence Germany – Attribution – Version 2.0 |
 
 Official landing pages:
 
@@ -28,12 +29,16 @@ Official landing pages:
 - [GENESIS web-service documentation](https://genesis.destatis.de/datenbank/online/docs/GENESIS-Webservices_Introduction.pdf)
 - [Regionalatlas Deutschland](https://regionalatlas.statistikportal.de/)
 - [Regionalatlas and Regionaldatenbank open-data information](https://www.statistikportal.de/de/open-data)
+- [BKG VG250 administrative boundaries](https://gdz.bkg.bund.de/index.php/default/open-data/verwaltungsgebiete-1-250-000-stand-01-01-vg250-01-01.html)
+- [BKG VG250 WFS](https://sgx.geodatenzentrum.de/wfs_vg250)
 
 The files are stored unchanged in `data/raw`. The download scripts record the source URL, retrieval timestamp, byte count and SHA-256 checksum in `data/raw/manifest.json` on each refresh. Destatis tables are retained as source HTML because these public pages do not require an account and can therefore be reproduced without storing an API credential. The optional GENESIS client reads its token from a git-ignored environment file and never persists it.
 
 The historical election files use two source layouts. The 2005–2013 files have a wide, multi-row header; 2017–2025 use the later flat layout. The transformation preserves each source party label in `source_party` and maps a small set of spelling or capitalization variants to a stable `party` label. The 2021 file is the current official result after the repeat election in parts of Berlin on 11 February 2024; the superseded main-election result is not mixed into the analytical series.
 
 The district downloader queries the official Regionalatlas ArcGIS service with geography type `3`, which represents Kreise and kreisfreie Städte. It stores the complete JSON response for each dataset/year and validates 400 unique districts before transformation. Different indicators have different latest reference years; those years are retained in the feature dimension and fact table rather than being disguised as one common observation date.
+
+The separate BKG map build filters the VG250 Kreis layer to its 400 land areas and validates every AGS against `dim_district`. The simplified TopoJSON is the preferred Power BI Shape map input. See [`district_geometry.md`](district_geometry.md) for the transformation and required attribution `© GeoBasis-DE / BKG (2026) dl-de/by-2-0`.
 
 ## GENESIS API status
 
