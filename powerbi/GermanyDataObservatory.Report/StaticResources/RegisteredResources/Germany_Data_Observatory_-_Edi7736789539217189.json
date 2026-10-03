@@ -1,14 +1,14 @@
 {
-  "name": "Germany Data Observatory - Editorial Gloss",
+  "name": "Germany Data Observatory - Editorial Light",
   "dataColors": [
-    "#6E6B7E",
-    "#49796B",
-    "#B56A42",
-    "#D3A62C",
-    "#009EE0",
-    "#1AA037",
-    "#BE3075",
-    "#8C8C8C",
+    "#7357E8",
+    "#11B89A",
+    "#FF6B57",
+    "#198FE3",
+    "#202124",
+    "#E2231A",
+    "#F9C642",
+    "#2FB6E8",
     "#3599B8",
     "#DFBFBF",
     "#4AC5BB",
@@ -482,19 +482,109 @@
     "#0D2E25",
     "#54484E"
   ],
-  "background": "#F4F1EA",
-  "foreground": "#171717",
-  "tableAccent": "#DD0000",
-  "good": "#49796B",
-  "neutral": "#FFCC00",
-  "bad": "#DD0000",
-  "maximum": "#171717",
-  "center": "#F4F1EA",
-  "minimum": "#D8D2C8",
-  "null": "#8C8C8C",
+  "background": "#FFFFFF",
+  "foreground": "#20242A",
+  "tableAccent": "#0878BE",
+  "good": "#11B89A",
+  "neutral": "#F9C642",
+  "bad": "#E2231A",
+  "maximum": "#202124",
+  "center": "#F3F6F8",
+  "minimum": "#DCE5EB",
+  "null": "#98A2AB",
+  "firstLevelElements": "#20242A",
+  "secondLevelElements": "#68727D",
+  "thirdLevelElements": "#E6EBEF",
+  "fourthLevelElements": "#68727D",
+  "secondaryBackground": "#F3F6F8",
   "textClasses": {
     "title": {
-      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#20242A"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#68727D"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 24,
+      "color": "#20242A"
+    }
+  },
+  "visualStyles": {
+    "pageNavigator": {
+      "*": {
+        "text": [
+          {
+            "$id": "default",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#68727D"
+              }
+            }
+          },
+          {
+            "$id": "selected",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "shape": [
+          {
+            "$id": "default",
+            "tileShape": "rectangle",
+            "roundEdge": 6
+          }
+        ],
+        "fill": [
+          {
+            "$id": "default",
+            "fillColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          },
+          {
+            "$id": "hover",
+            "fillColor": {
+              "solid": {
+                "color": "#E7F3FB"
+              }
+            }
+          },
+          {
+            "$id": "selected",
+            "fillColor": {
+              "solid": {
+                "color": "#0878BE"
+              }
+            }
+          }
+        ],
+        "outline": [
+          {
+            "$id": "default",
+            "lineColor": {
+              "solid": {
+                "color": "#E6EBEF"
+              }
+            }
+          },
+          {
+            "$id": "selected",
+            "transparency": 100
+          }
+        ]
+      }
     }
   }
 }
