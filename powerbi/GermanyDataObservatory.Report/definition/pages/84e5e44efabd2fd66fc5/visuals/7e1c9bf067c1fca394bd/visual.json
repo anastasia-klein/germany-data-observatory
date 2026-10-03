@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "7e1c9bf067c1fca394bd",
   "position": {
-    "x": 8,
-    "y": 244,
+    "x": 268,
+    "y": 158,
     "z": 6,
-    "height": 48,
-    "width": 384,
+    "height": 126,
+    "width": 116,
     "tabOrder": 6
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Disposable Income per Capita",
-              "nativeQueryRef": "Disposable Income per Capita"
+              "nativeQueryRef": "Income per capita",
+              "displayName": "Income per capita"
             }
           ]
         }
@@ -58,7 +59,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "16D"
                 }
               }
             }
@@ -74,7 +75,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8D"
                 }
               }
             }
@@ -93,6 +94,25 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F3F6F8'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F3F6F8'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "10D" } } },
+            "width": { "expr": { "Literal": { "Value": "1D" } } }
           }
         }
       ]
