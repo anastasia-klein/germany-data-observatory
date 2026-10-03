@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "28f901a7a6ca9b08fa57",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 8,
+    "y": 8,
     "z": 1,
     "height": 48,
-    "width": 400,
+    "width": 384,
     "tabOrder": 1
   },
   "visual": {
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_district"
-                        }
-                      },
-                      "Property": "district_name"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 3
+                  "Property": "Tooltip District"
                 }
               },
-              "queryRef": "Min(dim_district.district_name)",
-              "nativeQueryRef": "First district_name"
+              "queryRef": "_Measures.Tooltip District",
+              "nativeQueryRef": "District"
             }
           ]
         }
@@ -45,13 +40,26 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "17D"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
           }
         }
       ]

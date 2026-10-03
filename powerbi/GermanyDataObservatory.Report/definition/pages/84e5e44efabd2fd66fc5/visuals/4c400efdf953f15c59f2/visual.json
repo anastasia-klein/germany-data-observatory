@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "4c400efdf953f15c59f2",
   "position": {
-    "x": 0,
-    "y": 88,
+    "x": 8,
+    "y": 104,
     "z": 3,
     "height": 40,
-    "width": 400,
+    "width": 384,
     "tabOrder": 3
   },
   "visual": {
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
-                      "Property": "cluster_name"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 3
+                  "Property": "Tooltip Structural Cluster"
                 }
               },
-              "queryRef": "Min(dim_cluster.cluster_name)",
-              "nativeQueryRef": "First cluster_name"
+              "queryRef": "_Measures.Tooltip Structural Cluster",
+              "nativeQueryRef": "Structural cluster"
             }
           ]
         }
@@ -45,13 +40,26 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "15D"
+                  "Value": "13D"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
           }
         }
       ]

@@ -2,6 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "84e5e44efabd2fd66fc5",
   "displayName": "_District tooltip",
+  "visibility": "HiddenInViewMode",
   "displayOption": "ActualSize",
   "height": 300,
   "width": 400,
@@ -46,5 +47,55 @@
       }
     ]
   },
-  "type": "Tooltip"
+  "type": "Tooltip",
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#333337'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#333337'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }
