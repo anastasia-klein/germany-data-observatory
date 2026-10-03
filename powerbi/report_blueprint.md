@@ -117,7 +117,7 @@ Cluster colours are intentionally different in tone from the party palette and a
 | `cluster_1` | Ageing & shrinking periphery | `#FF6B57` |
 | `cluster_2` | Stable & affluent regions | `#11B89A` |
 | `cluster_3` | Urban pressure centres | `#7357E8` |
-| `cluster_4` | Dynamic metropolitan hubs | `#198FE3` |
+| `cluster_4` | Dynamic metropolitan hubs | `#F9C642` |
 
 These are descriptive names, not rankings. Keep the neutral cluster ID in tooltips and methodology.
 

@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "dim_cluster.cluster_name",
-              "nativeQueryRef": "cluster_name",
+              "nativeQueryRef": "Cluster",
               "active": true
             }
           ]
@@ -118,7 +118,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "160.7863803572523D"
+                  "Value": "140D"
                 }
               }
             }
@@ -132,7 +132,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "153.9879491952933D"
+                  "Value": "145D"
                 }
               }
             }
@@ -146,7 +146,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "209.3435043227852D"
+                  "Value": "185D"
                 }
               }
             }
@@ -160,7 +160,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "114.52988751670601D"
+                  "Value": "112D"
                 }
               }
             }
@@ -174,7 +174,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "194.06316318454822D"
+                  "Value": "168D"
                 }
               }
             }
@@ -186,7 +186,74 @@
       ],
       "columnHeaders": [
         {
-          "properties": {}
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
         }
       ],
       "subTotals": [
