@@ -3,10 +3,10 @@
   "name": "28f901a7a6ca9b08fa57",
   "position": {
     "x": 16,
-    "y": 14,
+    "y": 12,
     "z": 1,
-    "height": 48,
-    "width": 368,
+    "height": 32,
+    "width": 328,
     "tabOrder": 1
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Tooltip District"
+                  "Property": "Tooltip District Header"
                 }
               },
-              "queryRef": "_Measures.Tooltip District",
-              "nativeQueryRef": "District"
+              "queryRef": "_Measures.Tooltip District Header",
+              "nativeQueryRef": "District and cluster"
             }
           ]
         }
@@ -40,7 +40,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "18D"
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
