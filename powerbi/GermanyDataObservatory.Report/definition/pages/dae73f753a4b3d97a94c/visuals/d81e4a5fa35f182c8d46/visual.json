@@ -43,6 +43,21 @@
                       "Entity": "_Measures"
                     }
                   },
+                  "Property": "Cluster Color Marker"
+                }
+              },
+              "queryRef": "_Measures.Cluster Color Marker",
+              "nativeQueryRef": "Cluster marker",
+              "displayName": " "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "Population Aged 65+ %"
                 }
               },
@@ -114,6 +129,20 @@
     },
     "objects": {
       "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Cluster Color Marker"
+          }
+        },
         {
           "properties": {
             "value": {
@@ -255,7 +284,7 @@
                 }
               }
             ],
-            "metadata": "dim_cluster.cluster_name"
+            "metadata": "_Measures.Cluster Color Marker"
           }
         }
       ],
