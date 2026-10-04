@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "ae5feb2c2ee443c31c07",
+  "position": {
+    "x": 444,
+    "y": 84,
+    "z": 9001,
+    "height": 96,
+    "width": 824,
+    "tabOrder": 2001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "dim_district_feature.unit",
+              "nativeQueryRef": "Unit",
+              "displayName": "Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "reference_year"
+                }
+              },
+              "queryRef": "dim_district_feature.reference_year",
+              "nativeQueryRef": "Reference year",
+              "displayName": "Reference year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "source_dataset"
+                }
+              },
+              "queryRef": "dim_district_feature.source_dataset",
+              "nativeQueryRef": "Source",
+              "displayName": "Source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "included_in_clustering"
+                }
+              },
+              "queryRef": "dim_district_feature.included_in_clustering",
+              "nativeQueryRef": "Model input",
+              "displayName": "Model input"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "transform"
+                }
+              },
+              "queryRef": "dim_district_feature.transform",
+              "nativeQueryRef": "Transformation",
+              "displayName": "Transformation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "exclusion_reason"
+                }
+              },
+              "queryRef": "dim_district_feature.exclusion_reason",
+              "nativeQueryRef": "Exclusion reason",
+              "displayName": "Exclusion reason"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Indicator metadata'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
