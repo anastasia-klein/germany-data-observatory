@@ -19,6 +19,14 @@ table dim_district_feature
 
 		annotation SummarizationSetBy = Automatic
 
+	column feature_label
+		dataType: string
+		lineageTag: c8fbf86b-c87a-4ce3-9000-82212931652d
+		summarizeBy: none
+		sourceColumn: feature_label
+
+		annotation SummarizationSetBy = Automatic
+
 	column unit
 		dataType: string
 		lineageTag: f573bffa-b54d-4fd7-bc7c-e770209b60de
@@ -79,6 +87,7 @@ table dim_district_feature
 				    Source = fnLoadProcessedCsv("dim_district_feature.csv", {
 				        {"feature_id", type text},
 				        {"feature_name", type text},
+				        {"feature_label", type text},
 				        {"unit", type text},
 				        {"reference_year", Int64.Type},
 				        {"source_dataset", type text},
@@ -92,4 +101,3 @@ table dim_district_feature
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
-

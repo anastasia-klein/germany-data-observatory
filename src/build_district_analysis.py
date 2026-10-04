@@ -51,6 +51,18 @@ FEATURE_METADATA = {
     "minimum_security_rate": ("Minimum-security benefit rate", "percent"),
 }
 
+UNIT_LABELS = {
+    "people_per_km2": "people per km²",
+    "per_10000_people": "per 10,000 people",
+    "percent": "%",
+    "employed_per_1000_working_age": "employed per 1,000 working-age people",
+    "eur_per_person": "EUR per person",
+}
+
+FEATURE_LABEL_NAMES = {
+    "disposable_income_per_capita": "Disposable income",
+}
+
 PARTIES = {
     "ai0501": ("party_group_cdu_csu", "CDU/CSU", "#171717", 1),
     "ai0502": ("party_group_spd", "SPD", "#E3000F", 2),
@@ -123,9 +135,11 @@ def main() -> None:
         for raw_field, feature in source["fields"].items():
             feature_wide[feature] = pd.to_numeric(frame[raw_field], errors="coerce")
             title, unit = FEATURE_METADATA[feature]
+            label_name = FEATURE_LABEL_NAMES.get(feature, title)
             catalog_rows.append({
                 "feature_id": feature,
                 "feature_name": title,
+                "feature_label": f"{label_name} ({UNIT_LABELS[unit]}) - {source['year']}",
                 "unit": unit,
                 "reference_year": source["year"],
                 "source_dataset": source["dataset"],
