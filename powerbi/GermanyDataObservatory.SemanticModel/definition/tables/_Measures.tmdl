@@ -417,13 +417,6 @@ table _Measures
 		displayFolder: Overview\Selection
 		lineageTag: f854753a-6d95-4c53-9fbc-b57474886f23
 
-	measure 'Cluster Color Marker' =
-			VAR ClusterId = SELECTEDVALUE ( dim_cluster[cluster_id] )
-			RETURN
-				IF ( NOT ISBLANK ( ClusterId ), UNICHAR ( 9679 ) )
-		displayFolder: Overview\Cluster profile
-		lineageTag: 7ee36954-8f80-4a7c-890f-57fe49c96186
-
 	measure 'Tooltip District' =
 			SELECTEDVALUE ( dim_district[district_name] )
 		displayFolder: UX\Tooltips

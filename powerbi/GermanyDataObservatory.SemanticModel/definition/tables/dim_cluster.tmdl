@@ -29,6 +29,22 @@ table dim_cluster
 
 		annotation SummarizationSetBy = Automatic
 
+	column cluster_marker
+		dataType: string
+		lineageTag: 8c4de517-94a1-4637-a184-1695728c4255
+		summarizeBy: none
+		sourceColumn: cluster_marker
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_display_name
+		dataType: string
+		lineageTag: ab21ead0-7af0-4456-8312-e74a19382794
+		summarizeBy: none
+		sourceColumn: cluster_display_name
+
+		annotation SummarizationSetBy = Automatic
+
 	column cluster_color_hex
 		dataType: string
 		lineageTag: f0493c71-2d31-41bb-a3ae-4e580bc362a6
@@ -62,6 +78,8 @@ table dim_cluster
 				        {"cluster_id", type text},
 				        {"cluster_name", type text},
 				        {"cluster_short_name", type text},
+				        {"cluster_marker", type text},
+				        {"cluster_display_name", type text},
 				        {"cluster_color_hex", type text},
 				        {"district_count", Int64.Type},
 				        {"profile_summary", type text}
@@ -72,4 +90,3 @@ table dim_cluster
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
-

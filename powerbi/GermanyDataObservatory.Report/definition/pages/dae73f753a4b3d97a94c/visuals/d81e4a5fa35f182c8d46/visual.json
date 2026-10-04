@@ -23,10 +23,10 @@
                       "Entity": "dim_cluster"
                     }
                   },
-                  "Property": "cluster_name"
+                  "Property": "cluster_display_name"
                 }
               },
-              "queryRef": "dim_cluster.cluster_name",
+              "queryRef": "dim_cluster.cluster_display_name",
               "nativeQueryRef": "Cluster",
               "displayName": "Cluster",
               "active": true
@@ -35,21 +35,6 @@
         },
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Cluster Color Marker"
-                }
-              },
-              "queryRef": "_Measures.Cluster Color Marker",
-              "nativeQueryRef": "Cluster marker",
-              "displayName": " "
-            },
             {
               "field": {
                 "Measure": {
@@ -134,20 +119,6 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Cluster Color Marker"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
                   "Value": "140D"
                 }
               }
@@ -204,13 +175,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "168D"
+                  "Value": "188D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "dim_cluster.cluster_name"
+            "metadata": "dim_cluster.cluster_display_name"
           }
         }
       ],
@@ -250,41 +221,6 @@
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "dim_cluster"
-                            }
-                          },
-                          "Property": "cluster_color_hex"
-                        }
-                      },
-                      "Function": 3
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "_Measures.Cluster Color Marker"
           }
         }
       ],
