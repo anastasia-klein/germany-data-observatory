@@ -209,6 +209,19 @@
               }
             }
           }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
         },
         {
           "properties": {
@@ -243,19 +256,6 @@
               }
             ],
             "metadata": "dim_cluster.cluster_name"
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            }
           }
         }
       ],

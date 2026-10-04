@@ -4,8 +4,8 @@
   "displayName": "_District tooltip",
   "visibility": "HiddenInViewMode",
   "displayOption": "ActualSize",
-  "height": 300,
-  "width": 400,
+  "height": 174,
+  "width": 360,
   "filterConfig": {
     "filters": [
       {

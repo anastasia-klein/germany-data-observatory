@@ -422,6 +422,14 @@ table _Measures
 		displayFolder: UX\Tooltips
 		lineageTag: 5011c88f-a5c8-4f09-a40f-1dcc952101b6
 
+	measure 'Tooltip District Header' =
+			VAR DistrictName = SELECTEDVALUE ( dim_district[district_name] )
+			VAR ClusterName = SELECTEDVALUE ( dim_cluster[cluster_short_name] )
+			RETURN
+				DistrictName & " · " & ClusterName
+		displayFolder: UX\Tooltips
+		lineageTag: 4b941056-74a0-4c22-8c32-3ae69a6b7d1e
+
 	measure 'Tooltip Federal State' =
 			SELECTEDVALUE ( dim_district[state_name] )
 		displayFolder: UX\Tooltips
