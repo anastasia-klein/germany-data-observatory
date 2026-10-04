@@ -16,6 +16,39 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Selected Indicator Value' =
+
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Average Feature Value]
+			)
+		displayFolder: Features\Selection
+		lineageTag: 9cbf3035-75a6-4a30-9ff9-b414290891c1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Indicator Germany Average' =
+
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Germany Feature Average]
+			)
+		displayFolder: Features\Selection
+		lineageTag: fbe8a361-bdd6-4263-a708-2665ad111a86
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Indicator Difference' =
+
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Difference from Germany]
+			)
+		displayFolder: Features\Selection
+		lineageTag: 697267ab-5913-47c1-b02a-c66dc43a3d84
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	measure 'Germany Feature Average' =
 			
 			VAR CurValue = [Average Feature Value]
