@@ -102,20 +102,16 @@
           "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Metropolitan hubs'" } } } } } ] }
         }
       ],
-      "referenceLine": [
+      "xAxisReferenceLine": [
         {
           "properties": {
             "show": { "expr": { "Literal": { "Value": "true" } } },
             "displayName": { "expr": { "Literal": { "Value": "'Germany average'" } } },
             "value": {
               "expr": {
-                "Aggregation": {
-                  "Expression": {
-                    "SelectRef": {
-                      "ExpressionName": "_Measures.Selected Indicator Germany Average"
-                    }
-                  },
-                  "Function": 1
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
                 }
               }
             },
@@ -127,10 +123,6 @@
             "dataLabelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#20242A'" } } } } },
             "dataLabelDecimalPoints": { "expr": { "Literal": { "Value": "1D" } } },
             "dataLabelDisplayUnits": { "expr": { "Literal": { "Value": "1D" } } }
-          },
-          "selector": {
-            "metadata": "_Measures.Selected Indicator Germany Average",
-            "id": "1"
           }
         }
       ]
@@ -148,7 +140,7 @@
         {
           "properties": {
             "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Average across districts in each structural cluster'" } } },
+            "text": { "expr": { "Literal": { "Value": "'Cluster average · vertical line = Germany average'" } } },
             "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }

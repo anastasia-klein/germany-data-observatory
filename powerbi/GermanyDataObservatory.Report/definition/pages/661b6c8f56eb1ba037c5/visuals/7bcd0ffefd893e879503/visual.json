@@ -3,9 +3,9 @@
   "name": "7bcd0ffefd893e879503",
   "position": {
     "x": 424,
-    "y": 192,
+    "y": 84,
     "z": 9000,
-    "height": 516,
+    "height": 624,
     "width": 844,
     "tabOrder": 2004
   },
@@ -28,24 +28,6 @@
               },
               "queryRef": "dim_district.district_id",
               "nativeQueryRef": "district_id"
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
-                  "Property": "cluster_short_name"
-                }
-              },
-              "queryRef": "dim_cluster.cluster_short_name",
-              "nativeQueryRef": "cluster_short_name"
             }
           ]
         },
@@ -110,6 +92,28 @@
               "queryRef": "Min(dim_cluster.cluster_name)",
               "nativeQueryRef": "Structural cluster",
               "displayName": "Structural cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Germany Average",
+              "nativeQueryRef": "Germany average",
+              "displayName": "Germany average"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Difference"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Difference",
+              "nativeQueryRef": "Difference from Germany",
+              "displayName": "Difference from Germany"
             }
           ]
         },
@@ -185,34 +189,10 @@
       "legend": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'RightCenter'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "showTitle": { "expr": { "Literal": { "Value": "false" } } },
+            "position": { "expr": { "Literal": { "Value": "'RightCenter'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ],
@@ -223,162 +203,24 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#FF6B57'"
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                          "Property": "Selected Indicator Value"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": { "color": { "Literal": { "Value": "'#DCEFF8'" } } },
+                          "max": { "color": { "Literal": { "Value": "'#0878BE'" } } }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Ageing periphery'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#11B89A'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Stable regions'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#7357E8'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Urban pressure'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F9C642'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Metropolitan hubs'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
           }
         }
       ]
@@ -408,6 +250,22 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Darker blue means a higher value · hover for district details'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "type": { "expr": { "Literal": { "Value": "'Default'" } } }
           }
         }
       ]
