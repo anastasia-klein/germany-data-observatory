@@ -67,6 +67,14 @@ class DistrictAnalysisTest(unittest.TestCase):
         clusters = pd.read_csv(PROCESSED / "dim_cluster.csv")
         self.assertEqual(4, clusters["cluster_color_hex"].nunique())
         self.assertTrue(clusters["cluster_color_hex"].str.fullmatch(r"#[0-9A-F]{6}").all())
+        self.assertEqual({"🔴", "🟢", "🟣", "🟡"}, set(clusters["cluster_marker"]))
+        self.assertTrue(
+            clusters.apply(
+                lambda row: row["cluster_display_name"]
+                == f"{row['cluster_marker']} {row['cluster_name']}",
+                axis=1,
+            ).all()
+        )
 
     def test_pca_reaches_variance_target(self):
         variance = pd.read_csv(PROCESSED / "pca_explained_variance.csv")

@@ -227,6 +227,12 @@ def main() -> None:
     profiles = profiles.merge(raw_profiles, on=["cluster_id", "feature_id"])
     profiles.to_csv(OUT / "cluster_profiles.csv", index=False, float_format="%.10f")
 
+    cluster_markers = {
+        "cluster_1": "🔴",
+        "cluster_2": "🟢",
+        "cluster_3": "🟣",
+        "cluster_4": "🟡",
+    }
     cluster_rows = []
     for cluster_id, group in profiles.groupby("cluster_id"):
         display = config["clustering"]["cluster_display"][cluster_id]
@@ -239,6 +245,8 @@ def main() -> None:
             "cluster_id": cluster_id,
             "cluster_name": display["name"],
             "cluster_short_name": display["short_name"],
+            "cluster_marker": cluster_markers[cluster_id],
+            "cluster_display_name": f"{cluster_markers[cluster_id]} {display['name']}",
             "cluster_color_hex": display["color_hex"],
             "district_count": int((assignments["cluster_id"] == cluster_id).sum()),
             "profile_summary": summary,
