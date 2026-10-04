@@ -1,0 +1,170 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "950e44b0b57d31277ab4",
+  "position": {
+    "x": 12,
+    "y": 434,
+    "z": 9003,
+    "height": 274,
+    "width": 400,
+    "tabOrder": 2003
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district" } },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_cluster" } },
+                  "Property": "cluster_short_name"
+                }
+              },
+              "queryRef": "dim_cluster.cluster_short_name",
+              "nativeQueryRef": "Structural cluster"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Value"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Value",
+              "nativeQueryRef": "Indicator value",
+              "displayName": "Indicator value"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Germany Average",
+              "nativeQueryRef": "Germany average",
+              "displayName": "Germany average"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                "Property": "Selected Indicator Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } },
+            "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FF6B57'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Ageing periphery'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#11B89A'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Stable regions'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7357E8'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Urban pressure'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F9C642'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Metropolitan hubs'" } } } } } ] }
+        }
+      ],
+      "referenceLine": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "displayName": { "expr": { "Literal": { "Value": "'Germany average'" } } },
+            "value": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": { "SelectRef": { "ExpressionName": "_Measures.Selected Indicator Germany Average" } },
+                  "Function": 1
+                }
+              }
+            },
+            "lineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#20242A'" } } } } },
+            "dataLabelShow": { "expr": { "Literal": { "Value": "true" } } },
+            "dataLabelText": { "expr": { "Literal": { "Value": "'ValueAndName'" } } },
+            "dataLabelHorizontalPosition": { "expr": { "Literal": { "Value": "'right'" } } },
+            "dataLabelVerticalPosition": { "expr": { "Literal": { "Value": "'under'" } } },
+            "dataLabelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#20242A'" } } } } },
+            "dataLabelDecimalPoints": { "expr": { "Literal": { "Value": "1D" } } },
+            "dataLabelDisplayUnits": { "expr": { "Literal": { "Value": "1D" } } }
+          },
+          "selector": {
+            "metadata": "_Measures.Selected Indicator Germany Average",
+            "id": "1"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": { "expr": { "Literal": { "Value": "'District ranking'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Sorted from the highest observed value'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

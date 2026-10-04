@@ -39,6 +39,17 @@ class DistrictAnalysisTest(unittest.TestCase):
         self.assertTrue((facts.groupby("feature_id")["district_id"].nunique() == 400).all())
         self.assertTrue(excluded["exclusion_reason"].notna().all())
 
+    def test_feature_catalog_has_reader_friendly_labels(self):
+        catalog = pd.read_csv(PROCESSED / "dim_district_feature.csv").set_index("feature_id")
+        self.assertEqual(
+            catalog.loc["population_change_per_10000", "feature_label"],
+            "Annual population change (per 10,000 people) - 2024",
+        )
+        self.assertEqual(
+            catalog.loc["disposable_income_per_capita", "feature_label"],
+            "Disposable income (EUR per person) - 2022",
+        )
+
     def test_political_data_are_not_cluster_features(self):
         metadata = json.loads((PROCESSED / "clustering_model_metadata.json").read_text())
         catalog = pd.read_csv(PROCESSED / "dim_district_feature.csv")
