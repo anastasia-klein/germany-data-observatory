@@ -213,7 +213,10 @@
                       "FillRule": {
                         "linearGradient2": {
                           "min": { "color": { "Literal": { "Value": "'#DCEFF8'" } } },
-                          "max": { "color": { "Literal": { "Value": "'#0878BE'" } } }
+                          "max": { "color": { "Literal": { "Value": "'#0878BE'" } } },
+                          "nullColoringStrategy": {
+                            "strategy": { "Literal": { "Value": "'asZero'" } }
+                          }
                         }
                       }
                     }
@@ -221,6 +224,15 @@
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
           }
         }
       ]
