@@ -1,0 +1,176 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "950e44b0b57d31277ab4",
+  "position": {
+    "x": 12,
+    "y": 434,
+    "z": 9003,
+    "height": 274,
+    "width": 400,
+    "tabOrder": 2003
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district" } },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Value"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Value",
+              "nativeQueryRef": "Indicator value",
+              "displayName": "Indicator value"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": { "SourceRef": { "Entity": "dim_cluster" } },
+                      "Property": "cluster_short_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_cluster.cluster_short_name)",
+              "nativeQueryRef": "Structural cluster",
+              "displayName": "Structural cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Germany Average",
+              "nativeQueryRef": "Germany average",
+              "displayName": "Germany average"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                "Property": "Selected Indicator Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } },
+            "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                      "Property": "Selected Indicator Gradient Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": { "data": [ { "dataViewWildcard": { "matchingOption": 1 } } ] }
+        }
+      ],
+      "xAxisReferenceLine": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "displayName": { "expr": { "Literal": { "Value": "'Germany average'" } } },
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
+                }
+              }
+            },
+            "position": { "expr": { "Literal": { "Value": "'front'" } } },
+            "width": { "expr": { "Literal": { "Value": "3D" } } },
+            "lineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#DD0000'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } },
+            "style": { "expr": { "Literal": { "Value": "'dashed'" } } },
+            "dataLabelShow": { "expr": { "Literal": { "Value": "true" } } },
+            "dataLabelText": { "expr": { "Literal": { "Value": "'ValueAndName'" } } },
+            "dataLabelHorizontalPosition": { "expr": { "Literal": { "Value": "'right'" } } },
+            "dataLabelVerticalPosition": { "expr": { "Literal": { "Value": "'under'" } } },
+            "dataLabelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#DD0000'" } } } } },
+            "dataLabelDecimalPoints": { "expr": { "Literal": { "Value": "1D" } } },
+            "dataLabelDisplayUnits": { "expr": { "Literal": { "Value": "1D" } } }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": { "expr": { "Literal": { "Value": "'District ranking'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Same colour scale as map · red marker = Germany average'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

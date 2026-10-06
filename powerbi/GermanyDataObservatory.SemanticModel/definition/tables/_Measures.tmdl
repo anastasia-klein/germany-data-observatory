@@ -49,6 +49,91 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Selected Indicator Gradient Color' =
+
+			VAR CurrentValue = [Selected Indicator Value]
+			VAR AnchorTable =
+			    FILTER (
+			        ADDCOLUMNS (
+			            ALL ( dim_cluster[cluster_short_name] ),
+			            "__Value", CALCULATE ( [Selected Indicator Value], REMOVEFILTERS ( dim_district ) ),
+			            "__R",
+			                SWITCH (
+			                    dim_cluster[cluster_short_name],
+			                    "Ageing periphery", 255,
+			                    "Metropolitan hubs", 249,
+			                    "Stable regions", 17,
+			                    "Urban pressure", 115
+			                ),
+			            "__G",
+			                SWITCH (
+			                    dim_cluster[cluster_short_name],
+			                    "Ageing periphery", 107,
+			                    "Metropolitan hubs", 198,
+			                    "Stable regions", 184,
+			                    "Urban pressure", 87
+			                ),
+			            "__B",
+			                SWITCH (
+			                    dim_cluster[cluster_short_name],
+			                    "Ageing periphery", 87,
+			                    "Metropolitan hubs", 66,
+			                    "Stable regions", 154,
+			                    "Urban pressure", 232
+			                )
+			        ),
+			        NOT ISBLANK ( [__Value] )
+			    )
+			VAR RankedAnchors =
+			    ADDCOLUMNS (
+			        AnchorTable,
+			        "__Rank", RANKX ( AnchorTable, [__Value],, ASC, DENSE )
+			    )
+			VAR V1 = MINX ( FILTER ( RankedAnchors, [__Rank] = 1 ), [__Value] )
+			VAR V2 = MINX ( FILTER ( RankedAnchors, [__Rank] = 2 ), [__Value] )
+			VAR V3 = MINX ( FILTER ( RankedAnchors, [__Rank] = 3 ), [__Value] )
+			VAR V4 = MINX ( FILTER ( RankedAnchors, [__Rank] = 4 ), [__Value] )
+			VAR LowRank =
+			    SWITCH (
+			        TRUE (),
+			        CurrentValue <= V1, 1,
+			        CurrentValue <= V2, 1,
+			        CurrentValue <= V3, 2,
+			        CurrentValue <= V4, 3,
+			        4
+			    )
+			VAR HighRank = MIN ( 4, LowRank + 1 )
+			VAR LowValue = MINX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__Value] )
+			VAR HighValue = MINX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__Value] )
+			VAR LowR = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__R] )
+			VAR LowG = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__G] )
+			VAR LowB = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__B] )
+			VAR HighR = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__R] )
+			VAR HighG = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__G] )
+			VAR HighB = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__B] )
+			VAR Ratio =
+			    IF (
+			        LowRank = HighRank,
+			        0,
+			        MIN ( 1, MAX ( 0, DIVIDE ( CurrentValue - LowValue, HighValue - LowValue, 0 ) ) )
+			    )
+			VAR Red = ROUND ( LowR + ( HighR - LowR ) * Ratio, 0 )
+			VAR Green = ROUND ( LowG + ( HighG - LowG ) * Ratio, 0 )
+			VAR Blue = ROUND ( LowB + ( HighB - LowB ) * Ratio, 0 )
+			VAR HexChars = "0123456789ABCDEF"
+			VAR HexColor =
+			    "#"
+			        & MID ( HexChars, INT ( Red / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Red, 16 ) + 1, 1 )
+			        & MID ( HexChars, INT ( Green / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Green, 16 ) + 1, 1 )
+			        & MID ( HexChars, INT ( Blue / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Blue, 16 ) + 1, 1 )
+			RETURN
+			    IF ( ISBLANK ( CurrentValue ), "#E7EBEF", HexColor )
+		displayFolder: Features\Selection
+		lineageTag: f62e32f4-c47a-4e50-b896-8ba49ea42e04
+
 	measure 'Germany Feature Average' =
 			
 			VAR CurValue = [Average Feature Value]
