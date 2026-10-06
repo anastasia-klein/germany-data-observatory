@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "661b6c8f56eb1ba037c5",
-  "displayName": "Indicators (2nd version)",
+  "name": "b7e9c2d4f6a81035c1e7",
+  "displayName": "Indicators",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,

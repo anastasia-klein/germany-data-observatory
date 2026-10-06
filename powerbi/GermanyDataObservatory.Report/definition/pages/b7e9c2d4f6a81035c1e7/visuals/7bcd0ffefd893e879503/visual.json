@@ -1,0 +1,375 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "7bcd0ffefd893e879503",
+  "position": {
+    "x": 424,
+    "y": 84,
+    "z": 9000,
+    "height": 624,
+    "width": 844,
+    "tabOrder": 2004
+  },
+  "visual": {
+    "visualType": "shapeMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_id"
+                }
+              },
+              "queryRef": "dim_district.district_id",
+              "nativeQueryRef": "district_id"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Value"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Value",
+              "nativeQueryRef": "Indicator value",
+              "displayName": "Indicator value"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_district"
+                        }
+                      },
+                      "Property": "district_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_district.district_name)",
+              "nativeQueryRef": "District",
+              "displayName": "District"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_district"
+                        }
+                      },
+                      "Property": "state_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_district.state_name)",
+              "nativeQueryRef": "Federal state",
+              "displayName": "Federal state"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cluster"
+                        }
+                      },
+                      "Property": "cluster_name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_cluster.cluster_name)",
+              "nativeQueryRef": "Structural cluster",
+              "displayName": "Structural cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Germany Average"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Germany Average",
+              "nativeQueryRef": "Germany average",
+              "displayName": "Germany average"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Difference"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Difference",
+              "nativeQueryRef": "Difference from Germany",
+              "displayName": "Difference from Germany"
+            }
+          ]
+        },
+        "Value": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Selected Indicator Value"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Value",
+              "nativeQueryRef": "Indicator value",
+              "displayName": "Indicator value"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "shape": [
+        {
+          "properties": {
+            "datasourceType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'file_upload'"
+                }
+              }
+            },
+            "map": {
+              "geoJson": {
+                "type": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'packaged'"
+                    }
+                  }
+                },
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'germany_districts_2024.topojson'"
+                    }
+                  }
+                },
+                "content": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "germany_districts_20248077705754270155.topojson"
+                    }
+                  }
+                }
+              }
+            },
+            "projectionEnum": {
+              "expr": {
+                "Literal": {
+                  "Value": "'albersUsa'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "showTitle": { "expr": { "Literal": { "Value": "false" } } },
+            "position": { "expr": { "Literal": { "Value": "'RightCenter'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                      "Property": "Selected Indicator Gradient Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Where the selected indicator is highest'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Colour follows the ordered cluster averages · hover for district details'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "type": { "expr": { "Literal": { "Value": "'Default'" } } },
+            "showTooltipFieldsOnly": { "expr": { "Literal": { "Value": "true" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7db563594ef376cf4614",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_district"
+              }
+            },
+            "Property": "district_id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "574e583a95e6691d3210",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_cluster"
+              }
+            },
+            "Property": "cluster_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aaeb255cd77e8c8be513",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_district"
+                  }
+                },
+                "Property": "district_name"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "51f64b0feead0f274f3b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_district"
+                  }
+                },
+                "Property": "state_name"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a8337d17cd9a590f8de1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_cluster"
+                  }
+                },
+                "Property": "cluster_name"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
