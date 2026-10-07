@@ -53,36 +53,41 @@ table _Measures
 
 			VAR CurrentValue = [Selected Indicator Value]
 			VAR AnchorTable =
-			    FILTER (
-			        ADDCOLUMNS (
-			            ALL ( dim_cluster[cluster_short_name] ),
-			            "__Value", CALCULATE ( [Selected Indicator Value], REMOVEFILTERS ( dim_district ) ),
-			            "__R",
-			                SWITCH (
-			                    dim_cluster[cluster_short_name],
-			                    "Ageing periphery", 255,
-			                    "Metropolitan hubs", 249,
-			                    "Stable regions", 17,
-			                    "Urban pressure", 115
-			                ),
-			            "__G",
-			                SWITCH (
-			                    dim_cluster[cluster_short_name],
-			                    "Ageing periphery", 107,
-			                    "Metropolitan hubs", 198,
-			                    "Stable regions", 184,
-			                    "Urban pressure", 87
-			                ),
-			            "__B",
-			                SWITCH (
-			                    dim_cluster[cluster_short_name],
-			                    "Ageing periphery", 87,
-			                    "Metropolitan hubs", 66,
-			                    "Stable regions", 154,
-			                    "Urban pressure", 232
-			                )
+			    CALCULATETABLE (
+			        FILTER (
+			            ADDCOLUMNS (
+			                ALL ( dim_cluster[cluster_short_name] ),
+			                "__Value", CALCULATE ( [Selected Indicator Value] ),
+			                "__R",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 255,
+			                        "Metropolitan hubs", 249,
+			                        "Stable regions", 17,
+			                        "Urban pressure", 115
+			                    ),
+			                "__G",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 107,
+			                        "Metropolitan hubs", 198,
+			                        "Stable regions", 184,
+			                        "Urban pressure", 87
+			                    ),
+			                "__B",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 87,
+			                        "Metropolitan hubs", 66,
+			                        "Stable regions", 154,
+			                        "Urban pressure", 232
+			                    )
+			            ),
+			            NOT ISBLANK ( [__Value] )
 			        ),
-			        NOT ISBLANK ( [__Value] )
+			        REMOVEFILTERS ( dim_district ),
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
 			    )
 			VAR RankedAnchors =
 			    ADDCOLUMNS (
@@ -111,15 +116,43 @@ table _Measures
 			VAR HighR = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__R] )
 			VAR HighG = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__G] )
 			VAR HighB = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__B] )
+			VAR LowCluster =
+			    MAXX (
+			        FILTER ( RankedAnchors, [__Rank] = LowRank ),
+			        dim_cluster[cluster_short_name]
+			    )
+			VAR HighCluster =
+			    MAXX (
+			        FILTER ( RankedAnchors, [__Rank] = HighRank ),
+			        dim_cluster[cluster_short_name]
+			    )
 			VAR Ratio =
 			    IF (
 			        LowRank = HighRank,
 			        0,
 			        MIN ( 1, MAX ( 0, DIVIDE ( CurrentValue - LowValue, HighValue - LowValue, 0 ) ) )
 			    )
-			VAR Red = ROUND ( LowR + ( HighR - LowR ) * Ratio, 0 )
-			VAR Green = ROUND ( LowG + ( HighG - LowG ) * Ratio, 0 )
-			VAR Blue = ROUND ( LowB + ( HighB - LowB ) * Ratio, 0 )
+			VAR IsPurpleGreenPair =
+			    ( LowCluster = "Urban pressure" && HighCluster = "Stable regions" )
+			        || ( LowCluster = "Stable regions" && HighCluster = "Urban pressure" )
+			VAR MidR = 119
+			VAR MidG = 116
+			VAR MidB = 90
+			VAR SegmentRatio =
+			    IF (
+			        IsPurpleGreenPair,
+			        IF ( Ratio <= 0.5, Ratio * 2, ( Ratio - 0.5 ) * 2 ),
+			        Ratio
+			    )
+			VAR SegmentLowR = IF ( IsPurpleGreenPair && Ratio > 0.5, MidR, LowR )
+			VAR SegmentLowG = IF ( IsPurpleGreenPair && Ratio > 0.5, MidG, LowG )
+			VAR SegmentLowB = IF ( IsPurpleGreenPair && Ratio > 0.5, MidB, LowB )
+			VAR SegmentHighR = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidR, HighR )
+			VAR SegmentHighG = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidG, HighG )
+			VAR SegmentHighB = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidB, HighB )
+			VAR Red = ROUND ( SegmentLowR + ( SegmentHighR - SegmentLowR ) * SegmentRatio, 0 )
+			VAR Green = ROUND ( SegmentLowG + ( SegmentHighG - SegmentLowG ) * SegmentRatio, 0 )
+			VAR Blue = ROUND ( SegmentLowB + ( SegmentHighB - SegmentLowB ) * SegmentRatio, 0 )
 			VAR HexChars = "0123456789ABCDEF"
 			VAR HexColor =
 			    "#"
