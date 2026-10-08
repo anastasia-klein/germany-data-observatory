@@ -3,10 +3,10 @@
   "name": "ca000000000000000002",
   "position": {
     "x": 12,
-    "y": 150,
+    "y": 160,
     "z": 9000,
     "height": 330,
-    "width": 600,
+    "width": 500,
     "tabOrder": 7000
   },
   "visual": {
@@ -434,6 +434,19 @@
               "expr": {
                 "Literal": {
                   "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

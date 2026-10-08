@@ -3,10 +3,10 @@
   "name": "ca000000000000000008",
   "position": {
     "x": 12,
-    "y": 492,
+    "y": 500,
     "z": 9503,
-    "height": 188,
-    "width": 600,
+    "height": 176,
+    "width": 500,
     "tabOrder": 9003
   },
   "visual": {
