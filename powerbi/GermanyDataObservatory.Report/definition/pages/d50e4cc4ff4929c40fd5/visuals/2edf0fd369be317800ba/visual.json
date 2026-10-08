@@ -110,6 +110,51 @@
               "queryRef": "Min(dim_cluster.cluster_name)",
               "nativeQueryRef": "Structural cluster",
               "displayName": "Structural cluster"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Population Aged 65+ %"
+                }
+              },
+              "queryRef": "_Measures.Population Aged 65+ %",
+              "nativeQueryRef": "Population aged 65+",
+              "displayName": "Population aged 65+"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Unemployment Rate %"
+                }
+              },
+              "queryRef": "_Measures.Unemployment Rate %",
+              "nativeQueryRef": "Unemployment",
+              "displayName": "Unemployment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Disposable Income per Capita"
+                }
+              },
+              "queryRef": "_Measures.Disposable Income per Capita",
+              "nativeQueryRef": "Disposable income",
+              "displayName": "Disposable income"
             }
           ]
         },
@@ -387,21 +432,14 @@
             "type": {
               "expr": {
                 "Literal": {
-                  "Value": "'Canvas'"
+                  "Value": "'Default'"
                 }
               }
             },
             "showTooltipFieldsOnly": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "section": {
-              "expr": {
-                "Literal": {
-                  "Value": "'84e5e44efabd2fd66fc5'"
+                  "Value": "true"
                 }
               }
             }
