@@ -230,25 +230,16 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Selected Cluster Name' =
-
-			COALESCE (
-				SELECTEDVALUE ( dim_cluster[cluster_name] ),
-				"All structural clusters"
-			)
-		displayFolder: Clusters\Selection
-		lineageTag: 7c880ea8-5f03-4fca-98ed-d379650e0e73
-
 	measure 'Selected Cluster Description' =
 
 			VAR ClusterId = SELECTEDVALUE ( dim_cluster[cluster_id] )
 			RETURN
 				SWITCH (
 					ClusterId,
-					"cluster_1", "Older populations, population decline and fewer young residents.",
-					"cluster_2", "Low unemployment, higher incomes and a comparatively young population.",
-					"cluster_3", "Dense urban areas with labour-market pressure and lower disposable income.",
-					"cluster_4", "Economically dynamic metropolitan centres with high workplace density and GDP.",
+					"cluster_1", "Older population, population decline and fewer young residents.",
+					"cluster_2", "Low unemployment, higher incomes and a younger population.",
+					"cluster_3", "Dense urban areas with labour-market pressure and lower income.",
+					"cluster_4", "Dynamic metropolitan centres with high workplace density and GDP.",
 					"Select a cluster on the map or in the filter to see its profile."
 				)
 		displayFolder: Clusters\Selection
