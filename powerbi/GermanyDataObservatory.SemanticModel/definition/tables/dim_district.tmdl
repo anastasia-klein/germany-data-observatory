@@ -35,6 +35,20 @@ table dim_district
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'District type group' =
+			SWITCH (
+				dim_district[district_type],
+				"urban_district", "Urban districts",
+				"rural_district", "Rural districts",
+				"special_district_association", "Special associations",
+				dim_district[district_type]
+			)
+		dataType: string
+		lineageTag: 52c20aae-8842-42a9-bc41-2e8509b78bc7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	column state_code
 		dataType: string
 		lineageTag: b669c22e-c0f5-49c4-aa90-766fe4c1b394
@@ -79,4 +93,3 @@ table dim_district
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
-

@@ -222,6 +222,62 @@ table _Measures
 		displayFolder: Clusters
 		lineageTag: 3ce69e51-529e-4789-8159-1a8d2cae9de6
 
+	measure 'Cluster Mean Raw Value' =
+
+			AVERAGE ( cluster_profiles[mean_raw_value] )
+		displayFolder: Clusters
+		lineageTag: 29945572-ae33-4688-9e27-66894fc8501d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Cluster Name' =
+
+			COALESCE (
+				SELECTEDVALUE ( dim_cluster[cluster_name] ),
+				"All structural clusters"
+			)
+		displayFolder: Clusters\Selection
+		lineageTag: 7c880ea8-5f03-4fca-98ed-d379650e0e73
+
+	measure 'Selected Cluster Description' =
+
+			VAR ClusterId = SELECTEDVALUE ( dim_cluster[cluster_id] )
+			RETURN
+				SWITCH (
+					ClusterId,
+					"cluster_1", "Older populations, population decline and fewer young residents.",
+					"cluster_2", "Low unemployment, higher incomes and a comparatively young population.",
+					"cluster_3", "Dense urban areas with labour-market pressure and lower disposable income.",
+					"cluster_4", "Economically dynamic metropolitan centres with high workplace density and GDP.",
+					"Select a cluster on the map or in the filter to see its profile."
+				)
+		displayFolder: Clusters\Selection
+		lineageTag: 45a6a0cf-e2f5-40cc-86df-62858630d3f8
+
+	measure 'Selected Cluster Share' =
+
+			VAR SelectedDistricts = [District Count]
+			VAR GermanyDistricts =
+				CALCULATE (
+					[District Count],
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				DIVIDE ( SelectedDistricts, GermanyDistricts )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Clusters\Selection
+		lineageTag: 26603321-310b-413b-ae42-baa1e4efbb0c
+
+	measure 'Selected Cluster Colour' =
+
+			COALESCE (
+				SELECTEDVALUE ( dim_cluster[cluster_color_hex] ),
+				"#198FE3"
+			)
+		displayFolder: Clusters\Selection
+		lineageTag: 605a9881-511b-424d-9bd6-cddce9566197
+
 	measure 'Second Votes' =
 			
 			SUM ( fact_election_party_results[votes] )
