@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "ca000000000000000007",
+  "position": {
+    "x": 624,
+    "y": 336,
+    "z": 9002,
+    "height": 144,
+    "width": 644,
+    "tabOrder": 2002
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Property": "feature_name"
+                }
+              },
+              "queryRef": "dim_district_feature.feature_name",
+              "nativeQueryRef": "Indicator",
+              "displayName": "Indicator"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": { "SourceRef": { "Entity": "dim_cluster" } },
+                  "Property": "cluster_short_name"
+                }
+              },
+              "queryRef": "dim_cluster.cluster_short_name",
+              "nativeQueryRef": "Structural cluster",
+              "displayName": "Structural cluster"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Cluster Mean Z Score"
+                }
+              },
+              "queryRef": "_Measures.Cluster Mean Z Score",
+              "nativeQueryRef": "Standardised score",
+              "displayName": "Standardised score"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Cluster Mean Raw Value"
+                }
+              },
+              "queryRef": "_Measures.Cluster Mean Raw Value",
+              "nativeQueryRef": "Average in original units",
+              "displayName": "Average in original units"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                      "Property": "reference_year"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_district_feature.reference_year)",
+              "nativeQueryRef": "Reference year",
+              "displayName": "Reference year"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                "Property": "Cluster Mean Z Score"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9D" } } },
+            "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FF6B57'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Ageing periphery'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#11B89A'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Stable regions'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7357E8'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Urban pressure'" } } } } } ] }
+        },
+        {
+          "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F9C642'" } } } } } },
+          "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Metropolitan hubs'" } } } } } ] }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": { "expr": { "Literal": { "Value": "'How the selected cluster differs'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Standard deviations from the Germany average · hover for raw values'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ca_feature_filter",
+        "field": {
+          "Column": {
+            "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+            "Property": "included_in_clustering"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [ { "Name": "d", "Entity": "dim_district_feature", "Type": 0 } ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [ { "Column": { "Expression": { "SourceRef": { "Source": "d" } }, "Property": "included_in_clustering" } } ],
+                  "Values": [ [ { "Literal": { "Value": "true" } } ] ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
