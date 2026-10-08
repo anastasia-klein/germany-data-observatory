@@ -432,14 +432,21 @@
             "type": {
               "expr": {
                 "Literal": {
-                  "Value": "'Default'"
+                  "Value": "'Canvas'"
                 }
               }
             },
             "showTooltipFieldsOnly": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6c91e7d2a4f8503bc126'"
                 }
               }
             }
