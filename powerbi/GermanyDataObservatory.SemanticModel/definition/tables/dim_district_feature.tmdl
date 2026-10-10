@@ -16,6 +16,9 @@ table dim_district_feature
 		lineageTag: f3613b99-6039-4dd4-8d09-8afa3100a9da
 		summarizeBy: none
 		sourceColumn: feature_name
+		sortByColumn: 'Cluster profile order'
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -63,6 +66,30 @@ table dim_district_feature
 		sourceColumn: included_in_clustering
 
 		annotation SummarizationSetBy = Automatic
+
+	column 'Cluster profile order' =
+			SWITCH (
+				dim_district_feature[feature_id],
+				"age_65_plus_share", 1,
+				"age_under_18_share", 2,
+				"population_change_per_10000", 3,
+				"migration_balance_per_10000", 4,
+				"foreign_population_share", 5,
+				"population_density", 6,
+				"unemployment_rate", 7,
+				"manufacturing_employment_share", 8,
+				"workplace_density", 9,
+				"gdp_per_capita", 10,
+				"disposable_income_per_capita", 11,
+				99
+			)
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 2f09c151-43a0-4e74-9744-16adbce69423
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = User
 
 	column transform
 		dataType: string
