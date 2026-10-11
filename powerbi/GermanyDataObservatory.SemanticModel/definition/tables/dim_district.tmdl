@@ -40,7 +40,7 @@ table dim_district
 				dim_district[district_type],
 				"urban_district", "Urban districts",
 				"rural_district", "Rural districts",
-				"special_district_association", "Special associations",
+				"special_district_association", "City-region associations",
 				dim_district[district_type]
 			)
 		dataType: string
