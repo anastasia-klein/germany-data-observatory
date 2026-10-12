@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "pl000000000000000007",
+  "position": { "x": 196, "y": 612, "z": 9010, "height": 54, "width": 286, "tabOrder": 9007 },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": { "projections": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "party_landscape_scale" } }, "Property": "scale_name" } }, "queryRef": "party_landscape_scale.scale_name", "nativeQueryRef": "Support" } ] },
+        "Series": { "projections": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "party_landscape_scale" } }, "Property": "band" } }, "queryRef": "party_landscape_scale.band", "nativeQueryRef": "Band" } ] },
+        "Y": { "projections": [ { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Scale Value" } }, "queryRef": "_Measures.Landscape Scale Value", "nativeQueryRef": "Scale" } ] }
+      },
+      "sortDefinition": { "sort": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "party_landscape_scale" } }, "Property": "band" } }, "direction": "Ascending" } ], "isDefaultSort": true }
+    },
+    "objects": {
+      "labels": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ],
+      "legend": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ],
+      "categoryAxis": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ],
+      "valueAxis": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ],
+      "dataPoint": [ { "properties": { "fill": { "solid": { "color": { "expr": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Scale Colour" } } } } } }, "selector": { "data": [ { "dataViewWildcard": { "matchingOption": 1 } } ] } } ]
+    },
+    "visualContainerObjects": {
+      "title": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Lower support                              Higher support'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ],
+      "background": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ],
+      "border": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

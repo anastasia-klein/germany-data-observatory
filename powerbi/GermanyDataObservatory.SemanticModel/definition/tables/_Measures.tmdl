@@ -385,11 +385,11 @@ table _Measures
 
 			VAR PartyGroupId =
 				COALESCE (
-					SELECTEDVALUE ( dim_party_group[party_group_id] ),
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
 					"party_group_cdu_csu"
 				)
 			VAR ElectionYear =
-				COALESCE ( SELECTEDVALUE ( dim_election[election_year] ), 2025 )
+				COALESCE ( SELECTEDVALUE ( party_landscape_year_selector[election_year] ), 2025 )
 			RETURN
 				CALCULATE (
 					[Mean District Vote Share %],
@@ -426,7 +426,7 @@ table _Measures
 	measure 'Landscape Selected Party' =
 
 			COALESCE (
-				SELECTEDVALUE ( dim_party_group[party_group_name] ),
+				SELECTEDVALUE ( party_landscape_selector[party_group_name] ),
 				"CDU/CSU"
 			)
 		displayFolder: Elections\Landscape
@@ -434,7 +434,7 @@ table _Measures
 
 	measure 'Landscape Selected Election Year' =
 
-			COALESCE ( SELECTEDVALUE ( dim_election[election_year] ), 2025 )
+			COALESCE ( SELECTEDVALUE ( party_landscape_year_selector[election_year] ), 2025 )
 		formatString: 0
 		displayFolder: Elections\Landscape
 		lineageTag: 63096c80-fac4-45fb-9dcb-ac24bdffaf55
@@ -444,7 +444,7 @@ table _Measures
 			[Landscape Selected Party]
 				& " · "
 				& FORMAT ( [Landscape Selected Election Year], "0" )
-				& " · district-level second-vote share"
+				& " · district party-list vote share"
 		displayFolder: Elections\Landscape
 		lineageTag: e7069597-68a4-4cbb-989d-029510352467
 
@@ -468,6 +468,102 @@ table _Measures
 			)
 		displayFolder: Elections\Landscape
 		lineageTag: cd718aee-27a9-431a-91ec-6ad0f4108fd3
+
+	measure 'Landscape Party Mix Vote Share %' =
+
+			VAR ElectionYear = [Landscape Selected Election Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = ElectionYear
+				)
+		formatString: 0.0
+		displayFolder: Elections\Landscape
+		lineageTag: e204e6fa-581e-4269-833e-43b38d2b9bf8
+
+	measure 'Landscape Party Mix Colour' =
+
+			VAR SeriesParty = SELECTEDVALUE ( dim_party_group[party_group_name] )
+			VAR IsSelected = SeriesParty = [Landscape Selected Party]
+			RETURN
+				SWITCH (
+					TRUE (),
+					SeriesParty = "CDU/CSU" && IsSelected, "#171717",
+					SeriesParty = "CDU/CSU", "#A9ADB3",
+					SeriesParty = "SPD" && IsSelected, "#E3000F",
+					SeriesParty = "SPD", "#F4A3AA",
+					SeriesParty = "GRÜNE" && IsSelected, "#1AA037",
+					SeriesParty = "GRÜNE", "#9ACFA7",
+					SeriesParty = "FDP" && IsSelected, "#F2D400",
+					SeriesParty = "FDP", "#F8EDA0",
+					SeriesParty = "Die Linke" && IsSelected, "#BE3075",
+					SeriesParty = "Die Linke", "#DDA5C3",
+					SeriesParty = "AfD" && IsSelected, "#009EE0",
+					SeriesParty = "AfD", "#9BD8EE",
+					"#D9DEE3"
+				)
+		displayFolder: Elections\Landscape
+		lineageTag: eec39366-2046-40d3-9780-b2f977230e84
+
+	measure 'Landscape Map Colour' =
+
+			VAR ShareValue = [Landscape District Vote Share %]
+			VAR MinShare =
+				MINX (
+					ALL ( dim_district[district_id] ),
+					CALCULATE ( [Landscape District Vote Share %] )
+				)
+			VAR MaxShare =
+				MAXX (
+					ALL ( dim_district[district_id] ),
+					CALCULATE ( [Landscape District Vote Share %] )
+				)
+			VAR Position = DIVIDE ( ShareValue - MinShare, MaxShare - MinShare, 0 )
+			VAR Band = MIN ( 5, MAX ( 1, 1 + INT ( Position * 5 ) ) )
+			VAR PartyName = [Landscape Selected Party]
+			RETURN
+				IF (
+					ISBLANK ( ShareValue ),
+					"#EEF1F3",
+					SWITCH (
+						PartyName & "|" & FORMAT ( Band, "0" ),
+						"CDU/CSU|1", "#E5E7EB", "CDU/CSU|2", "#C4C7CC", "CDU/CSU|3", "#8C9199", "CDU/CSU|4", "#4B4F55", "CDU/CSU|5", "#171717",
+						"SPD|1", "#FDECEE", "SPD|2", "#F8B7BD", "SPD|3", "#F07580", "SPD|4", "#E83A49", "SPD|5", "#E3000F",
+						"GRÜNE|1", "#E8F5EB", "GRÜNE|2", "#B9DFBF", "GRÜNE|3", "#7BCB8A", "GRÜNE|4", "#3AB553", "GRÜNE|5", "#1AA037",
+						"FDP|1", "#FFFDE6", "FDP|2", "#FFF8A6", "FDP|3", "#FFF36A", "FDP|4", "#FBE52D", "FDP|5", "#F2D400",
+						"Die Linke|1", "#F6E7EF", "Die Linke|2", "#E8BDD3", "Die Linke|3", "#D88DB4", "Die Linke|4", "#CA5B95", "Die Linke|5", "#BE3075",
+						"AfD|1", "#E6F6FC", "AfD|2", "#B7E7F5", "AfD|3", "#78D3EE", "AfD|4", "#35B8E3", "AfD|5", "#009EE0",
+						"#8C8C8C"
+					)
+				)
+		displayFolder: Elections\Landscape
+		lineageTag: 4946b192-8434-4373-b39f-600e90ad590c
+
+	measure 'Landscape Scale Value' =
+
+			1
+		formatString: 0
+		displayFolder: Elections\Landscape
+		lineageTag: a379fcb6-0691-4db0-b089-e04b8d7bd85d
+
+	measure 'Landscape Scale Colour' =
+
+			VAR Band = SELECTEDVALUE ( party_landscape_scale[band], 1 )
+			VAR PartyName = [Landscape Selected Party]
+			RETURN
+				SWITCH (
+					PartyName & "|" & FORMAT ( Band, "0" ),
+					"CDU/CSU|1", "#E5E7EB", "CDU/CSU|2", "#C4C7CC", "CDU/CSU|3", "#8C9199", "CDU/CSU|4", "#4B4F55", "CDU/CSU|5", "#171717",
+					"SPD|1", "#FDECEE", "SPD|2", "#F8B7BD", "SPD|3", "#F07580", "SPD|4", "#E83A49", "SPD|5", "#E3000F",
+					"GRÜNE|1", "#E8F5EB", "GRÜNE|2", "#B9DFBF", "GRÜNE|3", "#7BCB8A", "GRÜNE|4", "#3AB553", "GRÜNE|5", "#1AA037",
+					"FDP|1", "#FFFDE6", "FDP|2", "#FFF8A6", "FDP|3", "#FFF36A", "FDP|4", "#FBE52D", "FDP|5", "#F2D400",
+					"Die Linke|1", "#F6E7EF", "Die Linke|2", "#E8BDD3", "Die Linke|3", "#D88DB4", "Die Linke|4", "#CA5B95", "Die Linke|5", "#BE3075",
+					"AfD|1", "#E6F6FC", "AfD|2", "#B7E7F5", "AfD|3", "#78D3EE", "AfD|4", "#35B8E3", "AfD|5", "#009EE0",
+					"#8C8C8C"
+				)
+		displayFolder: Elections\Landscape
+		lineageTag: d928a032-b23d-446d-93e5-987d2f6d05cd
 
 	measure 'Selected Party' =
 			
