@@ -381,6 +381,94 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
+	measure 'Landscape District Vote Share %' =
+
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( dim_party_group[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			VAR ElectionYear =
+				COALESCE ( SELECTEDVALUE ( dim_election[election_year] ), 2025 )
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = ElectionYear
+				)
+		formatString: 0.0
+		displayFolder: Elections\Landscape
+		lineageTag: d3a3c2a5-77dd-4d99-8f3e-3f8b317f3c21
+
+	measure 'Landscape Germany Average %' =
+
+			CALCULATE (
+				[Landscape District Vote Share %],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		formatString: 0.0
+		displayFolder: Elections\Landscape
+		lineageTag: 28fbcc1d-d2df-4f10-9f1d-51a53384debb
+
+	measure 'Landscape Difference from Germany pp' =
+
+			[Landscape District Vote Share %] - [Landscape Germany Average %]
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\Landscape
+		lineageTag: 45612749-cac9-407d-a595-ea145a1b3ca2
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Landscape Selected Party' =
+
+			COALESCE (
+				SELECTEDVALUE ( dim_party_group[party_group_name] ),
+				"CDU/CSU"
+			)
+		displayFolder: Elections\Landscape
+		lineageTag: c0a459c6-e91d-434f-ae76-d42814685dbc
+
+	measure 'Landscape Selected Election Year' =
+
+			COALESCE ( SELECTEDVALUE ( dim_election[election_year] ), 2025 )
+		formatString: 0
+		displayFolder: Elections\Landscape
+		lineageTag: 63096c80-fac4-45fb-9dcb-ac24bdffaf55
+
+	measure 'Landscape Selection Label' =
+
+			[Landscape Selected Party]
+				& " · "
+				& FORMAT ( [Landscape Selected Election Year], "0" )
+				& " · district-level second-vote share"
+		displayFolder: Elections\Landscape
+		lineageTag: e7069597-68a4-4cbb-989d-029510352467
+
+	measure 'Landscape Map Title' =
+
+			"Where " & [Landscape Selected Party] & " support is strongest"
+		displayFolder: Elections\Landscape
+		lineageTag: 3a4b83a2-d4c6-45ed-8264-3c54a6d9e5f1
+
+	measure 'Landscape Party Colour' =
+
+			SWITCH (
+				[Landscape Selected Party],
+				"CDU/CSU", "#171717",
+				"SPD", "#E3000F",
+				"GRÜNE", "#1AA037",
+				"FDP", "#F2D400",
+				"Die Linke", "#BE3075",
+				"AfD", "#009EE0",
+				"#502379"
+			)
+		displayFolder: Elections\Landscape
+		lineageTag: cd718aee-27a9-431a-91ec-6ad0f4108fd3
+
 	measure 'Selected Party' =
 			
 			COALESCE (
