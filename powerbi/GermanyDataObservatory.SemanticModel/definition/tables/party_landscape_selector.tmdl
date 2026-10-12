@@ -1,0 +1,52 @@
+table party_landscape_selector
+	lineageTag: 945b0fb3-83a5-4d86-b923-f68c7866d0c2
+
+	column party_group_id
+		dataType: string
+		lineageTag: 7ce52290-acde-46fd-b760-90e954fe6bce
+		summarizeBy: none
+		sourceColumn: party_group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_group_name
+		dataType: string
+		lineageTag: df63f07f-e0c2-47fa-837f-0d8b561b8364
+		summarizeBy: none
+		sourceColumn: party_group_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_color_hex
+		dataType: string
+		lineageTag: 0fe2033e-1f9e-470e-839c-cc99d28da88f
+		summarizeBy: none
+		sourceColumn: party_color_hex
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_display_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 5110a78e-cea0-4c1f-b582-95facd43ee9e
+		summarizeBy: none
+		sourceColumn: party_display_order
+
+		annotation SummarizationSetBy = User
+
+	partition party_landscape_selector = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_party_group.csv", {
+				        {"party_group_id", type text},
+				        {"party_group_name", type text},
+				        {"party_color_hex", type text},
+				        {"party_display_order", Int64.Type}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
