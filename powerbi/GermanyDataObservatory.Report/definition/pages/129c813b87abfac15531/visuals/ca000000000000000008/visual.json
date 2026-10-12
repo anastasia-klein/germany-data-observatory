@@ -224,7 +224,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F9C642'"
+                      "Value": "'#F28E2B'"
                     }
                   }
                 }
@@ -249,7 +249,7 @@
                     },
                     "Right": {
                       "Literal": {
-                  "Value": "'Special regional districts'"
+                  "Value": "'Special regional districts*'"
                       }
                     }
                   }
@@ -320,7 +320,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'TopCenter'"
+                  "Value": "'BottomCenter'"
                 }
               }
             },
