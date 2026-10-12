@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Clusters use demographic and socioeconomic indicators only. Cluster names are descriptive, not value judgments."
+                    "value": "Clusters use demographic and socioeconomic indicators only. Cluster names are descriptive, not value judgments. Special regional districts: Region Hannover, Städteregion Aachen and Regionalverband Saarbrücken."
                   }
                 ]
               }
@@ -33,7 +33,7 @@
         {
           "properties": {
             "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Clusters use demographic and socioeconomic indicators only · Cluster names are descriptive, not value judgments'" } } },
+            "text": { "expr": { "Literal": { "Value": "'Clusters use demographic and socioeconomic indicators only · Cluster names are descriptive, not value judgments · Special regional districts: Region Hannover, Städteregion Aachen and Regionalverband Saarbrücken'" } } },
             "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#68727D'" } } } } },
             "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
