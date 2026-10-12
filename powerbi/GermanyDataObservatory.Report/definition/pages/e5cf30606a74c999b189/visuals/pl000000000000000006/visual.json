@@ -14,11 +14,18 @@
     "objects": {
       "labels": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } }, "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } } } } ],
       "legend": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "showTitle": { "expr": { "Literal": { "Value": "false" } } }, "position": { "expr": { "Literal": { "Value": "'BottomCenter'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ],
-      "dataPoint": [ { "properties": { "fill": { "solid": { "color": { "expr": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Party Mix Colour" } } } } } }, "selector": { "data": [ { "dataViewWildcard": { "matchingOption": 1 } } ] } } ]
+      "dataPoint": [
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#171717'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'CDU/CSU'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E3000F'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'SPD'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#1AA037'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'GRÜNE'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F2D400'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'FDP'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#BE3075'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'Die Linke'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#009EE0'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'AfD'" } } } } } ] } }
+      ]
     },
     "visualContainerObjects": {
       "title": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Party mix by structural cluster'" } } }, "fontSize": { "expr": { "Literal": { "Value": "11D" } } } } } ],
-      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Mean district party-list vote share · selected party shown at full colour'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
+      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Mean district party-list vote share · official party colours'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
     },
     "drillFilterOtherVisuals": true
   }

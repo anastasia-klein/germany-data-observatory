@@ -1,0 +1,6 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "pl000000000000000009",
+  "position": { "x": 276, "y": 628, "z": 9011, "height": 12, "width": 34, "tabOrder": 9009 },
+  "visual": { "visualType": "shape", "objects": { "shape": [ { "properties": { "tileShape": { "expr": { "Literal": { "Value": "'rectangle'" } } } } } ], "fill": [ { "properties": { "fillColor": { "solid": { "color": { "expr": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Scale Colour 1" } } } } } }, "selector": { "id": "default" } } ], "outline": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ] }, "drillFilterOtherVisuals": true }
+}

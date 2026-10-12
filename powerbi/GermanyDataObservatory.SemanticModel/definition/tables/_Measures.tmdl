@@ -540,30 +540,35 @@ table _Measures
 		displayFolder: Elections\Landscape
 		lineageTag: 4946b192-8434-4373-b39f-600e90ad590c
 
-	measure 'Landscape Scale Value' =
+	measure 'Landscape Scale Colour 1' =
 
-			1
-		formatString: 0
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#E5E7EB", "SPD", "#FDECEE", "GRÜNE", "#E8F5EB", "FDP", "#FFFDE6", "Die Linke", "#F6E7EF", "AfD", "#E6F6FC", "#EEF1F3" )
 		displayFolder: Elections\Landscape
 		lineageTag: a379fcb6-0691-4db0-b089-e04b8d7bd85d
 
-	measure 'Landscape Scale Colour' =
+	measure 'Landscape Scale Colour 2' =
 
-			VAR Band = SELECTEDVALUE ( party_landscape_scale[band], 1 )
-			VAR PartyName = [Landscape Selected Party]
-			RETURN
-				SWITCH (
-					PartyName & "|" & FORMAT ( Band, "0" ),
-					"CDU/CSU|1", "#E5E7EB", "CDU/CSU|2", "#C4C7CC", "CDU/CSU|3", "#8C9199", "CDU/CSU|4", "#4B4F55", "CDU/CSU|5", "#171717",
-					"SPD|1", "#FDECEE", "SPD|2", "#F8B7BD", "SPD|3", "#F07580", "SPD|4", "#E83A49", "SPD|5", "#E3000F",
-					"GRÜNE|1", "#E8F5EB", "GRÜNE|2", "#B9DFBF", "GRÜNE|3", "#7BCB8A", "GRÜNE|4", "#3AB553", "GRÜNE|5", "#1AA037",
-					"FDP|1", "#FFFDE6", "FDP|2", "#FFF8A6", "FDP|3", "#FFF36A", "FDP|4", "#FBE52D", "FDP|5", "#F2D400",
-					"Die Linke|1", "#F6E7EF", "Die Linke|2", "#E8BDD3", "Die Linke|3", "#D88DB4", "Die Linke|4", "#CA5B95", "Die Linke|5", "#BE3075",
-					"AfD|1", "#E6F6FC", "AfD|2", "#B7E7F5", "AfD|3", "#78D3EE", "AfD|4", "#35B8E3", "AfD|5", "#009EE0",
-					"#8C8C8C"
-				)
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#C4C7CC", "SPD", "#F8B7BD", "GRÜNE", "#B9DFBF", "FDP", "#FFF8A6", "Die Linke", "#E8BDD3", "AfD", "#B7E7F5", "#C4C7CC" )
 		displayFolder: Elections\Landscape
 		lineageTag: d928a032-b23d-446d-93e5-987d2f6d05cd
+
+	measure 'Landscape Scale Colour 3' =
+
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#8C9199", "SPD", "#F07580", "GRÜNE", "#7BCB8A", "FDP", "#FFF36A", "Die Linke", "#D88DB4", "AfD", "#78D3EE", "#8C9199" )
+		displayFolder: Elections\Landscape
+		lineageTag: aab5d2b7-d7e5-4ba0-8759-cea2f604b1ac
+
+	measure 'Landscape Scale Colour 4' =
+
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#4B4F55", "SPD", "#E83A49", "GRÜNE", "#3AB553", "FDP", "#FBE52D", "Die Linke", "#CA5B95", "AfD", "#35B8E3", "#4B4F55" )
+		displayFolder: Elections\Landscape
+		lineageTag: f41a29d1-4b97-4f3e-82f6-1c92c9203030
+
+	measure 'Landscape Scale Colour 5' =
+
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#171717", "SPD", "#E3000F", "GRÜNE", "#1AA037", "FDP", "#F2D400", "Die Linke", "#BE3075", "AfD", "#009EE0", "#171717" )
+		displayFolder: Elections\Landscape
+		lineageTag: 7bc075b0-179d-48fd-b232-4efb2ae425d9
 
 	measure 'Selected Party' =
 			
