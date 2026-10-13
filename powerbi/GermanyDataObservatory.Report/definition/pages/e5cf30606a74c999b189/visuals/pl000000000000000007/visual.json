@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "pl000000000000000007",
-  "position": { "x": 184, "y": 624, "z": 9010, "height": 22, "width": 92, "tabOrder": 9007 },
+  "position": { "x": 184, "y": 641, "z": 9010, "height": 18, "width": 92, "tabOrder": 9007 },
   "visual": {
     "visualType": "textbox",
     "objects": { "general": [ { "properties": { "paragraphs": [ { "textRuns": [ { "value": "Lower support" } ] } ] } } ] },

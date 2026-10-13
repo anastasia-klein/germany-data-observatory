@@ -42,7 +42,7 @@
     },
     "visualContainerObjects": {
       "title": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Selected-party support by structural cluster'" } } }, "fontSize": { "expr": { "Literal": { "Value": "11D" } } } } } ],
-      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Cluster colours · red dashed line = Germany average'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
+      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Cluster colours · Germany average shown at top right'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
     },
     "drillFilterOtherVisuals": true
   }
