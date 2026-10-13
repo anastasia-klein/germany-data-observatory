@@ -3,7 +3,7 @@
   "name": "pl000000000000000006",
   "position": { "x": 672, "y": 418, "z": 9006, "height": 260, "width": 596, "tabOrder": 9006 },
   "visual": {
-    "visualType": "hundredPercentStackedBarChart",
+    "visualType": "stackedBarChart",
     "query": {
       "queryState": {
         "Category": { "projections": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "queryRef": "dim_cluster.cluster_short_name", "nativeQueryRef": "Structural cluster", "displayName": "Structural cluster" } ] },
@@ -12,7 +12,7 @@
       }
     },
     "objects": {
-      "labels": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } }, "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } } } } ],
+      "labels": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } }, "labelDisplayUnits": { "expr": { "Literal": { "Value": "0D" } } }, "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } } } } ],
       "legend": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "showTitle": { "expr": { "Literal": { "Value": "false" } } }, "position": { "expr": { "Literal": { "Value": "'BottomCenter'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ],
       "dataPoint": [
         { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#171717'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_party_group" } }, "Property": "party_group_name" } }, "Right": { "Literal": { "Value": "'CDU/CSU'" } } } } } ] } },
@@ -25,7 +25,7 @@
     },
     "visualContainerObjects": {
       "title": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Party mix by structural cluster'" } } }, "fontSize": { "expr": { "Literal": { "Value": "11D" } } } } } ],
-      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Mean district party-list vote share · official party colours'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
+      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Mean district party-list vote share (%) · official party colours'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
     },
     "drillFilterOtherVisuals": true
   }

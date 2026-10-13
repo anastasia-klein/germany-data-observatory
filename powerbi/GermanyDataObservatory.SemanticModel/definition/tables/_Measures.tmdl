@@ -398,7 +398,7 @@ table _Measures
 					REMOVEFILTERS ( dim_election ),
 					dim_election[election_year] = ElectionYear
 				)
-		formatString: 0.0
+		formatString: 0.0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: d3a3c2a5-77dd-4d99-8f3e-3f8b317f3c21
 
@@ -410,9 +410,59 @@ table _Measures
 				REMOVEFILTERS ( dim_cluster ),
 				REMOVEFILTERS ( fact_cluster_assignment )
 			)
-		formatString: 0.0
+		formatString: 0.0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: 28fbcc1d-d2df-4f10-9f1d-51a53384debb
+
+	measure 'Landscape All Years Minimum %' =
+
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					MIN ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					FILTER (
+						ALL ( dim_election[election_year] ),
+						dim_election[election_year] >= 2017
+							&& dim_election[election_year] <= 2025
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: f067d858-239c-4d04-a596-bf9c6a229c83
+
+	measure 'Landscape All Years Maximum %' =
+
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					MAX ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					FILTER (
+						ALL ( dim_election[election_year] ),
+						dim_election[election_year] >= 2017
+							&& dim_election[election_year] <= 2025
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 21ca83d1-dfd3-4b4b-b4dc-b224705ff387
 
 	measure 'Landscape Difference from Germany pp' =
 
@@ -478,7 +528,7 @@ table _Measures
 					REMOVEFILTERS ( dim_election ),
 					dim_election[election_year] = ElectionYear
 				)
-		formatString: 0.0
+		formatString: 0.0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: e204e6fa-581e-4269-833e-43b38d2b9bf8
 
@@ -509,16 +559,8 @@ table _Measures
 	measure 'Landscape Map Colour' =
 
 			VAR ShareValue = [Landscape District Vote Share %]
-			VAR MinShare =
-				MINX (
-					ALL ( dim_district[district_id] ),
-					CALCULATE ( [Landscape District Vote Share %] )
-				)
-			VAR MaxShare =
-				MAXX (
-					ALL ( dim_district[district_id] ),
-					CALCULATE ( [Landscape District Vote Share %] )
-				)
+			VAR MinShare = [Landscape All Years Minimum %]
+			VAR MaxShare = [Landscape All Years Maximum %]
 			VAR Position = DIVIDE ( ShareValue - MinShare, MaxShare - MinShare, 0 )
 			VAR Band = MIN ( 5, MAX ( 1, 1 + INT ( Position * 5 ) ) )
 			VAR PartyName = [Landscape Selected Party]
@@ -569,6 +611,47 @@ table _Measures
 			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#171717", "SPD", "#E3000F", "GRÜNE", "#1AA037", "FDP", "#F2D400", "Die Linke", "#BE3075", "AfD", "#009EE0", "#171717" )
 		displayFolder: Elections\Landscape
 		lineageTag: 7bc075b0-179d-48fd-b232-4efb2ae425d9
+
+	measure 'Landscape Scale Value 1' =
+
+			[Landscape All Years Minimum %]
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 2a4956c8-c6fc-4c65-a70e-c6076d092ac9
+
+	measure 'Landscape Scale Value 2' =
+
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.25
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 6fdf18f9-1684-4ac7-98a2-f5095ae4877e
+
+	measure 'Landscape Scale Value 3' =
+
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.5
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: c51362e4-c46a-40b4-a4a2-8e00ad0b7a07
+
+	measure 'Landscape Scale Value 4' =
+
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.75
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 02168539-12f7-4db4-a811-14ed0c946b06
+
+	measure 'Landscape Scale Value 5' =
+
+			[Landscape All Years Maximum %]
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 21b4055a-f38d-4b20-b592-5a525b6db977
 
 	measure 'Selected Party' =
 			
