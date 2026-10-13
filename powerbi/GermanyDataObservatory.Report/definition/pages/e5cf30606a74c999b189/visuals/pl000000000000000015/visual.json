@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "pl000000000000000015",
-  "position": { "x": 276, "y": 655, "z": 9017, "height": 24, "width": 34, "tabOrder": 9015 },
+  "position": { "x": 260, "y": 648, "z": 9017, "height": 40, "width": 45, "tabOrder": 9015 },
   "visual": {
     "visualType": "cardVisual",
     "query": { "queryState": { "Data": { "projections": [ { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Scale Value 1" } }, "queryRef": "_Measures.Landscape Scale Value 1", "nativeQueryRef": "Scale minimum" } ] } } },
-    "objects": { "value": [ { "properties": { "fontSize": { "expr": { "Literal": { "Value": "7D" } } } }, "selector": { "id": "default" } } ], "label": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } }, "selector": { "id": "default" } } ] },
+    "objects": { "value": [ { "properties": { "fontSize": { "expr": { "Literal": { "Value": "8D" } } } }, "selector": { "id": "default" } } ], "label": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } }, "selector": { "id": "default" } } ] },
     "visualContainerObjects": { "background": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ] },
     "drillFilterOtherVisuals": true
   }

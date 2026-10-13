@@ -3,7 +3,7 @@
   "name": "pl000000000000000006",
   "position": { "x": 672, "y": 418, "z": 9006, "height": 260, "width": 596, "tabOrder": 9006 },
   "visual": {
-    "visualType": "stackedBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": { "projections": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "queryRef": "dim_cluster.cluster_short_name", "nativeQueryRef": "Structural cluster", "displayName": "Structural cluster" } ] },
