@@ -522,11 +522,33 @@ table _Measures
 	measure 'Landscape Party Mix Vote Share %' =
 
 			VAR ElectionYear = [Landscape Selected Election Year]
-			RETURN
+			VAR SeriesParty = SELECTEDVALUE ( party_mix_group[party_group_name] )
+			VAR IncludedPartyShare =
+				SUMX (
+					ALL ( dim_party_group[party_group_name] ),
+					VAR IncludedParty = dim_party_group[party_group_name]
+					RETURN
+						CALCULATE (
+							[Mean District Vote Share %],
+							REMOVEFILTERS ( dim_party_group ),
+							dim_party_group[party_group_name] = IncludedParty,
+							REMOVEFILTERS ( dim_election ),
+							dim_election[election_year] = ElectionYear
+						)
+				)
+			VAR SeriesPartyShare =
 				CALCULATE (
 					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_name] = SeriesParty,
 					REMOVEFILTERS ( dim_election ),
 					dim_election[election_year] = ElectionYear
+				)
+			RETURN
+				IF (
+					SeriesParty = "Other parties",
+					MAX ( 0, 100 - IncludedPartyShare ),
+					SeriesPartyShare
 				)
 		formatString: 0.0"%"
 		displayFolder: Elections\Landscape
