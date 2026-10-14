@@ -11,7 +11,7 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["DataRoot","fnLoadProcessedCsv","dim_state","dim_district","dim_district_feature","dim_cluster","dim_election","dim_party_group","dim_party","party_landscape_selector","party_landscape_year_selector","fact_district_features","fact_cluster_assignment","fact_district_election_results","fact_district_election_turnout","cluster_profiles","cluster_election_results","district_pca","pca_loadings","pca_explained_variance","clustering_diagnostics","fact_election_party_results","fact_election_turnout","fact_state_indicators","fact_foreign_population","fact_population_nationality"]
+annotation PBI_QueryOrder = ["DataRoot","fnLoadProcessedCsv","dim_state","dim_district","dim_district_feature","dim_cluster","dim_election","dim_party_group","dim_party","party_landscape_selector","party_landscape_year_selector","party_mix_group","fact_district_features","fact_cluster_assignment","fact_district_election_results","fact_district_election_turnout","cluster_profiles","cluster_election_results","district_pca","pca_loadings","pca_explained_variance","clustering_diagnostics","fact_election_party_results","fact_election_turnout","fact_state_indicators","fact_foreign_population","fact_population_nationality"]
 
 ref table dim_state
 ref table dim_district
@@ -22,6 +22,7 @@ ref table dim_party_group
 ref table dim_party
 ref table party_landscape_selector
 ref table party_landscape_year_selector
+ref table party_mix_group
 ref table fact_district_features
 ref table fact_cluster_assignment
 ref table fact_district_election_results
