@@ -615,7 +615,7 @@ table _Measures
 	measure 'Landscape Scale Value 1' =
 
 			[Landscape All Years Minimum %]
-		formatString: 0.0"%"
+		formatString: 0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: 2a4956c8-c6fc-4c65-a70e-c6076d092ac9
 
@@ -624,7 +624,7 @@ table _Measures
 			VAR MinimumValue = [Landscape All Years Minimum %]
 			VAR MaximumValue = [Landscape All Years Maximum %]
 			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.25
-		formatString: 0.0"%"
+		formatString: 0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: 6fdf18f9-1684-4ac7-98a2-f5095ae4877e
 
@@ -633,7 +633,7 @@ table _Measures
 			VAR MinimumValue = [Landscape All Years Minimum %]
 			VAR MaximumValue = [Landscape All Years Maximum %]
 			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.5
-		formatString: 0.0"%"
+		formatString: 0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: c51362e4-c46a-40b4-a4a2-8e00ad0b7a07
 
@@ -642,14 +642,14 @@ table _Measures
 			VAR MinimumValue = [Landscape All Years Minimum %]
 			VAR MaximumValue = [Landscape All Years Maximum %]
 			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.75
-		formatString: 0.0"%"
+		formatString: 0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: 02168539-12f7-4db4-a811-14ed0c946b06
 
 	measure 'Landscape Scale Value 5' =
 
 			[Landscape All Years Maximum %]
-		formatString: 0.0"%"
+		formatString: 0"%"
 		displayFolder: Elections\Landscape
 		lineageTag: 21b4055a-f38d-4b20-b592-5a525b6db977
 

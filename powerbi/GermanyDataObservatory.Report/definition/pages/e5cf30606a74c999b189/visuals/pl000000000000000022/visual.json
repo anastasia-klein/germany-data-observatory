@@ -5,7 +5,7 @@
   "visual": {
     "visualType": "shape",
     "objects": {
-      "shape": [ { "properties": { "tileShape": { "expr": { "Literal": { "Value": "'rectangleRounded'" } } }, "rectangleRoundedCurve": { "expr": { "Literal": { "Value": "12L" } } } } } ],
+      "shape": [ { "properties": { "tileShape": { "expr": { "Literal": { "Value": "'rectangleRounded'" } } }, "rectangleRoundedCurve": { "expr": { "Literal": { "Value": "2L" } } } } } ],
       "fill": [ { "properties": { "fillColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } }, "transparency": { "expr": { "Literal": { "Value": "0D" } } } }, "selector": { "id": "default" } } ],
       "outline": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ]
     },
