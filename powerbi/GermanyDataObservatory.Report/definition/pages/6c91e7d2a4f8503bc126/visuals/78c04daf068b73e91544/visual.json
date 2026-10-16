@@ -42,7 +42,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Disposable income'"
+                "Value": "'Disposable income'"
                 }
               }
             },

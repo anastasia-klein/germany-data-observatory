@@ -18,11 +18,7 @@
             {
               "field": {
                 "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_district"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "dim_district" } },
                   "Property": "district_name"
                 }
               },
@@ -33,11 +29,7 @@
             {
               "field": {
                 "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_district"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "dim_district" } },
                   "Property": "state_name"
                 }
               },
@@ -48,11 +40,7 @@
             {
               "field": {
                 "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_cluster"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "dim_cluster" } },
                   "Property": "cluster_short_name"
                 }
               },
@@ -63,11 +51,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Value"
                 }
               },
@@ -78,11 +62,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
@@ -93,11 +73,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Difference"
                 }
               },
@@ -113,11 +89,7 @@
           {
             "field": {
               "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
+                "Expression": { "SourceRef": { "Entity": "_Measures" } },
                 "Property": "Selected Indicator Value"
               }
             },
@@ -131,54 +103,18 @@
       "title": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'District detail'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'District detail'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
           }
         }
       ],
       "subTitle": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Observed value compared with the national district average'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Observed value compared with the national district average'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ]

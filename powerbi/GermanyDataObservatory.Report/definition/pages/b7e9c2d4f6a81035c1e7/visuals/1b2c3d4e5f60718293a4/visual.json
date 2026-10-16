@@ -18,11 +18,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
@@ -38,130 +34,44 @@
       "value": [
         {
           "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#B00000'" } } } } }
           },
-          "selector": {
-            "id": "default"
-          }
+          "selector": { "id": "default" }
         }
       ],
       "label": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'DE average'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "7D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'DE average'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "7D" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#6E7B88'" } } } } }
           },
-          "selector": {
-            "id": "default"
-          }
+          "selector": { "id": "default" }
         }
       ]
     },
     "visualContainerObjects": {
       "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
+        { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } }
       ],
       "background": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFF2F0'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFF2F0'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } }
           }
         }
       ],
       "border": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F3A59C'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F3A59C'" } } } } },
+            "radius": { "expr": { "Literal": { "Value": "8D" } } },
+            "width": { "expr": { "Literal": { "Value": "1D" } } }
           }
         }
       ]

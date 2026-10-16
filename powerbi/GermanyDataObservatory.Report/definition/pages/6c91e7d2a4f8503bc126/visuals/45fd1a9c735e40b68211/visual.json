@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Tooltip Structural Cluster"
+              "Property": "Tooltip Structural Cluster"
                 }
               },
-              "queryRef": "_Measures.Tooltip Structural Cluster",
-              "nativeQueryRef": "Structural cluster"
+          "queryRef": "_Measures.Tooltip Structural Cluster",
+          "nativeQueryRef": "Structural cluster"
             }
           ]
         }
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+              "Value": "9D"
                 }
               }
             },

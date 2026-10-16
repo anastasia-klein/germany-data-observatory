@@ -1,442 +1,48 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "pl000000000000000005",
-  "position": {
-    "x": 672,
-    "y": 158,
-    "z": 9005,
-    "height": 250,
-    "width": 596,
-    "tabOrder": 9005
-  },
+  "position": { "x": 672, "y": 158, "z": 9005, "height": 250, "width": 596, "tabOrder": 9005 },
   "visual": {
     "visualType": "barChart",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_cluster"
-                    }
-                  },
-                  "Property": "cluster_short_name"
-                }
-              },
-              "queryRef": "dim_cluster.cluster_short_name",
-              "nativeQueryRef": "Structural cluster",
-              "active": true,
-              "displayName": "Structural cluster"
-            }
-          ]
-        },
-        "Tooltips": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Landscape Germany Average %"
-                }
-              },
-              "queryRef": "_Measures.Landscape Germany Average %",
-              "nativeQueryRef": "Germany average %",
-              "displayName": "Germany average %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Landscape Difference from Germany pp"
-                }
-              },
-              "queryRef": "_Measures.Landscape Difference from Germany pp",
-              "nativeQueryRef": "Difference pp",
-              "displayName": "Difference pp"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Landscape District Vote Share %"
-                }
-              },
-              "queryRef": "_Measures.Landscape District Vote Share %",
-              "nativeQueryRef": "Party-list vote share %",
-              "displayName": "Party-list vote share %"
-            }
-          ]
-        }
+        "Category": { "projections": [ { "field": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "queryRef": "dim_cluster.cluster_short_name", "nativeQueryRef": "Structural cluster", "displayName": "Structural cluster" } ] },
+        "Y": { "projections": [ { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape District Vote Share %" } }, "queryRef": "_Measures.Landscape District Vote Share %", "nativeQueryRef": "Party-list vote share %", "displayName": "Party-list vote share %" } ] },
+        "Tooltips": { "projections": [
+          { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Germany Average %" } }, "queryRef": "_Measures.Landscape Germany Average %", "nativeQueryRef": "Germany average %", "displayName": "Germany average %" },
+          { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Difference from Germany pp" } }, "queryRef": "_Measures.Landscape Difference from Germany pp", "nativeQueryRef": "Difference pp", "displayName": "Difference pp" }
+        ] }
       },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Landscape District Vote Share %"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
+      "sortDefinition": { "sort": [ { "field": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape District Vote Share %" } }, "direction": "Descending" } ], "isDefaultSort": true }
     },
     "objects": {
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            }
-          }
-        }
-      ],
+      "labels": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "fontSize": { "expr": { "Literal": { "Value": "9D" } } }, "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } } } } ],
       "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FF6B57'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Ageing periphery'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#11B89A'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Stable regions'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#7357E8'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Urban pressure'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F9C642'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_cluster"
-                          }
-                        },
-                        "Property": "cluster_short_name"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Metropolitan hubs'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FF6B57'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Ageing periphery'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#11B89A'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Stable regions'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#7357E8'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Urban pressure'" } } } } } ] } },
+        { "properties": { "fill": { "solid": { "color": { "expr": { "Literal": { "Value": "'#F9C642'" } } } } } }, "selector": { "data": [ { "scopeId": { "Comparison": { "ComparisonKind": 0, "Left": { "Column": { "Expression": { "SourceRef": { "Entity": "dim_cluster" } }, "Property": "cluster_short_name" } }, "Right": { "Literal": { "Value": "'Metropolitan hubs'" } } } } } ] } }
       ],
       "xAxisReferenceLine": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "displayName": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Germany average'"
-                }
-              }
-            },
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Landscape Germany Average %"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'front'"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#D64550'"
-                    }
-                  }
-                }
-              }
-            },
-            "style": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dashed'"
-                }
-              }
-            },
-            "dataLabelShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'ValueAndName'"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "displayName": { "expr": { "Literal": { "Value": "'Germany average'" } } },
+            "value": { "expr": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Germany Average %" } } },
+            "position": { "expr": { "Literal": { "Value": "'front'" } } },
+            "width": { "expr": { "Literal": { "Value": "2D" } } },
+            "lineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#D64550'" } } } } },
+            "style": { "expr": { "Literal": { "Value": "'dashed'" } } },
+            "dataLabelShow": { "expr": { "Literal": { "Value": "true" } } },
+            "dataLabelText": { "expr": { "Literal": { "Value": "'ValueAndName'" } } }
           },
-          "selector": {
-            "id": "1"
-          }
+          "selector": { "id": "1" }
         }
       ]
     },
     "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Selected-party support by structural cluster'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Cluster colours · Germany average shown at top right'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          }
-        }
-      ]
+      "title": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Selected-party support by structural cluster'" } } }, "fontSize": { "expr": { "Literal": { "Value": "11D" } } } } } ],
+      "subTitle": [ { "properties": { "show": { "expr": { "Literal": { "Value": "true" } } }, "text": { "expr": { "Literal": { "Value": "'Cluster colours · Germany average shown at top right'" } } }, "fontSize": { "expr": { "Literal": { "Value": "8D" } } } } } ]
     },
     "drillFilterOtherVisuals": true
   }

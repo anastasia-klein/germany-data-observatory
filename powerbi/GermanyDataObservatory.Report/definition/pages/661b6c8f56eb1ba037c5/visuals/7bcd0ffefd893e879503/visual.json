@@ -96,11 +96,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
@@ -111,11 +107,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Difference"
                 }
               },
@@ -197,34 +189,10 @@
       "legend": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'RightCenter'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "showTitle": { "expr": { "Literal": { "Value": "false" } } },
+            "position": { "expr": { "Literal": { "Value": "'RightCenter'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ],
@@ -238,36 +206,16 @@
                     "FillRule": {
                       "Input": {
                         "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "_Measures"
-                            }
-                          },
+                          "Expression": { "SourceRef": { "Entity": "_Measures" } },
                           "Property": "Selected Indicator Value"
                         }
                       },
                       "FillRule": {
                         "linearGradient2": {
-                          "min": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#DCEFF8'"
-                              }
-                            }
-                          },
-                          "max": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#0878BE'"
-                              }
-                            }
-                          },
+                          "min": { "color": { "Literal": { "Value": "'#DCEFF8'" } } },
+                          "max": { "color": { "Literal": { "Value": "'#0878BE'" } } },
                           "nullColoringStrategy": {
-                            "strategy": {
-                              "Literal": {
-                                "Value": "'asZero'"
-                              }
-                            }
+                            "strategy": { "Literal": { "Value": "'asZero'" } }
                           }
                         }
                       }
@@ -320,40 +268,16 @@
       "subTitle": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Darker blue means a higher value · hover for district details'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Darker blue means a higher value · hover for district details'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ],
       "visualTooltip": [
         {
           "properties": {
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Default'"
-                }
-              }
-            }
+            "type": { "expr": { "Literal": { "Value": "'Default'" } } }
           }
         }
       ]

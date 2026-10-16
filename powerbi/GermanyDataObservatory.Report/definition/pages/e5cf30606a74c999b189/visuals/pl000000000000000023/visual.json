@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "pl000000000000000023",
+  "position": {
+    "x": 602,
+    "y": 82,
+    "z": 9024,
+    "height": 66,
+    "width": 140,
+    "tabOrder": 9024
+  },
+  "visual": {
+    "visualType": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "party_landscape_play_year_selector"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "party_landscape_play_year_selector.election_year",
+              "nativeQueryRef": "Election year",
+              "active": true
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "party_landscape_play_year_selector"
+                  }
+                },
+                "Property": "election_year"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "transitionSettings": [
+        {
+          "properties": {
+            "autoStart": { "expr": { "Literal": { "Value": "false" } } },
+            "loop": { "expr": { "Literal": { "Value": "false" } } },
+            "cumulative": { "expr": { "Literal": { "Value": "false" } } },
+            "timeInterval": { "expr": { "Literal": { "Value": "1800L" } } }
+          }
+        }
+      ],
+      "colorSelector": [
+        {
+          "properties": {
+            "showAll": { "expr": { "Literal": { "Value": "false" } } },
+            "pickedColor": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#0078A8'" } } }
+              }
+            }
+          }
+        }
+      ],
+      "captionSettings": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "9L" } } },
+            "align": { "expr": { "Literal": { "Value": "'center'" } } }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Play years'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "10D" } } }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "color": {
+              "solid": {
+                "color": { "expr": { "Literal": { "Value": "'#E6EBEF'" } } }
+              }
+            },
+            "radius": { "expr": { "Literal": { "Value": "12D" } } }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": { "expr": { "Literal": { "Value": "false" } } }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

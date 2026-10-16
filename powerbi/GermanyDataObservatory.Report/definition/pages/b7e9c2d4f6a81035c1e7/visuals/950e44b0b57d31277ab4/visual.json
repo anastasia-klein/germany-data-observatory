@@ -18,18 +18,28 @@
             {
               "field": {
                 "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_district"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "dim_district" } },
                   "Property": "district_name"
                 }
               },
               "queryRef": "dim_district.district_name",
               "nativeQueryRef": "District",
-              "active": true,
               "displayName": "District"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Property": "Selected Indicator Value"
+                }
+              },
+              "queryRef": "_Measures.Selected Indicator Value",
+              "nativeQueryRef": "Indicator value",
+              "displayName": "Indicator value"
             }
           ]
         },
@@ -40,11 +50,7 @@
                 "Aggregation": {
                   "Expression": {
                     "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                      "Expression": { "SourceRef": { "Entity": "dim_cluster" } },
                       "Property": "cluster_short_name"
                     }
                   },
@@ -58,36 +64,13 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
               "queryRef": "_Measures.Selected Indicator Germany Average",
               "nativeQueryRef": "Germany average",
               "displayName": "Germany average"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Selected Indicator Value"
-                }
-              },
-              "queryRef": "_Measures.Selected Indicator Value",
-              "nativeQueryRef": "Indicator value",
-              "displayName": "Indicator value"
             }
           ]
         }
@@ -97,11 +80,7 @@
           {
             "field": {
               "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
-                  }
-                },
+                "Expression": { "SourceRef": { "Entity": "_Measures" } },
                 "Property": "Selected Indicator Value"
               }
             },
@@ -115,38 +94,10 @@
       "labels": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFFFF'"
-                    }
-                  }
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "false" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } },
+            "labelPrecision": { "expr": { "Literal": { "Value": "1L" } } },
+            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#FFFFFF'" } } } } }
           }
         }
       ],
@@ -158,11 +109,7 @@
                 "color": {
                   "expr": {
                     "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
+                      "Expression": { "SourceRef": { "Entity": "_Measures" } },
                       "Property": "Selected Indicator Gradient Color"
                     }
                   }
@@ -170,138 +117,34 @@
               }
             }
           },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
+          "selector": { "data": [ { "dataViewWildcard": { "matchingOption": 1 } } ] }
         }
       ],
       "xAxisReferenceLine": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "displayName": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Germany average'"
-                }
-              }
-            },
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "displayName": { "expr": { "Literal": { "Value": "'Germany average'" } } },
             "value": {
               "expr": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               }
             },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'front'"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#DD0000'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "style": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dashed'"
-                }
-              }
-            },
-            "dataLabelShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'ValueAndName'"
-                }
-              }
-            },
-            "dataLabelHorizontalPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'right'"
-                }
-              }
-            },
-            "dataLabelVerticalPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'under'"
-                }
-              }
-            },
-            "dataLabelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#DD0000'"
-                    }
-                  }
-                }
-              }
-            },
-            "dataLabelDecimalPoints": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "dataLabelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
+            "position": { "expr": { "Literal": { "Value": "'front'" } } },
+            "width": { "expr": { "Literal": { "Value": "3D" } } },
+            "lineColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#DD0000'" } } } } },
+            "transparency": { "expr": { "Literal": { "Value": "0D" } } },
+            "style": { "expr": { "Literal": { "Value": "'dashed'" } } },
+            "dataLabelShow": { "expr": { "Literal": { "Value": "true" } } },
+            "dataLabelText": { "expr": { "Literal": { "Value": "'ValueAndName'" } } },
+            "dataLabelHorizontalPosition": { "expr": { "Literal": { "Value": "'right'" } } },
+            "dataLabelVerticalPosition": { "expr": { "Literal": { "Value": "'under'" } } },
+            "dataLabelColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#DD0000'" } } } } },
+            "dataLabelDecimalPoints": { "expr": { "Literal": { "Value": "1D" } } },
+            "dataLabelDisplayUnits": { "expr": { "Literal": { "Value": "1D" } } }
           },
           "selector": {
             "id": "1"
@@ -313,47 +156,17 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'District ranking'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            }
+            "text": { "expr": { "Literal": { "Value": "'District ranking'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
           }
         }
       ],
       "subTitle": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Same colour scale as map · red marker = Germany average'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Same colour scale as map · red marker = Germany average'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ]

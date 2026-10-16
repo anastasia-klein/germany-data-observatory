@@ -36,11 +36,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Value"
                 }
               },
@@ -111,11 +107,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
@@ -126,11 +118,7 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
+                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
                   "Property": "Selected Indicator Difference"
                 }
               },
@@ -212,34 +200,10 @@
       "legend": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'RightCenter'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "showTitle": { "expr": { "Literal": { "Value": "false" } } },
+            "position": { "expr": { "Literal": { "Value": "'RightCenter'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ],
@@ -251,11 +215,7 @@
                 "color": {
                   "expr": {
                     "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
+                      "Expression": { "SourceRef": { "Entity": "_Measures" } },
                       "Property": "Selected Indicator Gradient Color"
                     }
                   }
@@ -306,47 +266,17 @@
       "subTitle": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Colour follows the ordered cluster averages · hover for district details'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
+            "show": { "expr": { "Literal": { "Value": "true" } } },
+            "text": { "expr": { "Literal": { "Value": "'Colour follows the ordered cluster averages · hover for district details'" } } },
+            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
           }
         }
       ],
       "visualTooltip": [
         {
           "properties": {
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Default'"
-                }
-              }
-            },
-            "showTooltipFieldsOnly": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
+            "type": { "expr": { "Literal": { "Value": "'Default'" } } },
+            "showTooltipFieldsOnly": { "expr": { "Literal": { "Value": "true" } } }
           }
         }
       ]
