@@ -388,8 +388,7 @@ table _Measures
 					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
 					"party_group_cdu_csu"
 				)
-			VAR ElectionYear =
-				COALESCE ( SELECTEDVALUE ( party_landscape_year_selector[election_year] ), 2025 )
+			VAR ElectionYear = [Landscape Selected Election Year]
 			RETURN
 				CALCULATE (
 					[Mean District Vote Share %],
@@ -484,7 +483,11 @@ table _Measures
 
 	measure 'Landscape Selected Election Year' =
 
-			COALESCE ( SELECTEDVALUE ( party_landscape_year_selector[election_year] ), 2025 )
+			COALESCE (
+				SELECTEDVALUE ( party_landscape_play_year_selector[election_year] ),
+				SELECTEDVALUE ( party_landscape_year_selector[election_year] ),
+				2025
+			)
 		formatString: 0
 		displayFolder: Elections\Landscape
 		lineageTag: 63096c80-fac4-45fb-9dcb-ac24bdffaf55
