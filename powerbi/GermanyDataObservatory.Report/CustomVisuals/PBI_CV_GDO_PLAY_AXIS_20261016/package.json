@@ -8,11 +8,11 @@
     {
       "resourceId": "rId0",
       "sourceType": 5,
-      "file": "resources/PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV.pbiviz.json"
+      "file": "resources/PBI_CV_GDO_PLAY_AXIS_20261016.pbiviz.json"
     }
   ],
   "visual": {
-    "guid": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV",
+    "guid": "PBI_CV_GDO_PLAY_AXIS_20261016",
     "name": "playAxis",
     "displayName": "Play Axis",
     "version": "1.1.10",
