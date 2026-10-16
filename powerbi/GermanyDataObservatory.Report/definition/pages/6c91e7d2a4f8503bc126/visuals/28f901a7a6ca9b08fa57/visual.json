@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-              "Property": "Tooltip District"
+                  "Property": "Tooltip District"
                 }
               },
-          "queryRef": "_Measures.Tooltip District",
-          "nativeQueryRef": "District"
+              "queryRef": "_Measures.Tooltip District",
+              "nativeQueryRef": "District"
             }
           ]
         }
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-              "Value": "10D"
+                  "Value": "10D"
                 }
               }
             },

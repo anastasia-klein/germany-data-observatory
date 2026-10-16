@@ -42,7 +42,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                "Value": "'Structural cluster'"
+                  "Value": "'Structural cluster'"
                 }
               }
             },

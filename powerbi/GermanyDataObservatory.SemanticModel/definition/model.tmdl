@@ -20,9 +20,6 @@ ref table dim_cluster
 ref table dim_election
 ref table dim_party_group
 ref table dim_party
-ref table party_landscape_selector
-ref table party_landscape_year_selector
-ref table party_mix_group
 ref table fact_district_features
 ref table fact_cluster_assignment
 ref table fact_district_election_results
@@ -39,5 +36,9 @@ ref table fact_state_indicators
 ref table fact_foreign_population
 ref table fact_population_nationality
 ref table _Measures
+ref table party_landscape_selector
+ref table party_landscape_year_selector
+ref table party_mix_group
 
 ref cultureInfo en-US
+

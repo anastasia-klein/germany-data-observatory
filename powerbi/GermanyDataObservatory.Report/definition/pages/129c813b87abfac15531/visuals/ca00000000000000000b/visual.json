@@ -32,17 +32,51 @@
       "title": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'* Special regional districts include Region Hannover, Städteregion Aachen and Regionalverband Saarbrücken'" } } },
-            "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#68727D'" } } } } },
-            "fontSize": { "expr": { "Literal": { "Value": "7D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'* Special regional districts include Region Hannover, Städteregion Aachen and Regionalverband Saarbrücken'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#68727D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            }
           }
         }
       ],
       "background": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "false" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

@@ -22,14 +22,6 @@ table dim_district_feature
 
 		annotation SummarizationSetBy = Automatic
 
-	column feature_label
-		dataType: string
-		lineageTag: c8fbf86b-c87a-4ce3-9000-82212931652d
-		summarizeBy: none
-		sourceColumn: feature_label
-
-		annotation SummarizationSetBy = Automatic
-
 	column unit
 		dataType: string
 		lineageTag: f573bffa-b54d-4fd7-bc7c-e770209b60de
@@ -67,6 +59,30 @@ table dim_district_feature
 
 		annotation SummarizationSetBy = Automatic
 
+	column transform
+		dataType: string
+		lineageTag: e5a530b3-fac2-46f9-a177-fae9d41dfde2
+		summarizeBy: none
+		sourceColumn: transform
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclusion_reason
+		dataType: string
+		lineageTag: 04d61260-27eb-429b-be16-3354db3d3971
+		summarizeBy: none
+		sourceColumn: exclusion_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_label
+		dataType: string
+		lineageTag: c8fbf86b-c87a-4ce3-9000-82212931652d
+		summarizeBy: none
+		sourceColumn: feature_label
+
+		annotation SummarizationSetBy = Automatic
+
 	column 'Cluster profile order' =
 			SWITCH (
 				dim_district_feature[feature_id],
@@ -84,28 +100,12 @@ table dim_district_feature
 				99
 			)
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
 		lineageTag: 2f09c151-43a0-4e74-9744-16adbce69423
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = User
-
-	column transform
-		dataType: string
-		lineageTag: e5a530b3-fac2-46f9-a177-fae9d41dfde2
-		summarizeBy: none
-		sourceColumn: transform
-
-		annotation SummarizationSetBy = Automatic
-
-	column exclusion_reason
-		dataType: string
-		lineageTag: 04d61260-27eb-429b-be16-3354db3d3971
-		summarizeBy: none
-		sourceColumn: exclusion_reason
-
-		annotation SummarizationSetBy = Automatic
 
 	partition dim_district_feature = m
 		mode: import
@@ -128,3 +128,4 @@ table dim_district_feature
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

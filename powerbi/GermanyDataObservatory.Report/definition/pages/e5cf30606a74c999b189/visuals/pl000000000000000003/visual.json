@@ -1,19 +1,143 @@
 {
-  "$schema":"https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json","name":"pl000000000000000003","position":{"x":752,"y":82,"z":9003,"height":66,"width":516,"tabOrder":9003},
-  "visual":{"visualType":"cardVisual","query":{"queryState":{"Data":{"projections":[{"field":{"Measure":{"Expression":{"SourceRef":{"Entity":"_Measures"}},"Property":"Landscape Selection Label"}},"queryRef":"_Measures.Landscape Selection Label","nativeQueryRef":"Current view"}]}}},
-    "objects":{"value":[{"properties":{"fontSize":{"expr":{"Literal":{"Value":"12D"}}},"fontColor":{"solid":{"color":{"expr":{"Literal":{"Value":"'#252A31'"}}}}}},"selector":{"id":"default"}}],"label":[{"properties":{"show":{"expr":{"Literal":{"Value":"false"}}}},"selector":{"id":"default"}}]},
-    "visualContainerObjects":{
-      "title":[{"properties":{"show":{"expr":{"Literal":{"Value":"true"}}},"text":{"expr":{"Literal":{"Value":"'Current view'"}}},"fontSize":{"expr":{"Literal":{"Value":"10D"}}}}}],
-      "border": [
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "pl000000000000000003",
+  "position": {
+    "x": 752,
+    "y": 82,
+    "z": 9003,
+    "height": 66,
+    "width": 516,
+    "tabOrder": 9003
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Landscape Selection Label"
+                }
+              },
+              "queryRef": "_Measures.Landscape Selection Label",
+              "nativeQueryRef": "Current view"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "value": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "color": { "solid": { "color": { "expr": { "Literal": { "Value": "'#E6EBEF'" } } } } },
-            "radius": { "expr": { "Literal": { "Value": "12D" } } }
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#252A31'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]
     },
-    "drillFilterOtherVisuals":true
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current view'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

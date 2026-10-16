@@ -1,14 +1,47 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "pl000000000000000008",
-  "position": { "x": 20, "y": 692, "z": 9600, "height": 22, "width": 1240, "tabOrder": 9008 },
+  "position": {
+    "x": 20,
+    "y": 692,
+    "z": 9600,
+    "height": 22,
+    "width": 1240,
+    "tabOrder": 9008
+  },
   "visual": {
     "visualType": "textbox",
     "objects": {
-      "general": [ { "properties": { "paragraphs": [ { "textRuns": [ { "value": "Party-list vote (Zweitstimme): the vote that determines parties’ proportional seat shares in the Bundestag." } ] } ] } } ]
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Party-list vote (Zweitstimme): the vote that determines parties’ proportional seat shares in the Bundestag."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
-      "background": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ]
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

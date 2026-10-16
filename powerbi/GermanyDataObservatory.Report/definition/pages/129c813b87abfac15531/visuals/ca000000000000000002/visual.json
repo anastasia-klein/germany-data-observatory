@@ -37,10 +37,10 @@
               "field": {
                 "Column": {
                   "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
+                    "SourceRef": {
+                      "Entity": "dim_cluster"
+                    }
+                  },
                   "Property": "cluster_short_name"
                 }
               },
@@ -224,7 +224,7 @@
             "showTitle": {
               "expr": {
                 "Literal": {
-                "Value": "false"
+                  "Value": "false"
                 }
               }
             },
@@ -269,10 +269,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -310,10 +310,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -351,10 +351,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -392,10 +392,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
