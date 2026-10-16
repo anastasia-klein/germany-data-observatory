@@ -59,7 +59,7 @@
             "autoStart": { "expr": { "Literal": { "Value": "false" } } },
             "loop": { "expr": { "Literal": { "Value": "false" } } },
             "cumulative": { "expr": { "Literal": { "Value": "false" } } },
-            "timeInterval": { "expr": { "Literal": { "Value": "1800L" } } }
+            "timeInterval": { "expr": { "Literal": { "Value": "7000L" } } }
           }
         }
       ],
