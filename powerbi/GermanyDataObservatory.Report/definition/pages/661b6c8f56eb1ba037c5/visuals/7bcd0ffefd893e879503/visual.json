@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "7bcd0ffefd893e879503",
   "position": {
     "x": 424,
     "y": 84,
-    "z": 9000,
+    "z": 7000,
     "height": 624,
     "width": 844,
-    "tabOrder": 2004
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "shapeMap",
@@ -96,7 +96,11 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "Selected Indicator Germany Average"
                 }
               },
@@ -107,7 +111,11 @@
             {
               "field": {
                 "Measure": {
-                  "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
                   "Property": "Selected Indicator Difference"
                 }
               },
@@ -189,10 +197,34 @@
       "legend": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "showTitle": { "expr": { "Literal": { "Value": "false" } } },
-            "position": { "expr": { "Literal": { "Value": "'RightCenter'" } } },
-            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'RightCenter'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
           }
         }
       ],
@@ -206,16 +238,36 @@
                     "FillRule": {
                       "Input": {
                         "Measure": {
-                          "Expression": { "SourceRef": { "Entity": "_Measures" } },
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "_Measures"
+                            }
+                          },
                           "Property": "Selected Indicator Value"
                         }
                       },
                       "FillRule": {
                         "linearGradient2": {
-                          "min": { "color": { "Literal": { "Value": "'#DCEFF8'" } } },
-                          "max": { "color": { "Literal": { "Value": "'#0878BE'" } } },
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#DCEFF8'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#0878BE'"
+                              }
+                            }
+                          },
                           "nullColoringStrategy": {
-                            "strategy": { "Literal": { "Value": "'asZero'" } }
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
                           }
                         }
                       }
@@ -268,109 +320,44 @@
       "subTitle": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Darker blue means a higher value · hover for district details'" } } },
-            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Darker blue means a higher value · hover for district details'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
           }
         }
       ],
       "visualTooltip": [
         {
           "properties": {
-            "type": { "expr": { "Literal": { "Value": "'Default'" } } }
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7db563594ef376cf4614",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_district"
-              }
-            },
-            "Property": "district_id"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "574e583a95e6691d3210",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_cluster"
-              }
-            },
-            "Property": "cluster_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "aaeb255cd77e8c8be513",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "district_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "51f64b0feead0f274f3b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "state_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a8337d17cd9a590f8de1",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
-                "Property": "cluster_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -305,6 +305,58 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4029.5579281047726,
+            "y": 36
+          },
+          "nodeIndex": "party_landscape_play_year_selector",
+          "nodeLineageTag": "aec76980-9cfe-40ca-8bd0-b39402e4ab08",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3290.5641963500289,
+            "y": 0
+          },
+          "nodeIndex": "party_landscape_selector",
+          "nodeLineageTag": "945b0fb3-83a5-4d86-b923-f68c7866d0c2",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4399.0547939821445,
+            "y": 36
+          },
+          "nodeIndex": "party_landscape_year_selector",
+          "nodeLineageTag": "4bb40c9f-ae31-47ed-8fa8-acde75f08b5b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3660.0610622274007,
+            "y": 12
+          },
+          "nodeIndex": "party_mix_group",
+          "nodeLineageTag": "04f02533-bb25-4ca0-ad70-2940b142494c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

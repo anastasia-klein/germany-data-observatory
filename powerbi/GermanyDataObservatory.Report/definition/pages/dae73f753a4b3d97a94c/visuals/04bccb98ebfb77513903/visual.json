@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "04bccb98ebfb77513903",
   "position": {
     "x": 440,
     "y": 160,
-    "z": 9502,
+    "z": 14000,
     "height": 64,
     "width": 420,
-    "tabOrder": 9002
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
@@ -258,23 +258,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5be1ffcd305b5f8c1e5f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_district"
-              }
-            },
-            "Property": "state_name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

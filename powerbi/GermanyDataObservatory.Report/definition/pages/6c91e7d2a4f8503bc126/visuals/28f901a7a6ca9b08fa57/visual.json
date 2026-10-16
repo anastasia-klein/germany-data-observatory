@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "28f901a7a6ca9b08fa57",
   "position": {
     "x": 144,
     "y": 8,
-    "z": 1,
+    "z": 0,
     "height": 22,
     "width": 154,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-              "Property": "Tooltip District"
+                  "Property": "Tooltip District"
                 }
               },
-          "queryRef": "_Measures.Tooltip District",
-          "nativeQueryRef": "District"
+              "queryRef": "_Measures.Tooltip District",
+              "nativeQueryRef": "District"
             }
           ]
         }
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-              "Value": "10D"
+                  "Value": "10D"
                 }
               }
             },

@@ -75,6 +75,17 @@
           "type": "ShapeMap"
         }
       ]
+    },
+    {
+      "name": "GDOPlayAxis20261016A",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "GDOPlayAxis20261016A.pbiviz.json",
+          "path": "GDOPlayAxis20261016A.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
     }
   ],
   "settings": {

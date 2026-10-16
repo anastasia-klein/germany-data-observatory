@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "761532262c628ff9a9d4",
+  "position": {
+    "x": 560,
+    "y": 80,
+    "z": 28000,
+    "height": 96,
+    "width": 184,
+    "tabOrder": 28000
+  },
+  "visual": {
+    "visualType": "GDOPlayAxis20261016A",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "party_landscape_play_year_selector"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "party_landscape_play_year_selector.election_year",
+              "nativeQueryRef": "election_year1",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

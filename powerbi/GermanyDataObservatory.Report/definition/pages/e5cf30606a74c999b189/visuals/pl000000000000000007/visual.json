@@ -1,11 +1,48 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "pl000000000000000007",
-  "position": { "x": 160, "y": 638, "z": 9010, "height": 18, "width": 100, "tabOrder": 9007 },
+  "position": {
+    "x": 160,
+    "y": 638,
+    "z": 13000,
+    "height": 18,
+    "width": 100,
+    "tabOrder": 12000
+  },
   "visual": {
     "visualType": "textbox",
-    "objects": { "general": [ { "properties": { "paragraphs": [ { "textRuns": [ { "value": "Lower support" } ] } ] } } ] },
-    "visualContainerObjects": { "background": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ] },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Lower support"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   }
 }

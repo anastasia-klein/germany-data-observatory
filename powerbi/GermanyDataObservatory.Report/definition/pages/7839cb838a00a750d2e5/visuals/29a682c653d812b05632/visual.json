@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "29a682c653d812b05632",
   "position": {
     "x": 1308.9920724801812,
     "y": 310.93997734994338,
-    "z": 5,
+    "z": 5000,
     "height": 207.65571913929784,
     "width": 566.43261608154023,
-    "tabOrder": 5
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -94,51 +94,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8687a2944e958b29fd18",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_election"
-              }
-            },
-            "Property": "election_year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f69d691876634199020d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_party_group"
-              }
-            },
-            "Property": "party_group_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "de19adaa206e73c9e6e0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Mean District Vote Share %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

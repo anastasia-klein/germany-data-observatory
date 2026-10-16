@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ca00000000000000000a",
   "position": {
     "x": 20,
     "y": 684,
-    "z": 9600,
+    "z": 13000,
     "height": 24,
     "width": 570,
-    "tabOrder": 9100
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "textbox",
@@ -32,17 +32,51 @@
       "title": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Clusters use demographic and socioeconomic indicators only · Cluster names are descriptive, not value judgments'" } } },
-            "fontColor": { "solid": { "color": { "expr": { "Literal": { "Value": "'#252A31'" } } } } },
-            "fontSize": { "expr": { "Literal": { "Value": "8D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Clusters use demographic and socioeconomic indicators only · Cluster names are descriptive, not value judgments'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#252A31'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
           }
         }
       ],
       "background": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "false" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

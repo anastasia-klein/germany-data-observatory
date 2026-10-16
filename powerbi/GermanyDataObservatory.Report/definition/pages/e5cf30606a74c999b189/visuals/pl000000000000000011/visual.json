@@ -1,6 +1,69 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "pl000000000000000011",
-  "position": { "x": 350, "y": 641, "z": 9013, "height": 11, "width": 50, "tabOrder": 9011 },
-  "visual": { "visualType": "shape", "objects": { "shape": [ { "properties": { "tileShape": { "expr": { "Literal": { "Value": "'rectangle'" } } } } } ], "fill": [ { "properties": { "fillColor": { "solid": { "color": { "expr": { "Measure": { "Expression": { "SourceRef": { "Entity": "_Measures" } }, "Property": "Landscape Scale Colour 3" } } } } } }, "selector": { "id": "default" } } ], "outline": [ { "properties": { "show": { "expr": { "Literal": { "Value": "false" } } } } } ] }, "drillFilterOtherVisuals": true }
+  "position": {
+    "x": 350,
+    "y": 641,
+    "z": 16000,
+    "height": 11,
+    "width": 50,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "shape",
+    "objects": {
+      "shape": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangle'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Landscape Scale Colour 3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

@@ -26,3 +26,4 @@ table party_landscape_year_selector
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

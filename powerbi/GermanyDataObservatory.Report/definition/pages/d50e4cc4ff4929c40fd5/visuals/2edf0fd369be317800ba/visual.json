@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "2edf0fd369be317800ba",
   "position": {
     "x": 864,
     "y": 160,
-    "z": 9000,
+    "z": 12000,
     "height": 548,
     "width": 404,
-    "tabOrder": 7000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "shapeMap",
@@ -37,10 +37,10 @@
               "field": {
                 "Column": {
                   "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
+                    "SourceRef": {
+                      "Entity": "dim_cluster"
+                    }
+                  },
                   "Property": "cluster_short_name"
                 }
               },
@@ -157,9 +157,6 @@
               "displayName": "Disposable income"
             }
           ]
-        },
-        "Value": {
-          "projections": []
         }
       }
     },
@@ -269,10 +266,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -310,10 +307,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -351,10 +348,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -392,10 +389,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -455,94 +452,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0d41a67f47d005a2b24d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_district"
-              }
-            },
-            "Property": "district_id"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c5b71591d65ad6dbaf52",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_cluster"
-              }
-            },
-            "Property": "cluster_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4e51e2cb37dfb2922f75",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "district_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a20d54ff484cfc49ca0f",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "state_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "205032101d73b5b4505b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
-                "Property": "cluster_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

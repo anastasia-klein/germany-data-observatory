@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "a0c1e2f3d4b5a6978879",
   "position": {
     "x": 0,
     "y": 0,
-    "z": 100,
+    "z": 12000,
     "height": 2,
     "width": 104,
-    "tabOrder": 100
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "shape",
@@ -33,7 +33,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                    "Value": "'#FFFFFF'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }

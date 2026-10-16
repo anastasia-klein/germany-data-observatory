@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ae5feb2c2ee443c31c07",
   "position": {
     "x": 444,
     "y": 84,
-    "z": 9001,
+    "z": 7000,
     "height": 96,
     "width": 824,
-    "tabOrder": 2001
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -18,7 +18,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "unit"
                 }
               },
@@ -29,7 +33,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "reference_year"
                 }
               },
@@ -40,7 +48,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "source_dataset"
                 }
               },
@@ -51,7 +63,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "included_in_clustering"
                 }
               },
@@ -62,7 +78,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "transform"
                 }
               },
@@ -73,7 +93,11 @@
             {
               "field": {
                 "Column": {
-                  "Expression": { "SourceRef": { "Entity": "dim_district_feature" } },
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district_feature"
+                    }
+                  },
                   "Property": "exclusion_reason"
                 }
               },
@@ -89,9 +113,27 @@
       "title": [
         {
           "properties": {
-            "show": { "expr": { "Literal": { "Value": "true" } } },
-            "text": { "expr": { "Literal": { "Value": "'Indicator metadata'" } } },
-            "fontSize": { "expr": { "Literal": { "Value": "11D" } } }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Indicator metadata'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
           }
         }
       ]

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "2edf0fd369be317800ba",
   "position": {
     "x": 864,
     "y": 160,
-    "z": 9000,
+    "z": 11000,
     "height": 548,
     "width": 404,
-    "tabOrder": 7000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "shapeMap",
@@ -37,10 +37,10 @@
               "field": {
                 "Column": {
                   "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
+                    "SourceRef": {
+                      "Entity": "dim_cluster"
+                    }
+                  },
                   "Property": "cluster_short_name"
                 }
               },
@@ -112,9 +112,6 @@
               "displayName": "Structural cluster"
             }
           ]
-        },
-        "Value": {
-          "projections": []
         }
       }
     },
@@ -224,10 +221,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -265,10 +262,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -306,10 +303,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -347,10 +344,10 @@
                     "Left": {
                       "Column": {
                         "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_cluster"
-                        }
-                      },
+                          "SourceRef": {
+                            "Entity": "dim_cluster"
+                          }
+                        },
                         "Property": "cluster_short_name"
                       }
                     },
@@ -410,94 +407,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8cac0c3dda68ace26356",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_district"
-              }
-            },
-            "Property": "district_id"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fe75995a735f2cf36bc2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_cluster"
-              }
-            },
-            "Property": "cluster_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "39c68a51d31d845ff9b6",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "district_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "804e8e342d6c4e4e2d6b",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_district"
-                  }
-                },
-                "Property": "state_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "447d002734d7f91b3350",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_cluster"
-                  }
-                },
-                "Property": "cluster_name"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

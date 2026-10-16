@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "26e2f76b44cd9795acae",
   "position": {
     "x": 12,
     "y": 416,
-    "z": 9503,
+    "z": 16000,
     "height": 292,
     "width": 848,
-    "tabOrder": 9003
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "barChart",
@@ -395,34 +395,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "f320b1851865ddad7cfa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_district"
-              }
-            },
-            "Property": "state_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0da90de8dd49af85fc08",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "District Count"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "51a85b4ef7ccaf4206d6",
         "field": {
