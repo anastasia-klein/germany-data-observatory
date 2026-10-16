@@ -77,12 +77,12 @@
       ]
     },
     {
-      "name": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV",
+      "name": "PBI_CV_GDO_PLAY_AXIS_20261016",
       "type": "CustomVisual",
       "items": [
         {
-          "name": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV.pbiviz.json",
-          "path": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1_DEV.pbiviz.json",
+          "name": "PBI_CV_GDO_PLAY_AXIS_20261016.pbiviz.json",
+          "path": "PBI_CV_GDO_PLAY_AXIS_20261016.pbiviz.json",
           "type": "CustomVisualMetadata"
         }
       ]
