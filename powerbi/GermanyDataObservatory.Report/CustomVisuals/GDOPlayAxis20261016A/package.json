@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.0",
   "author": {
     "name": "Margarida Prozil",
     "email": "mprozil@gmail.com"
@@ -15,7 +15,7 @@
     "guid": "GDOPlayAxis20261016A",
     "name": "gdoPlayAxis",
     "displayName": "GDO Play Axis",
-    "version": "1.2.1",
+    "version": "1.2.0",
     "description": "Play axis that works like a dynamic slicer, animating other visuals. It has controls like play, pause, stop, previous and next, allowing a report and its visuals to play without user interaction. This visual accepts any parameter to be played and has some settings like colours, font size and transition options, to be customized by the user. This component was developed at Analytics & Data Science Department of São João Hospital (Porto, Portugal).",
     "supportUrl": "https://github.com/mprozil/PlayAxis/issues",
     "gitHubUrl": "https://github.com/mprozil/PlayAxis",
