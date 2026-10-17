@@ -904,6 +904,145 @@ table _Measures
 		displayFolder: Elections\Landscape
 		lineageTag: 21b4055a-f38d-4b20-b592-5a525b6db977
 
+	measure 'Portrait Selection Label' =
+
+			[Landscape Selected Party]
+				& " · "
+				& FORMAT ( [Landscape Selected Election Year], "0" )
+				& " · territorial context of above-median support"
+		displayFolder: Elections\Portrait
+		lineageTag: 446cbf1c-35d5-4e14-9d71-1465f1a721d0
+
+	measure 'Portrait Germany Median %' =
+
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				MEDIANX (
+					GermanyDistricts,
+					CALCULATE (
+						[Landscape District Vote Share %],
+						REMOVEFILTERS ( dim_cluster ),
+						REMOVEFILTERS ( fact_cluster_assignment )
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Portrait
+		lineageTag: f2486471-1867-4b71-9e54-d3fca400baf7
+
+	measure 'Portrait High-support District Count' =
+
+			VAR MedianShare = [Portrait Germany Median %]
+			RETURN
+				COUNTROWS (
+					FILTER (
+						VALUES ( dim_district[district_id] ),
+						CALCULATE ( [Landscape District Vote Share %] ) >= MedianShare
+					)
+				)
+		formatString: #,0
+		displayFolder: Elections\Portrait
+		lineageTag: b6585288-0c87-48ff-8d4e-46c826a5ca02
+
+	measure 'Portrait Trend Vote Share %' =
+
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Portrait
+		lineageTag: 8256cd80-4f06-4e31-96aa-e8f1b6897e29
+
+	measure 'Portrait High-support Feature Average' =
+
+			VAR MedianShare = [Portrait Germany Median %]
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			VAR HighSupportDistricts =
+				FILTER (
+					GermanyDistricts,
+					CALCULATE ( [Landscape District Vote Share %] ) >= MedianShare
+				)
+			RETURN
+				AVERAGEX (
+					HighSupportDistricts,
+					CALCULATE ( [Average Feature Value] )
+				)
+		displayFolder: Elections\Portrait
+		lineageTag: a407c2c8-4dba-4d7e-8ab5-0b717e400b70
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Portrait Germany Feature Average' =
+
+			CALCULATE (
+				[Average Feature Value],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		displayFolder: Elections\Portrait
+		lineageTag: 93f97966-baf0-4084-8351-7e06dd3cf030
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Portrait High-support Difference z' =
+
+			VAR FeatureId = SELECTEDVALUE ( dim_district_feature[feature_id] )
+			VAR IsPortraitFeature =
+				FeatureId IN {
+					"age_65_plus_share",
+					"population_change_per_10000",
+					"foreign_population_share",
+					"population_density",
+					"unemployment_rate",
+					"disposable_income_per_capita"
+				}
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			VAR GermanyAverage = [Portrait Germany Feature Average]
+			VAR GermanyStdDev =
+				STDEVX.P (
+					GermanyDistricts,
+					CALCULATE ( [Average Feature Value] )
+				)
+			RETURN
+				IF (
+					IsPortraitFeature,
+					DIVIDE (
+						[Portrait High-support Feature Average] - GermanyAverage,
+						GermanyStdDev
+					)
+				)
+		formatString: "+0.0;-0.0;0.0"
+		displayFolder: Elections\Portrait
+		lineageTag: 2b0adc57-fad9-4b48-bf03-f806c7ce724c
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
 	measure 'Districts Outside Selected Cluster' =
 			VAR StatesInCurrentBar =
 			    VALUES ( dim_district[state_name] )
