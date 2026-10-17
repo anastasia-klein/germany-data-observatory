@@ -3,9 +3,9 @@
   "name": "761532262c628ff9a9d4",
   "position": {
     "x": 560,
-    "y": 80,
+    "y": 120,
     "z": 28000,
-    "height": 96,
+    "height": 28,
     "width": 184,
     "tabOrder": 28000
   },
@@ -34,6 +34,21 @@
         }
       }
     },
+    "objects": {
+      "captionSettings": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -41,21 +56,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Play years'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
+                  "Value": "false"
                 }
               }
             }
