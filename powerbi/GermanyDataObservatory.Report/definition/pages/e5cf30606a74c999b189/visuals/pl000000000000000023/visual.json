@@ -5,8 +5,8 @@
     "x": 560,
     "y": 80,
     "z": 28001,
-    "height": 40,
-    "width": 184,
+    "height": 68,
+    "width": 72,
     "tabOrder": 28001
   },
   "visual": {
@@ -41,6 +41,13 @@
               "expr": {
                 "Literal": {
                   "Value": "13D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             },
