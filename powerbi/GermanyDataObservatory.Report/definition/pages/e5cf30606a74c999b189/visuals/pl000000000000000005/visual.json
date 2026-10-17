@@ -423,7 +423,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cluster colours · Germany average shown at top right'"
+                  "Value": "'Bright = active year · pale = year selected above · Germany average at top right'"
                 }
               }
             },

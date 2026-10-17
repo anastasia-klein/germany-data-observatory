@@ -92,7 +92,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Current view'"
+                  "Value": "'Active party and year'"
                 }
               }
             },
