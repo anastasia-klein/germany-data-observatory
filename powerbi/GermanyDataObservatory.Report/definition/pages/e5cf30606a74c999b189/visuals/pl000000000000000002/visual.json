@@ -138,7 +138,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "2025L"
+                                "Value": "2017L"
                               }
                             }
                           ]
@@ -194,7 +194,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'2017–2025 · default: 2025'"
+                  "Value": "'2017–2025 · default: 2017'"
                 }
               }
             },
