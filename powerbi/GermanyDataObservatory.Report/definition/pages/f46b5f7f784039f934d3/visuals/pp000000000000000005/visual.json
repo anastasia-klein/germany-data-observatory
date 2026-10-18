@@ -23,10 +23,10 @@
                       "Entity": "dim_election"
                     }
                   },
-                  "Property": "election_year"
+                  "Property": "Election year label"
                 }
               },
-              "queryRef": "dim_election.election_year",
+              "queryRef": "dim_election.Election year label",
               "nativeQueryRef": "Election year",
               "active": true,
               "displayName": "Election year"
@@ -63,7 +63,7 @@
                     "Entity": "dim_election"
                   }
                 },
-                "Property": "election_year"
+                "Property": "Election year label"
               }
             },
             "direction": "Ascending"

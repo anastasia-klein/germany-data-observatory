@@ -6,7 +6,7 @@
     "y": 404,
     "z": 12000,
     "height": 260,
-    "width": 596,
+    "width": 410,
     "tabOrder": 12000
   },
   "visual": {
@@ -35,6 +35,21 @@
         },
         "Tooltips": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Portrait High-support District Share %"
+                }
+              },
+              "queryRef": "_Measures.Portrait High-support District Share %",
+              "nativeQueryRef": "Share of high-support districts",
+              "displayName": "Share of high-support districts"
+            },
             {
               "field": {
                 "Measure": {
@@ -307,7 +322,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             }
@@ -327,14 +342,40 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'District count by structural cluster · threshold = national median vote share'"
+                  "Value": "'Bar labels = districts · percentage table at right · threshold = national median'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "7D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

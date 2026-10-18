@@ -33,6 +33,14 @@ table dim_election
 
 		annotation SummarizationSetBy = User
 
+	column 'Election year label' = FORMAT ( dim_election[election_year], "0" )
+		dataType: string
+		lineageTag: 3ce56ac6-f753-44b1-ad4d-afbf51146134
+		summarizeBy: none
+		sortByColumn: election_year
+
+		annotation SummarizationSetBy = User
+
 	column bundestag_number
 		dataType: int64
 		formatString: 0
