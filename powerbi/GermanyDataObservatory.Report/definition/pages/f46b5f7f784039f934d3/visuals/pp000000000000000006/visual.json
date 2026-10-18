@@ -6,7 +6,7 @@
     "y": 404,
     "z": 12000,
     "height": 260,
-    "width": 410,
+    "width": 596,
     "tabOrder": 12000
   },
   "visual": {
@@ -107,6 +107,19 @@
       }
     },
     "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "labels": [
         {
           "properties": {
@@ -124,10 +137,10 @@
                 }
               }
             },
-            "labelPrecision": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "1D"
                 }
               }
             }
@@ -342,7 +355,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bar labels = districts · percentage table at right · threshold = national median'"
+                  "Value": "'Bar labels = district count (share of all above-median districts) · threshold = national median'"
                 }
               }
             },
