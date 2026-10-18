@@ -949,6 +949,24 @@ table _Measures
 		displayFolder: Elections\Portrait
 		lineageTag: b6585288-0c87-48ff-8d4e-46c826a5ca02
 
+	measure 'Portrait High-support District Share %' =
+
+			VAR AllHighSupportDistricts =
+				CALCULATE (
+					[Portrait High-support District Count],
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				DIVIDE (
+					[Portrait High-support District Count],
+					AllHighSupportDistricts
+				)
+		formatString: 0.0%
+		displayFolder: Elections\Portrait
+		lineageTag: 6b1c0b20-309b-4f09-a91f-a8b7dd2561c7
+
 	measure 'Portrait Trend Vote Share %' =
 
 			VAR PartyGroupId =
@@ -1007,15 +1025,7 @@ table _Measures
 	measure 'Portrait High-support Difference z' =
 
 			VAR FeatureId = SELECTEDVALUE ( dim_district_feature[feature_id] )
-			VAR IsPortraitFeature =
-				FeatureId IN {
-					"age_65_plus_share",
-					"population_change_per_10000",
-					"foreign_population_share",
-					"population_density",
-					"unemployment_rate",
-					"disposable_income_per_capita"
-				}
+			VAR IsPortraitFeature = NOT ISBLANK ( FeatureId )
 			VAR GermanyDistricts =
 				CALCULATETABLE (
 					VALUES ( dim_district[district_id] ),
