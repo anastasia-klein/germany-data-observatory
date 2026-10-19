@@ -1,0 +1,24 @@
+table change_map_mode
+
+	column map_mode
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [map_mode]
+		sortByColumn: mode_order
+
+	column mode_order
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: [mode_order]
+
+	partition change_map_mode = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"map_mode", STRING, "mode_order", INTEGER,
+					{
+						{ "Change (pp)", 1 },
+						{ "End-year support (%)", 2 }
+					}
+				)

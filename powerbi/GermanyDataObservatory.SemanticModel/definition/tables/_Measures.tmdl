@@ -904,6 +904,292 @@ table _Measures
 		displayFolder: Elections\Landscape
 		lineageTag: 21b4055a-f38d-4b20-b592-5a525b6db977
 
+	measure 'Change Start Year' = SELECTEDVALUE ( change_period_selector[start_year], 2017 )
+		formatString: 0
+		displayFolder: Elections\Change
+
+	measure 'Change End Year' = SELECTEDVALUE ( change_period_selector[end_year], 2025 )
+		formatString: 0
+		displayFolder: Elections\Change
+
+	measure 'Change Raw Start Support %' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR StartYear = [Change Start Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = StartYear
+				)
+		formatString: 0.0"%"
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change Raw End Support %' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR EndYear = [Change End Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = EndYear
+				)
+		formatString: 0.0"%"
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change District Has Full Series' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR StartYear = [Change Start Year]
+			VAR EndYear = [Change End Year]
+			VAR ExpectedElections =
+				COUNTROWS ( FILTER ( ALL ( dim_election ), dim_election[election_year] >= StartYear && dim_election[election_year] <= EndYear ) )
+			VAR AvailableResults =
+				CALCULATE (
+					COUNT ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] >= StartYear,
+					dim_election[election_year] <= EndYear
+				)
+			RETURN ExpectedElections > 0 && AvailableResults = ExpectedElections
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change Comparable District Count' =
+			COUNTROWS (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				)
+			)
+		formatString: #,0
+		displayFolder: Elections\Change
+
+	measure 'Change Start Support %' =
+			AVERAGEX (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				),
+				CALCULATE ( [Change Raw Start Support %] )
+			)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change End Support %' =
+			AVERAGEX (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				),
+				CALCULATE ( [Change Raw End Support %] )
+			)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Vote Share pp' =
+			VAR StartValue = [Change Start Support %]
+			VAR EndValue = [Change End Support %]
+			RETURN IF ( NOT ISBLANK ( StartValue ) && NOT ISBLANK ( EndValue ), EndValue - StartValue )
+		formatString: +0.0" pp";-0.0" pp";0.0" pp"
+		displayFolder: Elections\Change
+
+	measure 'Change Support Trend %' =
+			VAR CurrentYear = SELECTEDVALUE ( dim_election[election_year] )
+			VAR StartYear = [Change Start Year]
+			VAR EndYear = [Change End Year]
+			VAR ComparableDistricts =
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				)
+			RETURN
+				IF (
+					CurrentYear >= StartYear && CurrentYear <= EndYear,
+					AVERAGEX ( ComparableDistricts, CALCULATE ( [Portrait Trend Vote Share %] ) )
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Turnout Trend %' =
+			VAR CurrentYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN
+				IF (
+					CurrentYear >= [Change Start Year] && CurrentYear <= [Change End Year],
+					[Mean District Turnout %]
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Germany Mean pp' =
+			CALCULATE (
+				[Change Vote Share pp],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		formatString: +0.0" pp";-0.0" pp";0.0" pp"
+		displayFolder: Elections\Change
+
+	measure 'Change Selection Label' =
+			[Landscape Selected Party] & " · " & FORMAT ( [Change Start Year], "0" )
+				& " → " & FORMAT ( [Change End Year], "0" )
+				& " · " & FORMAT ( [Change Germany Mean pp], "+0.0;-0.0;0.0" ) & " pp (district mean)"
+		displayFolder: Elections\Change
+
+	measure 'Change Map Is Level' =
+			SELECTEDVALUE ( change_map_mode[map_mode], "Change (pp)" ) = "End-year support (%)"
+		displayFolder: Elections\Change
+
+	measure 'Change Map Value' =
+			IF ( [Change Map Is Level], [Change End Support %], [Change Vote Share pp] )
+		formatString: 0.0
+		displayFolder: Elections\Change
+
+	measure 'Change Scale Limit pp' =
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			VAR LargestChange =
+				MAXX (
+					GermanyDistricts,
+					ABS ( CALCULATE ( [Change Vote Share pp], REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ) ) )
+				)
+			RETURN MAX ( 1, CEILING ( LargestChange, 1 ) )
+		formatString: 0.0
+		displayFolder: Elections\Change
+
+	measure 'Change Map Colour' =
+			VAR Value = [Change Map Value]
+			VAR Limit = [Change Scale Limit pp]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Maximum = [Landscape All Years Maximum %]
+			VAR LevelPosition = DIVIDE ( Value - Minimum, Maximum - Minimum, 0 )
+			RETURN
+				IF (
+					ISBLANK ( Value ),
+					"#DCE2E6",
+					IF (
+						[Change Map Is Level],
+						SWITCH (
+							TRUE (),
+							LevelPosition < 0.125, [Landscape Scale Colour 1],
+							LevelPosition < 0.375, [Landscape Scale Colour 2],
+							LevelPosition < 0.625, [Landscape Scale Colour 3],
+							LevelPosition < 0.875, [Landscape Scale Colour 4],
+							[Landscape Scale Colour 5]
+						),
+						SWITCH (
+							TRUE (),
+							Value < -Limit * 0.75, "#C95D55",
+							Value < -Limit * 0.25, "#EBAEA9",
+							Value <= Limit * 0.25, "#F0F2F3",
+							Value <= Limit * 0.75, "#A8D5C9",
+							"#238A78"
+						)
+					)
+				)
+		displayFolder: Elections\Change
+
+	measure 'Change Map Title' =
+			IF (
+				[Change Map Is Level],
+				"Support in " & FORMAT ( [Change End Year], "0" ),
+				"Where support grew or declined"
+			)
+		displayFolder: Elections\Change
+
+	measure 'Change Map Subtitle' =
+			IF (
+				[Change Map Is Level],
+				"Party-list vote share (%) · fixed party scale across 2017–2025",
+				"End minus start (pp) · coral = decline · teal = growth · grey = near zero"
+			)
+		displayFolder: Elections\Change
+
+	measure 'Change Coverage Label' =
+			VAR Districts =
+				CALCULATE (
+					[Change Comparable District Count],
+					REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN FORMAT ( Districts, "0" ) & " comparable districts · missing results are excluded"
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 1' = IF ( [Change Map Is Level], [Landscape Scale Colour 1], "#C95D55" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 1' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR Lower = IF ( IsLevel, Minimum + Span * 0, Limit * -1 )
+			VAR Upper = IF ( IsLevel, Minimum + Span * 0.125, Limit * -0.75 )
+			RETURN FORMAT ( Lower, "0.0" ) & "…" & FORMAT ( Upper, "0.0" ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 2' = IF ( [Change Map Is Level], [Landscape Scale Colour 2], "#EBAEA9" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 2' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR Lower = IF ( IsLevel, Minimum + Span * 0.125, Limit * -0.75 )
+			VAR Upper = IF ( IsLevel, Minimum + Span * 0.375, Limit * -0.25 )
+			RETURN FORMAT ( Lower, "0.0" ) & "…" & FORMAT ( Upper, "0.0" ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 3' = IF ( [Change Map Is Level], [Landscape Scale Colour 3], "#F0F2F3" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 3' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR Lower = IF ( IsLevel, Minimum + Span * 0.375, Limit * -0.25 )
+			VAR Upper = IF ( IsLevel, Minimum + Span * 0.625, Limit * 0.25 )
+			RETURN FORMAT ( Lower, "0.0" ) & "…" & FORMAT ( Upper, "0.0" ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 4' = IF ( [Change Map Is Level], [Landscape Scale Colour 4], "#A8D5C9" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 4' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR Lower = IF ( IsLevel, Minimum + Span * 0.625, Limit * 0.25 )
+			VAR Upper = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.75 )
+			RETURN FORMAT ( Lower, "0.0" ) & "…" & FORMAT ( Upper, "0.0" ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 5' = IF ( [Change Map Is Level], [Landscape Scale Colour 5], "#238A78" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 5' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR Lower = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.75 )
+			VAR Upper = IF ( IsLevel, Minimum + Span * 1, Limit * 1 )
+			RETURN FORMAT ( Lower, "0.0" ) & "…" & FORMAT ( Upper, "0.0" ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+
 	measure 'Portrait Selection Label' =
 
 			[Landscape Selected Party]
