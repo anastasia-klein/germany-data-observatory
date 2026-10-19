@@ -311,6 +311,16 @@ Which party–cluster relationships strengthened, weakened or remained stable?
 - Turnout increased across all clusters in 2025.
 - SPD’s territorial result is weakly explained by the current structural feature set; present this as a finding, not a model failure.
 
+### Implemented Change page
+
+- Default: CDU/CSU, 2017 → 2025, change map. Alternative periods are 2017 → 2021 and 2021 → 2025.
+- A large district map sits beside cluster support trends, an end-minus-start diverging bar chart, and cluster turnout trends.
+- Map view switches between change in percentage points and support in the end year. Change uses symmetric coral/teal classes around zero; level uses the selected party's fixed 2017–2025 scale. Numeric ranges below the five swatches define the colour classes.
+- Support uses a fixed complete-case cohort for every election in the selected period. GRÜNE's six missing 2021 district results are excluded from all three supported period comparisons; missing is never treated as zero.
+- Coverage and Germany mean change are displayed inside the map card. Support endpoints, change and comparison years are available in map tooltips.
+- All reported means are unweighted district means. Turnout uses all available districts by structural cluster and is independent of the selected party.
+- Cluster membership is fixed to the report's structural classification; this page does not estimate individual voter transfers.
+
 ## Page 7 — Volt Spotlight: “Growth from a small base”
 
 ### Current evidence
