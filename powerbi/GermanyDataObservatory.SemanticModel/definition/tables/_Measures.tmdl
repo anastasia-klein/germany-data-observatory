@@ -1053,15 +1053,12 @@ table _Measures
 		displayFolder: Elections\Change
 
 	measure 'Change Scale Limit pp' =
-			VAR GermanyDistricts =
-				CALCULATETABLE (
-					VALUES ( dim_district[district_id] ),
-					REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment )
-				)
 			VAR LargestChange =
-				MAXX (
-					GermanyDistricts,
-					ABS ( CALCULATE ( [Change Vote Share pp], REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ) ) )
+				CALCULATE (
+					MAXX ( VALUES ( dim_district[district_id] ), ABS ( [Change Vote Share pp] ) ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
 				)
 			RETURN MAX ( 1, CEILING ( LargestChange, 1 ) )
 		formatString: 0.0
@@ -1089,10 +1086,10 @@ table _Measures
 						),
 						SWITCH (
 							TRUE (),
-							MapValue < -Limit * 0.75, "#C95D55",
-							MapValue < -Limit * 0.25, "#EBAEA9",
-							MapValue <= Limit * 0.25, "#F0F2F3",
-							MapValue <= Limit * 0.75, "#A8D5C9",
+							MapValue < -Limit * 0.5, "#C95D55",
+							MapValue < -0.5, "#EBAEA9",
+							MapValue <= 0.5, "#F0F2F3",
+							MapValue <= Limit * 0.5, "#A8D5C9",
 							"#238A78"
 						)
 					)
@@ -1102,8 +1099,9 @@ table _Measures
 	measure 'Change Map Title' =
 			IF (
 				[Change Map Is Level],
-				"Support in " & FORMAT ( [Change End Year], "0" ),
-				"Where support grew or declined"
+				[Landscape Selected Party] & ": vote share in " & FORMAT ( [Change End Year], "0" ),
+				[Landscape Selected Party] & ": vote-share change, "
+					& FORMAT ( [Change Start Year], "0" ) & " → " & FORMAT ( [Change End Year], "0" )
 			)
 		displayFolder: Elections\Change
 
@@ -1111,7 +1109,8 @@ table _Measures
 			IF (
 				[Change Map Is Level],
 				"Party-list vote share (%) · fixed party scale across 2017–2025",
-				"End minus start (pp) · coral = decline · teal = growth · grey = near zero"
+				"Percentage points (" & FORMAT ( [Change End Year], "0" ) & " minus "
+					& FORMAT ( [Change Start Year], "0" ) & ") · coral = loss · teal = gain"
 			)
 		displayFolder: Elections\Change
 
@@ -1121,7 +1120,9 @@ table _Measures
 					[Change Comparable District Count],
 					REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment )
 				)
-			RETURN FORMAT ( Districts, "0" ) & " comparable districts · missing results are excluded"
+			RETURN
+				FORMAT ( Districts, "0" ) & " comparable districts · "
+					& IF ( [Change Map Is Level], "party-list vote share (%)", "example: 20% → 25% = +5 pp" )
 		displayFolder: Elections\Change
 
 	measure 'Change Legend Colour 1' = IF ( [Change Map Is Level], [Landscape Scale Colour 1], "#C95D55" )
@@ -1132,9 +1133,10 @@ table _Measures
 			VAR Minimum = [Landscape All Years Minimum %]
 			VAR Span = [Landscape All Years Maximum %] - Minimum
 			VAR Limit = [Change Scale Limit pp]
-			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0, Limit * -1 )
-			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.125, Limit * -0.75 )
-			RETURN FORMAT ( LowerBound, "0.0" ) & "…" & FORMAT ( UpperBound, "0.0" ) & IF ( IsLevel, "%", " pp" )
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0, -Limit )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.125, -Limit * 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
 		displayFolder: Elections\Change
 
 	measure 'Change Legend Colour 2' = IF ( [Change Map Is Level], [Landscape Scale Colour 2], "#EBAEA9" )
@@ -1145,9 +1147,10 @@ table _Measures
 			VAR Minimum = [Landscape All Years Minimum %]
 			VAR Span = [Landscape All Years Maximum %] - Minimum
 			VAR Limit = [Change Scale Limit pp]
-			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.125, Limit * -0.75 )
-			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.375, Limit * -0.25 )
-			RETURN FORMAT ( LowerBound, "0.0" ) & "…" & FORMAT ( UpperBound, "0.0" ) & IF ( IsLevel, "%", " pp" )
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.125, -Limit * 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.375, -0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
 		displayFolder: Elections\Change
 
 	measure 'Change Legend Colour 3' = IF ( [Change Map Is Level], [Landscape Scale Colour 3], "#F0F2F3" )
@@ -1158,9 +1161,10 @@ table _Measures
 			VAR Minimum = [Landscape All Years Minimum %]
 			VAR Span = [Landscape All Years Maximum %] - Minimum
 			VAR Limit = [Change Scale Limit pp]
-			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.375, Limit * -0.25 )
-			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.625, Limit * 0.25 )
-			RETURN FORMAT ( LowerBound, "0.0" ) & "…" & FORMAT ( UpperBound, "0.0" ) & IF ( IsLevel, "%", " pp" )
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.375, -0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.625, 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
 		displayFolder: Elections\Change
 
 	measure 'Change Legend Colour 4' = IF ( [Change Map Is Level], [Landscape Scale Colour 4], "#A8D5C9" )
@@ -1171,9 +1175,10 @@ table _Measures
 			VAR Minimum = [Landscape All Years Minimum %]
 			VAR Span = [Landscape All Years Maximum %] - Minimum
 			VAR Limit = [Change Scale Limit pp]
-			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.625, Limit * 0.25 )
-			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.75 )
-			RETURN FORMAT ( LowerBound, "0.0" ) & "…" & FORMAT ( UpperBound, "0.0" ) & IF ( IsLevel, "%", " pp" )
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.625, 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
 		displayFolder: Elections\Change
 
 	measure 'Change Legend Colour 5' = IF ( [Change Map Is Level], [Landscape Scale Colour 5], "#238A78" )
@@ -1184,9 +1189,10 @@ table _Measures
 			VAR Minimum = [Landscape All Years Minimum %]
 			VAR Span = [Landscape All Years Maximum %] - Minimum
 			VAR Limit = [Change Scale Limit pp]
-			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.75 )
-			VAR UpperBound = IF ( IsLevel, Minimum + Span * 1, Limit * 1 )
-			RETURN FORMAT ( LowerBound, "0.0" ) & "…" & FORMAT ( UpperBound, "0.0" ) & IF ( IsLevel, "%", " pp" )
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 1, Limit )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
 		displayFolder: Elections\Change
 
 

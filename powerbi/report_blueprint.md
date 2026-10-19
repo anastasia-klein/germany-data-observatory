@@ -316,6 +316,8 @@ Which party–cluster relationships strengthened, weakened or remained stable?
 - Default: CDU/CSU, 2017 → 2025, change map. Alternative periods are 2017 → 2021 and 2021 → 2025.
 - A large district map sits beside cluster support trends, an end-minus-start diverging bar chart, and cluster turnout trends.
 - Map view switches between change in percentage points and support in the end year. Change uses symmetric coral/teal classes around zero; level uses the selected party's fixed 2017–2025 scale. Numeric ranges below the five swatches define the colour classes.
+- The change title names the selected party and both election years. The neutral band is −0.5 to +0.5 pp; light coral/teal distinguish smaller losses/gains from larger changes. The scale limit is the largest absolute district change, evaluated over all districts before iterating district by district.
+- Map legend, class labels and comparison coverage are layered above the map backing. Selected comparison uses the same native 12 px container radius and subtle border as the other cards.
 - Support uses a fixed complete-case cohort for every election in the selected period. GRÜNE's six missing 2021 district results are excluded from all three supported period comparisons; missing is never treated as zero.
 - Coverage and Germany mean change are displayed inside the map card. Support endpoints, change and comparison years are available in map tooltips.
 - All reported means are unweighted district means. Turnout uses all available districts by structural cluster and is independent of the selected party.
