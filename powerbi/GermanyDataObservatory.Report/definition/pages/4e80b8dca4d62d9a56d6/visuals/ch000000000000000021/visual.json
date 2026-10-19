@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "ch000000000000000021",
   "position": {
-    "x": 672,
-    "y": 518,
+    "x": 918,
+    "y": 158,
     "z": 8100,
-    "height": 170,
-    "width": 596,
+    "height": 288,
+    "width": 350,
     "tabOrder": 8100
   },
   "visual": {
@@ -463,7 +463,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Mean district turnout (%) · all districts in each cluster · not party-specific'"
+                  "Value": "'Turnout (%) · all districts · not party-specific'"
                 }
               }
             },

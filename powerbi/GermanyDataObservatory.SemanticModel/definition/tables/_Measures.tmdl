@@ -1037,6 +1037,10 @@ table _Measures
 		formatString: +0.0" pp";-0.0" pp";0.0" pp"
 		displayFolder: Elections\Change
 
+	measure 'Change Germany Mean Label' =
+			"Germany mean district change: " & FORMAT ( [Change Germany Mean pp], "+0.0;-0.0;0.0" ) & " pp"
+		displayFolder: Elections\Change
+
 	measure 'Change Selection Label' =
 			[Landscape Selected Party] & " · " & FORMAT ( [Change Start Year], "0" )
 				& " → " & FORMAT ( [Change End Year], "0" )
