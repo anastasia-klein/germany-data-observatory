@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "ch000000000000000019",
   "position": {
-    "x": 672,
+    "x": 554,
     "y": 158,
     "z": 7900,
-    "height": 172,
-    "width": 596,
+    "height": 288,
+    "width": 350,
     "tabOrder": 7900
   },
   "visual": {
@@ -463,7 +463,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Mean district vote share (%) · same comparable districts across the period'"
+                  "Value": "'Mean district vote share (%) · comparable districts'"
                 }
               }
             },
