@@ -945,26 +945,10 @@ table _Measures
 						CALCULATE ( [Landscape District Vote Share %] ) >= MedianShare
 					)
 				)
-		formatStringDefinition =
-
-			VAR CurrentClusterCount = SELECTEDMEASURE ()
-			VAR AllHighSupportDistricts =
-				CALCULATE (
-					SELECTEDMEASURE (),
-					REMOVEFILTERS ( dim_district ),
-					REMOVEFILTERS ( dim_cluster ),
-					REMOVEFILTERS ( fact_cluster_assignment )
-				)
-			VAR ClusterShare =
-				DIVIDE ( CurrentClusterCount, AllHighSupportDistricts )
-			RETURN
-				IF (
-					ISBLANK ( ClusterShare ),
-					"#,0",
-					"#,0 ""(" & FORMAT ( ClusterShare, "0.0%" ) & ")"""
-				)
 		displayFolder: Elections\Portrait
 		lineageTag: b6585288-0c87-48ff-8d4e-46c826a5ca02
+
+		formatStringDefinition = VAR CurrentClusterCount = SELECTEDMEASURE () VAR AllHighSupportDistricts = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ) ) VAR ClusterShare = DIVIDE ( CurrentClusterCount, AllHighSupportDistricts ) RETURN IF ( ISBLANK ( ClusterShare ), "#,0", "#,0 ""(" & FORMAT ( ClusterShare, "0.0%" ) & ")""" )
 
 	measure 'Portrait High-support District Share %' =
 
