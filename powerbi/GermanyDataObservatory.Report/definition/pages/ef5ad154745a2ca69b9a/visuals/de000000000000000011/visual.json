@@ -23,10 +23,10 @@
                       "Entity": "dim_district"
                     }
                   },
-                  "Property": "district_id"
+                  "Property": "District label"
                 }
               },
-              "queryRef": "dim_district.district_id",
+              "queryRef": "dim_district.District label",
               "nativeQueryRef": "District",
               "displayName": "District",
               "active": true
@@ -92,26 +92,6 @@
         },
         "Tooltips": {
           "projections": [
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_district"
-                        }
-                      },
-                      "Property": "District label"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(dim_district.District label)",
-              "nativeQueryRef": "District",
-              "displayName": "District"
-            },
             {
               "field": {
                 "Measure": {
