@@ -73,6 +73,11 @@
           "name": "germany_districts_20248077705754270155.topojson",
           "path": "germany_districts_20248077705754270155.topojson",
           "type": "ShapeMap"
+        },
+        {
+          "name": "germany_states_2024.topojson",
+          "path": "germany_states_2024.topojson",
+          "type": "ShapeMap"
         }
       ]
     },

@@ -42,6 +42,7 @@ ref table party_mix_group
 ref table party_landscape_play_year_selector
 ref table change_period_selector
 ref table change_map_mode
+ref table volt_year_selector
 
 ref cultureInfo en-US
 

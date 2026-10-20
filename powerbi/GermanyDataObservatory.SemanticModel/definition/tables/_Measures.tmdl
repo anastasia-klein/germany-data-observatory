@@ -1200,6 +1200,145 @@ table _Measures
 		displayFolder: Elections\Change
 
 
+	measure 'Volt Selected Year' = SELECTEDVALUE ( volt_year_selector[election_year], 2025 )
+		formatString: 0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Second Votes' =
+			CALCULATE ( [Second Votes], REMOVEFILTERS ( dim_party ), dim_party[party_id] = "party_volt" )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Share' = DIVIDE ( [Volt Second Votes], [Valid Second Votes] )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt 2021 Share' =
+			CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2021 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt 2025 Share' =
+			CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2025 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt State Change pp' = 100 * ( [Volt 2025 Share] - [Volt 2021 Share] )
+		formatString: +0.00" pp";-0.00" pp";0.00" pp"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Selected Votes' =
+			VAR SelectedYear = [Volt Selected Year]
+			RETURN CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_election ), dim_election[election_year] = SelectedYear )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Selected Share' =
+			VAR SelectedYear = [Volt Selected Year]
+			RETURN CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = SelectedYear )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Selected Votes' =
+			CALCULATE ( [Volt Selected Votes], REMOVEFILTERS ( dim_state ) )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Selected Share' =
+			CALCULATE ( [Volt Selected Share], REMOVEFILTERS ( dim_state ) )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt National 2021 Votes' =
+			CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_state ), REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2021 )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National 2025 Votes' =
+			CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_state ), REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2025 )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Vote Gain' = [Volt National 2025 Votes] - [Volt National 2021 Votes]
+		formatString: +#,0;-#,0;0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Growth %' = DIVIDE ( [Volt National Vote Gain], [Volt National 2021 Votes] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Elections\Volt
+
+	measure 'Volt Growth Label' =
+			FORMAT ( [Volt National Vote Gain], "+#,0;-#,0;0" )
+				& " (" & FORMAT ( [Volt National Growth %], "+0.0%;-0.0%;0.0%" ) & ")"
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Share Comparison' =
+			VAR StartShare = CALCULATE ( [Volt 2021 Share], REMOVEFILTERS ( dim_state ) )
+			VAR EndShare = CALCULATE ( [Volt 2025 Share], REMOVEFILTERS ( dim_state ) )
+			RETURN FORMAT ( StartShare, "0.00%" ) & " → " & FORMAT ( EndShare, "0.00%" )
+				& " (" & FORMAT ( 100 * ( EndShare - StartShare ), "+0.00;-0.00;0.00" ) & " pp)"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Scale Maximum' =
+			VAR HighestStateShare =
+				CALCULATE (
+					MAXX ( VALUES ( dim_state[state_code] ), MAX ( [Volt 2021 Share], [Volt 2025 Share] ) ),
+					REMOVEFILTERS ( dim_state )
+				)
+			RETURN CEILING ( HighestStateShare, 0.005 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Colour' =
+			VAR StateShare = [Volt Selected Share]
+			VAR ScalePosition = DIVIDE ( StateShare, [Volt Map Scale Maximum], 0 )
+			RETURN
+				IF (
+					ISBLANK ( StateShare ), "#DCE2E6",
+					SWITCH (
+						TRUE (),
+						ScalePosition < 0.2, "#F2EDF8",
+						ScalePosition < 0.4, "#D8C8E8",
+						ScalePosition < 0.6, "#B79AD4",
+						ScalePosition < 0.8, "#8558B2",
+						"#502379"
+					)
+				)
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Title' = "Where Volt is strongest · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Subtitle' =
+			"State vote share (%) · one 0–" & FORMAT ( [Volt Map Scale Maximum], "0.00%" ) & " scale for both elections"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Count Title' = "Second votes · Germany · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Share Title' = "Vote share · Germany · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 1' =
+			FORMAT ( [Volt Map Scale Maximum] * 0, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.2, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 2' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.2, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.4, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 3' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.4, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.6, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 4' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.6, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.8, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 5' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.8, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 1, "0.00%" )
+		displayFolder: Elections\Volt
+
 	measure 'Portrait Selection Label' =
 
 			[Landscape Selected Party]

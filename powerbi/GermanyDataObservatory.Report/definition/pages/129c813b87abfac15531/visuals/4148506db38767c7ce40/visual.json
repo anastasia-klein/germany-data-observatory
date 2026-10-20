@@ -147,6 +147,20 @@
           "selector": {
             "id": "4e80b8dca4d62d9a56d6"
           }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "f4e8945e19de5cff3010"
+          }
         }
       ]
     },

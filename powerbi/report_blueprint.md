@@ -352,6 +352,14 @@ Volt is present in the state-level Federal Returning Officer facts for 2021 and 
 
 Do not assign Volt a district-cluster profile from state averages. For comparable fine-grained analysis, add a separate `dim_constituency` and constituency election fact table from Federal Returning Officer open data. Constituencies and Kreise are different geographies and must not be joined by name.
 
+### Implemented Volt page
+
+- Default map year is 2025, with 2021 available in an independent election selector.
+- Three top cards show national second votes, national share of valid party-list votes, and fixed 2021 → 2025 vote growth (absolute and relative). National shares are vote-weighted ratios, not averages of state percentages.
+- The left state choropleth uses five Volt-purple classes on one common scale for both years. State boundaries are dissolved from the committed 2024 district topology using mapshaper 0.6.113; rebuild with `python src/build_state_geometry.py`.
+- The right comparison uses paired native bars for all 16 states, with light purple for 2021 and dark purple for 2025, sorted by 2025 share. Tooltip change is in percentage points.
+- Volt is available from the shared top navigation. The footer identifies the state-level scope and notes that 2021 includes the Berlin repeat election in 2024.
+
 ## Page 8 — District Explorer: “One district in context”
 
 ### Reader question
