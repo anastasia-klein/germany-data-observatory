@@ -38,6 +38,27 @@ class DistrictGeometryTest(unittest.TestCase):
         self.assertEqual(self.expected_ids, actual_ids)
         self.assertTrue(data["arcs"])
 
+    def test_state_map_matches_state_dimension(self):
+        with (PROCESSED / "dim_state.csv").open(encoding="utf-8", newline="") as source:
+            expected = {row["state_code"] for row in csv.DictReader(source)}
+        resource = "germany_states_2024.topojson"
+        report = ROOT / "powerbi/GermanyDataObservatory.Report"
+        data = json.loads((report / "StaticResources/RegisteredResources" / resource).read_text())
+        geometries = data["objects"]["germany_states_2024"]["geometries"]
+        self.assertEqual(16, len(geometries))
+        self.assertEqual(expected, {geometry["properties"]["state_code"] for geometry in geometries})
+        self.assertTrue(all(set(geometry["properties"]) == {"state_code"} for geometry in geometries))
+        self.assertTrue(data["arcs"])
+
+    def test_state_map_is_registered_in_report(self):
+        report = ROOT / "powerbi/GermanyDataObservatory.Report"
+        definition = json.loads((report / "definition/report.json").read_text())
+        registered = next(package for package in definition["resourcePackages"] if package["name"] == "RegisteredResources")
+        self.assertIn(
+            {"name": "germany_states_2024.topojson", "path": "germany_states_2024.topojson", "type": "ShapeMap"},
+            registered["items"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
