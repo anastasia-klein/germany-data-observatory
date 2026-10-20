@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "de000000000000000014",
+  "position": {
+    "x": 20,
+    "y": 692,
+    "z": 12300,
+    "width": 1240,
+    "height": 24,
+    "tabOrder": 7400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Profiles use model transformations and 2022–2025 indicators; elections use district shares. PCA peers describe places, not individual voters.",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#68727D"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

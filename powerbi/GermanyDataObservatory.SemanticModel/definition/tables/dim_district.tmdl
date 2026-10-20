@@ -74,6 +74,10 @@ table dim_district
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'District label' = dim_district[district_name] & " [" & dim_district[district_id] & "]"
+		dataType: string
+		summarizeBy: none
+
 	partition dim_district = m
 		mode: import
 		source =

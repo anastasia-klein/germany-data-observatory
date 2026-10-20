@@ -67,5 +67,182 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000003",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000007",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000008",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000010",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000011",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000012",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000005",
+      "target": "de000000000000000013",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000003",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000005",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000007",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000008",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000011",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000012",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000010",
+      "target": "de000000000000000013",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000003",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000005",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000007",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000008",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000010",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000012",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000011",
+      "target": "de000000000000000013",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000003",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000005",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000007",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000008",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000010",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000011",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000012",
+      "target": "de000000000000000013",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000003",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000005",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000007",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000008",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000010",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000011",
+      "type": "NoFilter"
+    },
+    {
+      "source": "de000000000000000013",
+      "target": "de000000000000000012",
+      "type": "NoFilter"
+    }
+  ]
 }

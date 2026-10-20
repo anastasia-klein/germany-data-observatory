@@ -1339,6 +1339,181 @@ table _Measures
 			FORMAT ( [Volt Map Scale Maximum] * 0.8, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 1, "0.00%" )
 		displayFolder: Elections\Volt
 
+	measure 'Explorer Selected District Id' =
+			SELECTEDVALUE ( explorer_district_selector[district_id], "11000" )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Feature Id' =
+			SELECTEDVALUE ( explorer_feature_selector[feature_id], "population_density" )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Cluster Id' =
+			VAR SelectedId = [Explorer Selected District Id]
+			RETURN CALCULATE ( SELECTEDVALUE ( fact_cluster_assignment[cluster_id] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), fact_cluster_assignment[district_id] = SelectedId )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Cluster Colour' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN LOOKUPVALUE ( dim_cluster[cluster_color_hex], dim_cluster[cluster_id], SelectedCluster )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Context Label' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			VAR DistrictName = LOOKUPVALUE ( dim_district[district_name], dim_district[district_id], SelectedId )
+			VAR StateName = LOOKUPVALUE ( dim_district[state_name], dim_district[district_id], SelectedId )
+			VAR ClusterName = LOOKUPVALUE ( dim_cluster[cluster_short_name], dim_cluster[cluster_id], SelectedCluster )
+			RETURN DistrictName & " · " & StateName & " · " & ClusterName
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Peer Rank' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( NOT ISBLANK ( CandidateId ), CALCULATE ( MAX ( district_structural_peers[peer_rank] ), district_structural_peers[source_district_id] = SelectedId, district_structural_peers[peer_district_id] = CandidateId ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Peer Distance' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( NOT ISBLANK ( CandidateId ), CALCULATE ( MAX ( district_structural_peers[pca_distance] ), district_structural_peers[source_district_id] = SelectedId, district_structural_peers[peer_district_id] = CandidateId ) )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Highlight Colour' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN SWITCH ( TRUE (), CandidateId = [Explorer Selected District Id], [Explorer Selected Cluster Colour], NOT ISBLANK ( [Explorer Peer Rank] ), "#6BA3C1", "#E5EBEF" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Map Weight' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( CandidateId = [Explorer Selected District Id], 2, IF ( NOT ISBLANK ( [Explorer Peer Rank] ), 1, 0 ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA X' =
+			MAX ( district_pca[pc1] )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA Y' =
+			MAX ( district_pca[pc2] )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA Point Size' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( CandidateId = [Explorer Selected District Id], 14, IF ( NOT ISBLANK ( [Explorer Peer Rank] ), 6, 1 ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Raw' =
+			VAR SelectedId = [Explorer Selected District Id]
+			RETURN CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Raw' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Germany Raw' =
+			CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Model Feature Value' =
+			VAR RawIndicator = [Average Feature Value]
+			VAR TransformName = SELECTEDVALUE ( dim_district_feature[transform] )
+			RETURN IF ( NOT ISBLANK ( RawIndicator ), IF ( TransformName = "log1p", LN ( 1 + RawIndicator ), RawIndicator ) )
+		formatString: 0.00
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Profile z' =
+			VAR RawIndicator = [Explorer District Raw]
+			VAR TransformName = SELECTEDVALUE ( dim_district_feature[transform] )
+			VAR DistrictIndicator = IF ( TransformName = "log1p", LN ( 1 + RawIndicator ), RawIndicator )
+			VAR NationalMean = CALCULATE ( AVERAGEX ( VALUES ( dim_district[district_id] ), [Explorer Model Feature Value] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+			VAR NationalSD = CALCULATE ( STDEVX.P ( VALUES ( dim_district[district_id] ), [Explorer Model Feature Value] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+			RETURN IF ( NOT ISBLANK ( RawIndicator ), DIVIDE ( DistrictIndicator - NationalMean, NationalSD ) )
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Profile z' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN CALCULATE ( [Cluster Mean Z Score], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster )
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Feature Source Label' =
+			SELECTEDVALUE ( dim_district_feature[unit] ) & " · " & FORMAT ( SELECTEDVALUE ( dim_district_feature[reference_year] ), "0" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Raw' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			RETURN CALCULATE ( [Explorer District Raw], REMOVEFILTERS ( dim_district_feature ), dim_district_feature[feature_id] = FeatureId )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Title' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			RETURN "Indicator value · " & FORMAT ( LOOKUPVALUE ( dim_district_feature[reference_year], dim_district_feature[feature_id], FeatureId ), "0" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Label' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			VAR RawIndicator = [Explorer Selected Indicator Raw]
+			VAR UnitName = LOOKUPVALUE ( dim_district_feature[unit], dim_district_feature[feature_id], FeatureId )
+			VAR UnitSuffix = SWITCH ( UnitName, "percent", "%", "eur_per_person", " EUR/person", "people_per_km2", " /km²", "per_10000_people", " /10k people", "employed_per_1000_working_age", " /1k working-age", " " & UnitName )
+			RETURN IF ( ISBLANK ( RawIndicator ), "No data", FORMAT ( RawIndicator, "#,0.0" ) & UnitSuffix )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Percentile' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			VAR SelectedIndicator = [Explorer Selected Indicator Raw]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( SelectedIndicator ),
+			        CALCULATE (
+			            DIVIDE (
+			                COUNTROWS ( FILTER ( VALUES ( dim_district[district_id] ), VAR CandidateIndicator = CALCULATE ( [Average Feature Value] ) RETURN NOT ISBLANK ( CandidateIndicator ) && CandidateIndicator <= SelectedIndicator ) ),
+			                COUNTROWS ( FILTER ( VALUES ( dim_district[district_id] ), NOT ISBLANK ( CALCULATE ( [Average Feature Value] ) ) ) )
+			            ),
+			            REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ),
+			            REMOVEFILTERS ( dim_district_feature ), dim_district_feature[feature_id] = FeatureId
+			        )
+			    )
+		formatString: 0.0%
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Vote Share %' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Vote Share %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Vote Share %' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Vote Share %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Turnout %' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Turnout %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+
 	measure 'Portrait Selection Label' =
 
 			[Landscape Selected Party]

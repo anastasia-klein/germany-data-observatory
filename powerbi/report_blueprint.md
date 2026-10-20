@@ -369,18 +369,28 @@ How does one selected district compare with its cluster and Germany?
 ### Layout
 
 - Header: searchable district slicer, state and cluster label.
-- Left: selected district location map.
-- Centre: six dumbbells — district, cluster average, Germany average.
-- Right: percentile rank and nearest structural peers.
-- Bottom: election result timeline and party mix.
+- Left: selected district location map, original indicator value and national percentile.
+- Centre: six indicator comparisons against the cluster and Germany.
+- Right: PCA projection and nearest structural peers.
+- Bottom: election result timeline and ranked peer list.
 
 ### Visuals
 
 1. Selected district map.
-2. Dumbbell feature comparison.
+2. Native paired-bar feature comparison on the model scale, with Germany at zero.
 3. PCA peer scatter using PC1 and PC2.
 4. Election trend.
 5. Table of five nearest districts in PCA space.
+
+### Implemented District Explorer
+
+- Default is Berlin [11000]. The searchable district selector is disconnected from the geographic dimensions so the map, PCA overview and peer table retain their full comparison universe. District labels include official codes to distinguish namesakes.
+- A second searchable selector covers all 14 available indicators. It drives the left-hand original-unit value, reference year and national percentile; the percentile is the fraction of valid districts at or below the selected value, including ties. A higher percentile is not a performance score.
+- The central native paired-bar profile compares six core indicators against the selected cluster in model standard-deviation units, with a zero reference for Germany. Population density uses the model's log1p transform; tooltips provide original-unit district, cluster and Germany means with source years.
+- A full-country location map and PC1–PC2 scatter emphasise the selected district in its cluster colour and its five nearest structural peers in blue. The scatter is a two-dimensional projection; peer distances use all four retained components.
+- A calculated helper table stores exactly five non-self peers for each district. Euclidean distance in PC1–PC4 is sorted with district ID as a deterministic tie-breaker.
+- The peer table lists the five ranked districts and distances. The election chart shows the six comparable party groups for 2017, 2021 and 2025, with district turnout and cluster share in tooltips. Missing election shares remain missing.
+- Non-selector plot interactions are disabled so clicking a context plot does not silently change the reference population. District Explorer is enabled in the shared navigation.
 
 ## Page 9 — Methodology: “What the report can and cannot claim”
 
