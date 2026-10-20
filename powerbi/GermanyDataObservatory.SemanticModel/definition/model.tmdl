@@ -43,6 +43,9 @@ ref table party_landscape_play_year_selector
 ref table change_period_selector
 ref table change_map_mode
 ref table volt_year_selector
+ref table explorer_district_selector
+ref table explorer_feature_selector
+ref table district_structural_peers
 
 ref cultureInfo en-US
 
