@@ -27,7 +27,7 @@ Cluster numbers are neutral identifiers, not rankings. They are ordered by the m
 
 ## Robustness
 
-The primary PCA solution is compared with clustering on the full standardized feature space and with RobustScaler plus PCA. Adjusted Rand Index values are written to `clustering_model_metadata.json`; both current comparisons are approximately 0.81. This indicates substantial, though not perfect, agreement and should be disclosed in the report rather than presenting the typology as a natural or unique truth.
+The primary PCA solution is compared with clustering on the full standardized feature space and with RobustScaler plus PCA. Adjusted Rand Index values are written to `clustering_model_metadata.json`; the current comparisons are 0.805 and 0.792 respectively (1 means identical assignments). This indicates substantial, though not perfect, agreement and should be disclosed in the report rather than presenting the typology as a natural or unique truth.
 
 ## Electoral comparison
 
