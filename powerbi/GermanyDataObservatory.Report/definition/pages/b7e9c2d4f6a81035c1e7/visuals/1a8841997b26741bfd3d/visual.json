@@ -3,10 +3,10 @@
   "name": "1a8841997b26741bfd3d",
   "position": {
     "x": 12,
-    "y": 84,
+    "y": 80,
     "z": 6000,
-    "height": 96,
-    "width": 548,
+    "height": 72,
+    "width": 908,
     "tabOrder": 5000
   },
   "visual": {
@@ -134,7 +134,18 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#20242A'"
+                    }
+                  }
                 }
               }
             }

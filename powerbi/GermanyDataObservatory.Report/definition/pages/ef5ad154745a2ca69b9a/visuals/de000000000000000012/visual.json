@@ -3,10 +3,10 @@
   "name": "de000000000000000012",
   "position": {
     "x": 314,
-    "y": 482,
+    "y": 444,
     "z": 7200,
     "width": 566,
-    "height": 206,
+    "height": 190,
     "tabOrder": 7200
   },
   "visual": {
@@ -468,7 +468,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -585,7 +585,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -616,7 +616,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

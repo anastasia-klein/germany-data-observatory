@@ -3,10 +3,10 @@
   "name": "de000000000000000013",
   "position": {
     "x": 892,
-    "y": 482,
+    "y": 444,
     "z": 7300,
     "width": 376,
-    "height": 206,
+    "height": 244,
     "tabOrder": 7300
   },
   "visual": {
@@ -89,7 +89,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "3L"
+                  "Value": "2L"
                 }
               }
             },

@@ -6,8 +6,8 @@
     "y": 692,
     "width": 1240,
     "height": 24,
-    "z": 7000,
-    "tabOrder": 7000
+    "z": 31000,
+    "tabOrder": 31000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Sources: regionalatlas.statistikportal.de · bundeswahlleiterin.de · © GeoBasis-DE / BKG (2026) dl-de/by-2-0 · Repository: github.com/anastasia-klein/germany-data-observatory",
+                    "value": "Sources are linked above. Boundaries: © GeoBasis-DE / BKG (2026), dl-de/by-2-0. The report is descriptive, not causal.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "7pt",
-                      "color": "#546575"
+                      "fontSize": "8pt",
+                      "color": "#68727D"
                     }
                   }
                 ]
@@ -33,6 +33,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -41,6 +42,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -56,11 +75,48 @@
                   "Value": "false"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

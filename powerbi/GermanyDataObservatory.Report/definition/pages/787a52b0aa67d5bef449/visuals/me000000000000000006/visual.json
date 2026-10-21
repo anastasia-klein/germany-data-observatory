@@ -5,7 +5,7 @@
     "x": 450,
     "y": 170,
     "width": 380,
-    "height": 226,
+    "height": 28,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,108 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "02  Which indicators enter the model?",
+                    "value": "Which indicators define a cluster",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11.5pt",
+                      "fontSize": "11pt",
                       "color": "#20242A",
                       "fontWeight": "bold"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "14 collected indicators → 11 clustering inputs.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Demography · density; population change; migration balance; foreign-population share; ages 0–17 and 65+.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Economy · workplace density; manufacturing employment; unemployment; disposable income and GDP per capita.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Report only · birth/death balance, services employment and minimum-security benefit rate are excluded from clustering because |correlation| > 0.90 with retained inputs.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
                     }
                   }
                 ]
@@ -130,6 +34,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -138,6 +43,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -153,11 +76,48 @@
                   "Value": "false"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

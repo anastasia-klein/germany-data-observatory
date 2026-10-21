@@ -178,6 +178,17 @@
                   "Value": "10D"
                 }
               }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#20242A'"
+                    }
+                  }
+                }
+              }
             }
           }
         }

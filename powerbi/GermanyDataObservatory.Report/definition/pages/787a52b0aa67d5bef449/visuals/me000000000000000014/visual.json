@@ -3,9 +3,9 @@
   "name": "me000000000000000014",
   "position": {
     "x": 870,
-    "y": 432,
+    "y": 422,
     "width": 380,
-    "height": 240,
+    "height": 28,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,108 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "06  Quality, limits & reproducibility",
+                    "value": "What the report cannot establish",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11.5pt",
+                      "fontSize": "11pt",
                       "color": "#20242A",
                       "fontWeight": "bold"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Coverage · all 14 structural indicators cover all 400 districts; no missing feature values. Cluster sizes: 64 / 234 / 67 / 35.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Fixed snapshot · clusters use mixed-year structural data, not historical demographics for each election. Political variables never enter the clustering.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Interpretation · descriptive associations, not causes or individual voter profiles. Cluster names are analytical labels, not rankings.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "4pt",
-                      "color": "#546575"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Reproduce · source URLs, retrieval dates and SHA-256 hashes are in data/raw/manifest.json. Code, feature catalogue and model diagnostics are stored in the repository.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9.5pt",
-                      "color": "#546575"
                     }
                   }
                 ]
@@ -130,6 +34,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -138,6 +43,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -153,11 +76,48 @@
                   "Value": "false"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }
