@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "4f4e098d49acf9d95b36",
   "position": {
-    "x": 686.0,
-    "y": 640,
-    "width": 174.0,
-    "height": 23,
+    "x": 559.5,
+    "y": 656,
+    "width": 47,
+    "height": 26,
     "z": 7201,
     "tabOrder": 7201
   },
@@ -18,14 +18,6 @@
             "paragraphs": [
               {
                 "textRuns": [
-                  {
-                    "value": "●  ",
-                    "textStyle": {
-                      "color": "#1AA037",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt"
-                    }
-                  },
                   {
                     "value": "GRÜNE",
                     "textStyle": {

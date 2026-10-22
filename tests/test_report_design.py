@@ -93,6 +93,9 @@ class ReportDesignTest(unittest.TestCase):
             self.assertEqual((80,72), tuple(plate["position"][k] for k in ("y","height")))
             self.assertEqual(plate["position"]["x"] + 12, heading["position"]["x"])
             self.assertEqual(86, heading["position"]["y"])
+            style=heading["visual"]["objects"]["general"][0]["properties"]["paragraphs"][0]["textRuns"][0]["textStyle"]
+            self.assertEqual("Segoe UI Semibold",style["fontFamily"])
+            self.assertEqual("normal",style["fontWeight"])
             self.assertEqual(112, card["position"]["y"])
             for key in ("border","background"):
                 self.assertEqual("false", value(card["visual"]["visualContainerObjects"][key][0]["properties"]["show"]))
@@ -123,7 +126,7 @@ class ReportDesignTest(unittest.TestCase):
             svg = ElementTree.fromstring(unquote(prefix + colour.replace("#", "%23") + suffix))
             self.assertEqual(colour, svg.find("{http://www.w3.org/2000/svg}circle").attrib["fill"])
 
-    def test_party_legends_fit_in_two_rows_inside_their_panel(self):
+    def test_party_legends_fit_in_one_row_with_full_size_circles(self):
         for page, vid, n, height in [(PL,"pl000000000000000006",7,270),(DE,"de000000000000000012",6,244)]:
             plate = visual(page, identifier(page,vid,"backplate"))["position"]
             chart = visual(page,vid)
@@ -131,13 +134,34 @@ class ReportDesignTest(unittest.TestCase):
             self.assertEqual(688,plate["y"]+plate["height"])
             self.assertEqual("false",value(chart["visual"]["objects"]["legend"][0]["properties"]["show"]))
             rows=set()
+            previous_right=None
             for i in range(n):
                 p=visual(page,identifier(page,vid,"legend"+str(i)))["position"]
+                marker=visual(page,identifier(page,vid,"legend-marker"+str(i)))
+                dot=marker["position"]
+                self.assertEqual((10,10),(dot["width"],dot["height"]))
+                self.assertEqual("'oval'",value(marker["visual"]["objects"]["shape"][0]["properties"]["tileShape"]))
+                self.assertEqual(dot["x"]+10,p["x"])
+                if previous_right is not None:self.assertAlmostEqual(6,dot["x"]-previous_right,places=2)
+                previous_right=p["x"]+p["width"]
                 rows.add(p["y"])
                 self.assertGreaterEqual(p["y"],chart["position"]["y"]+chart["position"]["height"])
                 self.assertLessEqual(p["y"]+p["height"],688)
-            self.assertEqual(2,len(rows))
+                self.assertLessEqual(previous_right,plate["x"]+plate["width"]-16)
+            self.assertEqual(1,len(rows))
         self.assertEqual(244,visual(DE,"de000000000000000013")["position"]["height"])
+
+    def test_card_measure_labels_are_hidden_at_each_bound_measure(self):
+        for page in PUBLIC + [VO]:
+            for a in all_visuals(page):
+                v=a["visual"]
+                if v["visualType"]!="cardVisual":continue
+                labels=v["objects"]["label"]
+                for label in labels:
+                    self.assertEqual("false",value(label["properties"]["show"]))
+                    self.assertEqual("''",value(label["properties"]["text"]))
+                refs=[p["queryRef"] for role in v["query"]["queryState"].values() for p in role["projections"]]
+                for ref in refs:self.assertTrue(any(label.get("selector")=={"metadata":ref} for label in labels))
 
     def test_change_cluster_bars_are_solid_and_borderless(self):
         for entry in visual(CH,"ch000000000000000020")["visual"]["objects"]["dataPoint"]:
