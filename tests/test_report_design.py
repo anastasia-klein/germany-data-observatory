@@ -104,7 +104,13 @@ class ReportDesignTest(unittest.TestCase):
     def test_indicator_benchmark_is_not_repeated_on_charts(self):
         cards = [v for v in all_visuals(IN) if v["visual"]["visualType"] == "cardVisual"]
         self.assertEqual(1, len(cards))
-        self.assertGreater(cards[0]["position"]["x"], 920)
+        benchmark=cards[0]["position"]
+        map_panel=visual(IN,"7bcd0ffefd893e879503")["position"]
+        self.assertGreater(benchmark["x"], map_panel["x"])
+        self.assertGreater(benchmark["y"], map_panel["y"])
+        self.assertLessEqual(benchmark["x"]+benchmark["width"], map_panel["x"]+map_panel["width"])
+        self.assertLessEqual(benchmark["y"]+benchmark["height"], map_panel["y"]+map_panel["height"])
+        self.assertFalse((PAGES/IN/"visuals"/identifier(IN,cards[0]["name"],"backplate")/"visual.json").exists())
         for vid in ("5bbff1cd52b45de836f9", "950e44b0b57d31277ab4"):
             self.assertNotIn("xAxisReferenceLine", visual(IN,vid)["visual"]["objects"])
 
@@ -140,6 +146,7 @@ class ReportDesignTest(unittest.TestCase):
                 marker=visual(page,identifier(page,vid,"legend-marker"+str(i)))
                 dot=marker["position"]
                 self.assertEqual((10,10),(dot["width"],dot["height"]))
+                self.assertEqual(p["y"]+3,dot["y"])
                 self.assertEqual("'oval'",value(marker["visual"]["objects"]["shape"][0]["properties"]["tileShape"]))
                 self.assertEqual(dot["x"]+10,p["x"])
                 if previous_right is not None:self.assertAlmostEqual(6,dot["x"]-previous_right,places=2)
@@ -162,6 +169,39 @@ class ReportDesignTest(unittest.TestCase):
                     self.assertEqual("''",value(label["properties"]["text"]))
                 refs=[p["queryRef"] for role in v["query"]["queryState"].values() for p in role["projections"]]
                 for ref in refs:self.assertTrue(any(label.get("selector")=={"metadata":ref} for label in labels))
+
+    def test_overview_uses_aligned_single_top_row_and_two_body_columns(self):
+        top=[visual(OV,identifier(OV,vid,"backplate"))["position"] for vid in
+             ("cb0f5f6e69c98788371b","f12f32ac68e31f15fc38","8136bd3d582d4f58c120")]
+        top += [visual(OV,vid)["position"] for vid in ("cb59366453ce7440ce15","04bccb98ebfb77513903")]
+        self.assertEqual(12,top[0]["x"])
+        self.assertEqual(1268,top[-1]["x"]+top[-1]["width"])
+        for p in top:self.assertEqual((80,72),(p["y"],p["height"]))
+        for left,right in zip(top,top[1:]):self.assertEqual(12,right["x"]-left["x"]-left["width"])
+        table=visual(OV,"d81e4a5fa35f182c8d46")["position"]
+        map_panel=visual(OV,"2edf0fd369be317800ba")["position"]
+        chart=visual(OV,"26e2f76b44cd9795acae")["position"]
+        self.assertEqual((table["x"],table["width"]),(map_panel["x"],map_panel["width"]))
+        self.assertEqual(12,map_panel["y"]-table["y"]-table["height"])
+        self.assertEqual(12,chart["x"]-table["x"]-table["width"])
+        self.assertEqual(table["y"],chart["y"])
+        self.assertEqual(688,map_panel["y"]+map_panel["height"])
+        self.assertEqual(688,chart["y"]+chart["height"])
+        self.assertFalse((PAGES/OV/"visuals/fd880518a4b84b064355/visual.json").exists())
+
+    def test_indicators_use_equal_gutters_with_the_benchmark_inside_the_map(self):
+        selector=visual(IN,"1a8841997b26741bfd3d")["position"]
+        ranking=visual(IN,"950e44b0b57d31277ab4")["position"]
+        clusters=visual(IN,"5bbff1cd52b45de836f9")["position"]
+        map_panel=visual(IN,"7bcd0ffefd893e879503")["position"]
+        self.assertEqual(selector["y"],clusters["y"])
+        self.assertEqual((selector["x"],selector["width"]),(ranking["x"],ranking["width"]))
+        self.assertEqual((clusters["x"],clusters["width"]),(map_panel["x"],map_panel["width"]))
+        self.assertEqual(12,ranking["y"]-selector["y"]-selector["height"])
+        self.assertEqual(12,map_panel["y"]-clusters["y"]-clusters["height"])
+        self.assertEqual(12,clusters["x"]-selector["x"]-selector["width"])
+        self.assertEqual(688,ranking["y"]+ranking["height"])
+        self.assertEqual(688,map_panel["y"]+map_panel["height"])
 
     def test_change_cluster_bars_are_solid_and_borderless(self):
         for entry in visual(CH,"ch000000000000000020")["visual"]["objects"]["dataPoint"]:

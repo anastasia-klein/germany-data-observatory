@@ -3,10 +3,10 @@
   "name": "d81e4a5fa35f182c8d46",
   "position": {
     "x": 12,
-    "y": 232,
+    "y": 164,
     "z": 9000,
     "height": 176,
-    "width": 848,
+    "width": 684,
     "tabOrder": 9000
   },
   "visual": {
@@ -207,7 +207,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "22D"
                 }
               }
             }
@@ -221,7 +221,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "200D"
+                  "Value": "168D"
                 }
               }
             }
@@ -235,7 +235,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "130D"
+                  "Value": "108D"
                 }
               }
             }
@@ -249,7 +249,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "125D"
+                  "Value": "102D"
                 }
               }
             }
@@ -263,7 +263,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "185D"
+                  "Value": "150D"
                 }
               }
             }
@@ -277,7 +277,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "100D"
+                  "Value": "84D"
                 }
               }
             }
