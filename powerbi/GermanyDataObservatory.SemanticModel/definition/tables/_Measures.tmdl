@@ -1,6 +1,18 @@
 table _Measures
 	lineageTag: fe8fed8d-6429-4c4b-b65a-080b4bbca7f2
 
+	measure 'Cluster colour marker' =
+			VAR SelectedColour = SELECTEDVALUE ( dim_cluster[cluster_color_hex] )
+			RETURN
+				IF (
+					NOT ISBLANK ( SelectedColour ),
+					"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='"
+						& SUBSTITUTE ( SelectedColour, "#", "%23" )
+						& "'/></svg>"
+				)
+		dataCategory: ImageUrl
+		displayFolder: Districts\Presentation
+
 	measure 'District Count' =
 			
 			DISTINCTCOUNT ( dim_district[district_id] )

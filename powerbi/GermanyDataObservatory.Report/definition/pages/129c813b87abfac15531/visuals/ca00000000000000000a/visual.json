@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "ca00000000000000000a",
   "position": {
     "x": 20,
-    "y": 684,
-    "z": 13000,
+    "y": 692,
+    "width": 1240,
     "height": 24,
-    "width": 570,
-    "tabOrder": 13000
+    "z": 31000,
+    "tabOrder": 31000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Clusters use demographic and socioeconomic indicators only. Cluster names are descriptive, not value judgments."
+                    "value": "Clusters use structural indicators only; names are descriptive, not rankings. Special districts include Hannover, Aachen and Saarbrücken.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "8pt",
+                      "color": "#68727D"
+                    }
                   }
                 ]
               }
@@ -28,46 +33,78 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
-      "title": [
+      "background": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Clusters use demographic and socioeconomic indicators only · Cluster names are descriptive, not value judgments'"
-                }
-              }
-            },
-            "fontColor": {
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#252A31'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
               }
             },
-            "fontSize": {
+            "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "0D"
                 }
               }
             }
           }
         }
       ],
-      "background": [
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
         {
           "properties": {
             "show": {
@@ -80,7 +117,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

@@ -15,7 +15,8 @@ PAGE_ID = "787a52b0aa67d5bef449"
 class MethodologyReportTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.visuals = [json.loads(p.read_text()) for p in (PAGES / PAGE_ID / "visuals").glob("me*/visual.json")]
+        cls.visuals = [json.loads(p.read_text()) for p in (PAGES / PAGE_ID / "visuals").glob("*/visual.json")
+                       if json.loads(p.read_text())["position"]["y"] > 76]
         cls.text = "\n".join(
             run["value"]
             for visual in cls.visuals
@@ -26,7 +27,8 @@ class MethodologyReportTest(unittest.TestCase):
         cls.model = json.loads((ROOT / "data/processed/clustering_model_metadata.json").read_text())
 
     def test_model_quality_values_match_current_snapshot(self):
-        self.assertIn(f'{self.model["pca_components"]} components retain {100 * self.model["pca_explained_variance"]:.1f}%', self.text)
+        self.assertIn(f'{100 * self.model["pca_explained_variance"]:.1f}% of their variance', self.text)
+        self.assertEqual(4, self.model['pca_components'])
         for score in self.model["robustness_adjusted_rand"].values():
             self.assertIn(f"{score:.3f}", self.text)
         self.assertEqual(4, self.model["chosen_k"])
@@ -65,16 +67,18 @@ class MethodologyReportTest(unittest.TestCase):
         self.assertGreaterEqual(count, 9)
 
     def test_explanations_do_not_depend_on_data_queries_or_slicers(self):
-        self.assertEqual(15, len(self.visuals))
+        self.assertEqual(22, len(self.visuals))
         for visual in self.visuals:
             self.assertNotIn("query", visual["visual"])
             position = visual["position"]
             self.assertLessEqual(position["x"] + position["width"], 1280)
             self.assertLessEqual(position["y"] + position["height"], 720)
-        self.assertIn("not causes or individual voter profiles", self.text)
-        self.assertIn("not the official national vote-weighted result", self.text)
-        self.assertIn("not % within the cluster", self.text)
-        self.assertIn("Political variables never enter", self.text)
+        self.assertIn("Associations do not establish causes", self.text)
+        self.assertIn("not the official vote-weighted national result", self.text)
+        self.assertIn("not the share within that cluster", self.text)
+        self.assertIn("Political results do not define the clusters", self.text)
+        self.assertNotIn("Volt", self.text)
+        self.assertNotIn("data/raw/", self.text)
 
 
 if __name__ == "__main__":

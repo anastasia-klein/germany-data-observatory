@@ -45,7 +45,9 @@ Use Volt as a focused case study. Show its state-level growth from 164,300 secon
 
 Use a persistent top navigation bar:
 
-`Overview | Indicators | Cluster Atlas | Party Landscape | Party Portrait | Change | Volt | District Explorer | Methodology`
+`Overview | Indicators | Cluster Atlas | Party Landscape | Party Portrait | Change | District Explorer | Methodology`
+
+The stacked-cluster overview is the public landing page, named **Overview**. Keep the personal **Volt** page hidden and out of shared navigation. Hiding a page is a navigation choice, not access control; a public distribution that must exclude personal pages needs a separate report copy (see [Microsoft’s hidden-page guidance](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-view#hide-report-pages)).
 
 Keep `Methodology` visually quieter but always available. Use a Home button and Back button on drill-through pages. Synchronise Election, Party, State and Cluster slicers only where their meaning is consistent.
 

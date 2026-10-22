@@ -10,11 +10,26 @@
     "tabOrder": 9000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cluster colour marker"
+                }
+              },
+              "queryRef": "_Measures.Cluster colour marker",
+              "nativeQueryRef": "Colour",
+              "displayName": " "
+            },
             {
               "field": {
                 "Column": {
@@ -23,18 +38,13 @@
                       "Entity": "dim_cluster"
                     }
                   },
-                  "Property": "cluster_display_name"
+                  "Property": "cluster_name"
                 }
               },
-              "queryRef": "dim_cluster.cluster_display_name",
+              "queryRef": "dim_cluster.cluster_name",
               "nativeQueryRef": "Cluster",
-              "active": true,
               "displayName": "Cluster"
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+            },
             {
               "field": {
                 "Measure": {
@@ -47,7 +57,8 @@
                 }
               },
               "queryRef": "_Measures.Population Aged 65+ %",
-              "nativeQueryRef": "Population Aged 65+ %"
+              "nativeQueryRef": "Population aged 65+",
+              "displayName": "Population aged 65+"
             },
             {
               "field": {
@@ -61,7 +72,8 @@
                 }
               },
               "queryRef": "_Measures.Unemployment Rate %",
-              "nativeQueryRef": "Unemployment Rate %"
+              "nativeQueryRef": "Unemployment rate",
+              "displayName": "Unemployment rate"
             },
             {
               "field": {
@@ -75,7 +87,8 @@
                 }
               },
               "queryRef": "_Measures.Disposable Income per Capita",
-              "nativeQueryRef": "Disposable Income per Capita"
+              "nativeQueryRef": "Disposable income per capita",
+              "displayName": "Disposable income per capita"
             },
             {
               "field": {
@@ -89,7 +102,8 @@
                 }
               },
               "queryRef": "_Measures.2025 Turnout %",
-              "nativeQueryRef": "2025 Turnout %"
+              "nativeQueryRef": "2025 turnout",
+              "displayName": "2025 turnout"
             }
           ]
         }
@@ -113,13 +127,115 @@
       }
     },
     "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "columnWidth": [
         {
           "properties": {
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "140D"
+                  "Value": "24D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Cluster colour marker"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "200D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_cluster.cluster_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130D"
                 }
               }
             }
@@ -133,7 +249,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "145D"
+                  "Value": "125D"
                 }
               }
             }
@@ -161,7 +277,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "112D"
+                  "Value": "100D"
                 }
               }
             }
@@ -169,84 +285,18 @@
           "selector": {
             "metadata": "_Measures.2025 Turnout %"
           }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "188D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "dim_cluster.cluster_display_name"
-          }
-        }
-      ],
-      "columnHeaders": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "rowHeaders": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "grid": [
-        {
-          "properties": {
-            "gridVertical": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "rowPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
-                }
-              }
-            }
-          }
         }
       ],
       "total": [
         {
           "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -254,22 +304,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "subTotals": [
-        {
-          "properties": {
-            "applyToHeaders": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "Row"
           }
         }
       ]
@@ -286,6 +320,58 @@
                       "Value": "'#FFFFFF'"
                     }
                   }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

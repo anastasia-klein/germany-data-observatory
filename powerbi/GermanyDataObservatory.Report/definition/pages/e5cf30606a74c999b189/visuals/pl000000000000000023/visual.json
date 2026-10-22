@@ -83,38 +83,38 @@
             "id": "default"
           }
         }
-    ],
-    "outline": [
-      {
-        "properties": {
-          "show": {
-            "expr": {
-              "Literal": {
-                "Value": "false"
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
-        },
-        "selector": {
-          "id": "default"
         }
-      }
-    ],
-    "fillCustom": [
-      {
-        "properties": {
-          "transparency": {
-            "expr": {
-              "Literal": {
-                "Value": "100D"
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
-        },
-        "selector": {
-          "id": "default"
         }
-      }
       ]
     },
     "visualContainerObjects": {

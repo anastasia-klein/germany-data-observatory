@@ -4,10 +4,10 @@
   "position": {
     "x": 20,
     "y": 692,
-    "z": 12900,
     "width": 1240,
     "height": 24,
-    "tabOrder": 8000
+    "z": 31000,
+    "tabOrder": 31000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,8 +19,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Federal Returning Officer · state results only · 2021 includes the Berlin repeat election (2024) · no district or individual voter profile",
+                    "value": "Federal Returning Officer · state results only · 2021 includes the Berlin repeat election (2024) · shares use valid second votes.",
                     "textStyle": {
+                      "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
                       "color": "#68727D"
                     }
@@ -32,8 +33,78 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
         {
           "properties": {
             "show": {
@@ -46,7 +117,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }
