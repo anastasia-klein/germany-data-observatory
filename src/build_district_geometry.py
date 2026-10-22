@@ -54,6 +54,10 @@ def expected_district_ids() -> set[str]:
 
 def filter_and_validate(payload: bytes) -> dict[str, object]:
     source = json.loads(payload)
+    # Match the report dimension, including suffixes distinguishing cities
+    # from same-name rural districts when district_name is a shape-map key.
+    with DISTRICTS.open(encoding="utf-8", newline="") as dimension:
+        names = {row["district_id"]: row["district_name"] for row in csv.DictReader(dimension)}
     features = []
     for feature in source.get("features", []):
         properties = feature.get("properties", {})
@@ -65,7 +69,7 @@ def filter_and_validate(payload: bytes) -> dict[str, object]:
                 "type": "Feature",
                 "properties": {
                     "district_id": district_id,
-                    "district_name": properties["gen"],
+                    "district_name": names.get(district_id, properties["gen"]),
                 },
                 "geometry": feature["geometry"],
             }

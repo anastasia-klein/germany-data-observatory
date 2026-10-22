@@ -1,6 +1,7 @@
 """Regression checks for the shared report shell and page-specific layout fixes."""
 
 import hashlib
+import csv
 import json
 import unittest
 from urllib.parse import unquote
@@ -146,7 +147,7 @@ class ReportDesignTest(unittest.TestCase):
                 marker=visual(page,identifier(page,vid,"legend-marker"+str(i)))
                 dot=marker["position"]
                 self.assertEqual((10,10),(dot["width"],dot["height"]))
-                self.assertEqual(p["y"]+3,dot["y"])
+                self.assertEqual(p["y"]+4.5,dot["y"])
                 self.assertEqual("'oval'",value(marker["visual"]["objects"]["shape"][0]["properties"]["tileShape"]))
                 self.assertEqual(dot["x"]+10,p["x"])
                 if previous_right is not None:self.assertAlmostEqual(6,dot["x"]-previous_right,places=2)
@@ -185,6 +186,7 @@ class ReportDesignTest(unittest.TestCase):
         self.assertEqual(12,map_panel["y"]-table["y"]-table["height"])
         self.assertEqual(12,chart["x"]-table["x"]-table["width"])
         self.assertEqual(table["y"],chart["y"])
+        self.assertGreaterEqual(table["height"],208)
         self.assertEqual(688,map_panel["y"]+map_panel["height"])
         self.assertEqual(688,chart["y"]+chart["height"])
         self.assertFalse((PAGES/OV/"visuals/fd880518a4b84b064355/visual.json").exists())
@@ -207,6 +209,36 @@ class ReportDesignTest(unittest.TestCase):
         for entry in visual(CH,"ch000000000000000020")["visual"]["objects"]["dataPoint"]:
             self.assertEqual("0D",value(entry["properties"]["fillTransparency"]))
             self.assertEqual("false",value(entry["properties"]["borderShow"]))
+
+    def test_district_ranking_has_readable_value_labels(self):
+        labels=visual(IN,"950e44b0b57d31277ab4")["visual"]["objects"]["labels"][0]["properties"]
+        self.assertEqual("true",value(labels["show"]))
+        self.assertEqual("0D",value(labels["labelDisplayUnits"]))
+        self.assertEqual("'#68727D'",value(labels["color"]["solid"]["color"]))
+
+    def test_tooltip_cards_have_no_inner_or_outer_frames(self):
+        for page in ("6c91e7d2a4f8503bc126","84e5e44efabd2fd66fc5"):
+            for a in all_visuals(page):
+                v=a["visual"]
+                if v["visualType"]!="cardVisual":continue
+                for key in ("outline",):
+                    for entry in v["objects"][key]:
+                        self.assertEqual("false",value(entry["properties"]["show"]))
+                self.assertEqual("false",value(v["visualContainerObjects"]["border"][0]["properties"]["show"]))
+
+    def test_map_fallback_keys_are_unique_readable_district_names(self):
+        with (ROOT/"data/processed/dim_district.csv").open() as stream:
+            districts=list(csv.DictReader(stream))
+        names={r["district_name"] for r in districts}
+        self.assertEqual(400,len(names))
+        topology=json.loads((ROOT/"powerbi/GermanyDataObservatory.Report/StaticResources/RegisteredResources/germany_districts_20248077705754270155.topojson").read_text())
+        shapes=topology["objects"]["germany_districts_2024"]["geometries"]
+        self.assertEqual(names,{g["properties"]["district_name"] for g in shapes})
+        for page,vid in ((OV,"2edf0fd369be317800ba"),(AT,"ca000000000000000002")):
+            q=visual(page,vid)["visual"]["query"]["queryState"]
+            self.assertEqual("district_name",q["Category"]["projections"][0]["field"]["Column"]["Property"])
+            ids=[p for p in q["Tooltips"]["projections"] if p["field"].get("Column",{}).get("Property")=="district_id"]
+            self.assertEqual(1,len(ids))
 
     def test_methodology_links_sources_without_internal_paths_or_volt(self):
         runs=[run for v in all_visuals(ME) for obj in v["visual"].get("objects",{}).get("general",[]) for p in obj.get("properties",{}).get("paragraphs",[]) for run in p["textRuns"]]

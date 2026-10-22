@@ -3,9 +3,9 @@
   "name": "2edf0fd369be317800ba",
   "position": {
     "x": 12,
-    "y": 352,
+    "y": 384,
     "z": 12000,
-    "height": 336,
+    "height": 304,
     "width": 684,
     "tabOrder": 10000
   },
@@ -23,11 +23,12 @@
                       "Entity": "dim_district"
                     }
                   },
-                  "Property": "district_id"
+                  "Property": "district_name"
                 }
               },
-              "queryRef": "dim_district.district_id",
-              "nativeQueryRef": "district_id"
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "District",
+              "displayName": "District"
             }
           ]
         },
@@ -155,6 +156,21 @@
               "queryRef": "_Measures.Disposable Income per Capita",
               "nativeQueryRef": "Disposable income",
               "displayName": "Disposable income"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_id"
+                }
+              },
+              "queryRef": "dim_district.district_id",
+              "nativeQueryRef": "District code",
+              "displayName": "District code"
             }
           ]
         }
