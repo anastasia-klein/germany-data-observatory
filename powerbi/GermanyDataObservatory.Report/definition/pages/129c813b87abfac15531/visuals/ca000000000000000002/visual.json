@@ -23,11 +23,12 @@
                       "Entity": "dim_district"
                     }
                   },
-                  "Property": "district_id"
+                  "Property": "district_name"
                 }
               },
-              "queryRef": "dim_district.district_id",
-              "nativeQueryRef": "district_id"
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "District",
+              "displayName": "District"
             }
           ]
         },
@@ -155,6 +156,21 @@
               "queryRef": "_Measures.Disposable Income per Capita",
               "nativeQueryRef": "Disposable income",
               "displayName": "Disposable income"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_id"
+                }
+              },
+              "queryRef": "dim_district.district_id",
+              "nativeQueryRef": "District code",
+              "displayName": "District code"
             }
           ]
         }
