@@ -213,7 +213,8 @@ class ReportDesignTest(unittest.TestCase):
     def test_district_ranking_has_readable_value_labels(self):
         labels=visual(IN,"950e44b0b57d31277ab4")["visual"]["objects"]["labels"][0]["properties"]
         self.assertEqual("true",value(labels["show"]))
-        self.assertEqual("0D",value(labels["labelDisplayUnits"]))
+        self.assertEqual("1D",value(labels["labelDisplayUnits"]))
+        self.assertEqual("0L",value(labels["labelPrecision"]))
         self.assertEqual("'#68727D'",value(labels["color"]["solid"]["color"]))
 
     def test_tooltip_cards_have_no_inner_or_outer_frames(self):
@@ -226,7 +227,7 @@ class ReportDesignTest(unittest.TestCase):
                         self.assertEqual("false",value(entry["properties"]["show"]))
                 self.assertEqual("false",value(v["visualContainerObjects"]["border"][0]["properties"]["show"]))
 
-    def test_map_fallback_keys_are_unique_readable_district_names(self):
+    def test_packaged_map_names_match_the_district_dimension(self):
         with (ROOT/"data/processed/dim_district.csv").open() as stream:
             districts=list(csv.DictReader(stream))
         names={r["district_name"] for r in districts}
@@ -234,11 +235,13 @@ class ReportDesignTest(unittest.TestCase):
         topology=json.loads((ROOT/"powerbi/GermanyDataObservatory.Report/StaticResources/RegisteredResources/germany_districts_20248077705754270155.topojson").read_text())
         shapes=topology["objects"]["germany_districts_2024"]["geometries"]
         self.assertEqual(names,{g["properties"]["district_name"] for g in shapes})
+    def test_map_queries_use_id_keys_and_scalar_tooltip_values(self):
         for page,vid in ((OV,"2edf0fd369be317800ba"),(AT,"ca000000000000000002")):
             q=visual(page,vid)["visual"]["query"]["queryState"]
-            self.assertEqual("district_name",q["Category"]["projections"][0]["field"]["Column"]["Property"])
-            ids=[p for p in q["Tooltips"]["projections"] if p["field"].get("Column",{}).get("Property")=="district_id"]
-            self.assertEqual(1,len(ids))
+            self.assertEqual("district_id",q["Category"]["projections"][0]["field"]["Column"]["Property"])
+            for projection in q["Tooltips"]["projections"]:
+                self.assertIn(next(iter(projection["field"])),("Measure","Aggregation"))
+            self.assertEqual(6,len(q["Tooltips"]["projections"]))
 
     def test_methodology_links_sources_without_internal_paths_or_volt(self):
         runs=[run for v in all_visuals(ME) for obj in v["visual"].get("objects",{}).get("general",[]) for p in obj.get("properties",{}).get("paragraphs",[]) for run in p["textRuns"]]
