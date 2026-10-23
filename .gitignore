@@ -8,6 +8,8 @@ __pycache__/
 !.env.example
 
 # Power BI local/cache files; keep the PBIP project definition itself.
+# Personal setup notes remain on this computer, not in the public repository.
+powerbi/README.md
 powerbi/.pbi/
 powerbi/**/.pbi/localSettings.json
 powerbi/**/.pbi/cache.abf
