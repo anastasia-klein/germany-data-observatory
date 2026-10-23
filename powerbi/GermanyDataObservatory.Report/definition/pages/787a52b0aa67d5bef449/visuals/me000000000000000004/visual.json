@@ -3,9 +3,9 @@
   "name": "me000000000000000004",
   "position": {
     "x": 30,
-    "y": 170,
-    "width": 380,
-    "height": 28,
+    "y": 98,
+    "width": 232,
+    "height": 30,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Where the data come from",
+                    "value": "1. Where the data come from",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "11pt",

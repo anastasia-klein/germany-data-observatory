@@ -1,31 +1,37 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "me000000000000000013",
+  "name": "ovmethodology00000001",
   "position": {
-    "x": 856,
-    "y": 410,
-    "width": 408,
-    "height": 242,
-    "z": 6000,
-    "tabOrder": 6000
+    "x": 20,
+    "y": 692,
+    "width": 1240,
+    "height": 24,
+    "z": 32000,
+    "tabOrder": 32000
   },
   "visual": {
-    "visualType": "shape",
+    "visualType": "actionButton",
     "objects": {
-      "shape": [
+      "text": [
         {
           "properties": {
-            "tileShape": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'rectangleRounded'"
+                  "Value": "false"
                 }
               }
-            },
-            "rectangleRoundedCurve": {
+            }
+          }
+        }
+      ],
+      "icon": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "2L"
+                  "Value": "false"
                 }
               }
             }
@@ -35,27 +41,13 @@
       "fill": [
         {
           "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFFFF'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "100D"
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
@@ -73,7 +65,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -81,25 +72,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FFFFFF'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -112,38 +85,49 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#E6EBEF'"
-                    }
-                  }
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PageNavigation'"
                 }
               }
             },
-            "radius": {
+            "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "'787a52b0aa67d5bef449'"
                 }
               }
             },
-            "width": {
+            "tooltip": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "'Open Methodology: sources, clusters and outcomes'"
                 }
               }
             }
           }
         }
       ]
-    }
-  }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
 }

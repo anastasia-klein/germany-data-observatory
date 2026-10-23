@@ -19,11 +19,20 @@
               {
                 "textRuns": [
                   {
-                    "value": "District means describe places, not individual voters. Boundaries: © GeoBasis-DE / BKG (2026), dl-de/by-2-0.",
+                    "value": "Four structural clusters group similar districts using 11 indicators, PCA and Ward clustering. Places, not voters. © GeoBasis-DE / BKG (2026), dl-de/by-2-0.  ",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
                       "color": "#68727D"
+                    }
+                  },
+                  {
+                    "value": "Methodology →",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "8pt",
+                      "color": "#68727D",
+                      "textDecoration": "underline"
                     }
                   }
                 ]

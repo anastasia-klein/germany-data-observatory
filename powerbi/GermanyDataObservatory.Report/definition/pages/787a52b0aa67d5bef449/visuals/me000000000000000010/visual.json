@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "me000000000000000010",
   "position": {
-    "x": 30,
-    "y": 422,
-    "width": 380,
-    "height": 28,
+    "x": 302,
+    "y": 354,
+    "width": 360,
+    "height": 26,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "How to read the election charts",
+                    "value": "How the groups were chosen",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "11pt",
+                      "fontSize": "10pt",
                       "color": "#20242A",
                       "fontWeight": "normal"
                     }
