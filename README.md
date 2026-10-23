@@ -16,7 +16,23 @@ Compare **400 districts**, their demographic and economic profiles, and voting p
 
 ## What stands out
 
-From 2021 to 2025, AfD gained vote share in all 400 districts, while SPD and FDP lost share in every district. AfD’s largest cluster gain was in the ageing periphery. Mean district turnout rose from **75.8% in 2017 to 82.4% in 2025**, while structural turnout gaps persisted.
+The structural data reveal four distinct groups, formed **without using election results**. Their names describe relative demographic and economic profiles, not rankings:
+
+| Cluster | Districts | Distinguishing characteristics |
+|---|---:|---|
+| Stable & affluent regions | 234 (58.5%) | Higher disposable income, lower unemployment and more children. |
+| Ageing & shrinking periphery | 64 (16.0%) | Older populations, lower population growth and fewer children. |
+| Urban pressure centres | 67 (16.8%) | High population density and unemployment, with lower disposable income. |
+| Dynamic metropolitan hubs | 35 (8.8%) | Higher GDP per capita, workplace density and foreign-population share. |
+
+These groups provide a useful lens for comparing electoral geography:
+
+- **Different places, different party strengths.** In 2025, AfD had the highest mean share among the six comparable party groups in the ageing periphery (36.6%). CDU/CSU led in the other three clusters, reaching 33.8% in stable regions. GRÜNE’s strongest cluster was metropolitan hubs (17.6%); Die Linke’s was urban pressure centres (11.5%).
+- **A broad shift between 2021 and 2025.** AfD gained vote share in all 400 districts, with its largest cluster gain in the ageing periphery. SPD and FDP lost share in every district. SPD’s mean district share fell from 25.7% to 15.7%.
+- **Recovery was not a return to 2017.** CDU/CSU’s mean district share rose from 25.0% in 2021 to 29.4% in 2025, still below 34.3% in 2017. Die Linke also recovered from 2021 without regaining its 2017 mean.
+- **Higher turnout, persistent gaps.** Mean district turnout rose from 75.8% in 2017 to 82.4% in 2025, but structural differences remained: 2025 cluster means ranged from 79.3% in urban pressure centres to 84.0% in stable regions.
+
+Stable regions contain more than half of all districts, so a large district count alone does not demonstrate disproportionate party support. The dashboard combines counts, shares and structural comparisons to make these differences visible.
 
 These are comparisons of places, not individual voters. Election summaries use **unweighted district means**, not national vote-weighted results.
 
