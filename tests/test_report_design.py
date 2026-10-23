@@ -41,6 +41,24 @@ def value(expr):
 
 
 class ReportDesignTest(unittest.TestCase):
+    def test_atlas_and_portrait_share_content_baseline_and_gutters(self):
+        for page, ids, footer_id in (
+            (AT, ("ca000000000000000002", "ca000000000000000008", "ca000000000000000007"), "ca00000000000000000a"),
+            (PP, ("pp000000000000000005", "pp000000000000000006", "pp000000000000000004"), "pp000000000000000007"),
+        ):
+            top, bottom, full = [visual(page, vid)["position"] for vid in ids]
+            self.assertEqual(164, top["y"])
+            self.assertEqual(top["y"], full["y"])
+            self.assertEqual(12, bottom["y"] - top["y"] - top["height"])
+            self.assertEqual(top["x"], bottom["x"])
+            self.assertEqual(top["width"], bottom["width"])
+            for position in (bottom, full):
+                self.assertEqual(688, position["y"] + position["height"])
+            left, right = sorted((top, full), key=lambda position: position["x"])
+            self.assertEqual(12, right["x"] - left["x"] - left["width"])
+            footer = visual(page, footer_id)["position"]
+            self.assertEqual(4, footer["y"] - 688)
+
     def test_stacked_overview_is_the_public_landing_page(self):
         metadata = json.loads((PAGES / "pages.json").read_text())
         self.assertEqual(PUBLIC, metadata["pageOrder"][:8])
