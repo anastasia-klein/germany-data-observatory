@@ -58,6 +58,28 @@ class ReportDesignTest(unittest.TestCase):
         self.assertEqual("HiddenInViewMode", page["visibility"])
         self.assertTrue(any(v["visual"]["visualType"] == "shapeMap" for v in all_visuals(VO)))
 
+    def test_overview_footer_explains_clusters_and_links_to_methodology(self):
+        footer = visual(OV, "683144ac3ec29f734857")
+        runs = footer["visual"]["objects"]["general"][0]["properties"]["paragraphs"][0]["textRuns"]
+        text = "".join(r["value"] for r in runs)
+        self.assertIn("11 indicators, PCA and Ward clustering", text)
+        self.assertIn("Methodology →", text)
+        action = visual(OV, "ovmethodology00000001")
+        props = action["visual"]["visualContainerObjects"]["visualLink"][0]["properties"]
+        self.assertEqual("'PageNavigation'", value(props["type"]))
+        self.assertEqual("'" + ME + "'", value(props["navigationSection"]))
+        for key in ("x", "y", "width", "height"):
+            self.assertEqual(footer["position"][key], action["position"][key])
+
+    def test_explorer_peer_columns_fill_the_available_width(self):
+        table = visual(DE, "de000000000000000013")
+        widths = table["visual"]["objects"]["columnWidth"]
+        self.assertEqual([164, 68, 100], [int(value(c["properties"]["value"])[:-1]) for c in widths])
+        self.assertEqual([p["queryRef"] for p in table["visual"]["query"]["queryState"]["Values"]["projections"]],
+                         [c["selector"]["metadata"] for c in widths])
+        self.assertEqual("false", value(table["visual"]["objects"]["columnHeaders"][0]["properties"]["autoSizeColumnWidth"]))
+        self.assertLess(sum(int(value(c["properties"]["value"])[:-1]) for c in widths), table["position"]["width"] - 24)
+
     def test_shared_navigation_is_centered_rounded_and_has_eight_public_pages(self):
         count = 0
         for page in PUBLIC + [VO]:

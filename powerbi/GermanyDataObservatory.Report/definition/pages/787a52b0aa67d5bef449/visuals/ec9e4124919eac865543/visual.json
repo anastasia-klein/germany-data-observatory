@@ -3,9 +3,9 @@
   "name": "ec9e4124919eac865543",
   "position": {
     "x": 30,
-    "y": 458,
-    "width": 380,
-    "height": 182,
+    "y": 464,
+    "width": 232,
+    "height": 208,
     "z": 7001,
     "tabOrder": 7001
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Party-list vote shares and turnout are averaged equally across districts. “Germany average” therefore describes a typical district; it is not the official vote-weighted national result.",
+                    "value": "Germany averages weight districts equally: this is not the official vote-weighted national result. Changes are percentage points, not percentage growth.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
                     }
                   }
                 ]
@@ -31,11 +31,23 @@
               {
                 "textRuns": [
                   {
-                    "value": "Change is measured in percentage points: 20% to 25% is +5 pp. Structural clusters stay fixed across elections, and each party’s map scale stays fixed across 2017–2025.",
+                    "value": "High support means at or above the party’s district median. Portrait labels give the share of all high-support districts, not the share within that cluster.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Explorer percentiles rank raw values. Its peers are nearest in PC1–PC4; the scatter shows PC1–PC2 only.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
                     }
                   }
                 ]

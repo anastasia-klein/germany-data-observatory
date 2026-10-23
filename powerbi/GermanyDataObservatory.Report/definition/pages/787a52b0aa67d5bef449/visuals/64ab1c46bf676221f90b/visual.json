@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "64ab1c46bf676221f90b",
   "position": {
-    "x": 28,
-    "y": 662,
-    "width": 1224,
-    "height": 24,
+    "x": 30,
+    "y": 334,
+    "width": 232,
+    "height": 90,
     "z": 7100,
     "tabOrder": 7100
   },
@@ -19,73 +19,53 @@
               {
                 "textRuns": [
                   {
-                    "value": "Official sources: ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#68727D"
-                    }
-                  },
-                  {
                     "value": "Regionalatlas",
                     "url": "https://regionalatlas.statistikportal.de/",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
+                      "fontSize": "9pt",
                       "color": "#075F96",
                       "textDecoration": "underline"
                     }
-                  },
-                  {
-                    "value": "   ·   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#68727D"
-                    }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "Federal Returning Officer",
                     "url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse.html",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
+                      "fontSize": "9pt",
                       "color": "#075F96",
                       "textDecoration": "underline"
                     }
-                  },
-                  {
-                    "value": "   ·   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#68727D"
-                    }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "Destatis",
                     "url": "https://www.destatis.de/EN/Home/_node.html",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
+                      "fontSize": "9pt",
                       "color": "#075F96",
                       "textDecoration": "underline"
                     }
-                  },
-                  {
-                    "value": "   ·   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#68727D"
-                    }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "BKG boundaries",
                     "url": "https://gdz.bkg.bund.de/index.php/default/open-data/verwaltungsgebiete-1-250-000-stand-01-01-vg250-01-01.html",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
+                      "fontSize": "9pt",
                       "color": "#075F96",
                       "textDecoration": "underline"
                     }

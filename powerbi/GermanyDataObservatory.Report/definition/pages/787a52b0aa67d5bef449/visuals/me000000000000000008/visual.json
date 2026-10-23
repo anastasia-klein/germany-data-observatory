@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "me000000000000000008",
   "position": {
-    "x": 870,
-    "y": 170,
-    "width": 380,
-    "height": 28,
+    "x": 302,
+    "y": 98,
+    "width": 360,
+    "height": 30,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "How the groups were chosen",
+                    "value": "2. Structural clusters",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "11pt",

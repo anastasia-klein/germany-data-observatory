@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "me000000000000000012",
   "position": {
-    "x": 450,
-    "y": 422,
-    "width": 380,
-    "height": 28,
+    "x": 702,
+    "y": 98,
+    "width": 548,
+    "height": 30,
     "z": 7000,
     "tabOrder": 7000
   },
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "What profiles and peers mean",
+                    "value": "3. Outcomes",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "11pt",

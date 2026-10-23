@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "b04d83be3d4a4893108e",
   "position": {
-    "x": 450,
-    "y": 458,
-    "width": 380,
-    "height": 182,
+    "x": 702,
+    "y": 134,
+    "width": 548,
+    "height": 264,
     "z": 7001,
     "tabOrder": 7001
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "High support means at or above a party’s national district median. Portrait labels show the district count and its share of all high-support districts, not the share within that cluster.",
+                    "value": "Stable regions contain 234 of 400 districts (58.5%). Counts alone can conceal concentration: compare cluster sizes as well as the number of high-support districts.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
                     }
                   }
                 ]
@@ -31,11 +31,59 @@
               {
                 "textRuns": [
                   {
-                    "value": "Explorer percentiles show the share of districts at or below a value. Its five peers are nearest in PC1–PC4, not on the map. The scatter shows only PC1–PC2.",
+                    "value": "From 2021 to 2025, AfD gained in all 400 districts, most strongly in the ageing periphery. SPD and FDP lost support in every district.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "In 2025, AfD has the highest cluster mean in the ageing periphery. CDU/CSU leads in stable regions and metropolitan hubs. Die Linke’s lowest cluster mean is in stable regions.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "CDU/CSU gained in 380 districts after 2021 but remained below its 2017 mean. SPD’s mean district share fell from 25.7% to 15.7%.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Die Linke recovered without regaining its 2017 mean; its recovery was stronger in urban clusters. GRÜNE remained strongest in metropolitan hubs despite losing support there.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Mean district turnout rose from 75.8% in 2017 to 82.4% in 2025. It increased in all 400 districts, while gaps between structural clusters persisted.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
                     }
                   }
                 ]

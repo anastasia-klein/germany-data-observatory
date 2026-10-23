@@ -66,8 +66,49 @@ class MethodologyReportTest(unittest.TestCase):
             count += 1
         self.assertGreaterEqual(count, 9)
 
+    def test_three_sections_and_sources_inside_first_section(self):
+        for heading in ("1. Where the data come from", "2. Structural clusters", "3. Outcomes"):
+            self.assertIn(heading, self.text)
+        linked = [v for v in self.visuals if any(
+            run.get("url")
+            for group in v["visual"].get("objects", {}).get("general", [])
+            for paragraph in group["properties"]["paragraphs"]
+            for run in paragraph["textRuns"]
+        )]
+        self.assertEqual(1, len(linked))
+        self.assertLess(linked[0]["position"]["x"], 276)
+        self.assertLess(linked[0]["position"]["y"] + linked[0]["position"]["height"], 432)
+        plates = [v["position"] for v in self.visuals if v["visual"]["visualType"] == "shape"]
+        self.assertEqual([260, 388, 576], [p["width"] for p in sorted(plates, key=lambda p: p["x"])])
+        self.assertEqual({(84, 598)}, {(p["y"], p["height"]) for p in plates})
+
+    def test_outcome_claims_match_election_snapshot(self):
+        with (ROOT / "data/processed/fact_district_election_results.csv").open() as source:
+            rows = list(csv.DictReader(source))
+        votes = {(r["district_id"], r["party_group_id"], r["election_year"]): float(r["second_vote_share_percent"])
+                 for r in rows if r["second_vote_share_percent"]}
+        districts = {r["district_id"] for r in rows}
+        for party, direction in (("afd", 1), ("spd", -1), ("fdp", -1)):
+            self.assertEqual(400, sum(direction * (votes[d, "party_group_" + party, "2025"] -
+                                                  votes[d, "party_group_" + party, "2021"]) > 0
+                                      for d in districts))
+        self.assertEqual(380, sum(votes[d, "party_group_cdu_csu", "2025"] >
+                                  votes[d, "party_group_cdu_csu", "2021"] for d in districts))
+        for year, expected in (("2021", "25.7%"), ("2025", "15.7%")):
+            mean = sum(votes[d, "party_group_spd", year] for d in districts) / len(districts)
+            self.assertEqual(expected, f"{mean:.1f}%")
+            self.assertIn(expected, self.text)
+        with (ROOT / "data/processed/fact_district_election_turnout.csv").open() as source:
+            turnout = list(csv.DictReader(source))
+        for year, expected in (("2017", "75.8%"), ("2025", "82.4%")):
+            values = [float(r["turnout_percent"]) for r in turnout if r["election_year"] == year]
+            self.assertEqual(expected, f"{sum(values) / len(values):.1f}%")
+            self.assertIn(expected, self.text)
+        for party in ("CDU/CSU", "SPD", "GRÜNE", "FDP", "Die Linke", "AfD"):
+            self.assertIn(party + " —", self.text)
+
     def test_explanations_do_not_depend_on_data_queries_or_slicers(self):
-        self.assertEqual(22, len(self.visuals))
+        self.assertEqual(19, len(self.visuals))
         for visual in self.visuals:
             self.assertNotIn("query", visual["visual"])
             position = visual["position"]

@@ -3,9 +3,9 @@
   "name": "f741789f3f1a8ffb9bb7",
   "position": {
     "x": 30,
-    "y": 206,
-    "width": 380,
-    "height": 180,
+    "y": 134,
+    "width": 232,
+    "height": 190,
     "z": 7001,
     "tabOrder": 7001
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "The report covers 400 German districts on 2024 boundaries. Official structural statistics refer to 2022–2025, depending on the indicator.",
+                    "value": "The report covers 400 German districts on 2024 boundaries. All 14 structural indicators are complete; reference years vary from 2022 to 2025.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
                     }
                   }
                 ]
@@ -31,11 +31,23 @@
               {
                 "textRuns": [
                   {
-                    "value": "Regionalatlas provides district party-list vote shares and turnout for the 2017, 2021 and 2025 elections. These are district results, not constituency results.",
+                    "value": "Regionalatlas supplies district statistics, party-list vote shares and turnout for 2017, 2021 and 2025. These are district results, not constituencies.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#68727D"
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "The Federal Returning Officer supplies official state results; BKG supplies district boundaries.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9pt",
+                      "color": "#546575"
                     }
                   }
                 ]
