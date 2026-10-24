@@ -1,0 +1,40 @@
+table fact_cluster_assignment
+	lineageTag: 3511eec4-ef9b-4b79-bf23-6dad241c26d4
+
+	column district_id
+		dataType: string
+		isHidden
+		lineageTag: 71400e48-2503-4dd4-baf3-7b0b8a6c3014
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_id
+		dataType: string
+		isHidden
+		lineageTag: 4eccd467-5d14-49f3-bb17-849f156c3828
+		summarizeBy: none
+		sourceColumn: cluster_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_cluster_assignment = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_cluster_assignment.csv", {
+				        {"district_id", type text},
+				        {"cluster_id", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

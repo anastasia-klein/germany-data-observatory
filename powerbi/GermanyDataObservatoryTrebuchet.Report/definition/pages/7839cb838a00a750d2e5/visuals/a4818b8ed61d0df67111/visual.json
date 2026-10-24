@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a4818b8ed61d0df67111",
+  "position": {
+    "x": 0,
+    "y": 602.3103057757644,
+    "z": 6000,
+    "height": 280.4983012457531,
+    "width": 759.9546998867497,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "district_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Feature Value"
+                }
+              },
+              "queryRef": "_Measures.Average Feature Value",
+              "nativeQueryRef": "Average Feature Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Germany Feature Average"
+                }
+              },
+              "queryRef": "_Measures.Germany Feature Average",
+              "nativeQueryRef": "Germany Feature Average"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Difference from Germany"
+                }
+              },
+              "queryRef": "_Measures.Difference from Germany",
+              "nativeQueryRef": "Difference from Germany"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

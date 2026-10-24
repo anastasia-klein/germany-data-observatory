@@ -1,0 +1,100 @@
+table dim_party
+	lineageTag: c9a31c44-a53f-4791-915f-035e1853609b
+
+	column party_id
+		dataType: string
+		lineageTag: 2b7fab03-4a1f-419c-872c-cd1ed08695e8
+		summarizeBy: none
+		sourceColumn: party_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_name
+		dataType: string
+		lineageTag: bde27ef6-fe7c-4044-b1e4-e69a665971d5
+		summarizeBy: none
+		sourceColumn: party_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_election_year
+		dataType: int64
+		formatString: 0
+		lineageTag: c167b368-3ec2-4060-a2d5-6aca5d9da625
+		summarizeBy: none
+		sourceColumn: first_election_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_election_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 77177bb3-c9e2-4955-9f1f-9bb888dc0194
+		summarizeBy: none
+		sourceColumn: last_election_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 0044bcab-9cc5-475f-a41d-17b8e34a6732
+		summarizeBy: none
+		sourceColumn: election_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_color_hex
+		dataType: string
+		lineageTag: 9057033d-6189-478c-b89f-f1db0e92da49
+		summarizeBy: none
+		sourceColumn: party_color_hex
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_display_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8d043204-b454-4d85-96d9-1ece123aa503
+		summarizeBy: none
+		sourceColumn: party_display_order
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_report_focus
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f95c3915-9a5d-4eb7-968f-e8854204d114
+		summarizeBy: none
+		sourceColumn: is_report_focus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_party = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_party.csv", {
+				        {"party_id", type text},
+				        {"party_name", type text},
+				        {"first_election_year", Int64.Type},
+				        {"last_election_year", Int64.Type},
+				        {"election_count", Int64.Type},
+				        {"party_color_hex", type text},
+				        {"party_display_order", Int64.Type},
+				        {"is_report_focus", type logical}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,82 @@
+table fact_election_turnout
+	lineageTag: 603dacf8-466b-4388-af7d-a3c91722f8d2
+
+	column election_id
+		dataType: string
+		isHidden
+		lineageTag: 7d6966cc-9feb-4167-aff8-090184beaa70
+		summarizeBy: none
+		sourceColumn: election_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 459bd52c-e4cf-4fe4-b9e1-0e918d4ccaee
+		summarizeBy: none
+		sourceColumn: election_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state_code
+		dataType: string
+		lineageTag: 149b4242-ac5f-4367-b07a-39a752fc1786
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column measure
+		dataType: string
+		lineageTag: af3adcb0-2562-4673-bbe6-7778b79c8440
+		summarizeBy: none
+		sourceColumn: measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: int64
+		formatString: 0
+		lineageTag: 47d5ee1c-083e-4c04-880c-4ee6b5ac9975
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = User
+
+	column share_percent
+		dataType: double
+		lineageTag: 8c7e68ef-7988-4c84-acfb-06bef262f39f
+		summarizeBy: none
+		sourceColumn: share_percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_election_turnout = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_election_turnout.csv", {
+				        {"election_id", type text},
+				        {"election_date", type date},
+				        {"state_code", type text},
+				        {"measure", type text},
+				        {"value", Int64.Type},
+				        {"share_percent", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

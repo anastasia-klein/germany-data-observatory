@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "29a682c653d812b05632",
+  "position": {
+    "x": 1308.9920724801812,
+    "y": 310.9399773499434,
+    "z": 5000,
+    "height": 207.65571913929784,
+    "width": 566.4326160815402,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_party_group"
+                    }
+                  },
+                  "Property": "party_group_name"
+                }
+              },
+              "queryRef": "dim_party_group.party_group_name",
+              "nativeQueryRef": "party_group_name",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_election"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "dim_election.election_year",
+              "nativeQueryRef": "election_year",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Mean District Vote Share %"
+                }
+              },
+              "queryRef": "_Measures.Mean District Vote Share %",
+              "nativeQueryRef": "Mean District Vote Share %"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

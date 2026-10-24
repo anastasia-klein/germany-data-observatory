@@ -1,0 +1,95 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "761532262c628ff9a9d4",
+  "position": {
+    "x": 640,
+    "y": 84,
+    "z": 28000,
+    "height": 60,
+    "width": 108,
+    "tabOrder": 28000
+  },
+  "visual": {
+    "visualType": "GDOPlayAxis20261016A",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "party_landscape_play_year_selector"
+                    }
+                  },
+                  "Property": "election_year"
+                }
+              },
+              "queryRef": "party_landscape_play_year_selector.election_year",
+              "nativeQueryRef": "election_year1",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "captionSettings": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
