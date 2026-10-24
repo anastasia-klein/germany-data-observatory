@@ -1,0 +1,138 @@
+table fact_election_party_results
+	lineageTag: 998c8b7f-12b0-4eb3-b5f2-733e89278ab2
+
+	column election_id
+		dataType: string
+		isHidden
+		lineageTag: a9d60a5b-f62b-48b6-9b6e-4200a818ea93
+		summarizeBy: none
+		sourceColumn: election_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column election_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 8c3ba89c-e6b5-49ef-b5b3-ce0d2c71726e
+		summarizeBy: none
+		sourceColumn: election_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column state_code
+		dataType: string
+		lineageTag: a3bfc358-bf2c-466a-9727-65124782970c
+		summarizeBy: none
+		sourceColumn: state_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_id
+		dataType: string
+		isHidden
+		lineageTag: 46d4aa7c-3041-4641-9a10-9dab0fd3b77f
+		summarizeBy: none
+		sourceColumn: party_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column party
+		dataType: string
+		lineageTag: 5e891d36-f3e1-4f04-a71f-83b6e04fc445
+		summarizeBy: none
+		sourceColumn: party
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_party
+		dataType: string
+		isHidden
+		lineageTag: d10b9e21-1ec4-4f77-b912-617a5f371458
+		summarizeBy: none
+		sourceColumn: source_party
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column votes
+		dataType: int64
+		formatString: 0
+		lineageTag: e4e7f2d9-2ddd-4a2a-9f3a-dbe8f7c15b8f
+		summarizeBy: sum
+		sourceColumn: votes
+
+		annotation SummarizationSetBy = Automatic
+
+	column vote_share_percent
+		dataType: double
+		lineageTag: 910372f8-9581-4d2d-8d03-35aa07a511a6
+		summarizeBy: none
+		sourceColumn: vote_share_percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column previous_votes
+		dataType: int64
+		formatString: 0
+		lineageTag: 00e7e9d9-5259-459a-a4cb-34ab31a6fb79
+		summarizeBy: sum
+		sourceColumn: previous_votes
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_vote_share_percent
+		dataType: double
+		lineageTag: 62449050-1042-469d-b773-017e0b9c3a21
+		summarizeBy: none
+		sourceColumn: previous_vote_share_percent
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column change_percentage_points
+		dataType: double
+		lineageTag: 348e1262-1fb9-4320-ae20-93691cef6e86
+		summarizeBy: sum
+		sourceColumn: change_percentage_points
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_election_party_results = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_election_party_results.csv", {
+				        {"election_id", type text},
+				        {"election_date", type date},
+				        {"state_code", type text},
+				        {"party_id", type text},
+				        {"party", type text},
+				        {"source_party", type text},
+				        {"votes", Int64.Type},
+				        {"vote_share_percent", type number},
+				        {"previous_votes", Int64.Type},
+				        {"previous_vote_share_percent", type number},
+				        {"change_percentage_points", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

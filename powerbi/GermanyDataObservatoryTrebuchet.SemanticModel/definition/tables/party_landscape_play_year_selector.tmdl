@@ -1,0 +1,29 @@
+table party_landscape_play_year_selector
+	lineageTag: aec76980-9cfe-40ca-8bd0-b39402e4ab08
+
+	column election_year
+		dataType: int64
+		formatString: 0
+		lineageTag: b9b50b46-3fc9-4125-9020-1208221bb698
+		summarizeBy: none
+		sourceColumn: election_year
+
+		annotation SummarizationSetBy = User
+
+	partition party_landscape_play_year_selector = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_election.csv", {
+				        {"election_year", Int64.Type}
+				    }),
+				    ValidYears = Table.SelectRows(Source, each List.Contains({2017, 2021, 2025}, [election_year])),
+				    YearOnly = Table.SelectColumns(ValidYears, {"election_year"}),
+				    DistinctYears = Table.Distinct(YearOnly)
+				in
+				    DistinctYears
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

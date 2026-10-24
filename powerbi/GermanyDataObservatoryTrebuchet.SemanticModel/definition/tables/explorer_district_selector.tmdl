@@ -1,0 +1,16 @@
+table explorer_district_selector
+
+	column district_id
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: [district_id]
+
+	column district_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [district_label]
+
+	partition explorer_district_selector = calculated
+		mode: import
+		source = SELECTCOLUMNS ( dim_district, "district_id", dim_district[district_id], "district_label", dim_district[district_name] & " [" & dim_district[district_id] & "]" )

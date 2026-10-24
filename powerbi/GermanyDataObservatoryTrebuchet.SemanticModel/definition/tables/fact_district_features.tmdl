@@ -1,0 +1,82 @@
+table fact_district_features
+	lineageTag: b9f05676-714b-4fda-8fd7-6fe7dee39f23
+
+	column district_id
+		dataType: string
+		isHidden
+		lineageTag: 5ade3a8a-8054-4846-aa18-5e39f571d3bc
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_id
+		dataType: string
+		isHidden
+		lineageTag: 25dc1326-ec5e-454f-a6a7-32527be330d3
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		lineageTag: e5c253f8-fc71-488b-932e-3bcfa66e63d5
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column reference_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d7e9840-27aa-4c7c-af16-c2ed86e310d7
+		summarizeBy: none
+		sourceColumn: reference_year
+
+		annotation SummarizationSetBy = User
+
+	column unit
+		dataType: string
+		lineageTag: 44842b8b-66d2-483c-a256-8e41b6e4940d
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_dataset
+		dataType: string
+		isHidden
+		lineageTag: 0fd581b4-1817-4a69-8ba9-57b0770488cb
+		summarizeBy: none
+		sourceColumn: source_dataset
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_district_features = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("fact_district_features.csv", {
+				        {"district_id", type text},
+				        {"feature_id", type text},
+				        {"value", type number},
+				        {"reference_year", Int64.Type},
+				        {"unit", type text},
+				        {"source_dataset", type text}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

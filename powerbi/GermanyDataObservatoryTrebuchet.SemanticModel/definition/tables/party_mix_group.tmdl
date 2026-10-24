@@ -1,0 +1,53 @@
+table party_mix_group
+	lineageTag: 04f02533-bb25-4ca0-ad70-2940b142494c
+
+	column party_group_name
+		dataType: string
+		lineageTag: 6d90acfd-bd7e-40b2-894b-ea0b3ce14bd9
+		summarizeBy: none
+		sourceColumn: party_group_name
+		sortByColumn: party_display_order
+
+		annotation SummarizationSetBy = User
+
+	column party_color_hex
+		dataType: string
+		lineageTag: f00d2f57-33ad-45cf-8542-3ec4597abf03
+		summarizeBy: none
+		sourceColumn: party_color_hex
+
+		annotation SummarizationSetBy = Automatic
+
+	column party_display_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9e2a9ddf-1915-4f93-8fb9-96df3bb4cfb6
+		summarizeBy: none
+		sourceColumn: party_display_order
+
+		annotation SummarizationSetBy = User
+
+	partition party_mix_group = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("dim_party_group.csv", {
+				        {"party_group_id", type text},
+				        {"party_group_name", type text},
+				        {"party_color_hex", type text},
+				        {"party_display_order", Int64.Type}
+				    }),
+				    MajorParties = Table.SelectColumns(Source, {"party_group_name", "party_color_hex", "party_display_order"}),
+				    OtherParties = #table(
+				        type table [party_group_name = text, party_color_hex = text, party_display_order = Int64.Type],
+				        {{"Other parties", "#B8C0C8", 7}}
+				    ),
+				    Result = Table.Combine({MajorParties, OtherParties})
+				in
+				    Result
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

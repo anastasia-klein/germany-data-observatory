@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "me000000000000000002",
+  "position": {
+    "x": 702,
+    "y": 442,
+    "width": 548,
+    "height": 176,
+    "z": 7000,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "CDU/CSU — Higher income, lower unemployment; more children, fewer older residents.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "SPD — Higher benefit rate and unemployment; moderately higher population density.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "GRÜNE — Higher income and GDP per capita; younger, denser, higher foreign-population share.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "FDP — Higher disposable income; fewer older residents.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Die Linke — Lower income, higher unemployment; denser, fewer children.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "AfD — Lower income and GDP per capita; older residents, lower population growth.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

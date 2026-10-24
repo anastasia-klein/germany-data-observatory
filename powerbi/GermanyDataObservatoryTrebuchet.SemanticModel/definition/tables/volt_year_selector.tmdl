@@ -1,0 +1,11 @@
+table volt_year_selector
+
+	column election_year
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [election_year]
+
+	partition volt_year_selector = calculated
+		mode: import
+		source = DATATABLE ( "election_year", INTEGER, { { 2021 }, { 2025 } } )

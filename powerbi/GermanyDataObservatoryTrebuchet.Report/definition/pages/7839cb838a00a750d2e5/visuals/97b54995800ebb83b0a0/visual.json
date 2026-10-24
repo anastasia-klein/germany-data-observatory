@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "97b54995800ebb83b0a0",
+  "position": {
+    "x": 802.3556058890147,
+    "y": 0,
+    "z": 2000,
+    "height": 280.4983012457531,
+    "width": 564.2582106455266,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_name"
+                }
+              },
+              "queryRef": "dim_district.district_name",
+              "nativeQueryRef": "district_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_district"
+                    }
+                  },
+                  "Property": "district_type"
+                }
+              },
+              "queryRef": "dim_district.district_type",
+              "nativeQueryRef": "district_type"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "District Count"
+                }
+              },
+              "queryRef": "_Measures.District Count",
+              "nativeQueryRef": "District Count"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "1d45f09666fad5f5f991",
+  "position": {
+    "x": 302,
+    "y": 390,
+    "width": 360,
+    "height": 198,
+    "z": 7001,
+    "tabOrder": 7001
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Density, workplace density and GDP use log(1 + value); all 11 inputs are standardised. Four PCA components retain 82.4% of their variance.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Ward clustering tests k = 3–8 with at least 20 districts per group. k = 4 is retained: silhouette 0.301 versus 0.305 for k = 3 (within the 0.01 tolerance). The smallest group has 35 districts.",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Alternative specifications show substantial agreement: adjusted Rand indices 0.805 and 0.792 (1 = identical assignments).",
+                    "textStyle": {
+                      "fontFamily": "Trebuchet MS",
+                      "fontSize": "9pt",
+                      "color": "#546575"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E6EBEF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

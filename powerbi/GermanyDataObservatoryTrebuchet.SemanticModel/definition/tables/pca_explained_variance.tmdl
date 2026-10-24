@@ -1,0 +1,47 @@
+table pca_explained_variance
+	lineageTag: 62c45b96-1db1-4912-a7a1-8a68bff441be
+
+	column component
+		dataType: string
+		lineageTag: 0eaeeb69-984b-4ff8-9497-fece87647ff6
+		summarizeBy: none
+		sourceColumn: component
+
+		annotation SummarizationSetBy = Automatic
+
+	column explained_variance_ratio
+		dataType: double
+		lineageTag: 13f57da2-0777-4d95-a0cc-a1ee92881e83
+		summarizeBy: sum
+		sourceColumn: explained_variance_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cumulative_explained_variance_ratio
+		dataType: double
+		lineageTag: 9216022e-3556-4c24-b034-fb46a3d430ee
+		summarizeBy: sum
+		sourceColumn: cumulative_explained_variance_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition pca_explained_variance = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("pca_explained_variance.csv", {
+				        {"component", type text},
+				        {"explained_variance_ratio", type number},
+				        {"cumulative_explained_variance_ratio", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
