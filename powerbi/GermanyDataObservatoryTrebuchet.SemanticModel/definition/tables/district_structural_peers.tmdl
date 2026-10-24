@@ -1,0 +1,70 @@
+table district_structural_peers
+	isHidden
+
+	column source_district_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [source_district_id]
+
+	column peer_district_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [peer_district_id]
+
+	column peer_rank
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [peer_rank]
+
+	column pca_distance
+		dataType: double
+		formatString: 0.00
+		summarizeBy: none
+		sourceColumn: [pca_distance]
+
+	partition district_structural_peers = calculated
+		mode: import
+		source =
+				VAR Sources =
+					SELECTCOLUMNS (
+						district_pca,
+						"source_district_id", district_pca[district_id],
+						"SourcePC1", district_pca[pc1], "SourcePC2", district_pca[pc2],
+						"SourcePC3", district_pca[pc3], "SourcePC4", district_pca[pc4]
+					)
+				VAR PeerPairs =
+					GENERATE (
+						Sources,
+						VAR SourceId = [source_district_id]
+						VAR SourceX1 = [SourcePC1]
+						VAR SourceX2 = [SourcePC2]
+						VAR SourceX3 = [SourcePC3]
+						VAR SourceX4 = [SourcePC4]
+						VAR Candidates =
+							ADDCOLUMNS (
+								FILTER ( ALL ( district_pca ), district_pca[district_id] <> SourceId ),
+								"PeerDistance",
+								SQRT (
+									POWER ( district_pca[pc1] - SourceX1, 2 ) + POWER ( district_pca[pc2] - SourceX2, 2 )
+										+ POWER ( district_pca[pc3] - SourceX3, 2 ) + POWER ( district_pca[pc4] - SourceX4, 2 )
+								)
+							)
+						VAR Nearest = TOPN ( 5, Candidates, [PeerDistance], ASC, district_pca[district_id], ASC )
+						RETURN
+							SELECTCOLUMNS (
+								Nearest,
+								"peer_district_id", district_pca[district_id],
+								"pca_distance", [PeerDistance],
+								"peer_rank",
+									VAR CurrentDistance = [PeerDistance]
+									VAR CurrentId = district_pca[district_id]
+									RETURN 1 + COUNTROWS ( FILTER ( Nearest, [PeerDistance] < CurrentDistance || ( [PeerDistance] = CurrentDistance && district_pca[district_id] < CurrentId ) ) )
+							)
+					)
+				RETURN
+					SELECTCOLUMNS (
+						PeerPairs,
+						"source_district_id", [source_district_id], "peer_district_id", [peer_district_id],
+						"pca_distance", [pca_distance], "peer_rank", [peer_rank]
+					)

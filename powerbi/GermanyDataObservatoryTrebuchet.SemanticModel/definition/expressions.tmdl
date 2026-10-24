@@ -1,0 +1,35 @@
+expression DataRoot = "C:\Users\nasty\germany-data-observatory\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0f167716-a362-4c4b-9164-1b8ff48a3d59
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression fnLoadProcessedCsv =
+		(FileName as text, ColumnTypes as list) as table =>
+		let
+		    Files = Folder.Contents(DataRoot),
+		    MatchingFiles = Table.SelectRows(Files, each [Name] = FileName),
+		    Content =
+		        if Table.RowCount(MatchingFiles) = 1 then
+		            MatchingFiles{0}[Content]
+		        else
+		            error Error.Record(
+		                "Processed file not found",
+		                "Expected exactly one file named " & FileName,
+		                [DataRoot = DataRoot, Matches = Table.RowCount(MatchingFiles)]
+		            ),
+		    Csv = Csv.Document(
+		        Content,
+		        [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+		    ),
+		    Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]),
+		    Typed = Table.TransformColumnTypes(Headers, ColumnTypes, "en-US")
+		in
+		    Typed
+	lineageTag: 895bdc48-d2af-4998-ad83-facbe9b95d68
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+

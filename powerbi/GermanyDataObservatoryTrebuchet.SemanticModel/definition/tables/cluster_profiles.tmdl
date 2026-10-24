@@ -1,0 +1,58 @@
+table cluster_profiles
+	lineageTag: 55de89d8-4085-4d94-8b37-780e42820013
+
+	column cluster_id
+		dataType: string
+		lineageTag: 41474a8e-d05d-42ca-b5b8-cb5be4216efd
+		summarizeBy: none
+		sourceColumn: cluster_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column feature_id
+		dataType: string
+		lineageTag: 57ed0014-85b1-41f9-81d5-b5e4b7d76078
+		summarizeBy: none
+		sourceColumn: feature_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_z_score
+		dataType: double
+		lineageTag: 517b6fc6-eeca-4f0b-ae40-17c79581612a
+		summarizeBy: sum
+		sourceColumn: mean_z_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mean_raw_value
+		dataType: double
+		lineageTag: 47be903f-157f-4f16-a15b-8102ec5d914f
+		summarizeBy: sum
+		sourceColumn: mean_raw_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition cluster_profiles = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("cluster_profiles.csv", {
+				        {"cluster_id", type text},
+				        {"feature_id", type text},
+				        {"mean_z_score", type number},
+				        {"mean_raw_value", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

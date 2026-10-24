@@ -1,0 +1,39 @@
+table change_period_selector
+
+	column period_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [period_label]
+		sortByColumn: period_order
+
+	column start_year
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: [start_year]
+
+	column end_year
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: [end_year]
+
+	column period_order
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: [period_order]
+
+	partition change_period_selector = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"period_label", STRING, "start_year", INTEGER, "end_year", INTEGER, "period_order", INTEGER,
+					{
+						{ "2017 → 2025", 2017, 2025, 1 },
+						{ "2017 → 2021", 2017, 2021, 2 },
+						{ "2021 → 2025", 2021, 2025, 3 }
+					}
+				)

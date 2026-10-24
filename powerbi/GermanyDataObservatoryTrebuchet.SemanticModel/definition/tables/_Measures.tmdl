@@ -1,0 +1,1727 @@
+table _Measures
+	lineageTag: fe8fed8d-6429-4c4b-b65a-080b4bbca7f2
+
+	measure 'Cluster colour marker' =
+			VAR SelectedColour = SELECTEDVALUE ( dim_cluster[cluster_color_hex] )
+			RETURN
+				IF (
+					NOT ISBLANK ( SelectedColour ),
+					"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='"
+						& SUBSTITUTE ( SelectedColour, "#", "%23" )
+						& "'/></svg>"
+				)
+		dataCategory: ImageUrl
+		displayFolder: Districts\Presentation
+
+	measure 'District Count' =
+			
+			DISTINCTCOUNT ( dim_district[district_id] )
+		formatString: #,0
+		displayFolder: Districts
+		lineageTag: c32a7f7a-7672-49ad-9b71-dda1662008e9
+
+	measure 'Average Feature Value' =
+			
+			AVERAGE ( fact_district_features[value] )
+		displayFolder: Features
+		lineageTag: 6764e374-6c56-4870-83ca-7afe0d9d548d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Germany Feature Average' =
+			
+			VAR CurValue = [Average Feature Value]
+			VAR NationalAverage =
+			    CALCULATE (
+			        [Average Feature Value],
+			        REMOVEFILTERS ( dim_district ),
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        NationalAverage
+			    )
+		displayFolder: Features
+		lineageTag: 1437b410-9a57-43a0-ab45-81f300cb20d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Difference from Germany' =
+			
+			VAR CurValue = [Average Feature Value]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        CurValue - [Germany Feature Average]
+			    )
+		displayFolder: Features
+		lineageTag: 3768fe64-95ff-43a6-8dbf-77f9f7f2bfda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Difference from Germany %' =
+			
+			VAR CurValue = [Average Feature Value]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( CurValue ),
+			        DIVIDE (
+			            [Difference from Germany],
+			            [Germany Feature Average]
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Features
+		lineageTag: f2ddeec7-57b8-4816-87df-e0defeea0d7d
+
+	measure 'Cluster Mean Z Score' =
+			
+			AVERAGE ( cluster_profiles[mean_z_score] )
+		formatString: 0.00
+		displayFolder: Clusters
+		lineageTag: 3ce69e51-529e-4789-8159-1a8d2cae9de6
+
+	measure 'Second Votes' =
+			
+			SUM ( fact_election_party_results[votes] )
+		formatString: 0
+		displayFolder: Elections\State
+		lineageTag: 37d7ac5f-ec5d-4df2-be3a-87abc21663ed
+
+	measure 'Valid Second Votes' =
+			
+			CALCULATE (
+			    [Second Votes],
+			    REMOVEFILTERS ( dim_party ),
+			    REMOVEFILTERS ( fact_election_party_results[party_id] ),
+			    REMOVEFILTERS ( fact_election_party_results[party] ),
+			    REMOVEFILTERS ( fact_election_party_results[source_party] )
+			)
+		formatString: 0
+		displayFolder: Elections\State
+		lineageTag: b6035c12-179e-45a3-b427-9c994efaca29
+
+	measure 'Second Vote Share' =
+			
+			DIVIDE ( [Second Votes], [Valid Second Votes] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State
+		lineageTag: 594b32a4-2253-4df3-9cc0-d89dd70dc136
+
+	measure 'Previous Election Vote Share' =
+			
+			VAR CurYear = MAX ( dim_election[election_year] )
+			VAR PrevYear =
+			    MAXX (
+			        FILTER (
+			            ALL ( dim_election[election_year] ),
+			            dim_election[election_year] < CurYear
+			        ),
+			        dim_election[election_year]
+			    )
+			VAR PrevShare =
+			    CALCULATE (
+			        [Second Vote Share],
+			        REMOVEFILTERS ( dim_election ),
+			        dim_election[election_year] = PrevYear
+			    )
+			RETURN
+			    IF (
+			        HASONEVALUE ( dim_election[election_year] ),
+			        PrevShare
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State
+		lineageTag: 82c3a56e-4391-4c7f-957f-77c6cf8333a9
+
+	measure 'Vote Share Change pp' =
+			
+			VAR PrevShare = [Previous Election Vote Share]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( PrevShare ),
+			        100 * ( [Second Vote Share] - PrevShare )
+			    )
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\State
+		lineageTag: a0bad478-6960-4865-897e-b17a33165fcb
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Mean District Vote Share %' =
+			
+			AVERAGE ( fact_district_election_results[second_vote_share_percent] )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: b32eba6c-39a8-4b30-adae-f045e77fef1d
+
+	measure 'Mean District Turnout %' =
+			
+			AVERAGE ( fact_district_election_turnout[turnout_percent] )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: 45cc400d-d195-4e0e-9fa4-3346d3f8d24d
+
+	measure 'Previous District Vote Share %' =
+			
+			VAR CurYear = MAX ( dim_election[election_year] )
+			VAR PrevYear =
+			    MAXX (
+			        FILTER (
+			            ALL ( dim_election[election_year] ),
+			            dim_election[election_year] < CurYear
+			                && dim_election[election_year] >= 2017
+			        ),
+			        dim_election[election_year]
+			    )
+			RETURN
+			    CALCULATE (
+			        [Mean District Vote Share %],
+			        REMOVEFILTERS ( dim_election ),
+			        dim_election[election_year] = PrevYear
+			    )
+		formatString: 0.0
+		displayFolder: Elections\District
+		lineageTag: 9b17af87-e072-4830-83c0-0fd7efe29314
+
+	measure 'District Vote Share Change pp' =
+			
+			[Mean District Vote Share %] - [Previous District Vote Share %]
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\District
+		lineageTag: d1b9510a-f612-4d61-82bd-f59d6d298d87
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Selected Party' =
+			
+			COALESCE (
+			    SELECTEDVALUE ( dim_party_group[party_group_name] ),
+			    SELECTEDVALUE ( dim_party[party_name] ),
+			    "All parties"
+			)
+		displayFolder: UX
+		lineageTag: 991bc0de-27e3-48da-bbf8-3ac2155b2ce9
+
+	measure 'Party Colour' =
+			
+			SWITCH (
+			    [Selected Party],
+			    "CDU/CSU", "#171717",
+			    "CDU", "#171717",
+			    "CSU", "#008AC5",
+			    "SPD", "#E3000F",
+			    "GRÜNE", "#1AA037",
+			    "FDP", "#FFED00",
+			    "Die Linke", "#BE3075",
+			    "AfD", "#009EE0",
+			    "Volt", "#502379",
+			    "#8C8C8C"
+			)
+		displayFolder: UX
+		lineageTag: 2d378087-6e57-4391-b163-953d062f91f6
+
+	measure 'Selected Geography Label' =
+			
+			VAR District = SELECTEDVALUE ( dim_district[district_name] )
+			VAR State = SELECTEDVALUE ( dim_state[state_name] )
+			RETURN
+			    COALESCE ( District, State, "Germany" )
+		displayFolder: UX
+		lineageTag: ffb9fb32-048f-429c-b846-9cc0e7794483
+
+	measure 'Party Map Title' =
+			
+			[Selected Party] & " support in " & [Selected Geography Label]
+		displayFolder: UX
+		lineageTag: 685186fb-6a51-411c-8053-bf34f35f8d35
+
+	measure 'Disposable Income per Capita' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "disposable_income_per_capita"
+			)
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		displayFolder: Overview\Indicators
+		lineageTag: b9ec2d08-3a31-4cea-93a5-65615bac115a
+
+	measure 'GDP per Capita' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "gdp_per_capita"
+			)
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		displayFolder: KPI
+		lineageTag: dc192b9f-c826-40f7-bce3-90274e237b26
+
+	measure 'Eligible Voters' =
+			
+			CALCULATE (
+			    SUM ( fact_election_turnout[value] ),
+			    fact_election_turnout[measure] = "eligible_voters"
+			)
+		formatString: #,0
+		displayFolder: Elections\State\Turnout
+		lineageTag: 1232d6b5-6902-4203-a6d1-fe3b6c8dbc22
+
+	measure Voters =
+			
+			CALCULATE (
+			    SUM ( fact_election_turnout[value] ),
+			    fact_election_turnout[measure] = "voters"
+			)
+		formatString: #,0
+		displayFolder: Elections\State\Turnout
+		lineageTag: 90b1aca7-359a-4813-9bbd-e696193febf9
+
+	measure Turnout =
+			
+			DIVIDE ( [Voters], [Eligible Voters] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Elections\State\Turnout
+		lineageTag: 6d177c3a-7dc9-4667-b41c-3cbfccc327fb
+
+	measure 'Observed Indicator Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_district_feature[feature_id] ),
+			    REMOVEFILTERS ( dim_district_feature )
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: 6b2b852f-3b50-4553-b99d-a2b0f31091d9
+
+	measure 'Model Feature Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_district_feature[feature_id] ),
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[included_in_clustering] = TRUE ()
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: ea20588b-11e0-47a9-a276-6f01cad9bb3e
+
+	measure 'Cluster Count' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( dim_cluster[cluster_id] ),
+			    REMOVEFILTERS ( dim_cluster )
+			)
+		formatString: 0
+		displayFolder: Overview\Counts
+		lineageTag: a819aa3f-234d-45b4-affd-80761c76f77f
+
+	measure 'Population Aged 65+ %' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "age_65_plus_share"
+			)
+		formatString: 0.0\%
+		displayFolder: Overview\Indicators
+		lineageTag: 873e9b83-bd6f-4dc7-a527-007d50fc9284
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unemployment Rate %' =
+			
+			CALCULATE (
+			    [Average Feature Value],
+			    REMOVEFILTERS ( dim_district_feature ),
+			    dim_district_feature[feature_id] = "unemployment_rate"
+			)
+		formatString: 0.0\%
+		displayFolder: Overview\Indicators
+		lineageTag: 405f8f9e-70d4-47f5-89c2-98ad2836de90
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '2025 Turnout %' =
+			
+			CALCULATE (
+			    [Mean District Turnout %],
+			    REMOVEFILTERS ( dim_election ),
+			    dim_election[election_year] = 2025
+			)
+		formatString: 0.0\%
+		displayFolder: Overview\Indicators
+		lineageTag: 417d4605-2864-44e2-896d-84ab93e5da4b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Share of Selected Geography' =
+			
+			VAR SelectedDistricts =
+			    [District Count]
+			VAR GeographyDistricts =
+			    CALCULATE (
+			        [District Count],
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			RETURN
+			    DIVIDE (
+			        SelectedDistricts,
+			        GeographyDistricts
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Overview\Selection
+		lineageTag: a6259054-048b-44e6-94ab-8a048460b553
+
+	measure 'Federal States Represented' =
+			
+			COUNTROWS (
+			    FILTER (
+			        VALUES ( dim_state[state_code] ),
+			        CALCULATE ( [District Count] ) > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: Overview\Selection
+		lineageTag: 9ef54256-fbe4-4710-96ab-a9ae910713a9
+
+	measure Selection =
+			
+			VAR SelectedCluster =
+			    SELECTEDVALUE ( dim_cluster[cluster_name] )
+			VAR SelectedState =
+			    SELECTEDVALUE ( dim_state[state_name] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        NOT ISBLANK ( SelectedCluster )
+			            && NOT ISBLANK ( SelectedState ),
+			            SelectedCluster & " · " & SelectedState,
+			        NOT ISBLANK ( SelectedCluster ),
+			            SelectedCluster,
+			        NOT ISBLANK ( SelectedState ),
+			            SelectedState,
+			        "All districts"
+			    )
+		displayFolder: Overview\Selection
+		lineageTag: 3715dada-953e-41fc-9126-0b53910726d8
+
+	measure 'Tooltip District' = SELECTEDVALUE ( dim_district[district_name] )
+		displayFolder: UX\Tooltips
+		lineageTag: 5011c88f-a5c8-4f09-a40f-1dcc952101b6
+
+	measure 'Tooltip Federal State' = SELECTEDVALUE ( dim_district[state_name] )
+		displayFolder: UX\Tooltips
+		lineageTag: 1da5b705-5b13-42d7-961d-16f36518a58e
+
+	measure 'Tooltip Structural Cluster' = SELECTEDVALUE ( dim_cluster[cluster_name] )
+		displayFolder: UX\Tooltips
+		lineageTag: 45690d80-7aa1-45fc-91c3-b07ddafc1851
+
+	measure 'Selected Indicator Value' =
+			
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Average Feature Value]
+			)
+		displayFolder: Features\Selection
+		lineageTag: 9cbf3035-75a6-4a30-9ff9-b414290891c1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Indicator Germany Average' =
+			
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Germany Feature Average]
+			)
+		displayFolder: Features\Selection
+		lineageTag: fbe8a361-bdd6-4263-a708-2665ad111a86
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Indicator Difference' =
+			
+			IF (
+			    HASONEVALUE ( dim_district_feature[feature_id] ),
+			    [Difference from Germany]
+			)
+		displayFolder: Features\Selection
+		lineageTag: 697267ab-5913-47c1-b02a-c66dc43a3d84
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Indicator Gradient Color' =
+			
+			VAR CurrentValue = [Selected Indicator Value]
+			VAR AnchorTable =
+			    CALCULATETABLE (
+			        FILTER (
+			            ADDCOLUMNS (
+			                ALL ( dim_cluster[cluster_short_name] ),
+			                "__Value", CALCULATE ( [Selected Indicator Value] ),
+			                "__R",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 255,
+			                        "Metropolitan hubs", 249,
+			                        "Stable regions", 17,
+			                        "Urban pressure", 115
+			                    ),
+			                "__G",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 107,
+			                        "Metropolitan hubs", 198,
+			                        "Stable regions", 184,
+			                        "Urban pressure", 87
+			                    ),
+			                "__B",
+			                    SWITCH (
+			                        dim_cluster[cluster_short_name],
+			                        "Ageing periphery", 87,
+			                        "Metropolitan hubs", 66,
+			                        "Stable regions", 154,
+			                        "Urban pressure", 232
+			                    )
+			            ),
+			            NOT ISBLANK ( [__Value] )
+			        ),
+			        REMOVEFILTERS ( dim_district ),
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment )
+			    )
+			VAR RankedAnchors =
+			    ADDCOLUMNS (
+			        AnchorTable,
+			        "__Rank", RANKX ( AnchorTable, [__Value],, ASC, DENSE )
+			    )
+			VAR V1 = MINX ( FILTER ( RankedAnchors, [__Rank] = 1 ), [__Value] )
+			VAR V2 = MINX ( FILTER ( RankedAnchors, [__Rank] = 2 ), [__Value] )
+			VAR V3 = MINX ( FILTER ( RankedAnchors, [__Rank] = 3 ), [__Value] )
+			VAR V4 = MINX ( FILTER ( RankedAnchors, [__Rank] = 4 ), [__Value] )
+			VAR LowRank =
+			    SWITCH (
+			        TRUE (),
+			        CurrentValue <= V1, 1,
+			        CurrentValue <= V2, 1,
+			        CurrentValue <= V3, 2,
+			        CurrentValue <= V4, 3,
+			        4
+			    )
+			VAR HighRank = MIN ( 4, LowRank + 1 )
+			VAR LowValue = MINX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__Value] )
+			VAR HighValue = MINX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__Value] )
+			VAR LowR = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__R] )
+			VAR LowG = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__G] )
+			VAR LowB = MAXX ( FILTER ( RankedAnchors, [__Rank] = LowRank ), [__B] )
+			VAR HighR = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__R] )
+			VAR HighG = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__G] )
+			VAR HighB = MAXX ( FILTER ( RankedAnchors, [__Rank] = HighRank ), [__B] )
+			VAR LowCluster =
+			    MAXX (
+			        FILTER ( RankedAnchors, [__Rank] = LowRank ),
+			        dim_cluster[cluster_short_name]
+			    )
+			VAR HighCluster =
+			    MAXX (
+			        FILTER ( RankedAnchors, [__Rank] = HighRank ),
+			        dim_cluster[cluster_short_name]
+			    )
+			VAR Ratio =
+			    IF (
+			        LowRank = HighRank,
+			        0,
+			        MIN ( 1, MAX ( 0, DIVIDE ( CurrentValue - LowValue, HighValue - LowValue, 0 ) ) )
+			    )
+			VAR IsPurpleGreenPair =
+			    ( LowCluster = "Urban pressure" && HighCluster = "Stable regions" )
+			        || ( LowCluster = "Stable regions" && HighCluster = "Urban pressure" )
+			VAR MidR = 119
+			VAR MidG = 116
+			VAR MidB = 90
+			VAR SegmentRatio =
+			    IF (
+			        IsPurpleGreenPair,
+			        IF ( Ratio <= 0.5, Ratio * 2, ( Ratio - 0.5 ) * 2 ),
+			        Ratio
+			    )
+			VAR SegmentLowR = IF ( IsPurpleGreenPair && Ratio > 0.5, MidR, LowR )
+			VAR SegmentLowG = IF ( IsPurpleGreenPair && Ratio > 0.5, MidG, LowG )
+			VAR SegmentLowB = IF ( IsPurpleGreenPair && Ratio > 0.5, MidB, LowB )
+			VAR SegmentHighR = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidR, HighR )
+			VAR SegmentHighG = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidG, HighG )
+			VAR SegmentHighB = IF ( IsPurpleGreenPair && Ratio <= 0.5, MidB, HighB )
+			VAR Red = ROUND ( SegmentLowR + ( SegmentHighR - SegmentLowR ) * SegmentRatio, 0 )
+			VAR Green = ROUND ( SegmentLowG + ( SegmentHighG - SegmentLowG ) * SegmentRatio, 0 )
+			VAR Blue = ROUND ( SegmentLowB + ( SegmentHighB - SegmentLowB ) * SegmentRatio, 0 )
+			VAR HexChars = "0123456789ABCDEF"
+			VAR HexColor =
+			    "#"
+			        & MID ( HexChars, INT ( Red / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Red, 16 ) + 1, 1 )
+			        & MID ( HexChars, INT ( Green / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Green, 16 ) + 1, 1 )
+			        & MID ( HexChars, INT ( Blue / 16 ) + 1, 1 )
+			        & MID ( HexChars, MOD ( Blue, 16 ) + 1, 1 )
+			RETURN
+			    IF ( ISBLANK ( CurrentValue ), "#E7EBEF", HexColor )
+		displayFolder: Features\Selection
+		lineageTag: f62e32f4-c47a-4e50-b896-8ba49ea42e04
+
+	measure 'Cluster Mean Raw Value' =
+			
+			AVERAGE ( cluster_profiles[mean_raw_value] )
+		displayFolder: Clusters
+		lineageTag: 29945572-ae33-4688-9e27-66894fc8501d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selected Cluster Description' =
+			
+			VAR ClusterId = SELECTEDVALUE ( dim_cluster[cluster_id] )
+			RETURN
+				SWITCH (
+					ClusterId,
+					"cluster_1", "Older population, population decline and fewer young residents.",
+					"cluster_2", "Low unemployment, higher incomes and a younger population.",
+					"cluster_3", "Dense urban areas with labour-market pressure and lower income.",
+					"cluster_4", "Dynamic metropolitan centres with high workplace density and GDP.",
+					"Select a cluster on the map or in the filter to see its profile."
+				)
+		displayFolder: Clusters\Selection
+		lineageTag: 45a6a0cf-e2f5-40cc-86df-62858630d3f8
+
+	measure 'Selected Cluster Share' =
+			
+			VAR SelectedDistricts = [District Count]
+			VAR GermanyDistricts =
+				CALCULATE (
+					[District Count],
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				DIVIDE ( SelectedDistricts, GermanyDistricts )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Clusters\Selection
+		lineageTag: 26603321-310b-413b-ae42-baa1e4efbb0c
+
+	measure 'Selected Cluster Colour' =
+			
+			COALESCE (
+				SELECTEDVALUE ( dim_cluster[cluster_color_hex] ),
+				"#198FE3"
+			)
+		displayFolder: Clusters\Selection
+		lineageTag: 605a9881-511b-424d-9bd6-cddce9566197
+
+	measure 'Landscape District Vote Share %' =
+			
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			VAR ElectionYear = [Landscape Selected Election Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = ElectionYear
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: d3a3c2a5-77dd-4d99-8f3e-3f8b317f3c21
+
+	measure 'Landscape Germany Average %' =
+			
+			CALCULATE (
+				[Landscape District Vote Share %],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 28fbcc1d-d2df-4f10-9f1d-51a53384debb
+
+	measure 'Landscape All Years Minimum %' =
+			
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					MIN ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					FILTER (
+						ALL ( dim_election[election_year] ),
+						dim_election[election_year] >= 2017
+							&& dim_election[election_year] <= 2025
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: f067d858-239c-4d04-a596-bf9c6a229c83
+
+	measure 'Landscape All Years Maximum %' =
+			
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					MAX ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId,
+					FILTER (
+						ALL ( dim_election[election_year] ),
+						dim_election[election_year] >= 2017
+							&& dim_election[election_year] <= 2025
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 21ca83d1-dfd3-4b4b-b4dc-b224705ff387
+
+	measure 'Landscape Difference from Germany pp' =
+			
+			[Landscape District Vote Share %] - [Landscape Germany Average %]
+		formatString: " +0.0;-0.0;0.0"
+		displayFolder: Elections\Landscape
+		lineageTag: 45612749-cac9-407d-a595-ea145a1b3ca2
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Landscape Selected Party' =
+			
+			COALESCE (
+				SELECTEDVALUE ( party_landscape_selector[party_group_name] ),
+				"CDU/CSU"
+			)
+		displayFolder: Elections\Landscape
+		lineageTag: c0a459c6-e91d-434f-ae76-d42814685dbc
+
+	measure 'Landscape Selected Election Year' =
+			
+			COALESCE (
+				SELECTEDVALUE ( party_landscape_play_year_selector[election_year] ),
+				SELECTEDVALUE ( party_landscape_year_selector[election_year] ),
+				2025
+			)
+		formatString: 0
+		displayFolder: Elections\Landscape
+		lineageTag: 63096c80-fac4-45fb-9dcb-ac24bdffaf55
+
+	measure 'Landscape Selection Label' =
+			
+			[Landscape Selected Party]
+				& " · "
+				& FORMAT ( [Landscape Selected Election Year], "0" )
+				& " · district party-list vote share"
+		displayFolder: Elections\Landscape
+		lineageTag: e7069597-68a4-4cbb-989d-029510352467
+
+	measure 'Landscape Map Title' =
+			
+			"Where " & [Landscape Selected Party] & " support is strongest"
+		displayFolder: Elections\Landscape
+		lineageTag: 3a4b83a2-d4c6-45ed-8264-3c54a6d9e5f1
+
+	measure 'Landscape Party Colour' =
+			
+			SWITCH (
+				[Landscape Selected Party],
+				"CDU/CSU", "#171717",
+				"SPD", "#E3000F",
+				"GRÜNE", "#1AA037",
+				"FDP", "#F2D400",
+				"Die Linke", "#BE3075",
+				"AfD", "#009EE0",
+				"#502379"
+			)
+		displayFolder: Elections\Landscape
+		lineageTag: cd718aee-27a9-431a-91ec-6ad0f4108fd3
+
+	measure 'Landscape Party Mix Vote Share %' =
+			
+			VAR ElectionYear = [Landscape Selected Election Year]
+			VAR SeriesParty = SELECTEDVALUE ( party_mix_group[party_group_name] )
+			VAR IncludedPartyShare =
+				SUMX (
+					ALL ( dim_party_group[party_group_name] ),
+					VAR IncludedParty = dim_party_group[party_group_name]
+					RETURN
+						CALCULATE (
+							[Mean District Vote Share %],
+							REMOVEFILTERS ( dim_party_group ),
+							dim_party_group[party_group_name] = IncludedParty,
+							REMOVEFILTERS ( dim_election ),
+							dim_election[election_year] = ElectionYear
+						)
+				)
+			VAR SeriesPartyShare =
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_name] = SeriesParty,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = ElectionYear
+				)
+			RETURN
+				IF (
+					SeriesParty = "Other parties",
+					MAX ( 0, 100 - IncludedPartyShare ),
+					SeriesPartyShare
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: e204e6fa-581e-4269-833e-43b38d2b9bf8
+
+	measure 'Landscape Party Mix Colour' =
+			
+			VAR SeriesParty = SELECTEDVALUE ( dim_party_group[party_group_name] )
+			VAR IsSelected = SeriesParty = [Landscape Selected Party]
+			RETURN
+				SWITCH (
+					TRUE (),
+					SeriesParty = "CDU/CSU" && IsSelected, "#171717",
+					SeriesParty = "CDU/CSU", "#A9ADB3",
+					SeriesParty = "SPD" && IsSelected, "#E3000F",
+					SeriesParty = "SPD", "#F4A3AA",
+					SeriesParty = "GRÜNE" && IsSelected, "#1AA037",
+					SeriesParty = "GRÜNE", "#9ACFA7",
+					SeriesParty = "FDP" && IsSelected, "#F2D400",
+					SeriesParty = "FDP", "#F8EDA0",
+					SeriesParty = "Die Linke" && IsSelected, "#BE3075",
+					SeriesParty = "Die Linke", "#DDA5C3",
+					SeriesParty = "AfD" && IsSelected, "#009EE0",
+					SeriesParty = "AfD", "#9BD8EE",
+					"#D9DEE3"
+				)
+		displayFolder: Elections\Landscape
+		lineageTag: eec39366-2046-40d3-9780-b2f977230e84
+
+	measure 'Landscape Map Colour' =
+			
+			VAR ShareValue = [Landscape District Vote Share %]
+			VAR MinShare = [Landscape All Years Minimum %]
+			VAR MaxShare = [Landscape All Years Maximum %]
+			VAR Position = DIVIDE ( ShareValue - MinShare, MaxShare - MinShare, 0 )
+			VAR Band = MIN ( 5, MAX ( 1, 1 + INT ( Position * 5 ) ) )
+			VAR PartyName = [Landscape Selected Party]
+			RETURN
+				IF (
+					ISBLANK ( ShareValue ),
+					"#EEF1F3",
+					SWITCH (
+						PartyName & "|" & FORMAT ( Band, "0" ),
+						"CDU/CSU|1", "#E5E7EB", "CDU/CSU|2", "#C4C7CC", "CDU/CSU|3", "#8C9199", "CDU/CSU|4", "#4B4F55", "CDU/CSU|5", "#171717",
+						"SPD|1", "#FDECEE", "SPD|2", "#F8B7BD", "SPD|3", "#F07580", "SPD|4", "#E83A49", "SPD|5", "#E3000F",
+						"GRÜNE|1", "#E8F5EB", "GRÜNE|2", "#B9DFBF", "GRÜNE|3", "#7BCB8A", "GRÜNE|4", "#3AB553", "GRÜNE|5", "#1AA037",
+						"FDP|1", "#FFFDE6", "FDP|2", "#FFF8A6", "FDP|3", "#FFF36A", "FDP|4", "#FBE52D", "FDP|5", "#F2D400",
+						"Die Linke|1", "#F6E7EF", "Die Linke|2", "#E8BDD3", "Die Linke|3", "#D88DB4", "Die Linke|4", "#CA5B95", "Die Linke|5", "#BE3075",
+						"AfD|1", "#E6F6FC", "AfD|2", "#B7E7F5", "AfD|3", "#78D3EE", "AfD|4", "#35B8E3", "AfD|5", "#009EE0",
+						"#8C8C8C"
+					)
+				)
+		displayFolder: Elections\Landscape
+		lineageTag: 4946b192-8434-4373-b39f-600e90ad590c
+
+	measure 'Landscape Scale Colour 1' =
+			
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#E5E7EB", "SPD", "#FDECEE", "GRÜNE", "#E8F5EB", "FDP", "#FFFDE6", "Die Linke", "#F6E7EF", "AfD", "#E6F6FC", "#EEF1F3" )
+		displayFolder: Elections\Landscape
+		lineageTag: a379fcb6-0691-4db0-b089-e04b8d7bd85d
+
+	measure 'Landscape Scale Colour 2' =
+			
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#C4C7CC", "SPD", "#F8B7BD", "GRÜNE", "#B9DFBF", "FDP", "#FFF8A6", "Die Linke", "#E8BDD3", "AfD", "#B7E7F5", "#C4C7CC" )
+		displayFolder: Elections\Landscape
+		lineageTag: d928a032-b23d-446d-93e5-987d2f6d05cd
+
+	measure 'Landscape Scale Colour 3' =
+			
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#8C9199", "SPD", "#F07580", "GRÜNE", "#7BCB8A", "FDP", "#FFF36A", "Die Linke", "#D88DB4", "AfD", "#78D3EE", "#8C9199" )
+		displayFolder: Elections\Landscape
+		lineageTag: aab5d2b7-d7e5-4ba0-8759-cea2f604b1ac
+
+	measure 'Landscape Scale Colour 4' =
+			
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#4B4F55", "SPD", "#E83A49", "GRÜNE", "#3AB553", "FDP", "#FBE52D", "Die Linke", "#CA5B95", "AfD", "#35B8E3", "#4B4F55" )
+		displayFolder: Elections\Landscape
+		lineageTag: f41a29d1-4b97-4f3e-82f6-1c92c9203030
+
+	measure 'Landscape Scale Colour 5' =
+			
+			SWITCH ( [Landscape Selected Party], "CDU/CSU", "#171717", "SPD", "#E3000F", "GRÜNE", "#1AA037", "FDP", "#F2D400", "Die Linke", "#BE3075", "AfD", "#009EE0", "#171717" )
+		displayFolder: Elections\Landscape
+		lineageTag: 7bc075b0-179d-48fd-b232-4efb2ae425d9
+
+	measure 'Landscape Scale Value 1' =
+			
+			[Landscape All Years Minimum %]
+		formatString: 0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 2a4956c8-c6fc-4c65-a70e-c6076d092ac9
+
+	measure 'Landscape Scale Value 2' =
+			
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.25
+		formatString: 0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 6fdf18f9-1684-4ac7-98a2-f5095ae4877e
+
+	measure 'Landscape Scale Value 3' =
+			
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.5
+		formatString: 0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: c51362e4-c46a-40b4-a4a2-8e00ad0b7a07
+
+	measure 'Landscape Scale Value 4' =
+			
+			VAR MinimumValue = [Landscape All Years Minimum %]
+			VAR MaximumValue = [Landscape All Years Maximum %]
+			RETURN MinimumValue + ( MaximumValue - MinimumValue ) * 0.75
+		formatString: 0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 02168539-12f7-4db4-a811-14ed0c946b06
+
+	measure 'Landscape Scale Value 5' =
+			
+			[Landscape All Years Maximum %]
+		formatString: 0"%"
+		displayFolder: Elections\Landscape
+		lineageTag: 21b4055a-f38d-4b20-b592-5a525b6db977
+
+	measure 'Change Start Year' = SELECTEDVALUE ( change_period_selector[start_year], 2017 )
+		formatString: 0
+		displayFolder: Elections\Change
+
+	measure 'Change End Year' = SELECTEDVALUE ( change_period_selector[end_year], 2025 )
+		formatString: 0
+		displayFolder: Elections\Change
+
+	measure 'Change Raw Start Support %' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR StartYear = [Change Start Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = StartYear
+				)
+		formatString: 0.0"%"
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change Raw End Support %' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR EndYear = [Change End Year]
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] = EndYear
+				)
+		formatString: 0.0"%"
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change District Has Full Series' =
+			VAR PartyId = SELECTEDVALUE ( party_landscape_selector[party_group_id], "party_group_cdu_csu" )
+			VAR StartYear = [Change Start Year]
+			VAR EndYear = [Change End Year]
+			VAR ExpectedElections =
+				COUNTROWS ( FILTER ( ALL ( dim_election ), dim_election[election_year] >= StartYear && dim_election[election_year] <= EndYear ) )
+			VAR AvailableResults =
+				CALCULATE (
+					COUNT ( fact_district_election_results[second_vote_share_percent] ),
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyId,
+					REMOVEFILTERS ( dim_election ),
+					dim_election[election_year] >= StartYear,
+					dim_election[election_year] <= EndYear
+				)
+			RETURN ExpectedElections > 0 && AvailableResults = ExpectedElections
+		isHidden
+		displayFolder: Elections\Change
+
+	measure 'Change Comparable District Count' =
+			COUNTROWS (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				)
+			)
+		formatString: #,0
+		displayFolder: Elections\Change
+
+	measure 'Change Start Support %' =
+			AVERAGEX (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				),
+				CALCULATE ( [Change Raw Start Support %] )
+			)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change End Support %' =
+			AVERAGEX (
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				),
+				CALCULATE ( [Change Raw End Support %] )
+			)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Vote Share pp' =
+			VAR StartValue = [Change Start Support %]
+			VAR EndValue = [Change End Support %]
+			RETURN IF ( NOT ISBLANK ( StartValue ) && NOT ISBLANK ( EndValue ), EndValue - StartValue )
+		formatString: +0.0" pp";-0.0" pp";0.0" pp"
+		displayFolder: Elections\Change
+
+	measure 'Change Support Trend %' =
+			VAR CurrentYear = SELECTEDVALUE ( dim_election[election_year] )
+			VAR StartYear = [Change Start Year]
+			VAR EndYear = [Change End Year]
+			VAR ComparableDistricts =
+				FILTER (
+					VALUES ( dim_district[district_id] ),
+					CALCULATE ( [Change District Has Full Series] )
+				)
+			RETURN
+				IF (
+					CurrentYear >= StartYear && CurrentYear <= EndYear,
+					AVERAGEX ( ComparableDistricts, CALCULATE ( [Portrait Trend Vote Share %] ) )
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Turnout Trend %' =
+			VAR CurrentYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN
+				IF (
+					CurrentYear >= [Change Start Year] && CurrentYear <= [Change End Year],
+					[Mean District Turnout %]
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Change
+
+	measure 'Change Germany Mean pp' =
+			CALCULATE (
+				[Change Vote Share pp],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		formatString: +0.0" pp";-0.0" pp";0.0" pp"
+		displayFolder: Elections\Change
+
+	measure 'Change Germany Mean Label' =
+			"Germany mean district change: " & FORMAT ( [Change Germany Mean pp], "+0.0;-0.0;0.0" ) & " pp"
+		displayFolder: Elections\Change
+
+	measure 'Change Selection Label' =
+			[Landscape Selected Party] & " · " & FORMAT ( [Change Start Year], "0" )
+				& " → " & FORMAT ( [Change End Year], "0" )
+				& " · " & FORMAT ( [Change Germany Mean pp], "+0.0;-0.0;0.0" ) & " pp (district mean)"
+		displayFolder: Elections\Change
+
+	measure 'Change Map Is Level' =
+			SELECTEDVALUE ( change_map_mode[map_mode], "Change (pp)" ) = "End-year support (%)"
+		displayFolder: Elections\Change
+
+	measure 'Change Map Value' =
+			IF ( [Change Map Is Level], [Change End Support %], [Change Vote Share pp] )
+		formatString: 0.0
+		displayFolder: Elections\Change
+
+	measure 'Change Scale Limit pp' =
+			VAR LargestChange =
+				CALCULATE (
+					MAXX ( VALUES ( dim_district[district_id] ), ABS ( [Change Vote Share pp] ) ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN MAX ( 1, CEILING ( LargestChange, 1 ) )
+		formatString: 0.0
+		displayFolder: Elections\Change
+
+	measure 'Change Map Colour' =
+			VAR MapValue = [Change Map Value]
+			VAR Limit = [Change Scale Limit pp]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Maximum = [Landscape All Years Maximum %]
+			VAR LevelPosition = DIVIDE ( MapValue - Minimum, Maximum - Minimum, 0 )
+			RETURN
+				IF (
+					ISBLANK ( MapValue ),
+					"#DCE2E6",
+					IF (
+						[Change Map Is Level],
+						SWITCH (
+							TRUE (),
+							LevelPosition < 0.125, [Landscape Scale Colour 1],
+							LevelPosition < 0.375, [Landscape Scale Colour 2],
+							LevelPosition < 0.625, [Landscape Scale Colour 3],
+							LevelPosition < 0.875, [Landscape Scale Colour 4],
+							[Landscape Scale Colour 5]
+						),
+						SWITCH (
+							TRUE (),
+							MapValue < -Limit * 0.5, "#C95D55",
+							MapValue < -0.5, "#EBAEA9",
+							MapValue <= 0.5, "#F0F2F3",
+							MapValue <= Limit * 0.5, "#A8D5C9",
+							"#238A78"
+						)
+					)
+				)
+		displayFolder: Elections\Change
+
+	measure 'Change Map Title' =
+			IF (
+				[Change Map Is Level],
+				[Landscape Selected Party] & ": vote share in " & FORMAT ( [Change End Year], "0" ),
+				[Landscape Selected Party] & ": vote-share change, "
+					& FORMAT ( [Change Start Year], "0" ) & " → " & FORMAT ( [Change End Year], "0" )
+			)
+		displayFolder: Elections\Change
+
+	measure 'Change Map Subtitle' =
+			IF (
+				[Change Map Is Level],
+				"Party-list vote share (%) · fixed party scale across 2017–2025",
+				"Percentage points (" & FORMAT ( [Change End Year], "0" ) & " minus "
+					& FORMAT ( [Change Start Year], "0" ) & ") · coral = loss · teal = gain"
+			)
+		displayFolder: Elections\Change
+
+	measure 'Change Coverage Label' =
+			VAR Districts =
+				CALCULATE (
+					[Change Comparable District Count],
+					REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				FORMAT ( Districts, "0" ) & " comparable districts · "
+					& IF ( [Change Map Is Level], "party-list vote share (%)", "example: 20% → 25% = +5 pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 1' = IF ( [Change Map Is Level], [Landscape Scale Colour 1], "#C95D55" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 1' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0, -Limit )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.125, -Limit * 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 2' = IF ( [Change Map Is Level], [Landscape Scale Colour 2], "#EBAEA9" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 2' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.125, -Limit * 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.375, -0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 3' = IF ( [Change Map Is Level], [Landscape Scale Colour 3], "#F0F2F3" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 3' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.375, -0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.625, 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 4' = IF ( [Change Map Is Level], [Landscape Scale Colour 4], "#A8D5C9" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 4' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.625, 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.5 )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Colour 5' = IF ( [Change Map Is Level], [Landscape Scale Colour 5], "#238A78" )
+		displayFolder: Elections\Change
+
+	measure 'Change Legend Range 5' =
+			VAR IsLevel = [Change Map Is Level]
+			VAR Minimum = [Landscape All Years Minimum %]
+			VAR Span = [Landscape All Years Maximum %] - Minimum
+			VAR Limit = [Change Scale Limit pp]
+			VAR LowerBound = IF ( IsLevel, Minimum + Span * 0.875, Limit * 0.5 )
+			VAR UpperBound = IF ( IsLevel, Minimum + Span * 1, Limit )
+			VAR LabelFormat = IF ( IsLevel, "0.0", "+0.0;-0.0;0.0" )
+			RETURN FORMAT ( LowerBound, LabelFormat ) & "…" & FORMAT ( UpperBound, LabelFormat ) & IF ( IsLevel, "%", " pp" )
+		displayFolder: Elections\Change
+
+
+	measure 'Volt Selected Year' = SELECTEDVALUE ( volt_year_selector[election_year], 2025 )
+		formatString: 0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Second Votes' =
+			CALCULATE ( [Second Votes], REMOVEFILTERS ( dim_party ), dim_party[party_id] = "party_volt" )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Share' = DIVIDE ( [Volt Second Votes], [Valid Second Votes] )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt 2021 Share' =
+			CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2021 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt 2025 Share' =
+			CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2025 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt State Change pp' = 100 * ( [Volt 2025 Share] - [Volt 2021 Share] )
+		formatString: +0.00" pp";-0.00" pp";0.00" pp"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Selected Votes' =
+			VAR SelectedYear = [Volt Selected Year]
+			RETURN CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_election ), dim_election[election_year] = SelectedYear )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt Selected Share' =
+			VAR SelectedYear = [Volt Selected Year]
+			RETURN CALCULATE ( [Volt Vote Share], REMOVEFILTERS ( dim_election ), dim_election[election_year] = SelectedYear )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Selected Votes' =
+			CALCULATE ( [Volt Selected Votes], REMOVEFILTERS ( dim_state ) )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Selected Share' =
+			CALCULATE ( [Volt Selected Share], REMOVEFILTERS ( dim_state ) )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt National 2021 Votes' =
+			CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_state ), REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2021 )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National 2025 Votes' =
+			CALCULATE ( [Volt Second Votes], REMOVEFILTERS ( dim_state ), REMOVEFILTERS ( dim_election ), dim_election[election_year] = 2025 )
+		formatString: #,0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Vote Gain' = [Volt National 2025 Votes] - [Volt National 2021 Votes]
+		formatString: +#,0;-#,0;0
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Growth %' = DIVIDE ( [Volt National Vote Gain], [Volt National 2021 Votes] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Elections\Volt
+
+	measure 'Volt Growth Label' =
+			FORMAT ( [Volt National Vote Gain], "+#,0;-#,0;0" )
+				& " (" & FORMAT ( [Volt National Growth %], "+0.0%;-0.0%;0.0%" ) & ")"
+		displayFolder: Elections\Volt
+
+	measure 'Volt National Share Comparison' =
+			VAR StartShare = CALCULATE ( [Volt 2021 Share], REMOVEFILTERS ( dim_state ) )
+			VAR EndShare = CALCULATE ( [Volt 2025 Share], REMOVEFILTERS ( dim_state ) )
+			RETURN FORMAT ( StartShare, "0.00%" ) & " → " & FORMAT ( EndShare, "0.00%" )
+				& " (" & FORMAT ( 100 * ( EndShare - StartShare ), "+0.00;-0.00;0.00" ) & " pp)"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Scale Maximum' =
+			VAR HighestStateShare =
+				CALCULATE (
+					MAXX ( VALUES ( dim_state[state_code] ), MAX ( [Volt 2021 Share], [Volt 2025 Share] ) ),
+					REMOVEFILTERS ( dim_state )
+				)
+			RETURN CEILING ( HighestStateShare, 0.005 )
+		formatString: 0.00%
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Colour' =
+			VAR StateShare = [Volt Selected Share]
+			VAR ScalePosition = DIVIDE ( StateShare, [Volt Map Scale Maximum], 0 )
+			RETURN
+				IF (
+					ISBLANK ( StateShare ), "#DCE2E6",
+					SWITCH (
+						TRUE (),
+						ScalePosition < 0.2, "#F2EDF8",
+						ScalePosition < 0.4, "#D8C8E8",
+						ScalePosition < 0.6, "#B79AD4",
+						ScalePosition < 0.8, "#8558B2",
+						"#502379"
+					)
+				)
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Title' = "Where Volt is strongest · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Map Subtitle' =
+			"State vote share (%) · one 0–" & FORMAT ( [Volt Map Scale Maximum], "0.00%" ) & " scale for both elections"
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Count Title' = "Second votes · Germany · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Vote Share Title' = "Vote share · Germany · " & FORMAT ( [Volt Selected Year], "0" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 1' =
+			FORMAT ( [Volt Map Scale Maximum] * 0, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.2, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 2' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.2, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.4, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 3' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.4, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.6, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 4' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.6, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 0.8, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Volt Legend Range 5' =
+			FORMAT ( [Volt Map Scale Maximum] * 0.8, "0.00%" ) & "…" & FORMAT ( [Volt Map Scale Maximum] * 1, "0.00%" )
+		displayFolder: Elections\Volt
+
+	measure 'Explorer Selected District Id' =
+			SELECTEDVALUE ( explorer_district_selector[district_id], "11000" )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Feature Id' =
+			SELECTEDVALUE ( explorer_feature_selector[feature_id], "population_density" )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Cluster Id' =
+			VAR SelectedId = [Explorer Selected District Id]
+			RETURN CALCULATE ( SELECTEDVALUE ( fact_cluster_assignment[cluster_id] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), fact_cluster_assignment[district_id] = SelectedId )
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Cluster Colour' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN LOOKUPVALUE ( dim_cluster[cluster_color_hex], dim_cluster[cluster_id], SelectedCluster )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Context Label' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			VAR DistrictName = LOOKUPVALUE ( dim_district[district_name], dim_district[district_id], SelectedId )
+			VAR StateName = LOOKUPVALUE ( dim_district[state_name], dim_district[district_id], SelectedId )
+			VAR ClusterName = LOOKUPVALUE ( dim_cluster[cluster_short_name], dim_cluster[cluster_id], SelectedCluster )
+			RETURN DistrictName & " · " & StateName & " · " & ClusterName
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Peer Rank' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( NOT ISBLANK ( CandidateId ), CALCULATE ( MAX ( district_structural_peers[peer_rank] ), district_structural_peers[source_district_id] = SelectedId, district_structural_peers[peer_district_id] = CandidateId ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Peer Distance' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( NOT ISBLANK ( CandidateId ), CALCULATE ( MAX ( district_structural_peers[pca_distance] ), district_structural_peers[source_district_id] = SelectedId, district_structural_peers[peer_district_id] = CandidateId ) )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Highlight Colour' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN SWITCH ( TRUE (), CandidateId = [Explorer Selected District Id], [Explorer Selected Cluster Colour], NOT ISBLANK ( [Explorer Peer Rank] ), "#6BA3C1", "#E5EBEF" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Map Weight' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( CandidateId = [Explorer Selected District Id], 2, IF ( NOT ISBLANK ( [Explorer Peer Rank] ), 1, 0 ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA X' =
+			MAX ( district_pca[pc1] )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA Y' =
+			MAX ( district_pca[pc2] )
+		formatString: 0.00
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer PCA Point Size' =
+			VAR CandidateId = SELECTEDVALUE ( dim_district[district_id] )
+			RETURN IF ( CandidateId = [Explorer Selected District Id], 14, IF ( NOT ISBLANK ( [Explorer Peer Rank] ), 6, 1 ) )
+		formatString: 0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Raw' =
+			VAR SelectedId = [Explorer Selected District Id]
+			RETURN CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Raw' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Germany Raw' =
+			CALCULATE ( [Average Feature Value], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Model Feature Value' =
+			VAR RawIndicator = [Average Feature Value]
+			VAR TransformName = SELECTEDVALUE ( dim_district_feature[transform] )
+			RETURN IF ( NOT ISBLANK ( RawIndicator ), IF ( TransformName = "log1p", LN ( 1 + RawIndicator ), RawIndicator ) )
+		formatString: 0.00
+		isHidden
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Profile z' =
+			VAR RawIndicator = [Explorer District Raw]
+			VAR TransformName = SELECTEDVALUE ( dim_district_feature[transform] )
+			VAR DistrictIndicator = IF ( TransformName = "log1p", LN ( 1 + RawIndicator ), RawIndicator )
+			VAR NationalMean = CALCULATE ( AVERAGEX ( VALUES ( dim_district[district_id] ), [Explorer Model Feature Value] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+			VAR NationalSD = CALCULATE ( STDEVX.P ( VALUES ( dim_district[district_id] ), [Explorer Model Feature Value] ), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ) )
+			RETURN IF ( NOT ISBLANK ( RawIndicator ), DIVIDE ( DistrictIndicator - NationalMean, NationalSD ) )
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Profile z' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			RETURN CALCULATE ( [Cluster Mean Z Score], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster )
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Feature Source Label' =
+			SELECTEDVALUE ( dim_district_feature[unit] ) & " · " & FORMAT ( SELECTEDVALUE ( dim_district_feature[reference_year] ), "0" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Raw' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			RETURN CALCULATE ( [Explorer District Raw], REMOVEFILTERS ( dim_district_feature ), dim_district_feature[feature_id] = FeatureId )
+		formatString: #,0.0
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Title' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			RETURN "Indicator value · " & FORMAT ( LOOKUPVALUE ( dim_district_feature[reference_year], dim_district_feature[feature_id], FeatureId ), "0" )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Label' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			VAR RawIndicator = [Explorer Selected Indicator Raw]
+			VAR UnitName = LOOKUPVALUE ( dim_district_feature[unit], dim_district_feature[feature_id], FeatureId )
+			VAR UnitSuffix = SWITCH ( UnitName, "percent", "%", "eur_per_person", " EUR/person", "people_per_km2", " /km²", "per_10000_people", " /10k people", "employed_per_1000_working_age", " /1k working-age", " " & UnitName )
+			RETURN IF ( ISBLANK ( RawIndicator ), "No data", FORMAT ( RawIndicator, "#,0.0" ) & UnitSuffix )
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Selected Indicator Percentile' =
+			VAR FeatureId = [Explorer Selected Feature Id]
+			VAR SelectedIndicator = [Explorer Selected Indicator Raw]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( SelectedIndicator ),
+			        CALCULATE (
+			            DIVIDE (
+			                COUNTROWS ( FILTER ( VALUES ( dim_district[district_id] ), VAR CandidateIndicator = CALCULATE ( [Average Feature Value] ) RETURN NOT ISBLANK ( CandidateIndicator ) && CandidateIndicator <= SelectedIndicator ) ),
+			                COUNTROWS ( FILTER ( VALUES ( dim_district[district_id] ), NOT ISBLANK ( CALCULATE ( [Average Feature Value] ) ) ) )
+			            ),
+			            REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ),
+			            REMOVEFILTERS ( dim_district_feature ), dim_district_feature[feature_id] = FeatureId
+			        )
+			    )
+		formatString: 0.0%
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Vote Share %' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Vote Share %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer Cluster Vote Share %' =
+			VAR SelectedCluster = [Explorer Selected Cluster Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Vote Share %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_cluster[cluster_id] = SelectedCluster ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+	measure 'Explorer District Turnout %' =
+			VAR SelectedId = [Explorer Selected District Id]
+			VAR ElectionYear = SELECTEDVALUE ( dim_election[election_year] )
+			RETURN IF ( ElectionYear IN { 2017, 2021, 2025 }, CALCULATE ( [Mean District Turnout %], REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ), REMOVEFILTERS ( district_pca ), dim_district[district_id] = SelectedId ) )
+		formatString: 0.0"%"
+		displayFolder: Districts\Explorer
+
+
+	measure 'Portrait Selection Label' =
+
+			[Landscape Selected Party]
+				& " · "
+				& FORMAT ( [Landscape Selected Election Year], "0" )
+				& " · territorial context of above-median support"
+		displayFolder: Elections\Portrait
+		lineageTag: 446cbf1c-35d5-4e14-9d71-1465f1a721d0
+
+	measure 'Portrait Germany Median %' =
+
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				MEDIANX (
+					GermanyDistricts,
+					CALCULATE (
+						[Landscape District Vote Share %],
+						REMOVEFILTERS ( dim_cluster ),
+						REMOVEFILTERS ( fact_cluster_assignment )
+					)
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Portrait
+		lineageTag: f2486471-1867-4b71-9e54-d3fca400baf7
+
+	measure 'Portrait High-support District Count' =
+
+			VAR MedianShare = [Portrait Germany Median %]
+			RETURN
+				COUNTROWS (
+					FILTER (
+						VALUES ( dim_district[district_id] ),
+						CALCULATE ( [Landscape District Vote Share %] ) >= MedianShare
+					)
+				)
+		displayFolder: Elections\Portrait
+		lineageTag: b6585288-0c87-48ff-8d4e-46c826a5ca02
+
+		formatStringDefinition = VAR CurrentClusterCount = SELECTEDMEASURE () VAR AllHighSupportDistricts = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( dim_district ), REMOVEFILTERS ( dim_cluster ), REMOVEFILTERS ( fact_cluster_assignment ) ) VAR ClusterShare = DIVIDE ( CurrentClusterCount, AllHighSupportDistricts ) RETURN IF ( ISBLANK ( ClusterShare ), "#,0", "#,0 ""(" & FORMAT ( ClusterShare, "0.0%" ) & ")""" )
+
+	measure 'Portrait High-support District Share %' =
+
+			VAR AllHighSupportDistricts =
+				CALCULATE (
+					[Portrait High-support District Count],
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			RETURN
+				DIVIDE (
+					[Portrait High-support District Count],
+					AllHighSupportDistricts
+				)
+		formatString: 0.0%
+		displayFolder: Elections\Portrait
+		lineageTag: 6b1c0b20-309b-4f09-a91f-a8b7dd2561c7
+
+	measure 'Portrait Trend Vote Share %' =
+
+			VAR PartyGroupId =
+				COALESCE (
+					SELECTEDVALUE ( party_landscape_selector[party_group_id] ),
+					"party_group_cdu_csu"
+				)
+			RETURN
+				CALCULATE (
+					[Mean District Vote Share %],
+					REMOVEFILTERS ( dim_party_group ),
+					dim_party_group[party_group_id] = PartyGroupId
+				)
+		formatString: 0.0"%"
+		displayFolder: Elections\Portrait
+		lineageTag: 8256cd80-4f06-4e31-96aa-e8f1b6897e29
+
+	measure 'Portrait High-support Feature Average' =
+
+			VAR MedianShare = [Portrait Germany Median %]
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			VAR HighSupportDistricts =
+				FILTER (
+					GermanyDistricts,
+					CALCULATE ( [Landscape District Vote Share %] ) >= MedianShare
+				)
+			RETURN
+				AVERAGEX (
+					HighSupportDistricts,
+					CALCULATE ( [Average Feature Value] )
+				)
+		displayFolder: Elections\Portrait
+		lineageTag: a407c2c8-4dba-4d7e-8ab5-0b717e400b70
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Portrait Germany Feature Average' =
+
+			CALCULATE (
+				[Average Feature Value],
+				REMOVEFILTERS ( dim_district ),
+				REMOVEFILTERS ( dim_cluster ),
+				REMOVEFILTERS ( fact_cluster_assignment )
+			)
+		displayFolder: Elections\Portrait
+		lineageTag: 93f97966-baf0-4084-8351-7e06dd3cf030
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Portrait High-support Difference z' =
+
+			VAR FeatureId = SELECTEDVALUE ( dim_district_feature[feature_id] )
+			VAR IsPortraitFeature = NOT ISBLANK ( FeatureId )
+			VAR GermanyDistricts =
+				CALCULATETABLE (
+					VALUES ( dim_district[district_id] ),
+					REMOVEFILTERS ( dim_district ),
+					REMOVEFILTERS ( dim_cluster ),
+					REMOVEFILTERS ( fact_cluster_assignment )
+				)
+			VAR GermanyAverage = [Portrait Germany Feature Average]
+			VAR GermanyStdDev =
+				STDEVX.P (
+					GermanyDistricts,
+					CALCULATE ( [Average Feature Value] )
+				)
+			RETURN
+				IF (
+					IsPortraitFeature,
+					DIVIDE (
+						[Portrait High-support Feature Average] - GermanyAverage,
+						GermanyStdDev
+					)
+				)
+		formatString: "+0.0;-0.0;0.0"
+		displayFolder: Elections\Portrait
+		lineageTag: 2b0adc57-fad9-4b48-bf03-f806c7ce724c
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Districts Outside Selected Cluster' =
+			VAR StatesInCurrentBar =
+			    VALUES ( dim_district[state_name] )
+			VAR AllDistrictsInCurrentStates =
+			    CALCULATE (
+			        [District Count],
+			        REMOVEFILTERS ( dim_cluster ),
+			        REMOVEFILTERS ( fact_cluster_assignment ),
+			        REMOVEFILTERS ( dim_district ),
+			        TREATAS ( StatesInCurrentBar, dim_district[state_name] )
+			    )
+			RETURN
+			    MAX (
+			        0,
+			        AllDistrictsInCurrentStates - [District Count]
+			    )
+		formatString: 0
+		displayFolder: Overview\Selection
+		lineageTag: f854753a-6d95-4c53-9fbc-b57474886f23
+
+	measure 'Tooltip District Header' =
+			VAR DistrictName = SELECTEDVALUE ( dim_district[district_name] )
+			VAR ClusterName = SELECTEDVALUE ( dim_cluster[cluster_short_name] )
+			RETURN
+				DistrictName & " · " & ClusterName
+		displayFolder: UX\Tooltips
+		lineageTag: 4b941056-74a0-4c22-8c32-3ae69a6b7d1e
+
+	column Placeholder
+		isHidden
+		lineageTag: 0a9c6e77-e28a-4d60-8bfa-2d3d710b9dcb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Placeholder",
+				    STRING,
+				    { { "" } }
+				)
+
+	annotation PBI_Id = 8cf3717a7ea04a4c95ffabedeba75b39
+

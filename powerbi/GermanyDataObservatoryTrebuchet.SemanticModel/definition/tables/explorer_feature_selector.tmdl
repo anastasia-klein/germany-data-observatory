@@ -1,0 +1,16 @@
+table explorer_feature_selector
+
+	column feature_id
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: [feature_id]
+
+	column feature_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [feature_name]
+
+	partition explorer_feature_selector = calculated
+		mode: import
+		source = SELECTCOLUMNS ( dim_district_feature, "feature_id", dim_district_feature[feature_id], "feature_name", dim_district_feature[feature_name] )

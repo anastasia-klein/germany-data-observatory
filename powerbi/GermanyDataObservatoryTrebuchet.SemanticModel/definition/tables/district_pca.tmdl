@@ -1,0 +1,71 @@
+table district_pca
+	lineageTag: 41eef148-b1bd-4e1c-bf7c-167429a2aa3a
+
+	column district_id
+		dataType: string
+		lineageTag: 4a8c7909-e123-4982-b846-58a3faca7c2b
+		summarizeBy: none
+		sourceColumn: district_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pc1
+		dataType: double
+		lineageTag: eb93e20b-de18-430d-a44a-ae6157de1ef2
+		summarizeBy: sum
+		sourceColumn: pc1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc2
+		dataType: double
+		lineageTag: 98db45bb-39d6-4843-9263-6c2f7751f01b
+		summarizeBy: sum
+		sourceColumn: pc2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc3
+		dataType: double
+		lineageTag: 422c9d66-d586-4946-baac-8815e3f4e70a
+		summarizeBy: sum
+		sourceColumn: pc3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pc4
+		dataType: double
+		lineageTag: 33e9bc86-f5d3-437a-976a-7a00c1428b76
+		summarizeBy: sum
+		sourceColumn: pc4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition district_pca = m
+		mode: import
+		source =
+				let
+				    Source = fnLoadProcessedCsv("district_pca.csv", {
+				        {"district_id", type text},
+				        {"pc1", type number},
+				        {"pc2", type number},
+				        {"pc3", type number},
+				        {"pc4", type number}
+				    })
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
