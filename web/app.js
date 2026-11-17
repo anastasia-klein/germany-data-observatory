@@ -40,6 +40,7 @@ function chart(id,kind,...args){queue.push(()=>G[kind]($(id),...args));return `<
 function rawValue(v,f,decimals=1){return fmt(v,decimals)+({percent:'%',eur_per_person:' €',people_per_km2:' /km²',per_10000_people:' /10k people',employed_per_1000_working_age:' /1k working-age'}[f.unit]||'');}
 function mapDescription(d,extra=''){
   const c=cluster(d.cluster),age=featureIndex('age_65_plus_share'),unemp=featureIndex('unemployment_rate'),income=featureIndex('disposable_income_per_capita');
+  if(state.page==='change'&&!C.comparable([d],state.party,state.start,state.end).length)extra='No comparable full series for this party and period.\nMissing observations are not treated as zero.';
   return `${d.name} [${d.id}]\n${stateName(d.state)} · ${c.cluster_short_name}\nPopulation aged 65+: ${pct(d.features[age])}\nUnemployment: ${pct(d.features[unemp])}\nDisposable income: ${fmt(d.features[income],0)} €${extra?'\n'+extra:''}`;
 }
 function mapBody(id,fill,describe,opts={}){

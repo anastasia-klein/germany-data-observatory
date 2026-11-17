@@ -1,5 +1,7 @@
 # Web dashboard
 
+[Open the public dashboard](https://anastasia-klein.github.io/germany-data-observatory/).
+
 Nine interactive pages, including Volt, built from the same validated snapshot as
 the Power BI reports. The app uses browser-native HTML, CSS and SVG: no paid map
 service, runtime server, account, analytics tracker or external JavaScript CDN.
