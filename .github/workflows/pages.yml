@@ -1,0 +1,63 @@
+name: Publish web dashboard
+
+on:
+  push:
+    branches: [main]
+    paths: ['web/**', 'src/build_web_data.py', 'data/processed/**', '.github/workflows/pages.yml']
+  pull_request:
+    paths: ['web/**', 'src/build_web_data.py', 'data/processed/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild browser snapshot from validated tables
+        run: python src/build_web_data.py
+      - name: Check snapshot is committed and analytical parity holds
+        run: |
+          git diff --exit-code -- web/data
+          node --check web/app.js
+          node --check web/charts.js
+          node --test web/tests/*.test.mjs
+      - name: Package only the public dashboard
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir _site
+          cp web/index.html web/styles.css web/core.js web/charts.js web/app.js _site/
+          cp -R web/data _site/data
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          path: _site
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate-and-package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
