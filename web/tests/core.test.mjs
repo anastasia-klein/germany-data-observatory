@@ -12,6 +12,17 @@ test('all nine pages include Volt and stable shareable slugs',()=>{
   assert.equal(C.PAGE_NAMES[C.SLUGS.indexOf('volt')],'Volt');
   assert.equal(new Set(C.SLUGS).size,9);
 });
+test('separate district edition shares styling and excludes the Volt route',()=>{
+  const full=C.reportPages(),districts=C.reportPages(false);
+  assert.equal(full.length,9);assert.equal(districts.length,8);
+  assert.ok(full.some(p=>p.slug==='volt'));
+  assert.ok(!districts.some(p=>p.slug==='volt'));
+  assert.deepEqual(districts,full.filter(p=>p.slug!=='volt'));
+  const entry=readFileSync(new URL('../without-volt/index.html',import.meta.url),'utf8');
+  assert.match(entry,/data-edition="without-volt"/);
+  assert.match(entry,/href="\.\.\/styles\.css"/);
+  assert.match(entry,/src="\.\.\/app\.js\?edition=2"/);
+});
 test('complete validated coverage and string geographic keys',()=>{
   assert.equal(data.districts.length,400);assert.equal(Object.keys(geometry.districts).length,400);
   assert.equal(data.states.length,16);assert.equal(Object.keys(geometry.states).length,16);

@@ -2,6 +2,11 @@
 
 [Open the public dashboard](https://anastasia-klein.github.io/germany-data-observatory/).
 
+[Open the eight-page edition without Volt](https://anastasia-klein.github.io/germany-data-observatory/without-volt/).
+Both editions share the same styles, Trebuchet MS font, charts, data and filters.
+The second entry point excludes Volt from navigation and routing, including direct
+`#volt` links, and omits its explanatory text from Methodology.
+
 Nine interactive pages, including Volt, built from the same validated snapshot as
 the Power BI reports. The app uses browser-native HTML, CSS and SVG: no paid map
 service, runtime server, account, analytics tracker or external JavaScript CDN.
