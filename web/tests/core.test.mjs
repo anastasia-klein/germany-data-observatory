@@ -18,10 +18,10 @@ test('separate district edition shares styling and excludes the Volt route',()=>
   assert.ok(full.some(p=>p.slug==='volt'));
   assert.ok(!districts.some(p=>p.slug==='volt'));
   assert.deepEqual(districts,full.filter(p=>p.slug!=='volt'));
-  const entry=readFileSync(new URL('../without-volt/index.html',import.meta.url),'utf8');
-  assert.match(entry,/data-edition="without-volt"/);
+  const entry=readFileSync(new URL('../dashboard/index.html',import.meta.url),'utf8');
+  assert.match(entry,/data-edition="districts"/);
   assert.match(entry,/href="\.\.\/styles\.css"/);
-  assert.match(entry,/src="\.\.\/app\.js\?edition=2"/);
+  assert.match(entry,/src="\.\.\/app\.js\?edition=3"/);
 });
 test('complete validated coverage and string geographic keys',()=>{
   assert.equal(data.districts.length,400);assert.equal(Object.keys(geometry.districts).length,400);

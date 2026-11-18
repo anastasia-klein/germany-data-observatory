@@ -1,8 +1,8 @@
 # Germany Data Observatory 🇩🇪
 
-[**Explore the independent web dashboard, including Volt →**](https://anastasia-klein.github.io/germany-data-observatory/)
-
 [**Explore the interactive Power BI report →**](https://app.powerbi.com/view?r=eyJrIjoiNTI4ZDRmYTAtNjM3Yy00YTIzLTkwNTAtMGViNmRhMjBlNWU2IiwidCI6IjM5YTFiNjM3LTFmODktNGQzOS1iZjNlLWFiNzczZGRmOGJhZSJ9)
+
+> If the Power BI report is unavailable, [open the web dashboard](https://anastasia-klein.github.io/germany-data-observatory/dashboard/).
 
 A pet project exploring how Germany’s regional structures relate to federal election results. It combines official public data, a reproducible Python pipeline and an interactive Power BI dashboard.
 

@@ -40,7 +40,7 @@ jobs:
           mkdir _site
           cp web/index.html web/styles.css web/core.js web/charts.js web/app.js _site/
           cp -R web/data _site/data
-          cp -R web/without-volt _site/without-volt
+          cp -R web/dashboard _site/dashboard
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         if: github.event_name != 'pull_request'
