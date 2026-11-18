@@ -2,6 +2,7 @@
 export const YEARS = [2017, 2021, 2025];
 export const PAGE_NAMES = ['Overview','Indicators','Cluster Atlas','Party Landscape','Party Portrait','Change','Volt','District Explorer','Methodology'];
 export const SLUGS = ['overview','indicators','cluster-atlas','party-landscape','party-portrait','change','volt','district-explorer','methodology'];
+export const reportPages = (includeVolt=true) => SLUGS.map((slug,i)=>({slug,name:PAGE_NAMES[i]})).filter(page=>includeVolt||page.slug!=='volt');
 export const mean = values => { const v = values.filter(Number.isFinite); return v.length ? v.reduce((a,b)=>a+b,0)/v.length : null; };
 export const median = values => {const v=values.filter(Number.isFinite).toSorted((a,b)=>a-b), n=v.length; return n ? (v[Math.floor((n-1)/2)]+v[Math.floor(n/2)])/2 : null;};
 export const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
