@@ -4,6 +4,8 @@
 
 > If the Power BI report is unavailable, [open the web dashboard](https://anastasia-klein.github.io/germany-data-observatory/dashboard/).
 
+[**Watch the Power BI demo — 3:51 →**](docs/media/dashboard-demo.mp4)
+
 A pet project exploring how Germany’s regional structures relate to federal election results. It combines official public data, a reproducible Python pipeline and an interactive Power BI dashboard.
 
 ## Explore the report
